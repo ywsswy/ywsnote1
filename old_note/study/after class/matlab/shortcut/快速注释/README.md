@@ -1,0 +1,2 @@
+Ctrl+r
+Ctrl+t

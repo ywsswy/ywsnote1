@@ -1,0 +1,103 @@
+/*
+6.4发送byte
+静止为高态
+0.5ms一次电平变化
+起始信号为0.5ms低电平
+*/
+#include <msp430f5529.h>
+#include <stdint.h>
+#define YKK 313*40
+#define YH P6OUT |= BIT4;__delay_cycles(YKK)
+#define YL P6OUT &= ~BIT4;__delay_cycles(YKK)
+void SetVcoreUp (unsigned int level);
+void sendByte(uint8_t);
+uint8_t dt = 0;
+void main(void)
+{
+  volatile unsigned int i;
+  WDTCTL = WDTPW+WDTHOLD;                   // Stop WDT
+  P6DIR |= BIT4;                            // P1.1 output
+  P1DIR |= BIT0;                            // ACLK set out to pins
+  P1SEL |= BIT0;
+  P2DIR |= BIT2;                            // SMCLK set out to pins
+  P2SEL |= BIT2;
+  P7DIR |= BIT7;                            // MCLK set out to pins
+  P7SEL |= BIT7;
+  // Increase Vcore setting to level3 to support fsystem=25MHz
+  // NOTE: Change core voltage one level at a time..
+  SetVcoreUp (0x01);
+  SetVcoreUp (0x02);
+  SetVcoreUp (0x03);
+  UCSCTL3 = SELREF_2;                       // Set DCO FLL reference = REFO
+  UCSCTL4 |= SELA_2;                        // Set ACLK = REFO
+  __bis_SR_register(SCG0);                  // Disable the FLL control loop
+  UCSCTL0 = 0x0000;                         // Set lowest possible DCOx, MODx
+  UCSCTL1 = DCORSEL_7;                      // Select DCO range 50MHz operation
+  UCSCTL2 = FLLD_1 + 762;                   // Set DCO Multiplier for 25MHz
+                                            // (N + 1) * FLLRef = Fdco
+                                            // (762 + 1) * 32768 = 25MHz
+                                            // Set FLL Div = fDCOCLK/2
+  __bic_SR_register(SCG0);                  // Enable the FLL control loop
+  // Worst-case settling time for the DCO when the DCO range bits have been
+  // changed is n x 32 x 32 x f_MCLK / f_FLL_reference. See UCS chapter in 5xx
+  // UG for optimization.
+  // 32 x 32 x 25 MHz / 32,768 Hz ~ 780k MCLK cycles for DCO to settle
+  __delay_cycles(782000);
+  // Loop until XT1,XT2 & DCO stabilizes - In this case only DCO has to stabilize
+  do
+  {
+    UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + DCOFFG);
+                                            // Clear XT2,XT1,DCO fault flags
+    SFRIFG1 &= ~OFIFG;                      // Clear fault flags
+  }while (SFRIFG1&OFIFG);                   // Test oscillator fault flag
+  P2DIR |= BIT4;
+  P2SEL |= BIT4;
+  TA2CCR0 = 320;
+  TA2CCR1 = 160;
+  TA2CCTL1 = OUTMOD_6;
+  TA2CTL = TASSEL_2 + MC_3 + TACLR;
+  _EINT();
+  while(1){
+	  sendByte(0xaa);
+	  YH;
+	  for(dt = 0;dt<8;dt++){
+		  __delay_cycles(YKK);
+	  }
+  }
+}
+void sendByte(uint8_t c){
+	uint8_t i;
+	YL;
+	for(i = 0;i<8;i++){
+		if(c&0x01){
+			YH;
+		}
+		else{
+			YL;
+		}
+		c>>=1;
+	}
+}
+void SetVcoreUp (unsigned int level)
+{
+  // Open PMM registers for write
+  PMMCTL0_H = PMMPW_H;
+  // Set SVS/SVM high side new level
+  SVSMHCTL = SVSHE + SVSHRVL0 * level + SVMHE + SVSMHRRL0 * level;
+  // Set SVM low side to new level
+  SVSMLCTL = SVSLE + SVMLE + SVSMLRRL0 * level;
+  // Wait till SVM is settled
+  while ((PMMIFG & SVSMLDLYIFG) == 0);
+  // Clear already set flags
+  PMMIFG &= ~(SVMLVLRIFG + SVMLIFG);
+  // Set VCore to new level
+  PMMCTL0_L = PMMCOREV0 * level;
+  // Wait till new level reached
+  if ((PMMIFG & SVMLIFG))
+    while ((PMMIFG & SVMLVLRIFG) == 0);
+  // Set SVS/SVM low side to new level
+  SVSMLCTL = SVSLE + SVSLRVL0 * level + SVMLE + SVSMLRRL0 * level;
+  // Lock PMM registers for write access
+  PMMCTL0_H = 0x00;
+}
+

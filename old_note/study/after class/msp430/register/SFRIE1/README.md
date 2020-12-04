@@ -1,0 +1,10 @@
+中断使能控制位
+7
+JMBOUTIE:JTAG控制输出
+JMBIFIE:输入
+ACCVIE:flash非法访问
+NMIIE:NMI引脚
+VMAIE:空白内存访问
+OFIE:晶振失效
+WDTIE:看门狗
+0

@@ -1,0 +1,2 @@
+chrome：
+setting-》content-》donnotallow

@@ -1,0 +1,1 @@
+/proc/sys/kernel/core_pattern

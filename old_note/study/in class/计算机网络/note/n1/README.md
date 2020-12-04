@@ -1,0 +1,5 @@
+哥们，一般的做法是把vlan1，也就是默认vlan空出来，做管理用。你给vlan1配上interface的ip之后，以后就可以通过telnet软件putty或者nutty。。。还有很多这种软件，呵呵，连接进来了。
+这里有个区别。
+如果你是三层交换，开启了三层功能以后，那么，如果在各个vlan之间没有进行任何ACL限制的话，你telnet任何一个vlan的interface ip都是没问题的！！！也就是说你在任何一个vlan中，你能够任意使用任何一个vlan的interface IP进行连接。因为已经开启了三层功能了，互通，呵呵。
+但是如果是一个2层交换机，那么你必须在你所设定的管理vlan中有，即必须和管理vlan的interface ip处在同一个网段。因为2层里面，各个vlan是无法通讯的。所以，你只能在事先准备好的管理vlan中进行管理，而不能任意。此例来讲，就是vlan1，你必须在此vlan中有一个ip进行telnet。
+呵呵，就是这样的。既然三层的话，你在哪个网段都可以telnet该vlan的SVI，也可以telnet其它vlan的SVI，前提是各个vlan之间没有ACL访问控制。如果有，你只能根据实际情况来了。

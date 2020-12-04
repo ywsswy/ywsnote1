@@ -1,0 +1,1 @@
+Alt+shift+F10

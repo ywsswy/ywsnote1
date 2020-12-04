@@ -1,0 +1,1 @@
+curl -X GET -s "$ipaddr/$index/$type/_search?pretty" -H 'Content-Type: application/json' -d @1.json

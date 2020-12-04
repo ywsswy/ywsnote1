@@ -1,0 +1,1 @@
+__PRETTY_FUNCTION__不标准的gcc扩展，但是很赞

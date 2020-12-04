@@ -1,0 +1,7 @@
+  std::string toString() {                                                                                                                                                                                                                                 
+    std::stringstream ss;                                                                                                                                                                                                                                  
+    ss << "PullResult [ pullStatus=" << EnumStrings[pullStatus] << ", nextBeginOffset=" << nextBeginOffset                                                                                                                                                 
+       << ", minOffset=" << minOffset << ", maxOffset=" << maxOffset << ", msgFoundList=" << msgFoundList.size()                                                                                                                                           
+       << " ]";                                                                                                                                                                                                                                            
+    return ss.str();                                                                                                                                                                                                                                       
+  }

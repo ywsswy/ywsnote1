@@ -1,0 +1,86 @@
+# [编译]问题汇总
+
+## 未声明就使用类型（非指针）
+- error: field 'var1' has incomplete type
+
+## 找不到CLASS类，看头文件是不是没包含
+
+- error: expected ';' before 'CLASS'
+- error: 'CLASS' does not name a type
+- error: invalid use of incomplete type 'CLASS'
+- ISO C++ forbids declaration of *** with no type （这种情况也可能是两个文件互相包含）
+
+##  检查所有被包含的头文件是否有缺失右花括号的
+- error: expected '}' at end of input
+
+## 这个类基类里的方法，没有在CLASS中实现
+- error: cannot allocate an object of abstract type 'CLASS'
+
+
+
+
+## 套路，included from是包含栈顶在上的，如下问题在<file3>中寻找
+g++ -o <xx>.cc
+In file included from <file1>:<line1>
+				 from <file2>:<line2>
+<...>
+<file>: note: candidates are:
+In file included from <file3>
+
+
+## 继续套路：
+```
+In file included from <file_n-1>.h,
+                 from <file_n-2>.h,
+                 ...
+                 from <file_2>.h,
+                 from <file_1>.cc:
+<file_n>.h: error: 'X' has not been declared
+```
+这种头文件依此包含，一层层展开，展开到<file_n>的时候发现了未定义类型，可通过修改前向声明，不要在.h中做include展开来解决
+
+## const对象不能调用非const方法（就这一点邪门）
+error: passing ‘const A’ as ‘this’ argument of ‘int A::f2()’ discards qualifiers [-fpermissive]
+
+class A
+{
+public:
+    int f1()
+    {
+        return 2;
+    }
+};
+
+int main()
+{
+    const A b;
+    //std::cout << b.f1() << std::endl; // 错误：A类型的const实例不能使用非const方法f1()
+    return 0;
+}
+## declaration of 'Class2 var1' shadows a parameter
+var1 已经定义为其他类型的变量了，不能再定义成Class2
+
+
+# [链接]问题汇总
+
+## 这个类被重复定义，可能是不小心include了它的.cc文件，改成.h即可
+.cc:(.text+0x): multiple definition of `CLASS'
+.a(.o):.cc:(.text+0x): first defined here
+
+
+# [运行]问题汇总
+## $LD_LIBRARY_PATH下找不到动态链接的库（ldd可以看到），要么设置$LD_LIBRARY_PATH，要么改为静态链接 g++ -static -lxxx（会链接libxxx.a）g++ -lxxx（会链接libxxx.so）
+./a.out: error while loading shared libraries: libxxx.so.11: cannot open shared object file: No such file or directory
+
+# [configure]
+configure: error:  
+      *** xxx >= x.y.z is required to build.
+环境变量PKG_CONFIG_PATH
+
+
+make[4]: *** No rule to make target `xxx.cc', needed by `xxx.lo'.  Stop.
+因为Makefile.am中写了这个，但是实际不存在这个文件
+
+
+.deps/xxx.Plo:2: *** missing separator.  Stop.
+把.deps删掉重新./configure #？没有根本解决

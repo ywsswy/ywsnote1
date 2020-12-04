@@ -1,0 +1,1 @@
+windows->preferences->General->Perspectives
