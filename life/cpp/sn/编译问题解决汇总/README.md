@@ -16,7 +16,8 @@
 ## 这个类基类里的方法，没有在CLASS中实现
 - error: cannot allocate an object of abstract type 'CLASS'
 
-
+## 检查函数定义是不是忘记写了参数列表
+- error: expected primary-expression before
 
 
 ## 套路，included from是包含栈顶在上的，如下问题在<file3>中寻找

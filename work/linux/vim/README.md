@@ -27,6 +27,7 @@ set iskeyword+=: #把冒号当作单词的一员，这样例如std::string就会
 set binary #这个跟进入时使用vi -b效果一样
 set noeol #在binary情况下，保存文件时不在文件尾加\n
 set <key>? #查看一个设置项的值
+set foldmethod #diff / manual
 自定义函数https://cloud.tencent.com/developer/ask/29526
 
 set paste "回车的时候会跟随上一行的注释的话，使用这个就避免从别处复制的程序变成注释而错位，但是粘贴模式无法在右下角看到当前位置

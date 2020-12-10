@@ -19,7 +19,7 @@ pushd ${thisdir}
 
 "$0" 脚本名字
 "$1" 第一个参数
-"$#" 参数个数
+"$#" 参数个数，不算脚本名
 "$?" 上一条指令的返回值（脚本中的exit返回的值）在 shell 中， 返回值为零表示成功/真
 "${#a}" 获取字符串长度
 "${LINENO}" 该代码行号
@@ -32,6 +32,7 @@ $(($RANDOM%2+1))  #产生1到2之间的随机数
 
 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
 
+```
 if [ ${a} -gt 0 ];then #大于0
 elif [ ! -e "file" ];then
   echo "文件不存在" # e是这个名字存在？d是常规文件存在？
@@ -41,44 +42,82 @@ elif [ "${var+yes}" == "" ];then
   echo "${var} unset" # 变量有三种情况，非空，空，unset，通过判断${var+set}为空，说明unset
 else
 fi
+```
 
 # 读取文件的写法，这种效率不高，大文件，建议用awk
+```
 function YRead()
 {
     while IFS= ;read -r line;do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，while的IFS变量会影响整个文件，所以放到函数局部中
         # do something with "$line"
     done < file #不写重定向的话就是从标准输入读取，或者command | while ...
 }
+```
 
 # 打日志的方法
+```
+function HashGet()
+{
+    md5hash=$(echo -n "$1" |md5sum)
+    echo $((16#${md5hash:0:15}))
+}
+
+gEnableLogLevelVec=(
+"DEBUG"
+"INFO0"
+"ERROR"
+)
+
+gEnableLogLevelMapk=()
+
+for ((i = 0; i < ${#gEnableLogLevelVec[*]}; ++i))do
+    hash_index=$(HashGet "${gEnableLogLevelVec[$i]}")
+    gEnableLogLevelMapk[${hash_index}]="${gEnableLogLevelVec[$i]}"
+done
+
 function YLog()
 {
+    if [ "${gDisableLogLevelCheck+set}" != "" ];then
+        echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
+    else
+        hash_index=$(HashGet "$2")
+        if [ "${gEnableLogLevelMapk[${hash_index}]+set}" != "" ];then
+            echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
+        fi
+    fi
     # 函数内的 echo 如果不重定向标准错误，则返回的是函数返回值，return或者函数最后一条命令 是函数的退出状态码；因此不允许函数为空/没有返回码
-    echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
     # echo "[$(date +"%Y-%m-%d %H:%M:%S.%N")] [$2] [$arg0:$1] ${*:3}" >&2
 }
 
+```
+
 # 终止整个脚本的方法，如果这个脚本是被其他脚本调用的，希望只终止本脚本，则在调用前后分别加上set -m; set +m，给独立进程组
+```
 function KillScript()
 {
     # pstree -p $$ |awk -F 'sh\\(' 'BEGIN{RS=")"}{if(NF==2) printf("%s ",$2)}' |xargs kill -9
     # 函数调用和参数传递的方法，这种方法不会让f1的变量污染全局
-    $(YLog "$1" ERROR "${*:2}")
+    $(YLog "$1" ERROR "${*:2}") # 普通地方是$(YLog $LINENO DEBUG "value")
     kill 0
     sleep 1
     kill -9 0
 }
+```
 
 # 数组[强制要求下标0s且连续]的写法，可以任意多空格和回车，但是=(必须连在一起
+```
 # for的写法，i的作用域不局限在for内，死循环可为for ((;;))
 # 如果多行代码写成一行，处理do 后面不需要加分号，每一行结尾都加分号
-arr=('a' 'b' 'c')  # 命令的结果是数组的话，可以写成 arr=($(ls .)) #这时候只能通过下法输出，不能看$arr，因为这只会输出首地址的字符串
-for ((i = 0; i < ${#arr[*]}; ++i))do
-    echo ${arr[$i]}
+vec=('a' 'b' 'c')  # 命令的结果是数组的话，可以写成 vec=($(ls .)) #这时候只能通过下法输出，不能看$vec，因为这只会输出首地址的字符串，而且一个字符串可以转成数组vec_s="a b c";vec=($vec_s)
+for ((i = 0; i < ${#vec[*]}; ++i))do
+    $(YLog $LINENO DEBUG "${vec[$i]}")
+    $(YLog $LINENO DEBUG "${#vec[$i]}")
 done
+```
 
-# map[随机访问]，(${!arr[*]})获取所有的伪key，
+# map[随机访问]，(${!vec[*]})获取所有的伪key，
 # 因为关联数组/map bash 的版本必须 >= 4.1.2，所以通过两个数组来实现，一个存key，一个存value，伪key相同，都为key做了hash后的数字
+```
 count_k=()
 count_v=()
 ## 查找
@@ -103,7 +142,7 @@ for ((i = 0; i < ${#count_index[*]}; ++i))do
     echo -n "${count_k[$index]}: "
     echo "${count_v[$index]}"
 done
-
+```
 
 
 
