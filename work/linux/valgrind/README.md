@@ -3,6 +3,7 @@ valgrind --tool=memcheck --leak-check=full --error-limit=no --log-file=v.log
 ## 如果中途自己停掉了没有core，Memcheck, a memory error detector可能是线程数不够
 --max-threads=INT
 
+# 关注点
 ## Conditional jump or move depends on uninitialised value(s)
 使用了未初始化的变量
 

@@ -1,24 +1,3 @@
-makefile编写
-exe=main
-obj=main.o
-$(exe):$(obj)
-        g++ -o $(exe) $(obj)#注意这前面是tab键，不是空格
-main.o:main.cc
-        g++ -c main.cc
-clean:
-        rm -rf *.o main
-"每次重新生成必须要clean
-**********************************************************
-g++/gcc //c++比c安全严格，所以c++代码用用哪个都能过，但c代码用g++可能编译不过
-  -g main.cc //编译并生成带有调试信息
-  -o main.o //的运行文件 g++  //默认不加-o会生成a.out
-  -std=c++11 //支持C++11
-  -Wall //警告级别为：all
-  -O0 //优化级别为0（不经任何优化）
-g++处理c++
-gcc处理c
-cpp的程序，编译可以用gcc/g++，链接可以用g++或者gcc -lstdc++
-
 
 gdb main.o //启动gdb调试程序 或者 gdb 进入后 file main.o// 在哪个目录gdb，fopen的相对路径就是哪里，非gdb的时候也是哪个目录启动，就从哪里相对路径，反正不以二进制所在目录为准，而是以用户所在目录为准（./走的那种）
 
