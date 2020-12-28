@@ -18,3 +18,9 @@ export NAMESRV_ADDR=localhost:9876
 sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
 
 sh bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
+
+
+
+## 消费模式
+- 集群消费/负载均衡消费，多个消费者
+- 广播消费

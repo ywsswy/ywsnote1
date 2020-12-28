@@ -17,7 +17,10 @@ m4/acinclude.m4
 
 
 - configure --prefix= 
-|X.in (其内可以含有@xxx@）|configure|X （@xxx@会被替换掉）|
+|源|过程|目标|ps|
+|---|---|---|---|
+|X.in (其内可以含有@xxx@）|configure|X （@xxx@会被替换掉）|这里面有config.h|
+
 configure一般会把一些调试信息输出到config.log，方法形如$as_echo "$as_me:${as_lineno-$LINENO}: checking whether $CC accepts -g" >&5
 as_echo "$as_me:${as_lineno-$LINENO}:是printf '%s\n' 文件名:代码行数
 >&5是输出到config.log

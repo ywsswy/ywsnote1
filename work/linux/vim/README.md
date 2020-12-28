@@ -22,7 +22,7 @@ set wrap "自动换行，但是vim -d 打开的文件貌似这个参数没生效
 set scrollbind "在各自窗口输入这个，可以使得两窗口同时滚动
 set noreadonly "🐮🍺
 set fileformat=unix "把windows文件换为Unix文件
-nnoremap ,,s ^istd::cout << <ESC>$a << std::endl;<ESC> #设置按键映射，每次敲击,,s会执行的命令,n表示normal模式，nore表示不要递归执行
+nnoremap ,,s ^istd::cout << <ESC>$a << std::endl;<ESC> #map命令后面不能写注释，设置按键映射，每次敲击,,s会执行的命令,n表示normal模式，nore表示不要递归执行
 set iskeyword+=: #把冒号当作单词的一员，这样例如std::string就会被当成一个单词，-=是去掉
 set binary #这个跟进入时使用vi -b效果一样
 set noeol #在binary情况下，保存文件时不在文件尾加\n

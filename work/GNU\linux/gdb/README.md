@@ -1,4 +1,3 @@
-
 gdb main.o //启动gdb调试程序 或者 gdb 进入后 file main.o// 在哪个目录gdb，fopen的相对路径就是哪里，非gdb的时候也是哪个目录启动，就从哪里相对路径，反正不以二进制所在目录为准，而是以用户所在目录为准（./走的那种）
 
 ## 通用
@@ -13,7 +12,7 @@ inferior <num> 切换到某个线程来调试
 set logging file <file name> #设置输出会同步到某文件
 set logging on/off
 
-disp[lay] <var> //加入watch列表，每次程序停下来都会输出一次
+disp[lay] <var> //加入watch列表，每次程序停下来都会输出一次，undisplay关闭
 b[reak] yPrint //在yPrint函数第一行设置断点
 b[reak] 23 //在第23行设置断点
 i[nfo] b[reak]/files/ //查看断点/加载表
@@ -40,3 +39,7 @@ fin[ish] //step out
 p 显示变量的值
 wha[tis] 显示变量的类型
 pt[ype] 显示变量的详细类型信息
+
+
+
+如果发现step_into无法进入函数，有可能优化不够，也有可能是个宏定义，编译的时候要-g3 -O0，这样可以通过macro expand force_string(arg)来看一个语句背后的语句

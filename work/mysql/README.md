@@ -1,0 +1,1 @@
+mysql -u <usr> -p -h <ip> -P <port>

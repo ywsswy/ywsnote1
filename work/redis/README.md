@@ -1,3 +1,5 @@
+redis-cli -c -h <ip> -p <port> <cmd>
+
 >ping
 PONG 表示连接成功
 >get <keyname>
@@ -16,6 +18,8 @@ OK 表示设置成功
 
 >set <keyname> "\x00\t\x01hh"
 # 二进制的方式
+
+
 
 # python的方式
 from redis import StrictRedis
