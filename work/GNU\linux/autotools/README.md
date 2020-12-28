@@ -1,8 +1,6 @@
 autoconf automake libtool gettext
 
 
-configure脚本检查系统依赖，生成config.h（宏定义）和Makefile
-
 
 用户：
 ./configure
