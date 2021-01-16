@@ -4,6 +4,7 @@
 # 首行注释必加，这样系统才会自动识别，才会变色，才能tab补齐脚本名，还有#!/usr/bin/env python3
 # 如果是脚本任意放，只关心当前目录，则无需特殊处理；（即，如果没有执行cd/pushd等命令，脚本里面都是默认执行目录（而非脚本所在目录）是当前目录
 # 如果是脚本位置必须固定，关心脚本所在的目录，则首行应该如下写（readlink牛，能把所有都变成绝对路径，如果写错了就还是当前路径），调试命令是bashdb path/script.sh -- path/script.sh arg1 arg2
+# echo $SHELL 来查看系统默认的shell，有可能是zsh，使用chsh -s /bin/bash修改默认的shell
 ```
 if [ `basename $0` != 'bashdb' ];then
     arg0=$0

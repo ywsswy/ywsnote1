@@ -12,6 +12,8 @@ fi
 if [ "" == "$LD_LIBRARY_PATH" ];then
     export LD_LIBRARY_PATH="$HOME/software/gc/lib/"
 fi
+export LC_CTYPE="zh_CN.UTF-8"
+export LANG="en_US.utf-8"
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/shell:$HOME/software/hadoop/bin:/usr/local/go/bin"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "
@@ -22,7 +24,10 @@ export HISTSIZE=20000
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # 默认这次登陆的历史记录会在退出会话的时候保存到~/.bash_history中，除非history -a能保证实时写入
 export TERM=xterm
+# 防止timed out waiting for input: auto-logout超时等待输入
+export TMOUT=0
 ulimit -c unlimited
+
 
 service cron start #wsl
 

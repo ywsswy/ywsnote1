@@ -2,7 +2,7 @@
 - 安装好（检查是否有/etc/ssh/ssh_host_rsa_key文件）若没有，重新安装openssh-server
 - windows22端口被占了，所以要被连接的话，要在/etc/ssh/sshd_config中修改port
 - ssh-keygen -t rsa -C "1726208887@qq.com" -b 4096 #生成自己的密钥对
-- /<home>/.ssh/authorized_keys中保存了谁的公钥（且authoriized_keys的权限应该是644），才允许谁连接
+- /<home>/.ssh/authorized_keys中保存了谁的公钥（且authoriized_keys的权限应该是600，不是644？通过查看/var/log/secure可以定位问题），才允许谁连接
 - sudo service ssh start
 ## 密码连接的方法
 

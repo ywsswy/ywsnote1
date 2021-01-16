@@ -1,0 +1,21 @@
+command + tab能切换
+command + f 能查找
+command + v 粘贴
+command + 左/右 terminal窗口间切换
+command + 左 home ....
+鼠标停在该显示屏最下方几秒 程序坞显示到该显示屏
+command + shift + 4 截屏
+command + delete 删除文件
+
+只有左边有control
+复制粘贴尽量两个手指距离近一点
+
+大部分是ommand，纯正的是control
+
+更新screen版本
+
+
+VScode+golang cmd+左键 跳转 //ctrl+- 回跳
+
+
+terminal设置，preference里面profiles选择pro，并设置为默认，勾选Antialias text，opacity设置100%

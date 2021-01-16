@@ -7,17 +7,16 @@ python编程讲究pythonic，同样C++也要cplusplusic。不要把C++写得四�
 * 类型和变量应该是名词性的，函数名可以用“命令性”动词。
 * 类、结构体、类型定义（typedef）、枚举、【普通函数】。每个单词首字母大写，无下划线
 ```
-class MyClass : public OtherClass
-{
-public: // 按照 public 、 protected、private 的顺序进行定义（无空格，google 1个）
-    MyClass(); // 缩进4个空格(google 2个)
-    explicit MyClass(int var);
-    ~MyClass() {}
+class MyClass : public OtherClass {
+ public: // 按照 public 、 protected、private 的顺序进行定义（缩进一个空格）
+  MyClass(); // 缩进4个空格(google 2个)
+  explicit MyClass(int var);
+  ~MyClass() {}
 
-    void SomeFunction();
-    void SomeFunctionThatDoesNothing() {}
-private:
-    int number_; //成员变量下划线结尾
+  void SomeFunction();
+  void SomeFunctionThatDoesNothing() {}
+ private:
+  int number_; //成员变量下划线结尾
 }
 enum UrlTable{ ...
 ```
@@ -64,7 +63,7 @@ std::vector<int> ve;//ve(1s)
 表示ve[1]是第一个元素，而ve[0]是没用的。同理0s则表示从ve[0]开始存第一个元素。
 
 # 头文件
-使用 #define 来防止头文件被多重包含, 命名格式当是: <PROJECT>_<PATH>_<FILE>_H_
+使用 #define 来防止头文件被多重包含, 命名格式当是: <PROJECT>_<PATH>_<FILE>_H_（me：如果没定下project，就_<PATH>_<FILE>_H_
 #ifndef FOO_BAR_BAZ_H_
 #define FOO_BAR_BAZ_H_
 ...
