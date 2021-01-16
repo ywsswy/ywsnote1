@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         laji-hidden & liumang-website
+// @name         laji-hidden & liumang-website & web-format
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  try to take over the world!
@@ -13,35 +13,47 @@
     'use strict';
     // Your code here...
     // don't need jquery, don't need document.ready
-    var Type = {hide: 0, click: 1};
+    var Type = {/*hide: 0, */click: 1, attr: 2};
     var list_liumang = ['www.hackhome.com'];
-    var list_processing = [{flag: true, site: 'localhost', selector: '#menubar-container', type: Type.hide},
-                {flag: true, site: 'cquptx.cn', selector: '#cquptx_chat', type: Type.hide},
-                {flag: true, site: 'cqu.pt', selector: '#_cqupt-side-box', type: Type.hide},
-                {flag: true, site: 'csdn.net', selector: '.btn-readmore', type: Type.click}
+    // site can only be domain, not path
+    var list_processing = [//{flag: false, site: 'localhost', selector: '#menubar-container', type: Type.hide},
+                           {flag: false, site: 'localhost', selector: '#menubar-container', type: Type.attr, key: "hidden", value: true},
+                           {flag: false, site: 'cquptx.cn', selector: '#cquptx_chat', type: Type.attr, key: "hidden", value: true},
+                           {flag: false, site: 'cqu.pt', selector: '#_cqupt-side-box', type: Type.attr, key: "hidden", value: true},
+                           {flag: false, site: 'csdn.net', selector: '.btn-readmore', type: Type.click},
+                           {flag: true, site: 'www.bejson.com', selector: 'div#content-wrapper', type: Type.attr, key: "style", value: 'height: 888px;'},
+                           {flag: true, site: 'www.bejson.com', selector: 'div#jsonformatter', type: Type.attr, key: "style", value: 'width: 48%; height: 888px;'},
+                           {flag: true, site: 'www.bejson.com', selector: 'div.container.t-small-margin', type: Type.attr, key: "style", value: 'max-width: 1760px!important; width: 1760px!important'}
                     ];
     function YwsMonitorProcessing(item,time){
         var a = document.querySelector(item.selector);
-        console.log('hello'+time);
+        console.log('YwsMonitorProcessing, time: '+time+', info:'+JSON.stringify(item));
         if(a === null){
             setTimeout(function(){YwsMonitorProcessing(item,time+1);},time*1000);
         }else{
-            if(item.type === Type.hide){
-                a.setAttribute("hidden",true);
-            }else if(item.type === Type.click){
+            //if(item.type === Type.hide){
+            //    a.setAttribute("hidden",true);
+            //}else
+            if(item.type === Type.click){
                 a.click();
+            }else if(item.type === Type.attr){
+                a.setAttribute(item.key, item.value);
             }
         }
     }
     function YwsMain(){
         for (let item of list_processing){
-            if(true === item.flag && document.domain.search(new RegExp(item.site+'\$')) !== -1){
-                setTimeout(function(){YwsMonitorProcessing(item,1);},0);
+            if(true === item.flag){
+                //console.log('site:'+item.site);
+                if(document.domain.search(new RegExp(item.site+'\$')) !== -1){
+                    console.log('regex ok:'+item.site+', invoke');
+                    setTimeout(function(){YwsMonitorProcessing(item,1);},0);
+                }
             }
         }
 
         if(list_liumang.indexOf(document.domain) !== -1){
-            alert('流氓网站');
+            alert('这是流氓网站');
         }
     }
     //window.addEventListener("load", YwsMain())

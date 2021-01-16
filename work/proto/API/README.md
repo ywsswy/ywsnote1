@@ -1,3 +1,13 @@
+## golang(proto2) 对应的字段类型，命名都会变成首字母大写的驼峰
+|-|(生成的go的struct里面的类型)|GetX()|
+|---|---|---|
+|optional int32 a = 1|A *int32|func (m *Class) GetA() int32|
+|optional Info b = 2|B *Info|func (m *Class) GetB() *Info|
+|repeated int32 c = 3|C []int32|func (m *Class) GetC() []int32|
+|optional bytes f = 7|F []byte|
+golang还会在生成的type <messange> struct里面最后加三个字段XXX_
+
+## c++(proto3) 对应的生成方法
 |-|clear_x()|x()|set_x()|has_x()|release_x()|mutable_x()|set_allocated_x()|x_size()|add_x()|
 |---|---|---|---|---|---|---|---|---|---|
 |int32 a = 1|void clear_a()|int32 a() const|void set_a(int32 value)||||||

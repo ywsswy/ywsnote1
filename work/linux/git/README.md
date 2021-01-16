@@ -1,6 +1,9 @@
 [图解](https://images2015.cnblogs.com/blog/809218/201606/809218-20160604213832164-1203726937.png)
 [git代码管理工具学习](https://git-scm.com/book/zh/v2)
-commit message规范 ：feat(merge) fix | build style revert docs refactor | test perf
+commit message规范，必选的
+<type>: <subject>
+type种类：feat(merge) fix | build style revert docs refactor | test perf
+subject格式：简短描述 --关联标识=<id>
 git diff <old commited/branch> <new commited/new brand> [<file_name>]#注意此刻的untracked file不会参与到diff中
 git diff # 常规diff（当前与暂存区比较）
 git diff HEAD # 如果有暂存区等影响如merge stash_pop等，则用这个，或者发现git diff异常的时候，stash_save_then_pop就发现又好了
