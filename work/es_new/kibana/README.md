@@ -9,4 +9,4 @@ console里面执行命令
 左边可以查看每个field的值最多的是什么
 
 # managerment
-可以创建index pattern
+可以创建index pattern（这个可以精确pattern也可以模糊pattern，索引名和别名都会算的，discover里面看数据的前提是必须选择一个pattern！！）
