@@ -6,10 +6,11 @@ import包时的搜索路径
 pkg目录存放编译好的库文件, 主要是*.a文件
 也可以是源代码地址
 
+go mod init <此项目名> #创项目的时候执行该命令，可以生成一个go.mod文件，记载着。？
 
 go run <src.go> #直接执行
 
-go build #编译出二进制，然后再手动执行
+go build #编译出二进制，然后再手动执行，如果有require的东西且本机还没有，会下载到$GOPATH/pkg/mod目录下
 
 go install <domain/path> # 安装，在 $GOPATH/bin 下就会出现可执行文件
 

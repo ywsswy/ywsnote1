@@ -60,6 +60,6 @@ x86_64为针对64位CPU进行的优化编译设置的平台(苹果公司和rpm�
 i686
 noarch为没有硬件限制的平台，常为shell脚本
 
-还有xxx.src.rpm，是包含源代码的包（在updates-source软件源中找下载地址吧）一般是拿去做正式rpm用的redist包，并不能代表真正的源码，最“源”代码的应该还是要去git/官网仓库里面下载，另外还有一个tarballs的概念
+还有xxx.src.rpm，是包含源代码的包（在updates-source软件源中找下载地址吧）一般是拿去做正式rpm用的redist包，并不能代表真正的源码，最“源”代码的应该还是要去git/官网仓库里面下载，另外还有一个tarballs的概念/tar.gz
 直接sudo rpm -ivh xxx.src.rpm会在home创建rpmbuild目录，里面有SPECS/SOURCES文件夹，能找到spec文件
 
