@@ -14,7 +14,7 @@ TEST(mytest, what)
 g++ -E test_ut.cc -std=c++11 -o test_ut.i
 # 解析展开宏，查看生成结果
 
-美化格式后可以看到如下内容 astyle -k3 --style=bsd yout.cc #k3表示* ^ &符号挨着右边的word
+美化格式后可以看到如下内容
 class mytest_what_Test : public ::testing::Test
 {
 public:
