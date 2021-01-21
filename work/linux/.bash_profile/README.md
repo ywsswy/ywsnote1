@@ -27,6 +27,7 @@ export TERM=xterm
 # 防止timed out waiting for input: auto-logout超时等待输入
 export TMOUT=0
 ulimit -c unlimited
+alias ll='ls -l --color=auto'
 
 
 service cron start #wsl

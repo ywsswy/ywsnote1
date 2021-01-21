@@ -10,6 +10,7 @@ pip3 install flask --user
 阿里云：https://mirrors.aliyun.com/pypi/simple/
 豆瓣：https://pypi.douban.com/simple/
 清华：https://pypi.tuna.tsinghua.edu.cn/simple/
+腾讯：https://mirrors.cloud.tencent.com/pypi/simple
 ...
 ```
 
