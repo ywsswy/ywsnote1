@@ -47,5 +47,5 @@ paas*
 
 ## others
 微服务架构
-ci/cd
+ci/cd：CI：代码库管理 编译 自动化测试 code_review CD：部署生产环境 配置管理 容器管理 软件包版本管理 用户验收测试
 研发流程

@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-
+# echo $SHELL 来查看系统默认的shell，有可能是zsh，使用chsh -s /bin/bash修改默认的shell，推荐执行都用bash来执行，因为mac下sh和bash命令是不同的
 # 切记，自己调的函数必加res=$() ，紧跟着下一行rec=$?，不然会把返回值当作命令执行了
 # 首行注释必加，这样系统才会自动识别，才会变色，才能tab补齐脚本名，还有#!/usr/bin/env python3
 # 如果是脚本任意放，只关心当前目录，则无需特殊处理；（即，如果没有执行cd/pushd等命令，脚本里面都是默认执行目录（而非脚本所在目录）是当前目录
 # 如果是脚本位置必须固定，关心脚本所在的目录，则首行应该如下写（readlink牛，能把所有都变成绝对路径，如果写错了就还是当前路径），调试命令是bashdb path/script.sh -- path/script.sh arg1 arg2
-# echo $SHELL 来查看系统默认的shell，有可能是zsh，使用chsh -s /bin/bash修改默认的shell
+
 ```
 if [ `basename $0` != 'bashdb' ];then
-    arg0=$0
+  arg0=$0
 else
-    arg0=$1
-    shift
+  arg0=$1
+  shift
 fi
 thisdir=$(dirname $(readlink -f $arg0))
 pushd ${thisdir}
+if [ -f ~/.bash_profile ];then
+  . ~/.bash_profile
+fi
 ```
 # 一个脚本中的cd，不会影响到其他脚本的目录
 # 一个脚本中的任何函数内$0都是该脚本名，这是说在执行脚本之前$0就已经被解析好了
@@ -25,14 +28,13 @@ pushd ${thisdir}
 "${#a}" 获取字符串长度
 "${LINENO}" 该代码行号
 "$$" 脚本的pid，当前脚本的启动进程
-res=$() 获取命令/函数输出结果，不用``
+res=$(<function name> <param>) 获取命令/函数输出结果，不用``，用这种方式进行函数调用不会让函数内的变量污染全局
 eval 会先把后面的字符串先解析，再执行
 "" 内的命令会被解析执行
 '' 内会当作字符串原封不动
 $(($RANDOM%2+1))  #产生1到2之间的随机数
 
 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
-
 ```
 if [ ${a} -gt 0 ];then #大于0
 elif [ ! -e "file" ];then
@@ -45,63 +47,72 @@ else
 fi
 ```
 
+# 函数内的 echo 如果不重定向标准错误，则返回的是函数返回值，return或者函数最后一条命令 是函数的退出状态码；因此不允许函数为空/没有返回码
 # 读取文件的写法，这种效率不高，大文件，建议用awk
 ```
-function YRead()
-{
-    while IFS= ;read -r line;do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，while的IFS变量会影响整个文件，所以放到函数局部中
-        # do something with "$line"
-    done < file #不写重定向的话就是从标准输入读取，或者command | while ...
+function YRead() {
+  while IFS= ;read -r line;do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，while的IFS变量会影响整个文件，所以放到函数局部中
+    # do something with "$line"
+  done < file #不写重定向的话就是从标准输入读取，或者command | while ...
 }
 ```
 
 # 打日志的方法
 ```
-function HashGet()
-{
-    md5hash=$(echo -n "$1" |md5sum)
-    echo $((16#${md5hash:0:15}))
-}
-
 gEnableLogLevelVec=(
 "DEBUG"
 "INFO0"
 "ERROR"
 )
 
+function GetOS() {
+  os="$(uname)"
+  if [ "$os" == "Darwin" ];then
+    echo -n "mac"
+  else
+    echo -n "linux"
+  fi
+}
+
+function HashGet() {
+  res=$(GetOS)
+  if [ "$res" == "mac" ];then
+    md5hash=$(echo -n "$1" |md5)
+  else
+    md5hash=$(echo -n "$1" |md5sum)
+  fi
+  echo $((16#${md5hash:0:15}))
+}
+
 gEnableLogLevelMapk=()
 
 for ((i = 0; i < ${#gEnableLogLevelVec[*]}; ++i))do
-    hash_index=$(HashGet "${gEnableLogLevelVec[$i]}")
-    gEnableLogLevelMapk[${hash_index}]="${gEnableLogLevelVec[$i]}"
+  hash_index=$(HashGet "${gEnableLogLevelVec[$i]}")
+  gEnableLogLevelMapk[${hash_index}]="${gEnableLogLevelVec[$i]}"
 done
 
-function YLog()
-{
-    if [ "${gDisableLogLevelCheck+set}" != "" ];then
-        echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
-    else
-        hash_index=$(HashGet "$2")
-        if [ "${gEnableLogLevelMapk[${hash_index}]+set}" != "" ];then
-            echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
-        fi
+function YLog() {
+  # $1: $LINENO
+  # $2: debug level, DEBUG,INFO0,INFO1,INFO2,WARN,ERROR
+  if [ "${gDisableLogLevelCheck+set}" != "" ];then
+    echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
+  else
+    hash_index=$(HashGet "$2")
+    if [ "${gEnableLogLevelMapk[${hash_index}]+set}" != "" ];then
+      echo "$(date +"%Y-%m-%d %H:%M:%S") [$2]: [$arg0:$1]:${*:3}" >&2
     fi
-    # 函数内的 echo 如果不重定向标准错误，则返回的是函数返回值，return或者函数最后一条命令 是函数的退出状态码；因此不允许函数为空/没有返回码
-    # echo "[$(date +"%Y-%m-%d %H:%M:%S.%N")] [$2] [$arg0:$1] ${*:3}" >&2
+  fi
 }
-
 ```
 
 # 终止整个脚本的方法，如果这个脚本是被其他脚本调用的，希望只终止本脚本，则在调用前后分别加上set -m; set +m，给独立进程组
 ```
-function KillScript()
-{
-    # pstree -p $$ |awk -F 'sh\\(' 'BEGIN{RS=")"}{if(NF==2) printf("%s ",$2)}' |xargs kill -9
-    # 函数调用和参数传递的方法，这种方法不会让f1的变量污染全局
-    $(YLog "$1" ERROR "${*:2}") # 普通地方是$(YLog $LINENO DEBUG "value")
-    kill 0
-    sleep 1
-    kill -9 0
+function KillScript() {
+  # pstree -p $$ |awk -F 'sh\\(' 'BEGIN{RS=")"}{if(NF==2) printf("%s ",$2)}' |xargs kill -9
+  $(YLog "$1" ERROR "${*:2}")
+  kill 0
+  sleep 1
+  kill -9 0
 }
 ```
 
@@ -109,10 +120,10 @@ function KillScript()
 ```
 # for的写法，i的作用域不局限在for内，死循环可为for ((;;))
 # 如果多行代码写成一行，处理do 后面不需要加分号，每一行结尾都加分号
-vec=('a' 'b' 'c')  # 命令的结果是数组的话，可以写成 vec=($(ls .)) #这时候只能通过下法输出，不能看$vec，因为这只会输出首地址的字符串，而且一个字符串可以转成数组vec_s="a b c";vec=($vec_s)
+vec=('a' 'b' 'c')  # 命令的结果是数组的话，可以写成 vec=($(ls .)) #这时候只能通过下法输出，不能看$vec，因为这只会输出首地址的字符串；一个字符串可以转成数组vec_s="a b c";vec=($vec_s) ；另外这里的双引号和单引号没有看出来区别
 for ((i = 0; i < ${#vec[*]}; ++i))do
-    $(YLog $LINENO DEBUG "${vec[$i]}")
-    $(YLog $LINENO DEBUG "${#vec[$i]}")
+  $(YLog $LINENO DEBUG "${vec[$i]}")
+  $(YLog $LINENO DEBUG "${#vec[$i]}")
 done
 ```
 

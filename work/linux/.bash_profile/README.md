@@ -1,20 +1,20 @@
 # .bash_profile
 # Get the aliases and functions
 if [ -f ~/.bashrc ];then
-    . ~/.bashrc
+  . ~/.bashrc
 fi
 
 # .bashrc
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 if [ "" == "$LD_LIBRARY_PATH" ];then
-    export LD_LIBRARY_PATH="$HOME/software/gc/lib/"
+  export LD_LIBRARY_PATH="$HOME/software/gc/lib/"
 fi
 export LC_CTYPE="zh_CN.UTF-8"
 export LANG="en_US.utf-8"
-export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/shell:$HOME/software/hadoop/bin:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "
 # .bash_history的文件最大行数
@@ -27,7 +27,8 @@ export TERM=xterm
 # 防止timed out waiting for input: auto-logout超时等待输入
 export TMOUT=0
 ulimit -c unlimited
-alias ll='ls -l --color=auto'
+# 不用--color=auto是因为mac不支持
+alias ll='ls -l'
 
 
 service cron start #wsl
