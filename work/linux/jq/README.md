@@ -2,6 +2,11 @@
 --sort-keys ## 按照key排序
 -c #一行输出，而不是格式化输出
 
+# 命令
+|length
+
+|keys
+
 
 # 语法
 

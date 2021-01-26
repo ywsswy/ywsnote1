@@ -19,10 +19,20 @@ PointerAlignment: Left
 SortIncludes: true
 IncludeBlocks: Preserve
 ```
+使用版本3以上的clang-format方法可以是：
+```
+yum install centos-release-scl -y
+yum install llvm-toolset-7.0
+scl enable llvm-toolset-7.0 bash #这句是单独开了一个bash，里面能用clang-foramt，exit之后就没了
+```
+
+## 换行中
+写到尾部的：
+&&
+写到头部的：
 
 
 ## 官方
-* 指针/地址操作符 (*, &) 之后不能有空格
 * 对于长的逻辑表达式，超过最大字符长度后，按以下格式缩进
 ```
 if (this_one_thing > this_other_thing &&
