@@ -29,3 +29,5 @@ mrmr.pyx
 __pycache__
 tests
 ```
+
+python -m SimpleHTTPServer <port> python牛逼，这种就是提供http服务端，/是列出当前目录的文件
