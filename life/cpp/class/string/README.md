@@ -5,7 +5,7 @@ s1[0] = 'y';
 string::npos 代表字符串没找到的size_t -1 && 最大值
 
 [methed
-std::string((const char *)&value, 8);  // std::string(const char *(&value), 8))这种就报错
+std::string((const char *)&value, 8);  // std::string(const char *(&value), 8))这种就报错, NULL也会core_dump!!
 append	//string& append(string) 同 s = s+t
 back	//引用
 front	//引用
