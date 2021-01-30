@@ -1,8 +1,4 @@
 二
-## 1R2
-* 许可证（license），作者（author），文件名称（file），文件说明（details），版本（version），生成日期（date）
-## 1R6
-* Lambda 表达式
 ## 看到1R7 函数设计
 
 * 每一行代码字符数不超过 80
