@@ -1,3 +1,13 @@
+DevOps 一词的来自于 Development 和 Operations 的组合，突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。
+
+去中心化：例如比特币的记账网络，每个人都记账，谁死了都不怕钱财死无对证，每个人都知道每个人有多少钱。（跟上古时代类比就是的贝壳当货币，然后每个人都记账，记下来每个人现在有多少贝壳，不存在私自交易了，全是公开交易？）
+挖矿：比特币记账网络上每10分钟会举行一次算术比赛，第一个算出来的人可以第一个记账（且有50bit币奖励（每记账21万次，奖励减半）），所以才有挖矿。
+
+线性一致性，因果一致性，最终一致性，强一致性
+
+concurrent 并发，单核CPU/单车道，只可能并发，不可能并行
+
+CAP 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）
 UGC
 PGC Professionally-generated Content，专业生产内容
 
@@ -7,7 +17,6 @@ MCN机构 Multi-Channel Network 是舶来品，是一种多频道网络的产品
 
 CKV cloud key_value 腾讯的一个分布式kv
 * CEO
-
 
 Chairman董事长最大  
 President总裁  

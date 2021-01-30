@@ -42,3 +42,12 @@ if (this_one_thing > this_other_thing &&
 {
     ...
 }
+
+## type a = b
+
+a =
+    b //缩进4个空格
+## type func(type a) {
+
+type func(
+    type a {//缩进4个空格

@@ -62,12 +62,6 @@ std::vector<int> ve;//ve(1s)
 ```
 表示ve[1]是第一个元素，而ve[0]是没用的。同理0s则表示从ve[0]开始存第一个元素。
 
-# 头文件
-使用 #define 来防止头文件被多重包含, 命名格式当是: <PROJECT>_<PATH>_<FILE>_H_（me：如果没定下project，就_<PATH>_<FILE>_H_
-#ifndef FOO_BAR_BAZ_H_
-#define FOO_BAR_BAZ_H_
-...
-#endif // FOO_BAR_BAZ_H_
 
 ## include的顺序，对xxx.cpp而言
 xxx.h
