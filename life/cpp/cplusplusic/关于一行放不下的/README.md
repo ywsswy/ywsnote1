@@ -1,3 +1,29 @@
+## type a = b;
+```
+a =
+    b; //缩进4个空格
+```
+## type func(type a) {
+```
+type func(
+    type a {//缩进4个空格
+```
+## type func(type a, type b);
+```
+既有可能
+type func(type a, type b);
+又有可能
+type func(type a,
+          type b);
+又有可能
+type func(
+    type a,
+    type b);
+首先考虑前者
+```
+
+
+
 ## 非官方
 
 “一种”格式化
@@ -42,12 +68,3 @@ if (this_one_thing > this_other_thing &&
 {
     ...
 }
-
-## type a = b
-
-a =
-    b //缩进4个空格
-## type func(type a) {
-
-type func(
-    type a {//缩进4个空格
