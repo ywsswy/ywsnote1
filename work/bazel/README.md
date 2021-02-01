@@ -38,3 +38,16 @@ https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
 
 ## 一些编译参数
 -c (dgb|opt) //分别表示-g 和 -O2 -DNDEBUG
+
+## bazel clean --expunge #加了expunge，清理的更彻底？
+
+## 单元测试
+
+bazel coverage ... --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --sandbox_debug --subcommands
+
+genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
+
+## 输出日志在，
+bazel-out/k8-fastbuild/testlogs/<path><test_bin>/test.log
+## 二进制文件在：
+bazel-out/k8-fastbuild/bin/<path>/<test_bin>.runfiles/<path>/<test_bin>

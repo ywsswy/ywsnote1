@@ -4,6 +4,9 @@
 #define FOO_BAR_BAZ_H_
 ...
 #endif // FOO_BAR_BAZ_H_
+
+## 7.5 静态static变量 全局变量 const常量
+const type kValue = xxx;
 ## 8.1 注释
 //更常用
 ## 8.2 文件注释

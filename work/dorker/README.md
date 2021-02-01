@@ -15,9 +15,9 @@ docker pull 10.22.23.45:8080/mysql/mysql-server:latest
 
 Docker本质上是一个运行在Linux操作系统上的应用，而Linux操作系统分为内核和用户空间，无论是CentOS还是Ubuntu，都是在启动内核之后，通过挂载Root文件系统来提供用户空间的，而Docker镜像就是一个Root文件系统。
 # 运行镜像image（创建容器container）
-docker run -it -v <本地目录>:<容器目录> --name <NAMES> <IMAGE ID>
+docker run -it -v <本地目录>:<容器目录> -p <本地port>:<容器内port>--name <NAMES> <IMAGE ID>
 示例：
-docker run -it -v /root/:/root/ --name smartbox xxxxxxxxxx 
+docker run -it -v /root/:/root/ --name test xxxxxxxxxx 
 
 # 查看各个docker的状态，STATUS有 Exited Up等
 docker ps -a

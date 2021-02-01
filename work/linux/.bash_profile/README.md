@@ -9,12 +9,10 @@ fi
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
-if [ "" == "$LD_LIBRARY_PATH" ];then
-  export LD_LIBRARY_PATH="$HOME/software/gc/lib/"
-fi
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/software/gc/lib/:."
 export LC_CTYPE="zh_CN.UTF-8"
 export LANG="en_US.utf-8"
-export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/software/git-2.23.0/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.ft:/home/hill/software/git-2.23.0/bin"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "
 # .bash_history的文件最大行数
