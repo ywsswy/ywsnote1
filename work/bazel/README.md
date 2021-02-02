@@ -45,6 +45,11 @@ https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
 
 bazel coverage ... --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --sandbox_debug --subcommands
 
+build和coverage使用相同的命令可以单步调试
+bazel build ... --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --strip=never --compilation_mode=dbg -s
+bazel coverage ... --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --strip=never --compilation_mode=dbg -s
+
+
 genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 
 ## 输出日志在，

@@ -1,11 +1,15 @@
 gdb main.o //启动gdb调试程序 或者 gdb 进入后 file main.o// 在哪个目录gdb，fopen的相对路径就是哪里，非gdb的时候也是哪个目录启动，就从哪里相对路径，反正不以二进制所在目录为准，而是以用户所在目录为准（./走的那种）
 
 ## 通用
-set history save on #保持命令历史，每次第一条命令都是这个
+#保持命令历史，每次第一条命令都是这个
+set history save on
 set print pretty on
-set print element 0 #打印全部字符串内容
-set detach-on-fork off #调试多线程
-tty /dev/pts/0 #把输出定向到其他处
+#打印全部字符串内容
+set print element 0
+#调试多线程
+set detach-on-fork off
+#把输出定向到其他处
+tty /dev/pts/0
 
 ## 每个程序不同的部分
 inferior <num> 切换到某个线程来调试
