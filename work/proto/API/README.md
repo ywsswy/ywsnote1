@@ -31,6 +31,9 @@ golang还会在生成的type <messange> struct里面最后加三个字段XXX_
 
 
 ```
+syntax = "proto3";
+package my_space;
+import "other.proto";
 message Yws {
   enum TYPE1 {
     AND = 0;
@@ -42,6 +45,7 @@ enum TYPE2 {
   OR = 1;
 }
 
+// 生成c++后：
 Yws_TYPE1_AND // 0
 TYPE2::AND // 0
 ```
