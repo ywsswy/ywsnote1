@@ -64,9 +64,15 @@ var1 已经定义为其他类型的变量了，不能再定义成Class2
 
 # [链接]问题汇总
 
-## 这个类被重复定义，可能是不小心include了它的.cc文件，改成.h即可
+## 这个类/变量被重复定义，可能是不小心include了它的.cc文件，改成.h即可
 .cc:(.text+0x): multiple definition of `CLASS'
 .a(.o):.cc:(.text+0x): first defined here
+
+## 类似的，全局变量的定义不能在头文件中，头文件只能声明，否则虽然过了编译阶段，但是不同的.o里面都会有符号表，重定义了
+xxx.o: multiple definition of 'var'
+yyy.o: previous definition here
+
+
 
 
 # [运行]问题汇总

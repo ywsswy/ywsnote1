@@ -1,0 +1,1 @@
+blade build <文件夹>

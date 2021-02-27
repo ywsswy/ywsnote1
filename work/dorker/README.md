@@ -1,23 +1,22 @@
 dorker的操作应该都是root用户
 
-# 列出所有镜像
-docker images
-
-
 镜像仓库服务（docker registry）是一个类似github的东西
-
 
 # 拉取镜像
 docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
 docker pull 10.22.23.45:8080/mysql/mysql-server:latest
 
-# 查看本机的docker的信息：docker images
+# 列出所有镜像
+docker images
+
+# 删除镜像
+docker rmi <image ID>
 
 Docker本质上是一个运行在Linux操作系统上的应用，而Linux操作系统分为内核和用户空间，无论是CentOS还是Ubuntu，都是在启动内核之后，通过挂载Root文件系统来提供用户空间的，而Docker镜像就是一个Root文件系统。
 # 运行镜像image（创建容器container）
-docker run -it -v <本地目录>:<容器目录> -p <本地port>:<容器内port>--name <NAMES> --security-opt seccomp=unconfined <IMAGE ID> 安全参数是为了便于单步调试
+docker run -it -v <本地目录>:<容器目录> -p <本地port>:<容器内port> --name <NAMES> --security-opt seccomp=unconfined <IMAGE ID> 安全参数是为了便于单步调试
 示例：
-docker run -it -v /root/:/root/ --name test --security-opt seccomp=unconfined xxxxxxxxxx 
+docker run -it -v /root/:/root/ -p 8081:8081 --name test --security-opt seccomp=unconfined xxxxxxxxxx 
 
 # 查看各个docker的状态，STATUS有 Exited Up等
 docker ps -a
