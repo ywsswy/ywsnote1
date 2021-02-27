@@ -1,5 +1,7 @@
 # 写在前面：纯粹的C++
-python编程讲究pythonic，同样C++也要cplusplusic。不要把C++写得四不像，让人分不清是C还是c++。
+python编程讲究pythonic，同样C++也要cplusplusic。不要把C++写得四不像，让人分不清是C还是c++。因为c和c++确实不是同一个语言，编译器也不同。
+以前还写过对vc6爱的深沉，一般大型项目也不会用这个，小比赛肯定也就一个源文件记事本都能写，所以出于了解历史我可以了解旧编译器，但实际应用都默认不低于c++11标准
+
 # 一些“约定俗成的”代码规范
 ## 命名
 主要参考[google的C++代码规范](https://blog.csdn.net/freeking101/article/details/78930381)
@@ -63,9 +65,3 @@ std::vector<int> ve;//ve(1s)
 表示ve[1]是第一个元素，而ve[0]是没用的。同理0s则表示从ve[0]开始存第一个元素。
 
 
-## include的顺序，对xxx.cpp而言
-xxx.h
-本项目内 .h 文件
-其他库的 .h 文件
-C++ 系统文件
-C 系统文件
