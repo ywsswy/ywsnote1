@@ -33,7 +33,7 @@ const type kValue = xxx;
 // Copyright <year> <owner>  All rights reserved.
 // Author <mail>
 // Date 2021/01/2
-// Breif <说明>
+// Brief <说明>
 //
 // 其他文件注释
 // ...

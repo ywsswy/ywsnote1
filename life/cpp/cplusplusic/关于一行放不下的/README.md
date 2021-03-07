@@ -22,8 +22,6 @@ type func(
 首先考虑前者
 ```
 
-
-
 ## 非官方
 
 “一种”格式化
@@ -62,9 +60,8 @@ scl enable llvm-toolset-7.0 bash #这句是单独开了一个bash，里面能用
 * 对于长的逻辑表达式，超过最大字符长度后，按以下格式缩进
 ```
 if (this_one_thing > this_other_thing &&
-    a_third_thing == a_fourth_thing &&
+    a_third_thing == a_fourth_thing &&  //4缩进
     yet_another &&
-    last_one)
-{
-    ...
+    last_one) {
+  ... //2缩进
 }
