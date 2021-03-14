@@ -49,3 +49,12 @@ enum TYPE2 {
 Yws_TYPE1_AND // 0
 TYPE2::AND // 0
 ```
+
+
+其他类型
+google.protobuf.Any details = 2;
+
+方法：
+bool PackFrom(const google::protobuf::Message& message);
+bool UnpackTo(google::protobuf::Message* message) const;
+看起来发送方所有类型都能pack到这个字段里，一般还会有个字段标识类型，接收方再根据类型标识，写if-else来Unpack

@@ -1,13 +1,4 @@
-.gcov 是编译完生成
-.gcda 是运行完写入
-所以反复运行的话，.gcda会越来越大
 
-
-lcov 对 *.gcov 进行改造，生成 *.info
-lcov --directory . --capture --output-file t.info
-lcov --remove t.info "/usr*" -o t.info
-genhtml 把 *.info 生成result文件夹，借助web浏览器，就可以很直观的看到结果
-genhtml -o results t.info
 //yws_tools.h
 #include<iostream>
 class YwsTools
@@ -79,3 +70,4 @@ TEST_F(YwsToolsTest, test4)
 EXPECT_TRUE(一个条件)
 EXPECT_EQ(a,值)
 EXPECT_STREQ(a,字符串)
+ASSERT_EQ(a,值) //失败之后直接退出这个TEST，用于下面会core掉的情况

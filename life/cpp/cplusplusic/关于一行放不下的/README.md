@@ -1,14 +1,18 @@
-## type a = b;
+同时匹配多个模式的时候，已知优先级 1 > 3
+
+
+## 1) type a = b; 或者 type a = b(c, d).f();
 ```
 a =
     b; //缩进4个空格
+    b(c, d).f(); //缩进4个空格
 ```
-## type func(type a) {
+## 2) type func(type a) {
 ```
 type func(
     type a {//缩进4个空格
 ```
-## type func(type a, type b);
+## 3) type func(type a, type b);
 ```
 既有可能
 type func(type a, type b);

@@ -1,3 +1,5 @@
+初识
+
 git clone https://github.com/google/googletest.git
 切换到稳定分支
 cmake .
@@ -6,7 +8,7 @@ make && make install
 
 #include "gtest/gtest.h"
 
-TEST(mytest, what)
+TEST(mytest, what) //TEST宏跟TEST_F宏的区别，TEST之间是互相独立的测试类，两个参数随便写，互不干扰，TEST_F第一个参数必须是人工public继承于::testing::Test的mock类，第一个参数相同的TEST_F都相当于归属于同一个类/大case里的小case，那么共享mock类的成员变量
 {
     EXPECT_EQ(1, 1);
 }
@@ -37,8 +39,8 @@ default:
 g++ test_ut.cc -lgtest_main -lgtest -lgcov -lpthread -std=c++11 -fprofile-arcs -ftest-coverage
 # gtest_main可以支持代码中不必写main函数直接test
 # -fprofile-arcs -ftest-coverage 统计覆盖率，编译链接后会生成*.gcno文件
-# ./a.out运行后会生成*.gcda文件
-apt install lcov # 包含了genhtml
-lcov -c -d . -o lcov.info # 生成代码覆盖信息别忘了要在最开始清理 find . -regextype egrep -regex '.*\.((gcno)|(gcda)|(info))' -type f -exec rm -f {} \;
-lcov -r lcov.info "/usr/*" -o lcov.info #移除一些不需要覆盖的目录
+# ./a.out运行后会生成*.gcda文件,所以反复运行的话，.gcda会越来越大
+
+lcov --capture --directory . --output-file lcov.info # 生成代码覆盖信息,对 *.gcov 进行改造，生成 *.info # apt install lcov里面已经包含了genhtml。别忘了要在最开始清理 find . -regextype egrep -regex '.*\.((gcno)|(gcda)|(info))' -type f -exec rm -f {} \;
+lcov --remove lcov.info "/usr/*" -o lcov.info #移除一些不需要覆盖的目录
 genhtml -p $thisdir -o results lcov.info #生成可视化Html
