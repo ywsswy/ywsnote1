@@ -1,5 +1,8 @@
 # [编译]问题汇总
 
+## 类的成员函数xxx当作普通函数调用，应该改成yyy.xxx
+- error: 'xxx' was not declared in this scope
+
 ## 未声明就使用类型（非指针）
 - error: field 'var1' has incomplete type
 

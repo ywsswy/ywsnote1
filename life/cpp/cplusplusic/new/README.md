@@ -1,3 +1,5 @@
+还要再细看的：3.5
+
 ## 2.2 头文件保护，跟#pragma once相比，可能更跨平台，但是我选择pragma once
 使用 #define 来防止头文件被多重包含, 命名格式当是: <PROJECT>_<PATH>_<FILE>_H_（me：如果没定下project，就_<PATH>_<FILE>_H_)
 #ifndef FOO_BAR_BAZ_H_

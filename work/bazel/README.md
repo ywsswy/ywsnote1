@@ -19,7 +19,6 @@ cc_library( //这种是生成obj
     linkopts = [""], //这里可以写类似"-pthread"的链接操作
 )
 
-
 cc_binary(  //这种是要生成可执行文件
     name = "hello-world",
     srcs = ["hello-world.cc"], // 自己的源文件
@@ -40,7 +39,21 @@ https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
 ## bazel clean --expunge #加了expunge，清理的更彻底？
 
 ## 单元测试，这种写法可以单步调试
-bazel coverage ... --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --strip=never --compilation_mode=dbg -s
+bazel coverage ... -c dbg --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --strip=never --compilation_mode=dbg -s #查看输出日志可以查看二进制文件，用相对路径去执行
+--test_output=all # 可以输出执行情况
+
+## 可以使用copts增加单元测试时的私有变量访问
+cc_test(
+    name = "test",
+    srcs = glob(
+        ["*_test.cc", "mock_*.h"]
+    ),
+...
+    copts = [
+      "-fno-access-control"
+    ]
+)
+
 
 genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 

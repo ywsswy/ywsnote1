@@ -10,13 +10,16 @@ public:
 }
 
 在TEST中调用mock类的对象的该函数前使用
-EXPECT_CALL(该对象,  <fun_name>(::testing::__)).<建造器模式写的期待或mock返回值>
+EXPECT_CALL(该对象,  <fun_name>(<matcher1>, <matcher2>, ...)).<建造器模式写的期待或mock返回值>
 
-次数期待的方法有：
+## matcher的方式有：（用于【校验】内部调用被mock的函数的参数是否匹配，不匹配即报错，而不是调用原本的函数；讲道理在设计之初应该避免这种情况，拆成多个实现函数不好吗）
+::testing::_ // 任意参数都可以
+ResultOf(自己写的校验方法的函数指针, 自己写的校验方法的函数期望的返回值)
+## 次数期待的方法有：（用于【校验】被mock的函数的调用次数是否正确，不正确即报错）
 .Times(AtLeast(1))
 .Times(<times>) //恰好被调用多少次
-mock值的建造器方法有：
-.WillOnce(Return(<mock值>))//可以按顺序一直写期望的返回结果
+## mock值的建造器方法有：（用于【模拟】被mock的函数的返回值）
+.WillOnce(Return(<mock值>))//可以按顺序一直写期望的返回结果 如果返回值引用，使用ReturnRef
 .WillRepeatedly(Return(<mock值>));//始终返回某值，可以跟在WillOnce基础上再建造，反正按顺序判断
 
 

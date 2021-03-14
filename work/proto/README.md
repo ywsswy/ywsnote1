@@ -28,7 +28,8 @@ std::fstream output("yin1", std::ios::out | std::ios::binary);
 a.SerializeToOstream(&output);
 
 // 反序列化回pb
-ParseFromString(str)
+ParseFromString(const std::string& str)
+bool ParseFromArray(const void* data, int size)
 
 // debug
 Utf8DebugString()
