@@ -16,6 +16,7 @@ http.server.location.root # 这部分路径对用户来说透明
 http.server.location.autoindex on; #则表示用户可以访问目录
 
 启动sbin/nginx
+重启nginx -s reload
 
 ## example:
     server {
@@ -24,6 +25,7 @@ http.server.location.autoindex on; #则表示用户可以访问目录
         location /c/d {
             root   ../../a/b/;
             autoindex on; 
+            # proxy_pass http://baidu.com; 如果不是访问本地，而是其他服务
         }
 
 ## 其实nginx能做到的flask也能做，只需要在static/file目录下ln -s即可，所以仅当必须给用户查看目录的情况下才会用到nginx

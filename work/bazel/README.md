@@ -59,6 +59,9 @@ genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 
 ## 输出日志在，
 bazel-out/k8-fastbuild/testlogs/<path><test_bin>/test.log
+## 反正bazel-out里面是最全的
+每个单测的执行目录是
+bazel-out/k8-dbg/bin/<path>/<test_bin>.runfiles/__main__
 
 # .bazelrc
 这里面可以写一些默认编译参数，例如

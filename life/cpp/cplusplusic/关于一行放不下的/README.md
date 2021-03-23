@@ -15,8 +15,6 @@ type func(
 ## 3) type func(type a, type b);
 ```
 既有可能
-type func(type a, type b);
-又有可能
 type func(type a,
           type b);
 又有可能
@@ -24,6 +22,12 @@ type func(
     type a,
     type b);
 首先考虑前者
+```
+## 4) type a = b ? c : d;
+```
+type a = b
+             ? c  // 相对b缩进4格
+             : d;
 ```
 
 ## 非官方
@@ -68,4 +72,8 @@ if (this_one_thing > this_other_thing &&
     yet_another &&
     last_one) {
   ... //2缩进
+} else if (...) {
+  ...
+} else {
+  ...
 }
