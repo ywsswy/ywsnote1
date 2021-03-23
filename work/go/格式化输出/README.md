@@ -10,10 +10,8 @@ type YwsData struct {
   name string
   num int32
 }
-//暂定要美化（string struct error）就Printf("%v    要完整信息就Printf("%#v
-  fmt.Printf("%#v\n", *ywsData) // 详细的输出每个key+value
-  fmt.Printf("%v\n", *ywsData)
-
+//暂定要美化（string struct error）就Printf("%v\n    
+//要完整信息就Printf("%#v\n
 
 ## 结构体初始化
 type Ytestma struct {

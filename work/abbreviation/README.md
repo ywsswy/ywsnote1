@@ -1,3 +1,15 @@
+HA 高可用High Availability，是分布式系统架构设计中必须考虑的因素之一
+
+apache 基金会，下面有很多开源项目
+
+hadoop：Hadoop是一个生态系统基于java开发的开源平台，包括HDFS（存储）、MapReduce（计算）、Yarn（资源调度）。一个大脑加一个口袋构成一个单体，大脑负责计算数据，口袋负责存储数据。多个单体构成集群。
+
+hive：基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射成一张虚表，并提供类SQL查询功能；内部是转化为MapReduce程序。没有服务端，它本质是Hadoop或者说是HDFS的一个客户端，对HDFS的数据和Meta store的元数据进行操作。有了这个mapreduce让多个大脑同时计算存储在多个口袋里的数据。
+
+spark:是一个用scala(开发语言)编写的计算框架，基于内存的快速、通用、可扩展的大数据分析引擎，对标hadoop，比hadoop快
+
+flink。。和spark也对标
+
 基于主干开发（TBD）trunkbaseddevelopment
 多个开发人员避免了合并地狱，应该把新功能拆分出很多小的块来实现，并且在每一块完成的时候都将它推送到主干中去
 
@@ -34,6 +46,10 @@ TDD 测试驱动开发(Test-Driven Development)，类似于没写好代码之前
 
 DevOps 一词的来自于 Development 和 Operations 的组合，突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。
 
+CI 持续集成 continuous integration
+CD 持续交付 continuous delivery
+CO 持续部署
+
 去中心化：例如比特币的记账网络，每个人都记账，谁死了都不怕钱财死无对证，每个人都知道每个人有多少钱。（跟上古时代类比就是的贝壳当货币，然后每个人都记账，记下来每个人现在有多少贝壳，不存在私自交易了，全是公开交易？）
 挖矿：比特币记账网络上每10分钟会举行一次算术比赛，第一个算出来的人可以第一个记账（且有50bit币奖励（每记账21万次，奖励减半）），所以才有挖矿。
 
@@ -41,7 +57,7 @@ DevOps 一词的来自于 Development 和 Operations 的组合，突出重视软
 
 concurrent 并发，单核CPU/单车道，只可能并发，不可能并行
 
-CAP 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）
+CAP 一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）。一个系统只能占两点：PC是分布式强一致性，AP是分布式最终一致性
 UGC
 PGC Professionally-generated Content，专业生产内容
 
