@@ -69,6 +69,8 @@ build --cxxopt="--std=c++17"
 build --copt=-O0
 build --incompatible_no_support_tools_in_action_inputs=false
 
+# 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端
+
 ## 一些编译参数
 -c (dgb|opt) //分别表示-g 和 -O2 -DNDEBUG
 --deleted_packages=<path to BUILD>

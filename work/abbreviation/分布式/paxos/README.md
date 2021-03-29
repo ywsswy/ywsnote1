@@ -1,3 +1,0 @@
-Proposer
-Acceptor
-Learners
