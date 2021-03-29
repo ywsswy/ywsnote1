@@ -1,7 +1,7 @@
 ## golang(proto2) 对应的字段类型，命名都会变成首字母大写的驼峰
 |-|(生成的go的struct里面的类型)|GetX()|
 |---|---|---|
-|optional int32 a = 1|A *int32|func (m *Class) GetA() int32|
+|optional int32 a = 1|A *int32. 不太对，好像又不是指针|func (m *Class) GetA() int32|
 |optional Info b = 2|B *Info|func (m *Class) GetB() *Info|
 |repeated int32 c = 3|C []int32|func (m *Class) GetC() []int32|
 |optional bytes f = 7|F []byte|

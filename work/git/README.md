@@ -28,6 +28,7 @@ git fetch -p 获取所有远程分支改动信息（p可以保证删掉的远程
 git tag <name> # git tag -d <name> # git push origin <name>
 git commit --amend #修改commit信息
 git submodule summary # 查看但是用的子模块的commit...此刻子模块的commit
+git cherry-pick <commit> #把其他分支的某次修改弄到当前来
 
 - linux ->WSL, Don't xvf in WSL:/mnt(destory the filemode), you can xvf and edit in WSL:~/$
 - git rebase -i HEAD~<num> # 把最近num条commit合并成一个commit，

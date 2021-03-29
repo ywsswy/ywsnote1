@@ -43,4 +43,4 @@ g++ test_ut.cc -lgtest_main -lgtest -lgcov -lpthread -std=c++11 -fprofile-arcs -
 
 lcov --capture --directory . --output-file lcov.info # 生成代码覆盖信息,对 *.gcov 进行改造，生成 *.info # apt install lcov里面已经包含了genhtml。别忘了要在最开始清理 find . -regextype egrep -regex '.*\.((gcno)|(gcda)|(info))' -type f -exec rm -f {} \;
 lcov --remove lcov.info "/usr/*" -o lcov.info #移除一些不需要覆盖的目录
-genhtml -p $thisdir -o results lcov.info #生成可视化Html
+genhtml -p ${thisdir} -o results lcov.info #生成可视化Html到results目录

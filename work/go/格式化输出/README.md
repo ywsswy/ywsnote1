@@ -30,6 +30,3 @@ type Ytestma struct {
     },  
   }
 
-## 关于error
-"github.com/pkg/errors"
-有error要一层层上报的话，最好return fmt.Errorf("msg\n\t%w", err)
