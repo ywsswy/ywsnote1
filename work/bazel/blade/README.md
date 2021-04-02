@@ -18,17 +18,19 @@ https://github.com/chen3feng/blade-build
 根目录是 BLADE_ROOT
 依赖系统的 是写 #pthread
 --verbose显示详细信息
-编译时是在跟目录，会自动-Ithirdparty -Ibuild64_release -I.
+编译时是在跟目录，会自动-Ithirdparty -I. -Ibuild64_release （如果加了-p debug参数，则是-Ibuild64_debug）
 blade query --deps //test:demo --output-to-dot <file>
+testdata = ['//test/test_data/leaf_request.data'], # test.cc中也按照从根目录开始读取
+srcs = glob(['*_test.cc']),
 
 ## 记一次gtest引入
 
 
-1) thirdparty/gtest目录下放置“裸”的头文件、lib64_release文件夹（里面有libgtest.a和libgtest_main.a）和一个BUILD
+1) thirdparty/gtest目录下放置“裸”的头文件、lib64_debug文件夹（里面有libgtest.a和libgtest_main.a）（如果不是-p debug，则需要文件夹lib64_release）和一个BUILD
 ```
 cc_library(
     name = 'gtest',
-    prebuilt = True
+    prebuilt = True  # 表明依赖的libgtest.a已经编译好了
 )
 
 cc_library(
@@ -39,10 +41,10 @@ cc_library(
 2) BLADE_ROOT里不需要写gtest_libs、和gtest_main_libs，因为会自动去找thirdparty，而不是去系统找
 
 3) 使用时
-单测目录里BUILD，都不需要把'//thirdparty/gtest:gtest'加进deps中，cc_test也很智能？
+单测目录里BUILD，都不需要把'//thirdparty/gtest:gtest'加进deps中，cc_test也很智能
 xxx.cc
 ```
-#include "thirdparty/gtest/gtest.h"
+#include <gtest/gtest.h>
 
 int Tadd(int a, int b){ 
   return a + b;
@@ -54,4 +56,4 @@ TEST(Addtest, addtest1) {
 }
 ```
 4) 运行时
-blade test //<path>/<to>/<folder>:<xxx>
+blade test -p debug //<path>/<to>/<folder>:<xxx> --coverage --verbos

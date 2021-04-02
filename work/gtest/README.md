@@ -41,6 +41,6 @@ g++ test_ut.cc -lgtest_main -lgtest -lgcov -lpthread -std=c++11 -fprofile-arcs -
 # -fprofile-arcs -ftest-coverage 统计覆盖率，编译链接后会生成*.gcno文件
 # ./a.out运行后会生成*.gcda文件,所以反复运行的话，.gcda会越来越大
 
-lcov --capture --directory . --output-file lcov.info # 生成代码覆盖信息,对 *.gcov 进行改造，生成 *.info # apt install lcov里面已经包含了genhtml。别忘了要在最开始清理 find . -regextype egrep -regex '.*\.((gcno)|(gcda)|(info))' -type f -exec rm -f {} \;
-lcov --remove lcov.info "/usr/*" -o lcov.info #移除一些不需要覆盖的目录
-genhtml -p ${thisdir} -o results lcov.info #生成可视化Html到results目录
+lcov --capture --directory . --output-file lcov.info # 生成代码覆盖信息到lcov.info # 别忘了要在最开始清理 find . -regextype egrep -regex '.*\.((gcno)|(gcda)|(info))' -type f -exec rm -f {} \;
+lcov --remove lcov.info "/usr/*" -o lcov.info # 移除一些不需要覆盖的目录
+genhtml -p ${thisdir} -o results lcov.info # 生成可视化Html到results目录

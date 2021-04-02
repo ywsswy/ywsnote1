@@ -39,7 +39,7 @@ $(($RANDOM%2+1))  #产生1到2之间的随机数
 if [ ${a} -gt 0 ];then #大于0
 elif [ ! -e "file" ];then
   echo "文件不存在" # e是这个名字存在？d是常规文件存在？
-elif [ "$s1" == "start" -o "$s1" == "restart" ];then
+elif [ "$s1" == "start" -o "$s1" == "restart" ];then # 在方括号内做字符串使用时要加""，其他时候赋值等操作不需要
   echo "逻辑或，-a是逻辑与,不能分行写，除非\换行"
 elif [ "${var+yes}" == "" ];then
   echo "${var} unset" # 变量有三种情况，非空，空，unset，通过判断${var+set}为空，说明unset
@@ -133,10 +133,22 @@ done
 count_k=()
 count_v=()
 ## 查找
-function HashGet()
-{
+function GetOS() {
+  os="$(uname)"
+  if [ "$os" == "Darwin" ];then
+    echo -n "mac"
+  else
+    echo -n "linux"
+  fi
+}
+function HashGet() {
+  res=$(GetOS)
+  if [ "$res" == "mac" ];then
+    md5hash=$(echo -n "$1" |md5)
+  else
     md5hash=$(echo -n "$1" |md5sum)
-    echo $((16#${md5hash:0:15}))
+  fi
+  echo $((16#${md5hash:0:15}))
 }
 hash_index=$(HashGet ${"<key>"})
 if [ "${count_k[${hash_index}]+set}" != "" ];then
