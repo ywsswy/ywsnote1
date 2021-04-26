@@ -9,7 +9,7 @@
     br = branch
 [user]
     name = ywsswy
-    email = 1726208887@qq.com
+    email = ywsswy@qq.com
 [core]
     quotepath = false
 # 可选 把那两种git地址替换成git@xxx

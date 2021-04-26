@@ -19,7 +19,7 @@ sudo route del -net default gw 172.18.112.1 #删除内网的那条默认路由
 ss -nl 显示tcp连接端口等 
 xrand -s 800x480 改分辨率
 sudo poweroff 关机
-echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度
+echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))
 dd if=/dev/zero of=test bs=1M count=1024 # 创建一个G的文件
 
 ctrl+alt+f1~6进入真正终端tty1~tty6，ctrl+alt+f7返回图形窗口;exit退出终端
