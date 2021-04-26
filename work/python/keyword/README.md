@@ -14,7 +14,7 @@ else:
 【for
 #!/usr/bin/python
 #filename:test.py
-for i in range(1,5):
+for i in range(1,5): #左闭右开
     print(r'''%d'''%(i))
 else:
     print(r'''The for loop is over.''')

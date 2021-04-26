@@ -37,8 +37,8 @@ template<YPRINT(list<T)
 template<YPRINT(vector<T)
 
 int main() {
-    std::cin.tie(0);
-    std::ios::sync_with_stdio(false);
-    return 0;
+  std::cin.tie(0);
+  std::ios::sync_with_stdio(false);
+  return 0;
 }
 

@@ -4,13 +4,15 @@ curl -X POST "localhost:9200/_scripts/testtemplate" -H 'Content-Type: applicatio
 {
     "script": {
         "lang": "mustache",
-        "source": {
+        "source": """
+        {
             "query": {
                 "match": {
                     "title": "{{query_string}}"
                 }
             }
         }
+"""
     }
 }
 '

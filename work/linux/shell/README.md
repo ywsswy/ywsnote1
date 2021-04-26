@@ -30,7 +30,7 @@ fi
 "$$" 脚本的pid，当前脚本的启动进程
 res=$(<function name> <param>) 获取命令/函数输出结果，不用``，用这种方式进行函数调用不会让函数内的变量污染全局
 eval 会先把后面的字符串先解析，再执行
-"" 内的命令会被解析执行
+"" 内的命令/$会被解析执行 # echo "$chr" 和 echo $chr 大不相同，如果chr=“*”，前者会变成echo "*"，后者变成 echo *，后者会输出目录下所有文件。。。
 '' 内会当作字符串原封不动
 $(($RANDOM%2+1))  #产生1到2之间的随机数
 
@@ -133,24 +133,7 @@ done
 count_k=()
 count_v=()
 ## 查找
-function GetOS() {
-  os="$(uname)"
-  if [ "$os" == "Darwin" ];then
-    echo -n "mac"
-  else
-    echo -n "linux"
-  fi
-}
-function HashGet() {
-  res=$(GetOS)
-  if [ "$res" == "mac" ];then
-    md5hash=$(echo -n "$1" |md5)
-  else
-    md5hash=$(echo -n "$1" |md5sum)
-  fi
-  echo $((16#${md5hash:0:15}))
-}
-hash_index=$(HashGet ${"<key>"})
+hash_index=$(HashGet "${<key>}")
 if [ "${count_k[${hash_index}]+set}" != "" ];then
   echo "exist"
 else
