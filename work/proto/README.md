@@ -2,7 +2,7 @@
 protoc --cpp_out=. yws.proto  // golang则是 protoc --go_out=. yws.proto
 g++ writer.cc yws.pb.cc -std=c++11 -lprotobuf -lpthread
 
-- operation=操作符内也是调用了CopyFrom，是深拷贝，并且推荐操作符能编译报错，避免不同类型之间错误CopyFrom，不用担心浅拷贝；另外MergeFrom是危险的，不同版本的pb文件会造成不断增长的问题；
+- （不要用CopyFrom）operation=操作符内也是调用了CopyFrom，是深拷贝，并且推荐操作符能编译报错，避免不同类型之间错误CopyFrom，不用担心浅拷贝；另外MergeFrom是危险的，不同版本的pb文件会造成不断增长的问题；
 - Clear() 清除所有值
 - message放内(嵌套)放外，改命名空间，改字段名称，import其他文件的message，生成的二进制都相同
 

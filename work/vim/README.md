@@ -11,6 +11,7 @@ set fileencodings=utf-8 "解决utf-8文件里面中文乱码
 set hlsearch "高亮搜索词
 set list "显示特殊字符
 set makeprg=scons\ -j8"quickfix模式，自动跳到第一个出错的地方，写完代码不退出直接:make，然后出错后:cw可以打开错误提示，这种情况不要强制输出gcc的颜色
+set noignorecase
 set number "显示行号
 set shiftwidth=2 "<>的缩进宽度
 set tabstop=2 "设置tab宽度 "shiftwidth要和ts设置一致，如果shiftwidth宽度小于ts，那么往回缩的时候会额外加空格补齐了哇！

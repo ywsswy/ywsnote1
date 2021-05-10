@@ -18,8 +18,6 @@ git submodule foreach --recursive git checkout master
 git submodule foreach git pull
 
 
-删除submodule可能删不干净，方法是要删掉后git rm --cached xxx
-
 
 ## 场景1：新拉的项目必须
 git submodule init #然后status 显示的是子模块所需要的commit，前面有减号
@@ -39,3 +37,12 @@ git submodule init
 git submodule update
 可以用一条命令替换
 git submodule update --init --recursive
+
+
+
+# 删除
+
+git submodule deinit <sub>
+git rm <sub> #这个就能移除.gitmodule里面的内容了
+
+???删除submodule可能删不干净，方法是要删掉后git rm --cached xxx
