@@ -10,3 +10,6 @@ for (auto &&it : container) # 这么访问咯
 避免裸指针，用auto ptr = std::make_shared<CLASS>();
 
 模板函数是不能把实现写到cpp里的，头文件中就要写
+
+
+new 出来的是VIRT虚拟内存，memset之后才会变成RES常驻内存，
