@@ -58,11 +58,25 @@ bool operator<(const Y &yc1, const Y &yc2){//类外重载的方法
 bool mycompare(const Y &yc1, const Y &yc2){//类外自定义比较函数的方法（使用时sort(.begin(), .end(), mycompare)），即第三个参数是个比较函数的地址
 
 return true时会移动元素
-yc1/后面的/元素/this
+yc1/this/排序时后面的元素
 比
-yc2/前面的元素/y
+yc2/y/排序时前面的元素
 小/优先级低
 //一次list.sort()中两个元素在最多比较一次，但priority_queue和sort(vec1.begin(),vec1.end())中可能比较大于1次，所以可能大于1次的比较函数不要写出歧义
+```
+class InvertedNode {
+ public:
+  InvertedNode() {}
+  bool operator<(const InvertedNode& b) const {
+    if (this.score_ > b.score_) {
+      return true;
+    }
+    return false;
+  }
+  double score_;
+};
+// 这个例子中，InvertedNode类内的比较函数表明，当this.score值更大的时候，后面的元素值更大的时候，会return true，会交换二者，那最终排序的话就等价于按照score降序
+```
 ```
 ## 2
 ```
@@ -96,3 +110,5 @@ for(list<int>::iterator it = li.begin();it != li.end();it++){
     }
 ```
 
+std::lower_bound
+https://blog.csdn.net/albertsh/article/details/106976688

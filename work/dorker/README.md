@@ -1,4 +1,5 @@
-dorker的操作应该都是root用户
+dorker的操作应该都是root用户（普通用户：https://www.cnblogs.com/franson-2016/p/6412971.html）
+非常好玩的是，两个人同时attach一个docker，那么两个人的终端就同步了，一个人操作另一个人能看
 
 镜像仓库服务（docker registry）是一个类似github的东西
 
@@ -14,9 +15,9 @@ docker rmi <image ID>
 
 Docker本质上是一个运行在Linux操作系统上的应用，而Linux操作系统分为内核和用户空间，无论是CentOS还是Ubuntu，都是在启动内核之后，通过挂载Root文件系统来提供用户空间的，而Docker镜像就是一个Root文件系统。
 # 运行镜像image（创建容器container）
-docker run -it -v <本地目录>:<容器目录> --network=host --name <NAMES> --security-opt seccomp=unconfined <IMAGE ID> 安全参数是为了便于单步调试
-示例：（需要注意的是如果root里面建立的超出去的软链接，也需要-v映射）
-docker run -it -v /root/:/root/ --network=host --name test --security-opt seccomp=unconfined xxx
+docker run -m 10240M -it -v <本地目录>:<容器目录> --network=host --name <NAMES> --security-opt seccomp=unconfined <IMAGE ID> 安全参数是为了便于单步调试
+示例：（需要注意的是如果root里面建立的超出去的软链接，也需要-v映射；-m是对物理内存做限制，超出会出发oom机制）
+docker run -m 10240M -it -v /root/:/root/ --network=host --name test --security-opt seccomp=unconfined xxx
 
 # 查看各个docker的状态，STATUS有 Exited Up等
 docker ps -a
