@@ -6,7 +6,7 @@ RES	进程使用的、未被换出的物理内存大小，【单位kb】。RES=C
 第一列是VmSize (pages)  数值等于top中的VIRT/4
 第二列是VmRSS (pages) 数值等于top中的RES/4
 
-# OOM之后使用命令dmesg －T | grep -E -i -B100 'killed process'
+# OOM之后使用命令dmesg -T | grep -B100 'Killed process'
 ```
 total_vm相当于VmSize
 rss相当于VmRSS
@@ -22,7 +22,6 @@ rss相当于VmRSS
 [13478742.075788] Killed process 6346 (a.out) total-vm:1020052kB, anon-rss:986336kB, file-rss:1244kB
 
 ```
-
 # 代码中的API
 <unistd.h>中getpagesize();函数可以计算本机一个page多少kb，一般是4096
 

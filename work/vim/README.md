@@ -18,6 +18,7 @@ set tabstop=2 "设置tab宽度 "shiftwidth要和ts设置一致，如果shiftwidt
 set wildmenu "显示一整行的提示符
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "防止连续自动注释行
 "syntax off "关闭语法高亮，默认是on
+" 知其然不知其所以然，但是它是工具！
 # 各种见识
 set wrap "自动换行，但是vim -d 打开的文件貌似这个参数没生效
 set scrollbind "在各自窗口输入这个，可以使得两窗口同时滚动
@@ -54,6 +55,7 @@ gu/Uw 单词变小/大写
 ~ 光标字母大小写变换
 zf% 折叠这个花括号
 zf<line>G 从这行折叠到<line>行
+ctrl+r 反撤销
 
 :set nobomb 设置utf-8务bomb模式（一般windows的php文件会有bomb头，这样网页可能显示异常）
 :set bomb?  查询是否有bomb
