@@ -1,4 +1,4 @@
-std::ofstream of1;
+std::ofstream of1("<file_name");  // default overwrite, std::ofstream::app 追加
 
     if(of1.is_open()){//check if file is open
         std::cout << "open ok" << '\n';

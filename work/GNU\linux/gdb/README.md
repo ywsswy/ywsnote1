@@ -38,6 +38,8 @@ c[ontinue]
 clear 23 //清除23行的断点
 del[ete] 1 //删除1号断点
 i[nfo] r[egisters] //显示所有汇编寄存器变量的值
+info threads  // 显示所有线程
+thead <num> // 切换到第几个线程，然后看bt，可以定位多线程问题
 bt显示程序调用栈，也可以用此查看下一条执行哪行语句
 fin[ish] //step out
 p 显示变量的值

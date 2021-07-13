@@ -1,10 +1,10 @@
 # 单独开线程，设置超时控制
-
+```
 function WaitFunction() {
   timeout="$1"
   {
     trap 'kill $(jobs -p) >&2' EXIT;
-    # TODO process lock
+    # TODO process work
 
   }&
   sub_pid=$!
@@ -14,3 +14,4 @@ function WaitFunction() {
 }
 
 res=$(WaitFunction 4)
+```
