@@ -25,6 +25,9 @@ docker ps -a
 # 删除容器
 docker rm -f <CONTAINER ID>
 
+# 重命名容器
+docker rename <old_name> <new_name>
+
 # 从 Exited状态启动起来
 docker start <CONTAINER ID>
 
