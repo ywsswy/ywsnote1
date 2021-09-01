@@ -18,7 +18,7 @@ usually If lowercase, the symbol is usually local; if uppercase, the symbol is g
 0000000000000064 T SetColor
                  U _Unwind_Resume
                  U _ZdlPv
-                 U _ZN5Apple8GetColorEv # U表示未定义
+                 U _ZN5Apple8GetColorEv # U表示未定义，虽然编译过了，但是没有实现，需要等到链接时去其他文件找实现
                  U _ZN5Apple8SetColorEi
                  U _ZN5AppleC1Ev
 0000000000000000 W _ZN8tagAppleC1Ev

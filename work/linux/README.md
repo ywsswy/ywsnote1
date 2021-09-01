@@ -12,14 +12,13 @@ netstat -tl
 netstat -pan |grep <port> #查看端口占用
 lsof -i:<port>
 fc-list #查看已安装字体及路径，rm即可删除
-U盘文件损坏，先查看/var/log/syslog确诊 然后sudo umount /media/hill/AC 最后sudo dosfsck -v -a /dev/sdb1修复
 convert src.png -crop 100x80+60+40 desc.png  #使用imagemagick 剪切图片区域（宽x高+x+y）
 route add -host 202.202.32.202 gw 172.18.112.1 #让教务在线走有线网卡
 sudo route del -net default gw 172.18.112.1 #删除内网的那条默认路由
 ss -nl 显示tcp连接端口等 
 xrand -s 800x480 改分辨率
 sudo poweroff 关机
-echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))
+echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))，如果要计算整数除法求余，就要把scale设置为0
 dd if=/dev/zero of=test bs=1M count=1024 # 创建一个G的文件
 
 ctrl+alt+f1~6进入真正终端tty1~tty6，ctrl+alt+f7返回图形窗口;exit退出终端

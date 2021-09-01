@@ -23,3 +23,5 @@ VScode+golang cmd+左键 跳转 //ctrl+- 回跳
 terminal设置，preference里面profiles选择pro，并设置为默认，勾选Antialias text，opacity设置100%
 
 自带录屏quicktime，无法录制系统内部声音，可以安装loopback，修改sources中的输入（麦克风要选，app应用要选）即可，quicktime的输入设置成loopback！
+
+killall Dock  # 重启dock，解决有时候程序坞不显示程序的问题

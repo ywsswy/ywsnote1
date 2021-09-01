@@ -7,7 +7,7 @@ std::future
 二、
 C++11
 1)启动线程
-#include<thread>
+#include <thread>
 fun1(int pa1){}
 std::thread var1(fun1,pa1);
 2)

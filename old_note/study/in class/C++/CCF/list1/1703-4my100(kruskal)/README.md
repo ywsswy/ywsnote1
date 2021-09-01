@@ -1,3 +1,4 @@
+```
 //#define YLOFI
 //#define YDELO
 #include<iostream>
@@ -199,3 +200,4 @@ int main(){
 	}
 	return 0;
 }
+```
