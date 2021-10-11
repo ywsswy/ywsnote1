@@ -3,6 +3,23 @@
 2、、3.23、52.3E-4、（-5+4j）
 #str（常量）
 'hello	world'、"hello world's"、'''hello" "world's'''
+#bytes
+a = "hello" 
+print(type(a))
+print(a == b"hello")
+a = b"hello"
+print(type(a))
+print(a == b"hello")
+a = bytes("hello", encoding='utf-8')
+print(type(a))
+print(a == b"hello")
+
+><class 'str'>
+False
+<class 'bytes'>
+True
+<class 'bytes'>
+True
 #转义符
 \' \\ \+结尾（下一行接到此行后）
 #自然字符串（忽视转义字符）

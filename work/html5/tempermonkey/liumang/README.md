@@ -28,15 +28,17 @@
                            {flag: true, site: 'www.bejson.com', selector: 'div.xf2-gg-left', type: Type.attr, key: "hidden", value: true},
                     ];
     function YwsMonitorProcessing(item,time) {
-        var a = document.querySelector(item.selector);
+        var a = document.querySelectorAll(item.selector);
         console.log('YwsMonitorProcessing, time: '+time+', info:'+JSON.stringify(item));
-        if (a === null) {
+        if (a === null || a.length === 0) {
             setTimeout(function(){YwsMonitorProcessing(item,time+1);},time*1000);
         } else {
-            if (item.type === Type.click) {
-                a.click();
-            } else if (item.type === Type.attr) {
-                a.setAttribute(item.key, item.value);
+            for (var i = 0; i < a.length; ++i) {
+                if (item.type === Type.click) {
+                    a[i].click();
+                } else if (item.type === Type.attr) {
+                    a[i].setAttribute(item.key, item.value);
+                }
             }
         }
     }

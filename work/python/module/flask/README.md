@@ -7,6 +7,8 @@ run(threaded=True) # the process handle each request in a separate thread
  #生产环境。。。会搞崩服务器的吗？
 processes=True #这个最大会占cpu的核数个进程
 
+## cookie是存在客户端，每次请求带过来，session是存在服务端
+
 request.args.get()
 request.cookies.get()
 request.files.get().save()

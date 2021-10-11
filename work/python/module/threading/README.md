@@ -5,6 +5,8 @@ threading.Timer(inter, jwzx_monitor).start() # inter:unit(s),jwzx_monitor:<funct
 #这是不阻塞本线程（开启了新线程）的延时，此刻创建线程，等待inter秒后执行<function_name>函数
 
 如果jwzx_monitor函数需要参数，则在后面加个tuple参数放入
+
+值得一提的是由于GIL锁，多线程仍然无法使cpu使用率超过100%
 //////////////////////////////////////////////////////////////////////
 
 https://www.cnblogs.com/tkqasn/p/5700281.html

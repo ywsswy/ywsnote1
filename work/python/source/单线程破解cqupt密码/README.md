@@ -15,6 +15,18 @@ def yJudge(num,id):
             return False
         else:
             return True
+    except urllib.error.HTTPError as mye:
+        print('ErrorCode: %s' % mye)  # <class 'urllib.error.HTTPError'>
+        print('ErrorCode: %s' % mye.code)  
+        print('ErrorCode: %s' % mye.read())  # 如果是404，依然能读取到content内容的
+        print('restart!!{num}&{id} {t}'.format(num=num,id=id,t=time.ctime()),end='\r')
+        sys.stdout.flush()
+        yJudge(num,id);
+    except urllib.error.URLError as mye:
+        print('ErrorCode: %s' % mye)
+        print('restart!!{num}&{id} {t}'.format(num=num,id=id,t=time.ctime()),end='\r')
+        sys.stdout.flush()
+        yJudge(num,id);
     except:
         #sys.stdout.write('\r')
         print('restart!!{num}&{id} {t}'.format(num=num,id=id,t=time.ctime()),end='\r')

@@ -4,6 +4,7 @@
 commit message规范，必选的
 <type>: <subject>
 type种类：feat(merge) fix | build style revert docs refactor | test perf
+ps: 需求开发层级：epic（史诗级大项目，非必选）、feature（可独立发布上线的需求，必须拆分成至少1个story）、stroy（细粒度）
 subject格式：简短描述 --关联标识=<id>
 git diff <old commited/branch> <new commited/new brand> [<file_name>]#注意此刻的untracked file不会参与到diff中
 git diff # 常规diff（当前与暂存区比较）

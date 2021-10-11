@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import flask
-class YError(ValueError):
-    pass
 
 class YGlobal(object):
     flask_app = flask.Flask(__name__)

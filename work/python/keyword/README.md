@@ -46,13 +46,10 @@ d = txt.readlines()
 print(d)
 
 【try except
-class MyError(ValueError):
-	pass
 try:
-	raise YError('呵呵')#可选，抛出异常
-
-except ValueError:
-
+	# there is code to raise error
+except Exception as mye:  # 不仅判断异常类型，还把异常信息赋值给mye，老版本python的写法是except Exceptino, mye:
+        print('error:{}'.format(mye))
 except:
 
 else:#可选，无异常是执行

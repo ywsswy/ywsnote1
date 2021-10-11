@@ -7,7 +7,7 @@ http://111.230.151.212:83/
 【2 url域 & post_data域（form的默认）格式是<key>=<value>，其中的中文字符
 http://111.230.151.212:83/
 （utf-8）：“革”：“0x254539253944254139”（9个字节，ASCII对应的打印字符是%E9%9D%A9）
-python_url域 使用urllib.parse.quote('革') # 参照cclg
+python_url的参数value域 使用urllib.parse.quote('革') # 参照cclg  YFormat('http://xx:10008/xx?a={a_value}', a_value = urllib.parse.quote('xxxx'))
 python_post_data域 使用'chat={}'.format(urllib.parse.quote('运行')).encode('utf_8')
 【3
 C++代码构造post/url请求域
@@ -60,3 +60,29 @@ len(b'\xe8\xbf\x90') # 3
         r_question = r_question.replace("%", "\\")	# '\u56FD&\u6B4C'
         r_question = r_question.encode('utf-8')		# b'\\u56FD&\\u6B4C'
         r_question = r_question.decode('unicode_escape')# '国&歌'
+【python3
+a = b'abc'
+print(type(a))
+print(a)
+print(len(a))
+
+b1 = str(a)
+print(type(b1))
+print(b1)
+print(len(b1))
+
+b2 = str(a, encoding="utf-8")
+print(type(b2))
+print(b2)
+print(len(b2))
+
+>
+<class 'bytes'>
+b'abc'
+3
+<class 'str'>
+b'abc'
+6 # 可以看到如果不加encoding参数，默认情况下得到的不是想要的结果
+<class 'str'>
+abc
+3
