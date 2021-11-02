@@ -1,4 +1,4 @@
-设置：
+创建：
 
 curl -X POST "localhost:9200/_scripts/testtemplate" -H 'Content-Type: application/json' -d'
 {

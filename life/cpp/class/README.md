@@ -59,9 +59,7 @@ bool mycompare(const Y &yc1, const Y &yc2){//类外自定义比较函数的方�
 
 return true时会移动元素
 yc1/this/排序时后面的元素
-比
 yc2/y/排序时前面的元素
-小/优先级低
 //一次list.sort()中两个元素在最多比较一次，但priority_queue和sort(vec1.begin(),vec1.end())中可能比较大于1次，所以可能大于1次的比较函数不要写出歧义
 ```
 class InvertedNode {

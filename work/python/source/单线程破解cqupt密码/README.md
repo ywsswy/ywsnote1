@@ -10,7 +10,7 @@ def yJudge(num,id):
     try:
         f = urllib.request.urlopen(request, data)
         res = f.read()
-        #print(len(res))#
+        #print(len(res))#print(str(res, encoding='utf-8'))
         if len(res) == 29:
             return False
         else:
