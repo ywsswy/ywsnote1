@@ -50,3 +50,12 @@ tokenizers（分词器）, token-filter（分词过滤器）以及 analyzers（�
             },
             "analyzer" : "lowercase_ik_max_word" //这个是alias的分析器
           },
+
+
+
+## 使用特定的分词器分析一个query/doc的分词结果
+POST <index_name>/_analyze
+{
+  "analyzer": "ik_max_word", 
+  "text": "爱很美味"
+}

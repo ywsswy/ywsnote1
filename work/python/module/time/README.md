@@ -1,6 +1,6 @@
 a = time.time() #取得当前时间的时间戳，float（整数部分是秒钟）
 time_struct = time.localtime(a) #时间结构体
-b = time.strftime('%Y %m %d %H:%M',time_struct)
+b = time.strftime('%Y-%m-%d %H:%M:%S',time_struct)
 print(b)
 
 

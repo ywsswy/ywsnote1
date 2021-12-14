@@ -10,7 +10,7 @@ timeout 3 top #设置一个命令的超时时间，超时返回码124， [返回
 tree <folder> -I '<pattern>' #排除某些文件夹进行打印目录树
 netstat -tl
 netstat -pan |grep <port> #查看端口占用
-lsof -i:<port>
+lsof -i :<port>
 fc-list #查看已安装字体及路径，rm即可删除
 convert src.png -crop 100x80+60+40 desc.png  #使用imagemagick 剪切图片区域（宽x高+x+y）
 route add -host 202.202.32.202 gw 172.18.112.1 #让教务在线走有线网卡

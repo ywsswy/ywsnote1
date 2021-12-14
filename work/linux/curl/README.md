@@ -17,7 +17,8 @@ curl -s -H "Content-Type:application/json" -X POST -d"xx\"x'x" 'http://xxx' |jq 
 -X POST -d"xxx"
 -X GET
 --header "Host: www.baidu.com" 配置host的域名，🐂
--H "Accept: application/json;Content-Type:application/x-www-form-urlencoded"
+-H "Accept: application/json" 
+-H "Content-Type:application/x-www-form-urlencoded" 多个header必须都单独写
 -k 可以支持https
 'http:xxx'
 
