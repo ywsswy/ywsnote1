@@ -15,7 +15,7 @@ http.server.location # 这部分路径用户需要在url中匹配上，root加�
 http.server.location.root # 这部分路径对用户来说透明
 http.server.location.autoindex on; #则表示用户可以访问目录
 
-启动sbin/nginx
+启动sbin/nginx(哪怕是yum安装的也是这么启动即可，根本不需要指定service或者daemon)
 重启nginx -s reload
 
 ## example:
@@ -29,3 +29,19 @@ http.server.location.autoindex on; #则表示用户可以访问目录
         }
 
 ## 其实nginx能做到的flask也能做，只需要在static/file目录下ln -s即可，所以仅当必须给用户查看目录的情况下才会用到nginx
+
+## 其他
+- 500错误，可以查看nginx日志，/var/nginx/error.log
+- htpasswd -c <file> <user_name> # 生成一个baseAuth来给nginx使用
+```
+    server {
+      listen xxxx;
+      server_name  localhost;
+      auth_basic "Please input password";
+      auth_basic_user_file /etc/nginx/yws_passwd;
+      location / { 
+        proxy_pass http://127.0.0.1:yyyy/;
+      }   
+    }
+```
+- nginx -t  # 可以测试配置文件是否存在问题

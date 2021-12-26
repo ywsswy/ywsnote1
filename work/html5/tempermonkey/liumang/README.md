@@ -26,6 +26,7 @@
                            {flag: true, site: 'www.bejson.com', selector: 'div.container.t-small-margin', type: Type.attr, key: "style", value: 'max-width: 1760px!important; width: 1760px!important'},
                            {flag: true, site: 'www.bejson.com', selector: 'div#aliLeftBox', type: Type.attr, key: "hidden", value: true},
                            {flag: true, site: 'www.bejson.com', selector: 'div.xf2-gg-left', type: Type.attr, key: "hidden", value: true},
+                           {flag: true, site: 'www.bejson.com', selector: 'div#shuangshi1Modal1', type: Type.attr, key: "hidden", value: true},
                     ];
     function YwsMonitorProcessing(item,time) {
         var a = document.querySelectorAll(item.selector);
