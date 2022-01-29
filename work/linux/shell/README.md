@@ -32,7 +32,7 @@ res=$(<function name> <param>) 获取命令/函数输出结果，不用``，用�
 eval 会先把后面的字符串先解析，再执行
 "" 内的命令/$会被解析执行 # echo "$chr" 和 echo $chr 大不相同，如果chr=“*”，前者会变成echo "*"，后者变成 echo *，后者会输出目录下所有文件。。。
 '' 内会当作字符串原封不动
-$(($RANDOM%2+1))  #产生1到2之间的随机数
+$(($RANDOM%2+1))  #产生1到2之间的随机数，最多到32767
 
 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
 ```
@@ -53,7 +53,7 @@ fi
 function YRead() {
   while IFS= ;read -r line;do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，while的IFS变量会影响整个文件，所以放到函数局部中
     # do something with "$line"
-  done < file #不写重定向的话就是从标准输入读取，或者command | while ...
+  done < file #不写重定向的话就是从标准输入读取，或者cat file | while ...
 }
 ```
 

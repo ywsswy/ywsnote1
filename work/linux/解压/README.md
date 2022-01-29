@@ -7,7 +7,7 @@
 |*.xz|-|xz -d|
 |*.tar.bz2|-|tar xjvf|bzip2|
 |*.rar|-|unrar e|
-|*.zip|-|unzip|
+|*.zip|zip -r \<ziped_name> \<file>|unzip|
 
 总结：
 c和x对应
