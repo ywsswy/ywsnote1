@@ -1,0 +1,3 @@
+按照key对RDD中的value进行分组
+
+相同key的value放在一个seq里

@@ -1,4 +1,4 @@
-redis-cli -c -h <ip> -p <port> <cmd>
+redis-cli -c -h <ip> -p <port> [-a <password>] <cmd> 
 
 >ping
 PONG 表示连接成功

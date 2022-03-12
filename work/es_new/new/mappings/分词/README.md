@@ -59,3 +59,9 @@ POST <index_name>/_analyze
   "analyzer": "ik_max_word", 
   "text": "爱很美味"
 }
+
+## 几种分词
+- n-gram
+我爱你 => 我 爱 你 我爱 爱你 我爱你
+- 按字符长度从1到n进行切割的前缀分词
+我爱你 => 我 我爱 我爱你

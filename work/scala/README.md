@@ -31,3 +31,6 @@ F2: () => Double
 
 - 判断变量是否是某类型
 .isInstanceOf[<type>]
+println(xxx.getClass)
+
+(Set[String], Map[String,Set[String]])  => class scala.collection.immutable.Map$Map1
