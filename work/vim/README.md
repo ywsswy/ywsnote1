@@ -79,3 +79,16 @@ cscope可以查看所有使用处?
 find . -regextype egrep -regex '.*\.((c)|(cc)|(cpp)|(h))' -type f >cscope.filescscope
 cscope -Rbq
 # :cs add cscope.out
+
+【窗口操作】
+<c-w>n 创建新窗口
+<c-w><jkhl> 光标在窗口之间移动
+<c-w><JKHL> 当前窗口浮动到最边缘
+<c-w><num>- 变矮窗口
+<c-w><num>_ 变最高窗口
+<c-w><num>+ 变高窗口
+<c-w><num>< 变窄窗口
+<c-w><num>> 变宽窗口
+<c-w><num>| 变最宽窗口
+<c-x><c-f> 编辑模式时自动[补全/取消补全]文件路径<c-p><c-n>翻页
+<c-w>f 打开当前光标所表示的文件路径

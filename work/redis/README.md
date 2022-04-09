@@ -1,5 +1,7 @@
 redis-cli -c -h <ip> -p <port> [-a <password>] <cmd> 
 
+特别注意，如果<cmd>是set <key> <binary_data>时，不能写成 set <key> "$(cat <file>)"，因为\x00会丢掉，要写成 -x set <key> < <file>
+
 >ping
 PONG 表示连接成功
 >get <keyname>
