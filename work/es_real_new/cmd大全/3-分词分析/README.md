@@ -3,6 +3,8 @@ tokenizers（分词器）, token-filter（分词过滤器）以及 analyzers（�
 过滤器作用是切出来的怎么转换，例如大写转小写
 分析器是分词器和过滤器的组合
 
+分词器必须配置在索引下，创建时指定在settting里，然后mapping里字段就可以配置使用
+- setting示例
 {  
    "settings":{  
       "analysis":{  
@@ -33,7 +35,7 @@ tokenizers（分词器）, token-filter（分词过滤器）以及 analyzers（�
       }
    }
 }
-
+- mapping示例
 {
   "xxx" : {
     "mappings" : {
@@ -51,17 +53,18 @@ tokenizers（分词器）, token-filter（分词过滤器）以及 analyzers（�
             "analyzer" : "lowercase_ik_max_word" //这个是alias的分析器
           },
 
+mapping里明确字段是否需要分词，不需要分词的字段就将type设置为keyword，
+在建立索引时，只会去看字段有没有定义analyzer，有定义的话就用定义的，没定义就用ES预设的
+在查询时，会先去看字段有没有定义search_analyzer，如果没有定义，就去看有没有analyzer，再没有定义，才会去使用ES预设的
+index_analyzer
+Index表示该字段是否索引，如果index为no那个analyzer设为啥也没用
+"index":"not_analyzed"
 
-
-## 使用特定的分词器分析一个query/doc的分词结果
-POST <index_name>/_analyze
-{
-  "analyzer": "ik_max_word", 
-  "text": "爱很美味"
-}
 
 ## 几种分词
 - n-gram
 我爱你 => 我 爱 你 我爱 爱你 我爱你
 - 按字符长度从1到n进行切割的前缀分词
 我爱你 => 我 我爱 我爱你
+- Standard Analyzer
+默认分词器，按词切分，已小写处理（中文会切成单字）

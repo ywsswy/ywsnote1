@@ -16,7 +16,7 @@ object.function() //object:map,vector,list(,string)
 clear  
 empty  
 size	//string also can use length  
-swap  
+swap    // a.swap(b) is same b.swap(a)
 begin   //::iterator ; ++ to end()，可以通过迭代器修改值（map的it->second）;除了vector<>::iterator外，其他的没有 +/- +=/-=运算符  
 end	//end is the lastloc's next loc  
 rbegin	//::reverse_iterator ; ++ to rend()  

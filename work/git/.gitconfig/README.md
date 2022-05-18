@@ -16,3 +16,16 @@
 [url "git@xxx:"]
         insteadOf = https://xxx/
         insteadOf = http://xxx/
+
+
+```
+实际上这配置文件内容可以通过git config --global a.b c 命令插入文件得到如下效果
+[a]
+        b = c
+
+git config --global a.b # 获取到配置的值
+
+git config --global -l  # 获取到所有的配置
+
+git config --global --unset a.b  # 删除某配置
+```

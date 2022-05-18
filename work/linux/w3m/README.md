@@ -8,7 +8,7 @@ wget http://nchc.dl.sourceforge.net/project/w3m/w3m/w3m-0.5.3/w3m-0.5.3.tar.gz
 
 ./configure --prefix='/home/xxx/software/w3m' --with-gc='/home/xxx/software/gc'
 
-export LD_LIBRARY_PATH="/home/xxx/software/gc/lib/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/xxx/software/gc/lib/"
 
 make 
 make install

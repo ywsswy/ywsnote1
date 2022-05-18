@@ -1,4 +1,4 @@
-创建：
+创建脚本：
 
 curl -X POST "localhost:9200/_scripts/testtemplate" -H 'Content-Type: application/json' -d'
 {
@@ -31,7 +31,7 @@ curl -X POST "localhost:9200/_render/template/twittertemplate" -H 'Content-Type:
 
 删除：
 curl -X DELETE "localhost:9200/_scripts/<templatename>"
-查询：
+使用模板脚本进行查询：
 curl -X GET "localhost:9200/_search/template" -H 'Content-Type: application/json' -d'
 {
     "id": "<templateName>",
