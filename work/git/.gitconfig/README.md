@@ -5,7 +5,7 @@
     co = checkout
     cm = commit
     lg = log --graph --decorate --oneline
-    ll = log --graph --pretty=format:\"%C(yellow)%h%Cgreen%d%Cred %an %ci %Creset%s\"
+    ll = log --graph --pretty=format:\"%C(yellow)%h%Cgreen%d%Cred %an ai %Creset%s\"
     br = branch
 [user]
     name = ywsswy

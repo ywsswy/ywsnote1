@@ -1,5 +1,4 @@
-
-# 区域buffer的复制粘贴
+" 区域buffer的复制粘贴
 function! HOpen(what_to_open)
     let [type,name] = a:what_to_open
     if type=='buffer'
