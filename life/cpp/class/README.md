@@ -57,9 +57,9 @@ class Y{
 bool operator<(const Y &yc1, const Y &yc2){//类外重载的方法
 bool mycompare(const Y &yc1, const Y &yc2){//类外自定义比较函数的方法（使用时sort(.begin(), .end(), mycompare)），即第三个参数是个比较函数的地址
 
-return true时会移动元素
-yc1/this/比较时后面的元素
-yc2/y/比较时前面的元素
+return false时会移动元素
+yc1/this/比较时前面的元素
+yc2/y/比较时后面的元素
 //一次list.sort()中两个元素在最多比较一次，但priority_queue和std::sort(vec1.begin(),vec1.end())中可能比较大于1次，所以可能大于1次的比较函数不要写出歧义
 ```
 class InvertedNode {
