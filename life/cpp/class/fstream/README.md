@@ -14,4 +14,9 @@ std::ofstream of1("<file_name");  // default overwrite, std::ofstream::app 追�
 如果file_path是文件的绝对路径，那肯定ok
 如果file_path是相对路径，那么要小心自己【执行命令的位置】（并非二进制所在的位置）；还是那句话，脚本任意放，只需要关心人当前的位置即可
 
-  std::ifstream in(file_path, std::ios::in);
+  std::ifstream in(file_path, std::ios::in); // |std::ios::binary
+
+
+
+// 获取文件大小
+https://blog.csdn.net/u010261063/article/details/108080002

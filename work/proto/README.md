@@ -41,22 +41,33 @@ for (int i(bar.foo_size() - 1); i > 0; --i)
   foo_field->SwapElements(i, i - 1);
 
 ## golang 中就是struct/message 和 json的转换（通过json.Marshal/Unmarshal），所以普通struct也是一样的通用写法
+// => json_str (json库)【不推荐】因为one_of的结构序列化后无法成功反序列化，所以如果发现请求串出现了OneofFilter，就甭想解析了
 import "encoding/json"
-// => json_str
-var pp ytestp.Ytestma
-  jsonRes, err := json.Marshal(pp)
+  var pp ytestp.Ytestma
+  jsonRes, err := json.Marshal(pp)  // example: {"request_data":{"filter":{"condition_group_list":[{"condition_list":[{"OneofFilter":{"ValueCompare":{"field_name":"hello"}}}]}]}},"req_option":{"return_limit":22}}
   if err != nil {
-    fmt.Printf("json.Marshal(pp) failed")
+    fmt.Printf("json.Marshal failed:%v\n", err)
     return
   }
-  fmt.Printf("%v\n", string(jsonRes))
-//json_str => 
+//json_str =>  (json库)
   err = json.Unmarshal([]byte(testStr), &pp)
   if err != nil {
-    fmt.Printf("json.Unmarshal failed")
+    fmt.Printf("json.Unmarshal failed:%v\n", err)
     return
   }
-  fmt.Printf("%v\n", pp)
+
+// =>json_str (jsonpb库)【推荐】
+import "github.com/golang/protobuf/jsonpb"
+  jsonRes2, err := (&jsonpb.Marshaler{}).MarshalToString(&pp)  // example: {"requestData":{"filter":{"conditionGroupList":[{"conditionList":[{"valueCompare":{"fieldName":"hello"}}]}]}},"reqOption":{"returnLimit":22}}   //可以看出来区别是少了一层OneofFilter
+  if err != nil {
+    fmt.Printf("jsonpb MarshalToString failed:%v\n", err)
+    return
+  }
+//json_str => (jsonpb库）注意只能反序列化jsonpb库序列化的字符串
+  if err := jsonpb.UnmarshalString(testStr, &pp); err != nil {
+    fmt.Printf("UnmarshalString failed:%v", err)
+    return
+  }
 
 // 序列化，pb的独有写法
 import "github.com/golang/protobuf/proto"

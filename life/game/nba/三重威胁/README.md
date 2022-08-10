@@ -7,5 +7,5 @@
 
 拿右撇子举例
 jab step时，如果右侧有空间就突破，如果对手反应及时还可以crossover左侧突破
-step over时，如果左侧有空间就突破，突破过程中可以变向（spi or BTB（behind the back背后运球）），如果对手反应及时还可以crossover或者spin右侧突破
+step over时，如果左侧有空间就突破，突破过程中可以变向（spin or BTB（behind the back背后运球）），如果对手反应及时还可以crossover或者spin右侧突破
 fake时，如果晃起对手，就右侧突破
