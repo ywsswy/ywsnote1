@@ -9,7 +9,7 @@ subject格式：简短描述 --关联标识=<id>
 git branch -D <local_branch> #删除本地分支
 git branch -m '重命名分支名'
 git checkout <branch_name> #切换分支。一是使 HEAD 指回 branch_name分支，二是将工作目录恢复成 branch_name分支所指向的快照内容
-git checkout <other branch_name> -- <file>#把那个分支的文件覆盖过来 666
+git checkout [<other branch_name>] -- <file>#把那个分支的文件覆盖过来 666，省略分支则是表示HEAD
 git cherry-pick <commit> #把其他分支的某次修改弄到当前来
 git clean -f
 git commit --amend #修改commit信息
@@ -29,6 +29,7 @@ git rebase <branch> 把本分支的修改提交到目标分支上去，当两个
   -i # 可以编辑选择如何处理每一次commit，例如在出现的编辑器中pick保留第一个，后面的都改成s合并掉，就实现了压缩合并commit；如果rebase失败，则用git rebase --abort恢复
 git reflog # 查看版本号变更记录
 git remote add <name> <url> # 本地可以绑定好几个远程name，其中name如果是upstream，是用于当这个origin仓库是从这个upstream的仓库fork来的场景，这样，使用git fetch -p <name>的时候也能把多个远程代码都拉到本地；git remote remove <name>移除
+git remote set-url origin # 修改git地址
 git reset --hard 5693367 # 恢复成版本号以5693367开头的commit,(untracked file won't be change)
 git stash save 'buf' #不提交，只暂存在本地
 git stash list #查看有哪些暂存的

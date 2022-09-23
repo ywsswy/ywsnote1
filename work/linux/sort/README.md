@@ -3,6 +3,8 @@ cat file |sort -t ':' -k3
 # -n 转换成数字
 # -r 降序//默认是升序
 
+sort -u 的话是整行内容的去重
+
 count某一列，sort后|uniq -c|sort
 
 uniq就把数量统计出来了，并输出到第一列

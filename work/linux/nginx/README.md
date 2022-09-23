@@ -2,7 +2,6 @@ http://nginx.org/en/download.html
 tar -xzf nginx-1.16.1.tar.gz
 cd nginx-1.16.1
 
-# 有些可能需要 export 环境变量 二进制运行的时候库文件找不到要看LD_LIBRARY_PATH和/etc/ld.so.conf指定
 # 有些可能需要 autogen.sh 或者 autoreconf -v --install
 # 别忘了，可以./configure --help
 ./configure --prefix=/home/<usr>/software/nginx #仅当前用户安装则需要指定prefix

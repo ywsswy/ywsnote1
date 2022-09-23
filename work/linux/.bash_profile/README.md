@@ -9,6 +9,7 @@ fi
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
+# 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/software/gc/lib/:.:$HOME/lib:$HOME/lib64:$HOME/libexec:/usr/local/lib"
 export LC_CTYPE="zh_CN.UTF-8"
 export LANG="en_US.utf-8"
