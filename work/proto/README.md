@@ -23,13 +23,15 @@ std::string err_info = google::protobuf::util::JsonStringToMessage(std::string, 
 
 // pb序列化
 SerializeToString(&str)
+str = SerializeAsString()
 
-std::fstream output("yin1", std::ios::out | std::ios::binary);
+std::fstream output("yin1", std::ios::binary);
 a.SerializeToOstream(&output);
 
 // 反序列化回pb
 ParseFromString(const std::string& str)
 bool ParseFromArray(const void* data, int size)
+ParseFromIstream
 
 // debug
 Utf8DebugString()

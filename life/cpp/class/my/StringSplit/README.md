@@ -1,4 +1,4 @@
-std::vector<std::string> StringSplit(const std::string& raw,
+std::vector<std::string> SplitString(const std::string& raw,
                                      const std::string& inter,
                                      const bool ignore_empty) {
   std::vector<std::string> vec;

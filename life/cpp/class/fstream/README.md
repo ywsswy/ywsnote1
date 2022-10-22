@@ -1,22 +1,31 @@
-std::ofstream of1("<file_name");  // default overwrite, std::ofstream::app 追加
+## 1. 普通写入
+std::ofstream of1("of1");  // default overwrite, std::ofstream::app 追加
 
-    if(of1.is_open()){//check if file is open
-        std::cout << "open ok" << '\n';
-    }
+if(of1.is_open()){  //check if file is open
+  std::cout << "open ok" << '\n';
+}
 
+## 2. 二进制写入
+std::ofstream of1("of1", std::ios::binary);
 
+std::string s = "hello";
+if(of1.is_open()){
+  of1.write(s.c_str(), s.size());
+}
 
+## 3. 普通读取
+std::ifstream in(file_path, std::ios::in); // |std::ios::binary
 
+## 4. 二进制读取
+std::ifstream if1("of1", std::ios::binary);
+std::string s(std::istreambuf_iterator<char>{if1}, std::istreambuf_iterator<char>{});
 
-文件放在一个位置之后
+## 其他：
+### 文件路径说明
 
 首先，二进制放在哪个位置，无所谓
 如果file_path是文件的绝对路径，那肯定ok
 如果file_path是相对路径，那么要小心自己【执行命令的位置】（并非二进制所在的位置）；还是那句话，脚本任意放，只需要关心人当前的位置即可
 
-  std::ifstream in(file_path, std::ios::in); // |std::ios::binary
-
-
-
-// 获取文件大小
+### 获取文件大小
 https://blog.csdn.net/u010261063/article/details/108080002

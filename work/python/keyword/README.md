@@ -11,6 +11,9 @@ elif p1 == "2":#可选
 else:
   print type
 
+条件表达式
+a = b if c else d
+
 【for
 #!/usr/bin/python
 #filename:test.py
