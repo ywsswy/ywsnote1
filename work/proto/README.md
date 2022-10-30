@@ -23,7 +23,7 @@ std::string err_info = google::protobuf::util::JsonStringToMessage(std::string, 
 
 // pb序列化
 SerializeToString(&str)
-str = SerializeAsString()
+str = SerializeAsString() // 这种二进制并不方便打日志
 
 std::fstream output("yin1", std::ios::binary);
 a.SerializeToOstream(&output);

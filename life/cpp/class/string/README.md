@@ -22,7 +22,7 @@ substr	//string substr(startloc_int,len_int=max)       //startloc要保证<=size
 
 [associated function
 string to_string(T)	//C++11
-getline(cin,st);	//只有此行（有字符或者回车）才会读成功(if(getline))，getline不会忽略空格和换行，但是独到的换行不会保存，仅当作此次读取完毕。
+getline(std::cin,st);	//只有此行（有字符或者回车）才会读成功(if(getline))，getline不会忽略空格和换行，但是独到的换行不会保存，仅当作此次读取完毕。
 cin;//正常读整数/字符串之类时，开始读取会忽略空格换行，再遇空格换行会停止读取
 
 [others

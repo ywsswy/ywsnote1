@@ -3,6 +3,7 @@ g++ -c <a>.c <b>.c 会生成a.o和b.o
 usually If lowercase, the symbol is usually local; if uppercase, the symbol is global (external)
 
 
+
 [hill@PfAaUU2029 test]$ nm apple.o
 000000000000002a T _ZN5Apple8GetColorEv # T表示代码段，5表示后面5个字母，E表示参数列表？？_ZN<类名的长度><类名><函数名的长度><函数名>E<形参类型>
 0000000000000014 T _ZN5Apple8SetColorEi

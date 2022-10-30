@@ -1,17 +1,18 @@
 ## 1. 普通写入
 std::ofstream of1("of1");  // default overwrite, std::ofstream::app 追加
 
-if(of1.is_open()){  //check if file is open
-  std::cout << "open ok" << '\n';
+if(!of1.is_open()){  //check if file is open
+  std::cout << "open fail" << '\n';
 }
 
 ## 2. 二进制写入
 std::ofstream of1("of1", std::ios::binary);
 
 std::string s = "hello";
-if(of1.is_open()){
-  of1.write(s.c_str(), s.size());
+if(!of1.is_open()){
+  std::cout << "open fail" << '\n';
 }
+of1.write(s.c_str(), s.size());
 
 ## 3. 普通读取
 std::ifstream in(file_path, std::ios::in); // |std::ios::binary
@@ -19,6 +20,7 @@ std::ifstream in(file_path, std::ios::in); // |std::ios::binary
 ## 4. 二进制读取
 std::ifstream if1("of1", std::ios::binary);
 std::string s(std::istreambuf_iterator<char>{if1}, std::istreambuf_iterator<char>{});
+或者mmap
 
 ## 其他：
 ### 文件路径说明

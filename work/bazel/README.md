@@ -19,12 +19,12 @@ cc_library( //这种是生成obj
     linkopts = [""], //这里可以写类似"-pthread"的链接操作
 )
 
-cc_binary(  //这种是要生成可执行文件
+cc_binary(  #这种是要生成可执行文件
     name = "hello-world",
-    srcs = ["hello-world.cc"], // 自己的源文件
+    srcs = ["hello-world.cc"], # 自己的源文件
     deps = [
-        ":hello-greet",      //找本BUILD中的其他target
-        "//lib:hello-time",  //找本工作区的其他BUILD中的
+        ":hello-greet",      #找本BUILD中的其他target
+        "//lib:hello-time",  #找本工作区的其他BUILD中的
     ],
 )
 

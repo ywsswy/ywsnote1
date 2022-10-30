@@ -41,11 +41,9 @@ bool Args::ParseArgs(int argc, char* argv[])
     return true;
 }
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     Args info;
-    if (!info.ParseArgs(argc, argv))
-    {   
+    if (!info.ParseArgs(argc, argv)) {   
         exit(-1);
     }   
     return 0;
