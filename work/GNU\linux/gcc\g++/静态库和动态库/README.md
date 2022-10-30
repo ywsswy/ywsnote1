@@ -1,16 +1,16 @@
 # 编译阶段
--fPIC 生成位置无关代码，不论是生成静态库还是动态库，不论最后是用于静态链接还是动态链接，最好编译阶段都加上，否则后面又可能就会报错：
 ```
-libxxx.a(xxx.o): requires unsupported dynamic reloc 11; recompile with -fPIC
+gcc -fPIC -c library.cpp -o library.o
+gcc -fPIC -c library-bridge.cpp -o library-bridge.o
 
-g++ -fPIC -c library.cpp -o library.o
-g++ -fPIC -c library-bridge.cpp -o library-bridge.o
+-fPIC 生成位置无关代码，不论是生成静态库还是动态库，不论最后是用于静态链接还是动态链接，最好编译阶段都加上，否则后面又可能就会报错：
+libxxx.a(xxx.o): requires unsupported dynamic reloc 11; recompile with -fPIC
 ```
 
 # 制作库阶段（-shared参数在制作库阶段才可能用）
 ```
 ar rcs lib6.a library-bridge.o library.o # 制作静态库
-g++ -shared -o lib6.so library-bridge.o library.o # 制作动态库
+gcc -shared -o lib6.so library-bridge.o library.o # 制作动态库
 
 # 通过file命令可以判断一个库文件的类型，ps: ELF有三种类型的文件：relocatable可重定位目标文件（一般是.o）、executable可执行文件、shared共享文件(.so)
 > file library.cpp 
@@ -33,9 +33,9 @@ x - library.o
 ```
 
 # 链接阶段（-static参数在链接阶段才可能用）
-- 不加-static的时候，-lx，优先链接libx.so，如果不存在再链接libx.a，只看文件后缀，文件类型校验是静态库或者动态库均可；
-- 加-static的时候，-lx，只会链接libx.a，文件类型校验必须是静态库
-- 也可以指定仅一部分-static，命令是gcc main.cpp -L./ -Wl,-Bstatic -l6 -Wl,-Bdynamic -lstdc++ # ps: -Wl后面的东西是作为参数传递给链接器ld
+- 不加-static的时候，gcc main.cpp -L./ -lx，优先链接libx.so，如果不存在再链接libx.a，只看文件后缀，文件类型校验是静态库或者动态库均可；
+- 加-static的时候，gcc main.cpp -L./ -static -lx，只会链接libx.a，文件类型校验必须是静态库
+- 也可以指定仅一部分-static，命令是gcc main.cpp -L./ -Wl,-Bstatic -lx -Wl,-Bdynamic -lstdc++ # ps: -Wl后面的东西是作为参数传递给链接器ld
 
 对静态库的处理是，将需要的二进制代码都“拷贝”到可执行文件中(注意, 只拷贝需要的,不会全部拷贝)
 对动态库的处理是，仅仅“拷贝”一些重定位和符号表信息，这些信息是在程序运行时完成真正的链接过程
