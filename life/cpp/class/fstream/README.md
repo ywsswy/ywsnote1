@@ -13,6 +13,8 @@ if(!of1.is_open()){
   std::cout << "open fail" << '\n';
 }
 of1.write(s.c_str(), s.size());
+uint64_t id = 1;
+of1.write((char*)&id, 8); // 其他类型的写入
 
 ## 3. 普通读取
 std::ifstream in(file_path, std::ios::in); // |std::ios::binary

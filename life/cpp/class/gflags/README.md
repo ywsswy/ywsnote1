@@ -8,7 +8,7 @@
 DECLARE_string(fsync_peer)  // 相当于extern FLAGS_fsync_peer;
 
 可以动态修改
-使用SetCommandLineOption("fsync_peer", "666")
+使用GFLAGS_NS::SetCommandLineOption("fsync_peer", "666")
 
 
 执行二进制时就是

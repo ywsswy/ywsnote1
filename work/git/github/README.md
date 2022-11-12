@@ -6,3 +6,11 @@ git remote add origin git@github.com:ywsswy/wannasee.git
 ssh -T git@github.com可以测试是否成功）
 git push -u origin master # 第一次push
 以后只需要git push
+
+【issue的查找方法】
+https://github.com/bazelbuild/bazel/issues/1920
+Rule to build a fully static library
+
+is:issue is:open Rule to build a fully static library 
+或者
+is:issue is:closed Rule to build a fully static library 

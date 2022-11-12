@@ -34,9 +34,14 @@ x - library.o
 
 # 链接阶段（-static参数在链接阶段才可能用）
 - 不加-static的时候，gcc main.cpp -L./ -lx，优先链接libx.so，如果不存在再链接libx.a，只看文件后缀，文件类型校验是静态库或者动态库均可；
-- 加-static的时候，gcc main.cpp -L./ -static -lx，只会链接libx.a，文件类型校验必须是静态库
-- 也可以指定仅一部分-static，命令是gcc main.cpp -L./ -Wl,-Bstatic -lx -Wl,-Bdynamic -lstdc++ # ps: -Wl后面的东西是作为参数传递给链接器ld
+- 加-static的时候，gcc main.cpp -L./ -static -lx，只会链接libx.a，文件类型校验必须是静态库；
+- 也可以指定仅一部分-static，命令是gcc main.cpp -L./ -Wl,-Bstatic -lx -Wl,-Bdynamic -lstdc++ # ps: -Wl后面的东西是作为参数传递给链接器ld；
 
 对静态库的处理是，将需要的二进制代码都“拷贝”到可执行文件中(注意, 只拷贝需要的,不会全部拷贝)
 对动态库的处理是，仅仅“拷贝”一些重定位和符号表信息，这些信息是在程序运行时完成真正的链接过程
 
+# other
+- bazel 目前不支持制作静态库。。。一个不太好用的workaround：https://gist.github.com/oquenchil/3f88a39876af2061f8aad6cdc9d7c045
+# Q?
+gcc main.cpp可以拆分成两步：gcc -c main.cpp;gcc main.o
+- 如果gcc没有加-shared参数也没有加-c参数，那么就会当作是生成可执行文件，所以必须要找到main的实现才行

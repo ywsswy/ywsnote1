@@ -8,6 +8,7 @@ bazel build //main:hello-world
 
 查看依赖关系
 bazel query --nohost_deps --noimplicit_deps 'deps(//main:hello-world)' --output graph
+可以在http://www.webgraphviz.com/上绘制
 
 
 一般来说一个target可能同时依赖：源文件、其他BUILD中的lib、本BUILD中的其他target，写法如下
@@ -76,3 +77,30 @@ build --incompatible_no_support_tools_in_action_inputs=false
 --deleted_packages=<path to BUILD>
 --sandbox_debug
 --jobs 1
+
+
+# DONE
+1）我的仓库依赖了A仓库和B仓库（写了git_repository rule），A仓库依赖了其他的库，我怎么知道A仓库依赖了哪些库，假设A仓库恰好也依赖了B仓库，这样我就可以省事不用亲自引入B仓库了
+可以使用 bazel query --output=build //external:* |grep B 来看一下是否已经有人导入了B
+2）怎么知道，谁的仓库里面添加（不叫依赖/使用，而是添加/创建）了C仓库，以便我看去看一下C版本
+bazel query --output=build //external:C # --output=build表示 以 BUILD 中的格式输出目标形式
+结果示例：可以得出结论：'根仓库的WORKSPACE:17' -> 'B仓库的path/workspace.bzl:369' 里面添加了C仓库
+```
+……
+git_repository(
+  name = "C",
+  generator_name = "C",
+  generator_function = "xxx",
+  remote = "http://github.com/C/C.git",
+  tag = "v0.1.2",
+)
+# Rule C instantiated at (most recent call last):
+#   path1/WORKSPACE:17:15                                            in <toplevel>
+#   /root/.cache/bazel/_bazel_root/c6bece17efa9f8f3298e00447fcc75cb/external/B/path/workspace.bzl:369:19 in xxx
+……
+```
+3）查看某target的直接依赖，直接看BUILD文件有时候不友好，例如BUILD文件里可能写的是srcs = glob(["src/*.cpp"]),但是这个命令可以把*展开
+bazel query --output=build @repo_a//target_b
+
+# Q
+1）如果不知道A仓库里instantiated了B仓库，所以我还是手动写了B仓库的git_repository rule，那么最后的效果是redefine？还是只使用了其中一个（到底是哪一个？）？如果是B仓库的同版本或不同版本会带来不同的效果吗？
