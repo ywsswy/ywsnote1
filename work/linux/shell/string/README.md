@@ -7,13 +7,13 @@ echo -en "\t" # 这是转义的方法
 to_str="\\\[k" # 文件写的是三个\，实际上只有两个字符
 
 
-# 关于字符串处理
+# 其他字符串处理
 var="runoob is a great site"
 echo "${var:2:1}" # 输出 n  #语法是${name:startloc(0s):length}
 echo "${var//a/A}" #输出 runoob is A greAt site  #【所有】替换
 printf "%x" "'${var:2:1} " #输出某个字符对应的ascii码（机器） （最后有一个空格，因为叹号不会被执行）
 printf "%x" 2024 #输出某数字的十六进制
-echo $a |awk '{printf("%c", $1)}' #输出某ascii码对应的字符 （a要是十进制数字）
+echo $a |LC_ALL=C awk '{printf("%c", $1)}' #输出某ascii码对应的字符 （a要是十进制数字），awk设置locale见awk
 echo $((16#FF)) #以某进制来解析某字符串，有了码数，去解码
 echo "obase=16;255" |bc #以某进制来表示某数字，编码
 

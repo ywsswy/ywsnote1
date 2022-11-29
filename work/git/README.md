@@ -10,7 +10,7 @@ git branch -D <local_branch> #删除本地分支
 git branch -m '重命名分支名'
 git checkout <branch_name> #切换分支。一是使 HEAD 指回 branch_name分支，二是将工作目录恢复成 branch_name分支所指向的快照内容
 git checkout [<other branch_name>] -- <file>#把那个分支的文件覆盖过来 666，省略分支则是表示HEAD
-git cherry-pick <commit> #把其他分支的某次修改弄到当前来
+git cherry-pick <commit> #把其他分支的某次修改弄到当前来; git cherry-pick <start(old)>^..<end>把一个区间的修改弄过来，加了^符号，就是左闭右闭
 git clean -f
 git commit --amend #修改commit信息
 git diff <old commited/branch> <new commited/new brand> [<file_name>]#注意此刻的untracked file不会参与到diff中

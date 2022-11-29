@@ -14,3 +14,5 @@ tail -f file |grep hello --line-buffered >>log #这种写法才行，另外如�
 
 -B<num> 表示同时显示grep到的这行的上面num行
 -A<num> 后面
+
+-o 统计出现次数，如果不按行统计（就是一行内出现多次都统计）的话 # grep -o '内容'|wc -l 

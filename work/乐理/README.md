@@ -1,6 +1,16 @@
-## 明确一下乐理的初衷，<font color=red>初期应该还是弄懂“声音”的本质，能变声发出好听、多种声音！</font>；未来终极目标可以是懂得欣赏音乐，能视唱练耳、掌握声乐乐器；
+## 明确一下乐理的初衷，<font color=red>弄懂“声音”的本质，能发出好听、多种的声音！</font>支线目标可以是懂得欣赏音乐，能视唱练耳、掌握声乐乐器；
+### （下述无特殊说明情况下，唱名均为首调唱名法）
+
+- 倚音
+
+![image5d65904552a8974b.png](https://s1.imagehub.cc/images/2022/11/20/image5d65904552a8974b.png)
+
+- 上波音
+
+![imagef1649c2d7c35154e.png](https://s1.imagehub.cc/images/2022/11/20/imagef1649c2d7c35154e.png)
 
 - 速度标识：四分音符等于84的速度（一分钟拍84下）
+
 ![image.png](https://s1.imagehub.cc/images/2022/11/11/image.png)
 
 - 三连音（一拍平均分成三份）
@@ -18,12 +28,14 @@
 
 ![image8a564e735eeec72a.png](https://s1.imagehub.cc/images/2022/11/01/image8a564e735eeec72a.png)
 
-- 调号，就是谱子左上角显示的，do是什么调，表示这首歌用什么调比较好听，另外如果想写小字组的B调怎么表示？一种说法是可以写成升1=B，另一种说法是还写B调，只不过谱子里面每个音符相对标好（高音点低音点）就行
-![image2f96656e80613a55.png](https://s1.imagehub.cc/images/2022/10/24/image2f96656e80613a55.png)
+- 调号，就是简谱左上角显示的，形如1=D的，读作do等于D的，表示用D键来演奏1的部分，用于表示这首歌用什么调比较好听，另外如果想写小字组的B调怎么表示？一种说法是可以写成高音1=B，另一种说法是还写B调，只不过谱子里面每个音符相对标好（高音点低音点）就行（五线谱就是这种绝对的标法，下面就加很多条线。。所以一种说法是：看五线谱的人根本不需要关注调号是什么调，只需要看哪些音升/降即可照着谱子弹，如图所示，拿1=D来说，就是两个#号标在了C和F上，表示五线谱上所有的C和F都要升着弹）
 
-- 音的八度，是指音程中，相邻音组同一个音名之间出现的音名的数量
-- 大调音阶（就是13个半音含下一组音阶中第一个音）里面挑8个音阶，间隔为：全全半全全全半，听起来的效果就是：Do Re Mi Fa So La Si
-但是大调音阶的起始位置在钢琴上有12种可能：从C起始的大调音阶就是C大调音阶，每个键的位置如图：
+![image85f218ac7ee774b8.png](https://s1.imagehub.cc/images/2022/11/16/image85f218ac7ee774b8.png)
+- 音，即某振动频率的声音。
+- 音的八度，是指音程中，相邻音组同一个音名之间出现的音名的数量是八，其频率正好是增长一倍。
+- 十二平均律，是按照等比的方法把八度划分十二个间隔（十三个音）。
+- 音阶，即音的排列，比做楼梯的话，音级就是一级一级的台阶。
+- 大调音阶（在十二平均律体系下）按照：全全半全全全半 的间隔挑八个音组成的唱作“Do Re Mi Fa So La Si Do”的音阶，其第一个音（Do）的起始位置有十二种可能：从C起始的就是C大调音阶，示意图（其他大调同理）：
 
 ![image76581d9e4ea88811.png](https://s1.imagehub.cc/images/2022/09/27/image76581d9e4ea88811.png)
 
@@ -31,38 +43,22 @@
 
 ![image6e725aaa1c3560ce.png](https://s1.imagehub.cc/images/2022/09/27/image6e725aaa1c3560ce.png)
 
-![image09a19913896cd68b.png](https://s1.imagehub.cc/images/2022/09/27/image09a19913896cd68b.png)
-
-![imagec6fe8564b5a58c6d.png](https://s1.imagehub.cc/images/2022/09/27/imagec6fe8564b5a58c6d.png)
-
-![imagea9deff2b57fd377d.png](https://s1.imagehub.cc/images/2022/09/27/imagea9deff2b57fd377d.png)
-
-![imagecdef8440fd4c8aa2.png](https://s1.imagehub.cc/images/2022/09/27/imagecdef8440fd4c8aa2.png)
-
-![imagec0bd514b1f526ca8.png](https://s1.imagehub.cc/images/2022/09/27/imagec0bd514b1f526ca8.png)
-
-![imagecb493d15d142a4d8.png](https://s1.imagehub.cc/images/2022/09/27/imagecb493d15d142a4d8.png)
-
-![image6f241384ccb524cc.png](https://s1.imagehub.cc/images/2022/09/27/image6f241384ccb524cc.png)
-
-![image3c452c76f07bebf9.png](https://s1.imagehub.cc/images/2022/09/27/image3c452c76f07bebf9.png)
-
-![imagef2ef3a0e55ae5a8f.png](https://s1.imagehub.cc/images/2022/09/27/imagef2ef3a0e55ae5a8f.png)
-
-“宫、商、角、徵、羽”（读音为gōng shāng jué zhǐ yǔ）是我国五声音调中五个不同音的名称，类似现在简谱中的1、2、3、5、6。即宫等于1(Do)，商等于2(Re)，角等于3(Mi)，徵等于5(So)，羽等于6(La)，亦称作五音
-
-
+- “宫、商、角、徵、羽”（读音为gōng shāng jué zhǐ yǔ）是我国五声音调中五个不同音的名称，宫等于Do，商等于Re，角等于Mi，徵等于So，羽等于La(首调唱名法)，亦称作五音
 - 国际谱A4 = 中央A = 中央La = 男谱a2 =女谱（钢琴谱跟女谱一样）a1=440Hz
 - C4 << A4 < B4 < C5
-- 钢琴：88个键组成，其中黑键36个，白键52个；
+- 钢琴：88个键组成，其中黑键36个（表示变化音级），白键52个（表示基本/本位音级）；
 
 |-|-|-|-|-|-|-|-|-|ps|
 |-|-|-|-|-|-|-|-|-|-|
-|音名|C|C#/Db|D|E|F|G|A|B|（有确定的音高，方便记忆绝对位置-A4一定是440Hz）
-|唱名|Do<br>1|-|Re<br>2|Mi<br>3|Fa<br>4|So<br>5|La<br>6|Si<br>7|（没有确定的音高，方便记忆相对位置-La可不一定是440Hz取决于起始位置是哪里，其实有首调唱名法和固定唱名法，前者可以从任意位置开始唱Do）|
-|ps|-|既叫升C又叫降D|
+|音名|C|#C/bD|D|E|F|G|A|B|（有确定的音高，方便记忆绝对位置-A4一定是440Hz）
+|唱名|Do<br>1|-|Re<br>2|Mi<br>3|Fa<br>4|So<br>5|La<br>6|Si<br>7|（没有确定的音高，方便记忆相对位置-La可不一定是440Hz取决于起始位置是哪里）|
+
+ps:
+- #C/bD既叫升C又叫降D，简谱中如果小节内出现了升降号的话，表示本小节内所有该唱名都要做升降处理；一首#C的简谱换成bD，仅仅只需要改左上角的调号，其他全都不需要修改；
+- 上述说的都是首调唱名法，钢琴上任何一个键在某个调下都可以唱作Do；还有一种“固定唱名法”（五线谱通常采用），画在什么位置（哪个琴键）就唱哪个音；
 
 - 中音区有三个音组(小字组、小字一组、小字二组)
+- 五线谱从下往上叫做：第一线、第二线……，第一线之间和第二线之间读作第一间……，还有上/下加n线/间；开头的是拉丁字母“G”的花体字演变而来高音谱号（也叫G谱号），画在第二线即可表明G键位置；
 
 ![imagebe2576b79ecd3638.png](http://img.mp.itc.cn/upload/20170209/7edd5ffa38c840db901aae06305f1121_th.jpeg)
 
@@ -72,6 +68,7 @@
 - 练习随机听音的网站 https://www.musictheory.net/exercises/ear-interval
 - 乐理入门 https://m.bilibili.com/video/BV1pW41177V9?p=9
 - 弹唱教学 https://www.bilibili.com/video/BV18J411q7ab/?p=5
+- 简谱&完美钢琴 https://m.bilibili.com/video/BV1my4y1Y7wC?p=19
 - 区分弹奏还是弹唱，弹奏的话，左手弹和弦来伴奏，右手弹旋律。如果是弹唱的话，旋律是唱出来的，手只需要弹和弦伴奏；例如吉他通常用于伴奏所以只弹和弦吉他谱只给和弦的部分即可；如下图弹唱时和弦的弹法可以是：L()R R R R L()R R R R，R表示右手，右手按和弦，左右按低一个（或两个）音组的和弦中最低的那个音名，右手四个拍子为一组节奏，第一个拍子时左右手一起按，左右不太起来，右手按剩下的三个拍子
 
 ![image.png](https://s1.imagehub.cc/images/2022/09/28/image.png)
