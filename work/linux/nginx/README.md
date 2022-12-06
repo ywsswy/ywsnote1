@@ -27,7 +27,7 @@ http.server.location.autoindex on; #则表示用户可以访问目录
             # proxy_pass http://baidu.com; 如果不是访问本地，而是其他服务
         }
 
-## 其实nginx能做到的flask也能做，只需要在static/file目录下ln -s即可，所以仅当必须给用户查看目录的情况下才会用到nginx
+## 其实nginx和flask的区别，前者适合静态&目录映射&简单鉴权，后者可以处理逻辑
 
 ## 其他
 - 500错误，可以查看nginx日志，/var/nginx/error.log
@@ -44,3 +44,19 @@ http.server.location.autoindex on; #则表示用户可以访问目录
     }
 ```
 - nginx -t  # 可以测试配置文件是否存在问题
+- 设置ssh证书
+```
+    server {
+        listen 443 ssl; 
+        server_name www.myhost;
+        ssl_certificate www.myhost_bundle.crt;
+        ssl_certificate_key www.myhost.key;
+        ssl_session_timeout 5m; 
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
+        ssl_prefer_server_ciphers on; 
+        location / { 
+            proxy_pass http://127.0.0.1:5601;
+        }
+```
+    }
