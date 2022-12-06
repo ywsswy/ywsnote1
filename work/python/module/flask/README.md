@@ -37,7 +37,6 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 
 pip install pyOpenSSL
 
-app.run('0.0.0.0', debug=True, port=8100, ssl_context='adhoc')
 sudo pip install cryptography --upgrade
 #################
 ssl安全验证

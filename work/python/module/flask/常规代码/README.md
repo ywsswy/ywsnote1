@@ -20,5 +20,7 @@ if __name__ == '__main__':
     YGlobal.flask_app.config.update({'TEMPLATES_AUTO_RELOAD': True})
     YGlobal.flask_app.config.update({'SECRET_KEY': 'fajweofajjjgljxz'})
     host = None if YGlobal.args.localhost else '0.0.0.0'
-    ssl_context = 'adhoc' if YGlobal.args.https else None
+    # apache type
+    #ssl_context = ('x.crt', 'x.key') if YGlobal.args.https else None  # 使用签发的ssh证书
+    ssl_context = 'adhoc' if YGlobal.args.https else None  # 使用自带的ssh证书
     YGlobal.flask_app.run(port=int(YGlobal.args.port), host=host, ssl_context=ssl_context)

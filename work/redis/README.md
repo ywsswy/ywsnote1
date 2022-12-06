@@ -22,6 +22,9 @@ OK 表示设置成功
 如果是set，获取集合全部元素
 >SADD <keyname> <value>
 如果是set，往set中增加一个元素
+>ZADD <keyname> <score> <value>
+将value添加到key对应的有序集合（sorted set）里面，并指定sorce，
+如果value已经存在，则会更新这个value的score更新到正确的排序位置：https://blog.csdn.net/weixin_62319133/article/details/124317546
 
 >STRLEN <keyname>
 可以看到一个redis的值多长
