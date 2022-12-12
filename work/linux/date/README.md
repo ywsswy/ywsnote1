@@ -1,5 +1,5 @@
 date +"%Y-%m-%d %H:%M:%S.%N" 
-date -d @1572838648 
+date -d @1572838648 # （秒级别)
 date -j -f %s 1572838648 #maxOS
 
 date +%s 当前时间戳（秒级）

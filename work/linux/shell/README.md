@@ -57,6 +57,8 @@ function YRead() {
 }
 ```
 
+# <cmd1>; <cmd2>; | 这里的管道是针对<cmd2>的，如果是多条命令执行完再给管道应该是(<cmd1>; <cmd2>;)| 
+
 # 打日志的方法
 ```
 gEnableLogLevelVec=(

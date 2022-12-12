@@ -1,9 +1,8 @@
 #include <iostream>
 #include <unistd.h>
 
-class Args
-{
-public:
+class Args {
+ public:
     Args() {}
     bool help();
     bool ParseArgs(int argc, char* argv[]);
@@ -11,18 +10,15 @@ public:
     std::string type;
 };
 
-bool Args::help()
-{
+bool Args::help() {
     std::cout << "usage: ./main [-h] [-t type] [-i input]" << std::endl;
     return false;
 }
-bool Args::ParseArgs(int argc, char* argv[])
-{
+
+bool Args::ParseArgs(int argc, char* argv[]) {
     int ch; 
-    while ((ch = getopt(argc, argv, "t:i:h")) != -1) 
-    {   
-        switch (ch)
-        {   
+    while ((ch = getopt(argc, argv, "t:i:h")) != -1) {   
+        switch (ch) {   
         case 't':
             type= optarg;
             break;
@@ -34,8 +30,7 @@ bool Args::ParseArgs(int argc, char* argv[])
             return help();
         }   
     }   
-    if (type != "en" && type != "de")
-    {   
+    if (type != "en" && type != "de") {   
         return help();
     }   
     return true;

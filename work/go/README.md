@@ -21,6 +21,8 @@ go get命令中包含了go build和go install，实际上有两个前置步骤�
 使用HTTPS的话需要验证对方站点是否可信，此时要用到CA证书；使用SSH的话实际上是通过将生成的公钥存放到代码托管网站而自己持有私钥，这样就能加密并验证对方是否可信
 Go Mod 在下载依赖项的时候，本质上就是使用 go get 进行下载 //会下载到$GOPATH/pkg/mod里面
 
+go get xxx@master # 缺少依赖的时候可以这样下载，会自动修改go.mod
+
 基本类型
 bool
 
