@@ -37,6 +37,8 @@ OK 表示设置成功
 如果是zset，返回全部元素及其分数，奇数行是value，偶数行是score
 >ZREVRANGEBYSCORE key max min [WITHSCORES]
 如果是zset，返回分支区间内的元素
+>del <keyname>
+删除key
 
 >STRLEN <keyname>
 可以看到一个redis的值多长

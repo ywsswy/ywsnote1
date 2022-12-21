@@ -4,7 +4,6 @@
 发球区
 
 
-https://www.bilibili.com/video/BV1Ea411q7xv/?spm_id_from=333.337.search-card.all.click&vd_source=043e9779eed286d25f55da209251818b
 
 
 高雅上流的运动，烧钱
@@ -20,21 +19,10 @@ https://www.bilibili.com/video/BV1Ea411q7xv/?spm_id_from=333.337.search-card.all
 - 上手发球
 
 # 握拍（食指根部在哪条棱上）
-![imagec299a4c0dc0e58f2.png](https://s1.imagehub.cc/images/2022/11/12/imagec299a4c0dc0e58f2.png)
+![imagec299a4c0dc0e58f2.png](https://ywsswy.top/imagehub/?path=网球握拍.png)
 - *4号面（或者拍子放在地上，掌心向下握拍） 半西方式 正手
 - *2号面（或者拍子垂直地面，掌心向下握拍） 大陆式 反手、（上手）发球、除了正手大部分都可以用这种
 - 3号面 东方式 正手
 
-
-# 正手 从小力击球开始，不用太往后引拍子蓄力（后面熟练了再引）
-【begin】
-![image3a079dac1f971e86.png](https://s1.imagehub.cc/images/2022/11/12/image3a079dac1f971e86.png)
-【end】
-![imageb6dfa989ac6f6597.png](https://s1.imagehub.cc/images/2022/11/12/imageb6dfa989ac6f6597.png)
-![image636a7f8b232b965a.png](https://s1.imagehub.cc/images/2022/11/12/image636a7f8b232b965a.png)
-
-# 反手
-【begin】
-![image96205f5a5b358f52.png](https://s1.imagehub.cc/images/2022/11/12/image96205f5a5b358f52.png)
-【end】
-![image1f1679144a5b9327.png](https://s1.imagehub.cc/images/2022/11/12/image1f1679144a5b9327.png)
+动作教学：
+https://www.bilibili.com/video/BV1Ea411q7xv/?spm_id_from=333.337.search-card.all.click&vd_source=043e9779eed286d25f55da209251818b

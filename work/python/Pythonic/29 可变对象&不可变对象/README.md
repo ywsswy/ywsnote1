@@ -25,6 +25,9 @@ list3 = list2[::]切片操作是浅拷贝
 list2 = list1 #赋值是浅拷贝，2变，1也变 id(list2) = id(list1)，id是此变量名指向哪里内存
 
 dict2 = dict1.copy() #copy是浅拷贝
+dict2 = copy.deepcopy(dict1) # import copy是深拷贝
+
+
 
 
 【函数参数传递，是传值还是传引用？

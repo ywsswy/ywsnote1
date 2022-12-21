@@ -1,6 +1,11 @@
+# 这个例子的背景是读取excel，把一些公司信息，逐条注册到一个招聘网站上，但是这个招聘网站注册页面除了填写信息，还需要验证码。
+# 所以这里就用了selenium
+
 import selenium.webdriver
 #from selenium.webdriver.common.keys import Keys
 import requests
+
+# 这是一个打码 识别图片验证码的平台
 class RClient(object):
     def __init__(self, username, password, soft_id, soft_key):
         self.username = username
@@ -155,6 +160,7 @@ def FillBasic(myweb,item_dict):
     print('完毕，开始获取手机号')
     
 def main():
+    ### 删掉了一些代码
         myweb = StartWeb()
         FillBasic(myweb,data_dict[now_id])
         while True:
@@ -163,9 +169,7 @@ def main():
                 myweb.execute_script('return $("input[name=verifyCode]")[0];').send_keys('{}'.format(res_mess))
                 break
         myweb.execute_script('return $("button.register-buttons__submit")[0];').click()
-        data_dict[now_id]['info'] = myweb.execute_script('return $("div.register-item__validate--error").eq(0).text();')
-        import time
-        time.sleep(4)
+        print(myweb.execute_script('return $("div.register-item__validate--error").eq(0).text();'))
         myweb.quit()
 main()
 

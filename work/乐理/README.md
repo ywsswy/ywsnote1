@@ -1,13 +1,14 @@
 ## 明确一下乐理的初衷，<font color=red>弄懂“声音”的本质，能发出好听、多种的声音！</font>支线目标可以是懂得欣赏音乐，能视唱练耳、掌握声乐乐器；
 ### （下述无特殊说明情况下，唱名均为首调唱名法）
 
+- 渐慢 简谱rit
 - 倚音
 
-![image5d65904552a8974b.png](https://s1.imagehub.cc/images/2022/11/20/image5d65904552a8974b.png)
+![倚音](https://ywsswy.top/imagehub/?path=倚音.png)
 
 - 上波音
 
-![imagef1649c2d7c35154e.png](https://s1.imagehub.cc/images/2022/11/20/imagef1649c2d7c35154e.png)
+![imagef1649c2d7c35154e.png](https://ywsswy.top/imagehub/?path=波音.png)
 
 - 速度标识：四分音符等于84的速度（一分钟拍84下）
 
@@ -35,13 +36,9 @@
 - 音的八度，是指音程中，相邻音组同一个音名之间出现的音名的数量是八，其频率正好是增长一倍。
 - 十二平均律，是按照等比的方法把八度划分十二个间隔（十三个音）。
 - 音阶，即音的排列，比做楼梯的话，音级就是一级一级的台阶。
-- 大调音阶（在十二平均律体系下）按照：全全半全全全半 的间隔挑八个音组成的唱作“Do Re Mi Fa So La Si Do”的音阶，其第一个音（Do）的起始位置有十二种可能：从C起始的就是C大调音阶，示意图（其他大调同理）：
+- 大调音阶（在十二平均律体系下）按照：全全半全全全半 的间隔挑八个音组成的唱作“Do Re Mi Fa So La Si Do”的音阶，其第一个音（Do）的起始位置有十二种可能：从C起始的就是C大调音阶，D大调音阶示意图（其他大调同理）：
 
-![image76581d9e4ea88811.png](https://s1.imagehub.cc/images/2022/09/27/image76581d9e4ea88811.png)
-
-![image06e897bde77125b5.png](https://s1.imagehub.cc/images/2022/09/27/image06e897bde77125b5.png)
-
-![image6e725aaa1c3560ce.png](https://s1.imagehub.cc/images/2022/09/27/image6e725aaa1c3560ce.png)
+![image6e725aaa1c3560ce.png](https://ywsswy.top/imagehub/?path=D大调音阶.png)
 
 - “宫、商、角、徵、羽”（读音为gōng shāng jué zhǐ yǔ）是我国五声音调中五个不同音的名称，宫等于Do，商等于Re，角等于Mi，徵等于So，羽等于La(首调唱名法)，亦称作五音
 - 国际谱A4 = 中央A = 中央La = 男谱a2 =女谱（钢琴谱跟女谱一样）a1=440Hz
@@ -60,7 +57,7 @@ ps:
 - 中音区有三个音组(小字组、小字一组、小字二组)
 - 五线谱从下往上叫做：第一线、第二线……，第一线之间和第二线之间读作第一间……，还有上/下加n线/间；开头的是拉丁字母“G”的花体字演变而来高音谱号（也叫G谱号），画在第二线即可表明G键位置；
 
-![imagebe2576b79ecd3638.png](http://img.mp.itc.cn/upload/20170209/7edd5ffa38c840db901aae06305f1121_th.jpeg)
+![imagebe2576b79ecd3638.png](https://img.mp.itc.cn/upload/20170209/7edd5ffa38c840db901aae06305f1121_th.jpeg)
 
 
 - 手机上弹钢琴app：perfect piano
@@ -69,8 +66,7 @@ ps:
 - 乐理入门 https://m.bilibili.com/video/BV1pW41177V9?p=9
 - 弹唱教学 https://www.bilibili.com/video/BV18J411q7ab/?p=5
 - 简谱&完美钢琴 https://m.bilibili.com/video/BV1my4y1Y7wC?p=19
-- 区分弹奏还是弹唱，弹奏的话，左手弹和弦来伴奏，右手弹旋律。如果是弹唱的话，旋律是唱出来的，手只需要弹和弦伴奏；例如吉他通常用于伴奏所以只弹和弦吉他谱只给和弦的部分即可；如下图弹唱时和弦的弹法可以是：L()R R R R L()R R R R，R表示右手，右手按和弦，左右按低一个（或两个）音组的和弦中最低的那个音名，右手四个拍子为一组节奏，第一个拍子时左右手一起按，左右不太起来，右手按剩下的三个拍子
+- 区分弹奏还是弹唱，弹奏的话，左手弹和弦来伴奏，右手弹旋律。如果是弹唱的话，旋律是唱出来的，手只需要弹和弦伴奏；例如吉他通常用于伴奏所以只弹和弦吉他谱只给和弦的部分即可；如下图弹唱时和弦的弹法可以是：L()R R R R L()R R R R，R表示右手，右手按和弦，左右按低一个（或两个）音组的和弦中最低的那个音名，右手四个拍子为一组节奏，第一个拍子时左右手一起按，左手不抬起来，右手按剩下的三个拍子
 
-![image.png](https://s1.imagehub.cc/images/2022/09/28/image.png)
 Q：
 - 男谱为什么和女谱不同

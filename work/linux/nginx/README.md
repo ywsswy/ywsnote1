@@ -1,3 +1,5 @@
+[1] yum安装
+[2] 源码安装
 http://nginx.org/en/download.html
 tar -xzf nginx-1.16.1.tar.gz
 cd nginx-1.16.1

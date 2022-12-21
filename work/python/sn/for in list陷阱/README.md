@@ -13,7 +13,7 @@ for i in test_list:
 #正确删除法
 test_list = ['a','b','c','d','e']
 
-for i in test_list[:]: #这里拷贝一个副本
+for i in test_list[:]: #这里拷贝一个副本，构造出一个list来才行
     if i == 'c':
         test_list.remove(i)
     print(i)

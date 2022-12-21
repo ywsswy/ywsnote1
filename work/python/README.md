@@ -22,16 +22,3 @@ a = 'ABC'#1）在内存中创建了一个'ABC'的字符串；2）在内存中创
 变量 指向 对象
 赋值 联系 变量和对象
 
-GIL导致一个进程没法高效利用多核
-io密集型最好多线程
-cpu密集型最好多进程
-Queue是线程安全的
-线程同步
-lock=threading.Lock()
-lock.acquire()
-dosomething
-lock.release()
- 
-lock=threading.RLock() #可重入锁，即一个函数acquire了，其内再调用的函数也可以acquire
-Condition条件变量
-Semaphore信号量

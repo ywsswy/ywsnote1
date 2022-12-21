@@ -7,3 +7,7 @@ class Myt(object):
         self.a = 3 #实例变量
         a = 4 #函数局部变量
         Myt.a = 5 #类变量
+
+my = Myt()
+print(my.a)  # 2
+print(Myt.a)  # 1
