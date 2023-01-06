@@ -1,5 +1,5 @@
 [文档](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.repeated_field#RepeatedField.erase.details)
-protoc --cpp_out=. yws.proto  // golang则是 protoc --go_out=. yws.proto
+protoc --cpp_out=. yws.proto  # golang则是 protoc --go_out=. yws.proto  # 实际上protc会调用protoc-gen-go插件
 g++ writer.cc yws.pb.cc -std=c++11 -lprotobuf -lpthread
 
 - （不要用CopyFrom）operation=操作符内也是调用了CopyFrom，是深拷贝，并且推荐操作符能编译报错，避免不同类型之间错误CopyFrom，不用担心浅拷贝；另外MergeFrom是危险的，不同版本的pb文件会造成不断增长的问题；

@@ -18,7 +18,7 @@ git diff # 常规diff（当前与暂存区比较）
 git diff HEAD # 如果有暂存区等影响如merge stash_pop等，则用这个，或者发现git diff异常的时候，stash_save_then_pop就发现又好了
   参数--filter=M 仅显示更改的文件，不知道新增的文件
   参数--name-status 不管详细内容，只管文件是A/D/M
-git fetch -p 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）
+git fetch -p -P  # 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）
 git log # 查看历次详细commit eg:commit 56933675c782a232668c6fcbfffd249625c93947(版本号)
 git log --graph --decorate --oneline --all #这个是最详细(--simplify-by-decoration只看分支粒度的改动)
 git ls-files #查看仓库了有哪些文件
@@ -34,7 +34,6 @@ git reset --hard 5693367 # 恢复成版本号以5693367开头的commit,(untracke
 git stash save 'buf' #不提交，只暂存在本地
 git stash list #查看有哪些暂存的
 git stash pop stash@{<num>} #选择把哪个暂存的还原（前提是你要先切到当初stash save的分支上）
-git submodule summary # 查看但是用的子模块的commit...此刻子模块的commit
 git tag <name>;git push origin <name> #删除本地&远程 git tag -d <name>;git push origin :refs/tags/<name> #这里:前面是空的，就相当于推送一个空的tag
 ```
 - linux ->WSL, Don't xvf in WSL:/mnt(destory the filemode), you can xvf and edit in WSL:~/$

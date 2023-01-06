@@ -37,6 +37,7 @@ yum deplist pac #查询一个包的依赖?
 yum search <info> #搜索跟info相关的包，（包名，或者Summary中包含info的）
 yum list pac* #这种可以
 yum list installed |grep pac  #显示三列（包名 版本 在哪个软件源内）
+yum repolist  # 列举被enable的软件源
 yum list pac --showduplicates #查询一个包有哪些版本可以安装
 yum reinstall pac重装当前版本包
 yum update pac 升级包

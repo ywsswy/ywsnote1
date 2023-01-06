@@ -30,7 +30,7 @@ $.noConflict();//jQuery.noConflict();//参数为空即为false
 jQuery.noConflict(false);//$无效，jQuery依然有效
 【动态加入console调试
 var yws_add_jquery = document.createElement('script');
-yws_add_jquery.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
+yws_add_jquery.src = 'https://code.jquery.com/jquery-1.11.0.min.js';
 yws_add_jquery.type='text/javascript';
 document.getElementsByTagName('head')[0].appendChild(yws_add_jquery);
 【eg

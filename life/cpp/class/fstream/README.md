@@ -1,5 +1,5 @@
 ## 1. 普通写入
-std::ofstream of1("of1");  // default overwrite, std::ofstream::app 追加
+std::ofstream of1("of1");  // default overwrite, std::ofstream::app 追加 of1; of1.open("of1");
 
 if(!of1.is_open()){  //check if file is open
   std::cout << "open fail" << '\n';

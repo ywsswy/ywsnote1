@@ -14,7 +14,7 @@
     // Your code here...
     // don't need jquery, don't need document.ready
     var Type = {attr: 0, click: 1};
-    var list_liumang = ['www.hackhome.com'];
+    var list_liumang = ['www.hackhome.com','www.huya.com','www.douyu.com','www.bilibili.com'];
     // site can only be domain, not path
     var list_processing = [
                            {flag: false, site: 'localhost', selector: '#menubar-container', type: Type.attr, key: "hidden", value: true},
@@ -43,6 +43,15 @@
             }
         }
     }
+    var g_yws_stop = false;
+    function YwsWhileSleep() {
+        console.log('YwsWhileSleep...');
+        if (!g_yws_stop) {
+            setTimeout(function(){YwsWhileSleep();}, 1000);
+        }
+        alert('这是流氓网站');
+        confirm('有必要继续吗？');
+    }
     function YwsMain() {
         for (let item of list_processing) {
             if (true === item.flag) {
@@ -55,7 +64,7 @@
         }
 
         if (list_liumang.indexOf(document.domain) !== -1) {
-            alert('这是流氓网站');
+            setTimeout(function(){YwsWhileSleep();}, 0);
         }
     }
     //window.addEventListener("load", YwsMain())

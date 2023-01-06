@@ -9,7 +9,7 @@ C++11
 1)启动线程
 #include <thread>
 fun1(int pa1){}
-std::thread var1(fun1,pa1);
+std::thread var1(fun1,pa1);  // 构造一个thread可以使用匿名函数、普通函数，但是不可以使用类的非静态成员函数
 2)
 线程启动后，一定要在thread var1销毁前，确定以何种方式等待线程执行结束。
 C++11有两种方式来等待线程结束
