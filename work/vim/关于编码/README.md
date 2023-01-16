@@ -1,6 +1,5 @@
 https://blog.csdn.net/flyqwang/article/details/7107026
 
-
 ## 如果发现中文形如：�~J�~M~W�~A~P�~@~V�~I~G夺
 :set encoding=utf-8
 

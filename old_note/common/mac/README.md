@@ -27,4 +27,4 @@ terminal设置，preference里面profiles选择pro，并设置为默认，勾选
 killall Dock  # 重启dock，解决有时候程序坞不显示程序的问题
 
 当打开没有签名的 Mac 应用时，可能会报 “App can’t be opened because it is from an unidentified developer” 的错误。这种安全机制叫做 GateKeeper。删除这个属性，就可以去除app 的隔离性，实现打开软件。
->xattr -d  com.apple.quarantine targetapp
+>xattr -d  com.apple.quarantine <targetapp>

@@ -6,6 +6,7 @@ ls
 mkdir
 cat
 hadoop fs -put -f 本地文件 hdfs文件 #覆盖文件
+hadoop fs -get hdfs文件 本地文件
 hadoop fs -rm -r
 
 

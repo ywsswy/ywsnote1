@@ -13,8 +13,12 @@
     'use strict';
     // Your code here...
     // don't need jquery, don't need document.ready
+    var yws_add_css = document.createElement('style');
+    yws_add_css.type = 'text/css';
+    yws_add_css.innerHTML='*{user-select: auto !important;}';
+    document.getElementsByTagName('head')[0].appendChild(yws_add_css);
     var Type = {attr: 0, click: 1};
-    var list_liumang = ['www.hackhome.com','www.huya.com','www.douyu.com','www.bilibili.com'];
+    var list_liumang = ['www.hackhome.com','www.huya.com','www.douyu.com'];
     // site can only be domain, not path
     var list_processing = [
                            {flag: false, site: 'localhost', selector: '#menubar-container', type: Type.attr, key: "hidden", value: true},
@@ -62,7 +66,7 @@
                 }
             }
         }
-
+        console.log(document.domain);
         if (list_liumang.indexOf(document.domain) !== -1) {
             setTimeout(function(){YwsWhileSleep();}, 0);
         }

@@ -11,8 +11,8 @@ if [ -f /etc/bashrc ]; then
 fi
 # 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/software/gc/lib/:.:$HOME/lib:$HOME/lib64:$HOME/libexec:/usr/local/lib"
-export LC_CTYPE="zh_CN.UTF-8"
-export LANG="en_US.utf-8"
+export LC_CTYPE="zh_CN.UTF-8"  # 不设置的话LC_CTYPE默认是"C"，python3 输出中文就会报错UnicodeEncodeError: 'ascii' codec can't encode character '\u7ebf' in position 0: ordinal not in range(128)
+export LANG="en_US.utf-8"  # 参考 https://blog.csdn.net/wt_better/article/details/110203286
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/github.com/ywsswy/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/software/git-2.23.0/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.ft:/home/hill/software/git-2.23.0/bin:$HOME/Library/Python/3.8/bin"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "

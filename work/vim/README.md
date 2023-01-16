@@ -1,16 +1,16 @@
-0)ubuntu首次使用要sudo apt-get install vim，或者install vim-gnome(wsl不支持)
+ubuntu首次使用要sudo apt-get install vim，或者install vim-gnome(wsl不支持)
 默认vim -> vim.tiny
 vim -> vim.basic，才支持语法高亮，自动补全之类的
-vim-gnome -> vim.gnome，可以支持系统剪贴板复制粘贴，在以前的命令前加"+表示系统剪贴板
+set <key>? #查看一个设置项的值
 
-建立~/.vimrc文件(这个件是每次打开vim会自动执行的命令）
 "双引号后面是注释
 #[推荐写在.vimrc中]
 set expandtab "把tab/缩进替换为空格。注意makefile的编写不能用空格，只能用tab，这时可以使用ctrl+v再输入tab键
+set encoding=utf-8 "不确定
 set fileencodings=utf-8 "解决utf-8文件里面中文乱码
 set hlsearch "高亮搜索词
 set list "显示特殊字符
-set makeprg=scons\ -j8"quickfix模式，自动跳到第一个出错的地方，写完代码不退出直接:make，然后出错后:cw可以打开错误提示，这种情况不要强制输出gcc的颜色
+set makeprg=scons\ -j8 "quickfix模式，自动跳到第一个出错的地方，写完代码不退出直接:make，然后出错后:cw可以打开错误提示，这种情况不要强制输出gcc的颜色
 set noignorecase
 set number "显示行号
 set shiftwidth=2 "<>的缩进宽度
@@ -28,7 +28,6 @@ nnoremap ,,s ^istd::cout << <ESC>$a << std::endl;<ESC> #map命令后面不能写
 set iskeyword+=: #把冒号当作单词的一员，这样例如std::string就会被当成一个单词，-=是去掉
 set binary #这个跟进入时使用vi -b效果一样
 set noeol #在binary情况下，保存文件时不在文件尾加\n
-set <key>? #查看一个设置项的值
 set foldmethod #diff / manual
 自定义函数https://cloud.tencent.com/developer/ask/29526
 
