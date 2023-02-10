@@ -12,7 +12,7 @@ libxxx.a(xxx.o): requires unsupported dynamic reloc 11; recompile with -fPIC
 ar rcs lib6.a library-bridge.o library.o # 制作静态库
 gcc -shared -o lib6.so library-bridge.o library.o # 制作动态库
 
-# 通过file命令可以判断一个库文件的类型，ps: ELF有三种类型的文件：relocatable可重定位目标文件（一般是.o）、executable可执行文件、shared共享文件(.so)
+# 通过file命令可以判断一个库文件的类型，ps: ELF（二进制程序文件的格式）有三种类型的文件：relocatable可重定位目标文件（一般是.o）、executable可执行文件、shared共享文件(.so)
 > file library.cpp 
 library.cpp: C source, ASCII text
 > file library.o 

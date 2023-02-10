@@ -1,4 +1,6 @@
-#生成器
+# 生成器
+# 只要函数中有yield关键字，这个函数的调用就不是执行，而是直接返回一个生成器
+# https://zhuanlan.zhihu.com/p/268605982?utm_source=ZHShareTargetIDMore
 
 def myGenerator():
     print('first')
@@ -8,7 +10,7 @@ def myGenerator():
 
 
 class MyGlobalData(object):
-    my_generator = myGenerator() #实例化generator，此时并没有进入内部
+    my_generator = myGenerator() #实例化generator，此时并没有进入内部，这里就跟普通函数不同，如果是普通函数这里就会打印first了
     
 
 def main():

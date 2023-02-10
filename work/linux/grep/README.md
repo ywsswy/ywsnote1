@@ -1,3 +1,6 @@
+# 查找文件名：递归输出路径下所有文件名（美化可视化用tree，其他场景都用find）
+find . -regextype egrep -regex '(.*README\.md)' -type f
+# 查找文件内容
 find . -regextype egrep ! -regex '(.*tags)|(.*\.log)|(.*\.gcno)|(.*\.o)' -type f -exec grep -nHP --color=always -- 'guyihoid' {} \;
 find . -regextype egrep ! -regex '(.*tags)|(.*\.log)|(.*\.gcno)|(.*\.o)' -type f |xargs --replace grep -nHP --color=always -- 'guyihoid' {}
 以上两种写法的区别未知

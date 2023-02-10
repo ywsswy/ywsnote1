@@ -1,4 +1,5 @@
-date +"%Y-%m-%d %H:%M:%S.%N" 
+date +"%Y-%m-%d %H:%M:%S.%N" # 当前时间，格式化输出（%N是9位数的纳秒ns < 微秒us < 毫秒ms）
+
 date -d @1572838648 # （秒级别)
 date -j -f %s 1572838648 #maxOS
 

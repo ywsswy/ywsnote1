@@ -1,8 +1,10 @@
+https://blog.51cto.com/u_15316348/3217704?b=totalstatistic
 npm install elasticdump -g
 
 elasticdump --input=http://xxx/<index> --httpAuthFile httpAuthFile --output=http://xxx/<index> --type=settings
 elasticdump --input=http://xxx/<index> --httpAuthFile httpAuthFile --output=http://xxx/<index> --type=mapping
 elasticdump --input=http://xxx/<index> --httpAuthFile httpAuthFile --output=http://xxx/<index> --type=alias  # input和output可以是本地文件
+这个工具也有--type=data的数据迁移，但是不确定好不好用。。
 
 查询模板要自己插入，先看源
 GET _cluster/state/metadata?pretty&filter_path=**.stored_scripts

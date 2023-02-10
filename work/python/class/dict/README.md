@@ -7,5 +7,5 @@ d1['yws'] = 'awesome'#
 判断是否存在某键
 'Thomas' in d #返回bool
 【遍历
-for key,value in a.items():
+for key, value in a.items():
        print(key+':'+value)

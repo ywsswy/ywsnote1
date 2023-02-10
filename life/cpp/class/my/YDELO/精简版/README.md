@@ -12,18 +12,6 @@
 using namespace std;
 #ifdef YDELO
 int ydelon = 0;
-//for built-in type(except c_array) & map & list & vector
-template<typename T>
-void yPrint(const string &info,const T &x,int n = 0,bool clr = true){
-	ydelon = n;
-	if(clr){
-		system("cls");//"clear" in linux
-	}
-	cout << endl << "\\**********************" << endl;
-	cout << info << endl;
-	cout << x << "**********************\\" << endl;
-	return;
-}
 template<typename T,typename S>
 ostream &operator<<(ostream &os,const pair<T,S> &it){
     return 	os << it.first << " " << it.second;
@@ -57,6 +45,18 @@ ostream &operator<<(ostream &os,const vector<T> &st){
 		os << i << " " << *it << "*" << endl;
 	}
 	return os;
+}
+//for built-in type(except c_array) & map & list & vector
+template<typename T>
+void yPrint(const string &info,const T &x,int n = 0,bool clr = true){
+	ydelon = n;
+	if(clr){
+		system("cls");//"clear" in linux
+	}
+	cout << endl << "\\**********************" << endl;
+	cout << info << endl;
+	cout << x << "**********************\\" << endl;
+	return;
 }
 #endif
 int main(){

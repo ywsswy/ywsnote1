@@ -6,8 +6,8 @@ g++ writer.cc yws.pb.cc -std=c++11 -lprotobuf -lpthread
 - Clear() 清除所有值
 - message放内(嵌套)放外，改命名空间，改字段名称，import其他文件的message，生成的二进制都相同
 
+## C++
 ```
-PB test;
 //PB => json_str //还对json_str有要求，必须是空串，不然会从尾巴开始拼接
 #include <google/protobuf/util/json_util.h>
 std::string json_str;
@@ -41,8 +41,11 @@ PrintDebugString()
 google::protobuf::RepeatedPtrField<std::string> *foo_field(bar.mutable_foo());
 for (int i(bar.foo_size() - 1); i > 0; --i)
   foo_field->SwapElements(i, i - 1);
+```
 
 ## golang 中就是struct/message 和 json的转换（通过json.Marshal/Unmarshal），所以普通struct也是一样的通用写法
+
+```
 // => json_str (json库)【不推荐】因为one_of的结构序列化后无法成功反序列化，所以如果发现请求串出现了OneofFilter，就甭想解析了
 import "encoding/json"
   var pp ytestp.Ytestma
@@ -86,4 +89,13 @@ import "github.com/golang/protobuf/proto"
     return
   }
   fmt.Printf("%v\n", pp)
+```
+
+## Python
+```
+# 序列化
+req.SerializeToString())
+# pb -> json
+from google.protobuf.json_format import MessageToJson
+MessageToJson(req)
 ```

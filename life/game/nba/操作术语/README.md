@@ -4,9 +4,9 @@ LT/L2          RB/R2
 LB/L1          RB/R1
 L/LS/左摇杆     R/RS/右摇杆
 L3/按下左摇杆    R3/按下右摇杆
-    Y/🔺
-X/◾      B/⚫
-    A/✖
+          Y/🔺/X(ns)
+X/◾/Y(ns)          B/⚫/A(ns)
+          A/✖/B(ns)
 ```
 # 按法
 ```

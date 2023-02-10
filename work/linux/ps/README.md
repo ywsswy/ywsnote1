@@ -1,4 +1,4 @@
-ps axfu 既能看到关系树，又能看到启动时间
+ps axfu 既能看到关系树，又能看到启动时（a表示看所有用户，否则就是当前用户）
 ps -eo pid,lstart,etime,cmd |grep 这里的lstart是详细启动时间
 
 D 不可中断的休眠。通常是IO。

@@ -8,9 +8,6 @@ nc -vzn <ip> <port> # 查看端口存活情况
 watch -d -n 1 w
 timeout 3 top #设置一个命令的超时时间，超时返回码124， [返回码](https://blog.csdn.net/nicai_xiaoqinxi/article/details/85055086)
 tree -Naf <folder> -I '<pattern>' # -I 排除某些文件夹进行打印目录树；N是显示中文，a显示隐藏，f显示全路径
-netstat -tl
-netstat -pan |grep <port> #查看端口占用
-lsof -i :<port>
 fc-list #查看已安装字体及路径，rm即可删除
 convert src.png -crop 100x80+60+40 desc.png  #使用imagemagick 剪切图片区域（宽x高+x+y）
 route add -host 202.202.32.202 gw 172.18.112.1 #让教务在线走有线网卡

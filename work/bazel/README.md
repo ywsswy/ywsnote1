@@ -104,3 +104,4 @@ bazel query --output=build @repo_a//target_b
 
 # Q
 1）如果不知道A仓库里instantiated了B仓库，所以我还是手动写了B仓库的git_repository rule，那么最后的效果是redefine？还是只使用了其中一个（到底是哪一个？）？如果是B仓库的同版本或不同版本会带来不同的效果吗？
+使用bazel query --output=build //external:C是不是也不一定显示的是真正使用的那个？

@@ -25,8 +25,7 @@ jupyter-notebook 不能对sys.stdin重定向，可以对sys.stdout重定向
 从键盘输入input()，可以抛出EOFError异常
 从文件读取with open() as f: f.read()不会抛出异常
 
-所以键盘如上代码
 文件如下代码
 with open(filename, 'r', encoding='utf-8') as f:
-        data = f.readlines()
+        data = f.readlines()  # 这个含有换行符
         for i in data:

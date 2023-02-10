@@ -17,7 +17,7 @@ gcc test.o
 objdump -d test.o #反汇编查看目标文件
 gcc -o bin main.c test.o #main.c中含有main函数了，这种组合起来就会把目标文件中的可重定位的地址放到正确地址
 
-linux下可执行文件是ELF格式
+linux下二进制程序文件是ELF格式
 程序（段）头表
 .init节
 .text节
