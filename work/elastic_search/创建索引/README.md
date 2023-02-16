@@ -1,5 +1,3 @@
-小的不用分片，shards为1
-副本数replicas为2
 
 建表索引
 /mappings/properties{每个字段名:{index:是否会被查询,type:类型}}

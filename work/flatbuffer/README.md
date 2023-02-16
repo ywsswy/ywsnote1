@@ -74,7 +74,7 @@ of1.write(reinterpret_cast<const char*>(builder.GetBufferPointer()), builder.Get
 
 
 
-// 读取数据
+// 读取数据（读取前可以进行安全校验：https://stackoverflow.com/questions/37486992/flatbuffers-verifier-behaviour）
 auto monster = GetMonster(s.c_str());
 std::cout << "mana:" << monster->mana() << std::endl;
 std::cout << "1:" << monster->weapons()->name()->str() << std::endl;
@@ -85,3 +85,5 @@ std::cout << "2:" << monster->weapons()->damage() << std::endl;
 自定义table，使用CreateXXX(builder, ...)，得到flatbuffers::Offset<XXX>
 XXXBuilder xxx; xxx.Finish()，也能得到flatbuffers::Offset<XXX>
 实际上，每次CreateXXXXX时，都会在builder中分配空间来写入数据
+
+

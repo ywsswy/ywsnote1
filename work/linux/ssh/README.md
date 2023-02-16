@@ -3,7 +3,7 @@
 - windows22端口被占了，所以要被连接的话，要在/etc/ssh/sshd_config中修改port
 - /etc/ssh/sshd_config 中的Port是自己作为服务方的服务端口（别人要连接的话要 -P 指定的）  /etc/ssh/ssh_config 中的Port是自己作为客户端，连接别人时默认用什么端口，如果指定了-p这里就无效了
 - ssh-keygen -t rsa -C "ywsswy@qq.com" -b 4096 #生成自己的密钥对
-- ssh-keygen -t ecdsa -C "ywsswy@qq.com" -b 521 # github现在要求这个
+- ssh-keygen -t ecdsa -C "ywsswy@qq.com" -b 521 # github现在要求这个(不过.ssh目录存在两种私钥的时候优先使用rsa，所以这里可以临时重命名一下rsa，或者~/.ssh/config指定使用的私钥)
 - /<home>/.ssh/authorized_keys中保存了谁的公钥（且authorized_keys的权限应该是600，不是644？通过查看/var/log/secure可以定位问题），才允许谁连接
 - sudo service ssh start
 ## 密码连接的方法

@@ -2,7 +2,7 @@ adduser在使用该命令创建用户是会在/home下自动创建与用户名�
 userdel -r 删除用户及相关目录。
 
 
-cat /etc/passwd，可以看每个用户的信息：用户名:x隐藏密码:用户标识uid:所属主组标识gid:说明:该用户home目录:启动shell进程
+cat /etc/passwd，可以看每个用户的信息：用户名:x隐藏密码:用户标识uid:所属主组(还可以有附属组但是这里不显示)标识gid:说明:该用户home目录:启动shell进程
 - sam:x:200:50:Sam san:/home/sam:/bin/sh
 
 cat /etc/group，可以看到每个group的组标识，以及哪些user挂到这个组下

@@ -6,4 +6,4 @@ systemctl status elasticsearch.service # 查看状态
 restart
 
 # Q
-加不加.service有啥区别
+加不加.service有啥区别，，，其实tab补齐命令就会补

@@ -1,9 +1,9 @@
 [drwxrwxrwx][不允许处为-]
-[r w x][分别代表read=4 write=2 execute=1]，三组限制依次是[owner/group/other]，对root用户来说是不受任何权限限制的
+[r w x][分别代表read=4 write=2 execute=1]，三组限制依次是[u(owner)/g(group)/(o)other]，对root用户来说是不受任何权限限制的
 -rwxrw-r‐-1 root root 1213 Feb 2 09:39 abc
 第一个字符代表文件（-）、目录（d），链接（l）
 chmod 755 abc：给文件abc权限rwxr-xr-x
-chmod u-x abc：给abc文件去除用户执行的权限，增加组写的权限
+chmod u-x abc：给abc文件去除用户执行的权限，增加组写的权限，缩写见上述限制，如果是a表示全部
 # 文件
 - x执行权限 可以./的方式执行
 - 就算 chmod000了，但是所属者依然可以重新chmod

@@ -1,3 +1,5 @@
+## 如果是备份，建议使用es自带的快照功能（官方建议）
+
 https://blog.51cto.com/u_15316348/3217704?b=totalstatistic
 npm install elasticdump -g
 

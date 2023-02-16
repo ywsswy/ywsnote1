@@ -1,3 +1,5 @@
+(yum) Yellow dog Updater, Modified是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理
+
 yum服务器上有软件依赖信息header
 当用户有升级安装需求时，yum会把软件列表更新到本机/var/cache/yum中，跟本机RPM数据库（/var/lib/rpm/）比较确认需要下载哪些包
 
@@ -17,7 +19,7 @@ enabled=0
 ```
 
 #
-yumdownloader pac # 下载包，但不安装可加--enablerepo参数，rpm后缀可以不写，可写到arch
+yumdownloader pac # 下载包，但不安装，可加--enablerepo参数，rpm后缀可以不写，可写到arch
 # rpm
 rpm -qpR pac # 查看该包的依赖
 rpm -qa pac* # 查看已安装了pac*没
