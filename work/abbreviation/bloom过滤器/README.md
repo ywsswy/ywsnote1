@@ -10,8 +10,9 @@ https://zhuanlan.zhihu.com/p/136529740
 
 
 涉及到的一些参数指标：
-
 欲插入Bloom Filter中的元素数目: n
 Bloom Filter误判率: P(true)
 BitArray数组的大小: m
 Hash Function的数目: k
+
+## Q：新建一个过滤器时，正常应该先设定n和p，进而来估算设置多大的m和k才能达到p的指标？k大性能差，m大内存大

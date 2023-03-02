@@ -4,7 +4,6 @@ linux只是一个操作系统内核而已
 绝大多数基于linux内核的操作系统使用了大量的gnu软件，包括了一个shell程序、工具、程序库、编译器及工具，还有许多其他程序
 gnu计划的开创者richard stallman博士提议将linux操作系统改名为gnu/linux
 
-
 linux版本：
 - Debian (apt-get包管理)
 - Ubuntu（基于Debian）：开源 & 免费；
@@ -15,7 +14,6 @@ linux版本：
 - Mandriva
 - Gentoo
 - Slackware
-
 
 ## ps：
 Enterprise
