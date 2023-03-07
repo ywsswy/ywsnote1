@@ -29,7 +29,7 @@ rpm --rebuilddb 重建数据库
 rpm -e pac1 pac2 --nodeps 卸载，但不检查依赖~~
 rpm -qpi pac --changelog #查看changelog
 # yum
-yum info pac #查看包的信息（如果已安装，用rpm -qi 可能更详细）
+yum info pac #查看包的信息（如果已安装，用rpm -qi 可能更详细，还能看安装时间）
 sudo yum remove pac -y# 卸载，还有一种 rpm -e 。yum remove的时候，任何依赖方也会被删除
 sudo yum install <Package> -y # 安装，如果不是最新可以清理缓存
 sudo yum install <Package>-<Version>（不带release次数）

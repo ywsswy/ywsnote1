@@ -41,7 +41,7 @@ x - library.o
 对动态库的处理是，仅仅“拷贝”一些重定位和符号表信息，这些信息是在程序运行时完成真正的链接过程
 
 # other
-- bazel 目前不支持制作静态库。。。一个不太好用的workaround：https://gist.github.com/oquenchil/3f88a39876af2061f8aad6cdc9d7c045
+- bazel 目前不支持制作静态库。。。所以只能用cc_binary加上参数linkshared = True来制作动态库，如果非要静态库的话，一个不太好用的workaround：https://gist.github.com/oquenchil/3f88a39876af2061f8aad6cdc9d7c045
 # Q?
 gcc main.cpp可以拆分成两步：gcc -c main.cpp;gcc main.o
 - 如果gcc没有加-shared参数也没有加-c参数，那么就会当作是生成可执行文件，所以必须要找到main的实现才行

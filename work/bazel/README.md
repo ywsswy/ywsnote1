@@ -5,7 +5,6 @@ WORKSPACE文件，用于指定当前文件夹就是一个Bazel的工作区。所
 编译，//<查找BUILD文件的路径/packege路径>:<target>
 bazel build //main:hello-world
 
-
 查看依赖关系
 bazel query --nohost_deps --noimplicit_deps 'deps(//main:hello-world)' --output graph
 可以在http://www.webgraphviz.com/上绘制
