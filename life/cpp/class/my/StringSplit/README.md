@@ -1,6 +1,4 @@
-std::vector<std::string> SplitString(const std::string& raw,
-                                     const std::string& inter,
-                                     const bool ignore_empty) {
+std::vector<std::string> SplitString(const std::string& raw, const std::string& inter, const bool ignore_empty) {
   std::vector<std::string> vec;
   size_t n = 0;
   size_t old = 0;

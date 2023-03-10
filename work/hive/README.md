@@ -68,3 +68,12 @@ select distinct <field> from <table>
 
 ## 按某一列去重，显示的就是这一列有几种值（是一个数）
 select count(distinct <field>) from <table>
+
+## 显示元数据
+desc formatted <table>
+```
+Table Parameters:
+	numFiles            	1009 # 存储了多少块HDFS文件
+	numRows             	46213493 # 总数据条数
+	totalSize           	263429876579 # 总磁盘占用大小（字节）
+```

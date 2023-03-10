@@ -1,8 +1,9 @@
 加密：
-$ echo Hello World | base64
-SGVsbG8gV29ybGQK
+$ echo -n "Hello World" | base64
 
 解密：
+$ echo -n "SGVsbG8gV29ybGQK" | base64 -d
 
-$ echo SGVsbG8gV29ybGQK | base64 -d
-Hello World
+
+可以直接从标准输入读，不担心特殊字符
+echo -ne "\x01\x00\x02\x0a\x0d" |base64

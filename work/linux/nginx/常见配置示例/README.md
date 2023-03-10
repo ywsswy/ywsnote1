@@ -1,10 +1,14 @@
 ```
 user nginx;  # 启动的worker process的用户，如果不使用autoindex目录浏览文件之类的话没问题，否则可能没有权限去看其他目录文件，不过这个功能有风险，建议临时打开目录的话用python3 -m http.server <port>，非要用的话，要么就改成root，要么新建个临时的nginx用户和目录
 http {
+  client_max_body_size 1000m;  # 最大传输大小（如果设置小，那么上传大文件会失败）
   server {
     listen 80;
     server_name  _;  # 如果就一个server，那这个可以随便填，如果多个就需要改以免匹配错
     location /test {
+      gzip on;  # 是否对某些资源开启gzip
+      gzip_comp_level 5;  # 压缩级别，9最高，但是浪费CPU，5的压缩比就足够了
+      gzip_types application/octet-stream;  # 对哪些资源开启gzip，即响应头中的Content-Type，服务端nginx负责压缩，客户端浏览器检测到Content-Encoding为gzip之后会进行解压
       auth_basic "Please input password";  # 可选，配合auth_basic_user_file
       auth_basic_user_file /path/to/passwd;  # 可选，表示需要输入密码验证，通过htpasswd -c <file> <user_name> 命令生成baseAuth
       autoindex on; 可选，配合root

@@ -1,6 +1,10 @@
 string s1;
 s1[0] = 'y';
 
+
+const char* kKey = "key"; std::string s(kKey);  // 不存在特殊字符的初始化
+const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // 存在特殊字符的初始化，注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
+
 [member
 string::npos 代表字符串没找到的size_t -1 && 最大值
 
