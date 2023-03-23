@@ -53,9 +53,6 @@ select <other columns> from <table> where ds = 'yyy'
 -- 注意这里只能select其他字段，不能把分区字段select进来
 ```
 
-## 内部表和外部表的概念
-内部表：元数据库（desc formatted）中（Table Type:）显示的是 MANAGED_TABLEexternal 
-外部表：删除表的时候，内部表会删除元数据信息和真实数据信息，外部表只会删除描述信息（1、如果数据已经存储在hdfs上，然后使用hive去进行分析，并且还有可能有其他的计算引擎使用到这份数据，那么请你创建外部表；2、如果一份数据仅仅是hive使用来进行分析，可以创建内部表。）
 
 ## 删除分区
 ALTER TABLE <table> DROP IF EXISTS PARTITION(<par> = <par_value>);
@@ -69,11 +66,15 @@ select distinct <field> from <table>
 ## 按某一列去重，显示的就是这一列有几种值（是一个数）
 select count(distinct <field>) from <table>
 
+## 内部表和外部表的概念
+内部表：元数据库（desc formatted）中（Table Type:）显示的是 MANAGED_TABLEexternal 
+外部表：删除表的时候，内部表会删除元数据信息和真实数据信息，外部表只会删除描述信息（1、如果数据已经存储在hdfs上，然后使用hive去进行分析，并且还有可能有其他的计算引擎使用到这份数据，那么请你创建外部表；2、如果一份数据仅仅是hive使用来进行分析，可以创建内部表。）
+
 ## 显示元数据
 desc formatted <table>
 ```
 Table Parameters:
 	numFiles            	1009 # 存储了多少块HDFS文件
-	numRows             	46213493 # 总数据条数
+	numRows             	46213493 # 总数据条数，但是可能存在记录数未更新的情况，这里就是0
 	totalSize           	263429876579 # 总磁盘占用大小（字节）
 ```

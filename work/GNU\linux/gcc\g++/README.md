@@ -20,7 +20,8 @@ g++/gcc
 2. 对于 *.c和*.cpp文件，g++则统一【当做】cpp文件编译
 3. 使用g++编译文件时，g++会自动链接标准库STL，而gcc不会自动链接STL（所以要 -lstdc++）（但这并不代表 gcc –lstdc++ 和 g++等价）
 4. gcc在编译C文件时，可使用的预定义宏是比较少的
-5. 一个源文件在被【当作】cpp文件时，会加入一些额外的宏，这些宏如下：
+5. g++ test.cc -std=c++11 -I <头文件路径> -L <库文件路径> -lbenchmark -lpthread
+6. 一个源文件在被【当作】cpp文件时，会加入一些额外的宏，这些宏如下：
 #define __GXX_WEAK__ 1
 #define __cplusplus 1
 #define __DEPRECATED 1

@@ -1,8 +1,9 @@
-a = time.time() #取得当前时间的时间戳，float（整数部分是秒钟）
-time_struct = time.localtime(a) #时间结构体
-b = time.strftime('%Y-%m-%d %H:%M:%S',time_struct)
-print(b)
+a = time.time() #  取得当前时间的时间戳，float（整数部分是秒钟）
+b = time.localtime(a)  # 将时间戳转为时间结构体
+c = time.strftime('%Y-%m-%d %H:%M:%S', b)  # 将结构体可视化成字符串
 
+d = time.strptime('20230312', "%Y%m%d")  # 将字符串转为结构体
+e = time.mktime(d)  # 将结构体转为时间戳（可以加减法得出其他时间的时间戳）
 
 
 ##
@@ -18,5 +19,3 @@ localtime(...)
     Convert seconds since the Epoch to a time tuple expressing local time.
     When 'seconds' is not passed in, convert the current time instead.
 
-
-time.localtime(time.time())

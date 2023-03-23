@@ -63,7 +63,7 @@ bazel-out/k8-fastbuild/testlogs/<path><test_bin>/test.log
 每个单测的执行目录是
 bazel-out/k8-dbg/bin/<path>/<test_bin>.runfiles/__main__
 
-# .bazelrc
+# .bazelrc，命令行的参数优先级高于这个文件中的参数
 这里面可以写一些默认编译参数，例如
 build --cxxopt="--std=c++17"
 build --copt=-O0
@@ -76,7 +76,7 @@ build --incompatible_no_support_tools_in_action_inputs=false
 --deleted_packages=<path to BUILD>
 --sandbox_debug
 --jobs 1
-
+--subcommands  # 显示编译命令，类似verbose
 
 # DONE
 1）我的仓库依赖了A仓库和B仓库（写了git_repository rule），A仓库依赖了其他的库，我怎么知道A仓库依赖了哪些库，假设A仓库恰好也依赖了B仓库，这样我就可以省事不用亲自引入B仓库了

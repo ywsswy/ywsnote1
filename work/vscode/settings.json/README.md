@@ -131,7 +131,7 @@
             "filenamePattern": "*.ipynb"
         }
     ],
-    "devops.accountId": "wenshanyan",
+    "devops.accountId": "xxx",
     "devops.accessToken": "F35Vh9hOjvVmXz9u65dkf0T2GXLQef",
     "devops.agentPath": "/root/software/agent",
     "[yaml]": {

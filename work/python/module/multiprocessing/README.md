@@ -4,7 +4,8 @@ https://blog.csdn.net/u011195077/article/details/121122530
 import multiprocessing
 import time
 
-def func(msg):
+def func(msg):  # 多进程之间的变量不是共享的，哪怕是全局变量，所以如果需要一个进程修改，其他进程感知到，必须使用多进程库multiprocessing.Manager()
+    # 注意多进程的异常处理，一个进程里面的exit外面是感知不到的
     print("msg:", msg)
     time.sleep(1)
     print("end")

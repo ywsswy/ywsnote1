@@ -1,5 +1,5 @@
 time.sleep(1.5) #1.5:unit(s)   
-#这是阻塞本线程的延时（本，意思就是子线程的sleep影响不到子线程，反之亦然）
+#这是阻塞本线程的延时（本，意思就是子线程的sleep影响不到主线程，反之亦然）
 
 threading.Timer(inter, jwzx_monitor).start() # inter:unit(s),jwzx_monitor:<function_name>
 #这是不阻塞本线程（开启了新线程）的延时，此刻创建线程，等待inter秒后执行<function_name>函数

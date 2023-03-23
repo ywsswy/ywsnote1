@@ -7,7 +7,7 @@ mkdir
 cat
 hadoop fs -put -f 本地文件 hdfs文件 #覆盖文件
 hadoop fs -get hdfs文件 本地文件
-hadoop fs -rm -r
+hadoop fs -rm -r # 删除目录/文件
 
 
 mv 移动文件（源文件不能存在）

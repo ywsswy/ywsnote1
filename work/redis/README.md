@@ -48,7 +48,7 @@ OK 表示设置成功
 # 二进制的方式
 >info # 查看redis节点信息？vip -> proxy-> redis，这里看到的是redis
 
-
+>scan 0 match "yyb*" count 10000  # 从游标0扫描匹配某pattern的key，返回下次scan的游标&本次scan的结果，如果游标为0则说明全部scan完了
 
 # python的方式
 from redis import StrictRedis

@@ -13,6 +13,11 @@
 scp -i ~/yfolder/ywsssh -r /home/hill/yfolder/proj/test_vsc ubuntu@111.230.151.212:~/        上传本地文件到服务器
 ssh <user>@localhost -p 23 -i ~/.ssh/id_rsa
 // 报错kex_exchange_identification: read: Connection reset by peer 一般就是因为没有指定端口
+// 如果mac13.2系统免密登陆仍然要求输入密码，需要~/.ssh/config增加两行内容：
+```
+HostkeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+```
 
 # 其他
 - 如果一台机器需要通过堡垒机中转登陆，可以在secureCRT中设置Logon Actions Automate logon ogin（输入ssh完整命令）assword

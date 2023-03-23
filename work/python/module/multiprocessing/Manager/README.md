@@ -7,6 +7,8 @@ file_list_queue.put('1')
 file_list_queue.put('22') 
 file_list_queue.put('333')
 
+# 还有manager.dict() 可以充当类似多进程间共享变量的能力
+
 flag = True
 while flag:
     # 下载单个文件
