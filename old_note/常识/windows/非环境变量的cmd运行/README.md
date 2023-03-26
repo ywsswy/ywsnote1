@@ -1,0 +1,10 @@
+桌面右键创建快捷方式，
+键入对象位置：cmd
+任意命名
+右键属性，把起始位置改为不想添加的环境变量
+以后双击运行
+【参考
+http://jingyan.baidu.com/article/60ccbceb64cc2064cbb19748.html
+https://zhidao.baidu.com/question/224402258.html
+目标是要执行的语句（主程序）
+起始位置是环境变量，就是等价于先cmd进入到起始位置，然后执行目标语句

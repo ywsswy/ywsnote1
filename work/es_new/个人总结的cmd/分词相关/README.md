@@ -1,0 +1,1 @@
+curl -XPOST '$ipaddr/_analyze?pretty' -H 'Content-Type:application/json' -d'{ "analyzer": "jieba_index", "text": "小吃快餐" }'

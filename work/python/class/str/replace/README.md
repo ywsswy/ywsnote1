@@ -1,0 +1,1 @@
+s.replace(so,snew)

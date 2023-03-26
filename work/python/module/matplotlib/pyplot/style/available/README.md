@@ -1,0 +1,23 @@
+plt.style.available#可设置的风格
+>>
+['dark_background',
+ 'seaborn-talk',
+ 'seaborn-bright',
+ 'seaborn-ticks',
+ 'bmh',
+ 'ggplot',
+ 'seaborn-darkgrid',
+ 'classic',
+ 'fivethirtyeight',
+ 'seaborn-deep',
+ 'seaborn-colorblind',
+ 'seaborn-muted',
+ 'seaborn-pastel',
+ 'seaborn-notebook',
+ 'seaborn-paper',
+ 'seaborn-dark-palette',
+ 'seaborn-whitegrid',
+ 'seaborn-white',
+ 'grayscale',
+ 'seaborn-dark',
+ 'seaborn-poster']

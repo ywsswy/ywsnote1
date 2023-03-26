@@ -1,0 +1,55 @@
+/*
+ * main.c
+ */
+#include <msp430f5529.h>
+void main(void) {
+	WDTCTL = WDTPW + WDTHOLD;
+	SFRIFG1 = 0;
+	P1DIR |= BIT0;
+	//P1DIR &=~BIT0;
+	P1SEL |= BIT0;
+	P2SEL |= BIT2;
+	P2DIR |= BIT2;
+	P7SEL |= BIT7;
+	P7DIR |= BIT7;
+	//设MCLK、SMCLK为REFOCLK，
+	//
+	//_0:XT1CLK
+	//_1:VLOCLK
+	//_2:REFOCLK
+	//_3:DCOCLK
+	//_4:DCOCLKDIV
+	//_5:XT2CLK(effective)DCOCLKDIV(else)
+	//(default)
+	//MCLK:SELM_4(1.048576MHz)=1048576Hz=0x100000Hz
+	//SMCLK:SELS_4
+	//ACLK:SELA_0
+	//FLL:2分频
+	//DCO:2.097152MHz
+	
+	UCSCTL4 = UCSCTL4 &(~(SELS_7|SELM_7))|SELS_2|SELM_2;
+	//P10 ->33.78kHz
+	//UCSCTL4 = UCSCTL4 &(~(SELA_7))|SELA_3;
+	//2.17MHz(2.097152)
+	//UCSCTL4 = UCSCTL4 &(~(SELA_7))|SELA_4;
+	//P10 ->1.075MHz(1.048576MHz)
+	//UCSCTL4 = UCSCTL4 &(~(SELS_7|SELM_7|SELA_7))|SELS_2|SELM_2|SELA_2;
+	//P10 ->33.78kHz too
+	//UCSCTL4 = UCSCTL4 &(~(SELS_7|SELM_7|SELA_7))|SELS_2|SELM_2|SELA_1;
+	//P10 ->~9.615kHz(10kHz)
+//	P8DIR |= BIT1;
+//
+//	TA0CCTL0 = CCIE;
+//
+//	TA0CCR0 = 500;
+//	TA0CTL = TASSEL_0 + MC_1 + TACLR;
+	//_EINT();
+	while(1);
+}
+#pragma vector=TIMER0_A0_VECTOR
+__interrupt void TIMERR0_A0_ISR(void)
+{
+	//P1OUT ^= BIT0;
+	P8OUT ^= BIT1;
+}
+

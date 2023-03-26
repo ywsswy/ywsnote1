@@ -1,0 +1,23 @@
+样例输入
+3 201711170032 201711222352
+0 7 * * 1,3-5 get_up
+30 23 * * Sat,Sun go_to_bed
+15 12,18 * * * have_dinner
+样例输出
+201711170700 get_up
+201711171215 have_dinner
+201711171815 have_dinner
+201711181215 have_dinner
+201711181815 have_dinner
+201711182330 go_to_bed
+201711191215 have_dinner
+201711191815 have_dinner
+201711192330 go_to_bed
+201711200700 get_up
+201711201215 have_dinner
+201711201815 have_dinner
+201711211215 have_dinner
+201711211815 have_dinner
+201711220700 get_up
+201711221215 have_dinner
+201711221815 have_dinner

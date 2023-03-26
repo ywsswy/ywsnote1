@@ -1,0 +1,11 @@
+属性
+y1.dtype
+每个元素的数据类型
+numpy.float32
+int32(默认）  
+int64
+float32
+float64
+<U5
+object
+可以存储多种数据
