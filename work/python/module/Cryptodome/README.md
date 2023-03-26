@@ -1,6 +1,4 @@
-pip3 install pycryptodomex
-
-https://pycryptodome.readthedocs.io/en/latest/src/installation.html
+install pycryptodomex(https://pycryptodome.readthedocs.io/en/latest/src/installation.html)
 
 from Cryptodome.Cipher import AES
 data = b'i love u'

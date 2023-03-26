@@ -6,13 +6,14 @@ set <key>? #查看一个设置项的值
 "双引号后面是注释
 #[推荐写在.vimrc中]
 set expandtab "把tab/缩进替换为空格。注意makefile的编写不能用空格，只能用tab，这时可以使用ctrl+v再输入tab键
-set encoding=utf-8 "不确定
-set fileencodings=utf-8 "解决utf-8文件里面中文乱码
+set encoding=utf-8 "可以解决乱码问题形如：�~J�~M~W�~A~P�~@~V�~I~G夺
+set fileencodings=utf-8 "解决utf-8文件里面中文乱码，（需要,gbk吗）
 set hlsearch "高亮搜索词
 set list "显示特殊字符
 set makeprg=scons\ -j8 "quickfix模式，自动跳到第一个出错的地方，写完代码不退出直接:make，然后出错后:cw可以打开错误提示，这种情况不要强制输出gcc的颜色
 set noignorecase
 set number "显示行号
+set ruler "右下角显示光标坐标
 set shiftwidth=2 "<>的缩进宽度
 set tabstop=2 "设置tab宽度 "shiftwidth要和ts设置一致，如果shiftwidth宽度小于ts，那么往回缩的时候会额外加空格补齐了哇！
 set wildmenu "显示一整行的提示符
@@ -31,10 +32,11 @@ set noeol #在binary情况下，保存文件时不在文件尾加\n
 set foldmethod #diff / manual
 自定义函数https://cloud.tencent.com/developer/ask/29526
 
-set paste "回车的时候会跟随上一行的注释的话，使用这个就避免从别处复制的程序变成注释而错位，但是粘贴模式无法在右下角看到当前位置
+set paste "使用这个就避免从别处复制的程序变成注释而错位，但是粘贴模式无法在右下角看到当前位置
 ####################################################################
 【编辑模式下】
 Ctrl+i  移动到后一次位置
+Ctrl+v <ascii>  #输入ascii对应的特殊字符，例如ctrl+v 13，输入的就是（^M）不可见字符，这仅仅是编辑特殊文件时使用，而bash脚本中不要这么用，见shell/string
 【命令模式下】
 :g/pattern/d    #删除匹配pattern的行
 :v/pattern/d    #删除不匹配pattern的行
@@ -43,7 +45,6 @@ Ctrl+i  移动到后一次位置
 :%!xxd  #以十六进制编辑二进制文件（注意这种文件应该用vim -b 打开，不然文件中大于0x7f的字节就会精度损失），用:%!xxd -r 从十六进制恢复回正常模式
 :r !command 运行命令把结果输入
 :%normal jdd #删除偶数行 :2,4:normal $a; # 把2～4行尾加分号
-ctrl+v j选中几行后 的编辑操作可以对多行同时生效
 
 [{ 找上一层的{符号
 ]) 找下一层的)符号
@@ -54,6 +55,7 @@ gu/Uw 单词变小/大写
 zf% 折叠这个花括号
 zf<line>G 从这行折叠到<line>行
 ctrl+r 反撤销
+R 覆写模式
 
 :set nobomb 设置utf-8务bomb模式（一般windows的php文件会有bomb头，这样网页可能显示异常）
 :set bomb?  查询是否有bomb

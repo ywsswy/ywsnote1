@@ -42,3 +42,9 @@ int main() {
    cout << "实际是" << g_count << endl;
 }
 ```
+
+
+lock_guard和unique_lock功能是一样的，不过
+unique_lock提供了lock, unlock, try_lock等接口.
+lock_guard没有多余的接口，构造函数时拿到锁，析构函数时释放锁
+lock_guard 比unique_lock 要省时

@@ -1,10 +1,6 @@
 workspace 是目录树，有一个WORKSPACE文件的目录是workspace的根目录
 
-workspace rules，用来写在
-
-
-
-bzl文件里可以定义function，BUILD/WORKSPACE文件里禁止定义
+workspace rules，用来写在bzl文件里可以定义function，BUILD/WORKSPACE文件里禁止定义
 
 导入其他文件中的function：
 ```

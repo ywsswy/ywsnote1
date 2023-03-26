@@ -15,7 +15,6 @@ sudo route del -net default gw 172.18.112.1 #删除内网的那条默认路由
 ss -nl 显示tcp连接端口等 
 xrand -s 800x480 改分辨率
 sudo poweroff 关机
-nload 查看incoming（下载速度）和outgoing（上传速度），看Curr参数就行，方向键切换网卡
 echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))，如果要计算整数除法求余，就要把scale设置为0
 dd if=/dev/zero of=test bs=1M count=1024 # 创建一个G的文件
 rename log data *  # 把所有文件名中的log替换成data

@@ -33,6 +33,11 @@ var yws_add_jquery = document.createElement('script');
 yws_add_jquery.src = 'https://code.jquery.com/jquery-1.11.0.min.js';
 yws_add_jquery.type='text/javascript';
 document.getElementsByTagName('head')[0].appendChild(yws_add_jquery);
+【动态加入css
+var yws_add_css = document.createElement('style');
+yws_add_css.type = 'text/css';
+yws_add_css.innerHTML='xxxx';
+document.getElementsByTagName('head')[0].appendChild(yws_add_css);
 【eg
 $(".questionsArea dl").eq(0).attr('style','border: solid red 5px;');
 #对匹配到的第一个（0s）元素 设置属性style的值，如果省略eq就是对全部匹配的都操作
@@ -66,12 +71,5 @@ true
 $('#myForm').eq(0)==$('#myForm')
 
 false
-
-
-
-
-
-
-
 
 

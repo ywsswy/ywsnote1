@@ -14,3 +14,7 @@ c和x对应
 z表示有gzip压缩方法，J表示xz压缩方法，j表示bzip2压缩方法
 v表示可视
 f后跟文件名
+
+额外加密解密：
+openssl enc -des3 -in 1.tgz -e >1.tgz.encrypt # 加密，等价于openssl des3 -in 1.tgz -e >1.tgz.encrypt
+openssl enc -des3 -in 1.tgz.encrypt -d >1.tgz # 解密

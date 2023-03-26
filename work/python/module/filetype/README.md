@@ -4,7 +4,9 @@ def get_file_type(filename):
     if kind is None:
         return 'unknown'
     return kind.extension
-                fileType = get_file_type(''.join([filePath, '\\', userCookie]))
+
+
+                fileType = get_file_type('xxxxx')
                 print(fileType)
                 if fileType not in ['jpg','png','bmp']:
                     return Response(response='0文件类型错误，仅支持[jpg,png,bmp]图像文件')

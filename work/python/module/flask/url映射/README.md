@@ -1,12 +1,6 @@
 scheme://host:port/path/?query-string#anchor
 
 
-web服务器 处理http请求，响应静态文件，当遇到不能处理的东西时就转发给应用服务器
-应用服务器 处理逻辑 php bomcat python（uwsgi） 
-web应用框架 封装好web功能 flask django
-
-
-
 # /list/和/list在seo优化中是不同的，写斜杠能被两种都识别
 @app.route('/list/')  # 默认methods方法是['GET']，可以设置['GET','POST']
 def article_list():

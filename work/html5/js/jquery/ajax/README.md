@@ -1,7 +1,4 @@
-//动态加入console调试
-var jquery = document.createElement('script');
-jquery.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
-document.getElementsByTagName('head')[0].appendChild(jquery);
+
 //ajax跨域请求
 $.ajax({url:"http://ywsswy.cn:86/?url=http://9icn.xyz/",success:function(result){
    console.log($(result).find('#1').eq(0).html());

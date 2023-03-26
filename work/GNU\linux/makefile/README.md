@@ -1,3 +1,14 @@
+# makefile编写
+exe=main
+obj=main.o
+$(exe):$(obj)
+        g++ -o $(exe) $(obj)#注意这前面是tab键，不是空格
+main.o:main.cc
+        g++ -c main.cc
+clean:
+        rm -rf *.o main
+"每次重新生成必须要clean
+
 # make:
 make -n 只显示要执行的命令，不执行，make V=1又显示又执行
 make <目标> 会自动检查当前目录makefile文件里面<目标>的依赖，不写<目标>就是构建makefile中的第一个目标

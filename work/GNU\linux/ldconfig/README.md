@@ -1,8 +1,9 @@
+## 运行阶段的依赖
+
 动态函数库
 libxxx.so
 
 需要先加载到内存中，程序才能调用
-
 
 首先在/etc/ld.so.conf中指定要加载的配置
 
@@ -15,3 +16,7 @@ include ld.so.conf.d/*.conf
 
 
 在/etc/ld.so.conf中指定 & ldconfig; 或者export LD_LIBRARY_PATH都可以
+
+## 构建阶段的依赖
+
+不是看LD_LIBRARY_PATH，而是看LIBRARY_PATH

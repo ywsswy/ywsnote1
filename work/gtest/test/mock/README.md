@@ -2,7 +2,7 @@
 场景二：对于网络通信等函数，没法真实发起网络通信，所以也可以进行mock，
 对某函数进行mock，前提是该函数必须是虚函数！！在开发的时候就应该考虑到后续单测的事情
 
-确认前提后，首先继承改函数所在类，然后写MOCK函数宏
+确认前提后，首先继承该函数所在类，然后写MOCK函数宏
 class MOCK_<class1> : public <class1> {
  public:
   MOCK_METHODx(<fun_name>, <fun_type>);//x表示原始函数的参数个数

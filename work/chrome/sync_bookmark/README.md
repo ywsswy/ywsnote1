@@ -13,3 +13,5 @@ Local Backend Path	Uninitialized
 # 重点是看中间的日志信息
 作为发起修改方，保证所有的commit request都得到了SYNCER_OK的commit response日志。
 作为接受修改方，保证在修改之后（看time）得到了GetUpdates Response日志。
+
+同步有问题修改代理之后需要重启chrome

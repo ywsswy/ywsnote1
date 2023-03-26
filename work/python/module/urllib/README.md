@@ -13,7 +13,7 @@ res = urllib.request.urlopen(req, data).read()#参数在参数中
 print(res.decode('utf-8'))
 【eg get
 import urllib.request
-req = urllib.request.Request('http://jwc.cqupt.edu.cn/showStuQmcj.php?xh=123') #参数在url中
+req = urllib.request.Request('http://jwc.cqupt.edu.cn/showStuQmcj.php?xh=123')  # 参数在url中，如果有特殊字符，则使用urllib.parse.quote
 req.add_header("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
 #req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1) (KHTML) Chrome')
 res = urllib.request.urlopen(req).read()

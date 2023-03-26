@@ -3,6 +3,8 @@
 
 SELECT guid, concat_ws(' ',collect_list(doclist)) as doclist from <table> group by guid;
 
+-- concat_ws是一种简写，等价于concat(doclist第一个元素, ' ', doclist第二个元素, ' ', ……)
+
 
 上面的拼接是无序的，如果希望collect_list(doclist)是按照某个字段(ftime)的顺序来排序的话，可以使用
 ```

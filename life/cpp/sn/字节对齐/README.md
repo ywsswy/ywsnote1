@@ -22,6 +22,7 @@ $4 = 7
 1. 类、结构体的对齐原则：使用成员当中最大的对齐字节来对齐。比如在Struct A中，有int,char，int a的对齐字节为4，比char大，所以A的对齐字节为4
 2. 使用宏 #pragma pack(n)可以指定对齐值，#pragma pack ()恢复默认
 3. 最终的对齐值 = min(对齐原则，#pragma指定的对齐值)
+4. 如果多个相邻成员的字节数之和小于对齐字节数，则这多个变量放在同一对齐块内；（见case4）
 */
 // case2 默认字节对齐（int最大，所以用4字节对齐，结构体的sizeof是8）
 
@@ -50,3 +51,10 @@ $2 = (int *) 0x7fffffffd8f2
 (gdb) 
 
 
+// case4 sizeof = 8
+
+struct s {   
+    unsigned char a;
+    unsigned char b;
+    int c;
+};

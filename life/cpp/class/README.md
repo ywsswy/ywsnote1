@@ -31,9 +31,10 @@ back	//引用
 front	//引用  
 pop_back //void return  
 push_back  
+emplace_back  // 相比之下可以接收参数进行原地构造，避免前者只能接收本类对象进行复制/移动构造
 erase	//按迭代器删除，返回指向下一个元素的迭代器，反迭不行  
 insert(it,elem)	//插入元素排在前面，返回插入元素的迭代器，反迭不行  
-reserve	//提前分配好capacity（不改变size），因为连续内存不够会重新分配导致移动元素。  
+reserve	//提前分配好capacity（不改变size），因为连续内存不够会重新分配导致移动重新构造元素。  
 resize	//resize(size_int,value) 分配好元素个数，多加的元素初始值为value（类似memset）  //二维数组初始化也用这个
 ## list
 back	//左值引用，不会core  
@@ -110,3 +111,7 @@ for(list<int>::iterator it = li.begin();it != li.end();it++){
 
 std::lower_bound
 https://blog.csdn.net/albertsh/article/details/106976688
+
+erase支持传两个参数，start, end，表示删除一个区间段的元素；
+配合std::remove_if可以实现先把符合条件（return true）的所有元素移动到尾部，返回“原”尾部迭代器，进而实现删除所有符合条件的元素
+x.erase(std::remove_if(x.begin(), x.end(), []{}), x.end());

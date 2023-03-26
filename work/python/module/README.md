@@ -17,6 +17,7 @@ https://mirrors.tencent.com/pypi/simple
 python3 -m pip show <pac>  # 查看某个包的安装目录
 
 
+还有一种从软件源下载whl文件的安装方法 python3 -m pip install <whl_file>
 还有一种直接源码安装库的方法，直接把文件夹放入安装目录，如（.local/lib/python3.6/site-packages）。
 文件夹格式类似
 ```
@@ -32,5 +33,5 @@ __pycache__
 tests
 ```
 
-python -m SimpleHTTPServer <port> python牛逼，这种就是提供http服务端，/是列出当前目录的文件
+python -m SimpleHTTPServer <port> python牛逼，这种就是提供http服务端，/是列出当前目录的文件；
 python3 -m http.server <port>

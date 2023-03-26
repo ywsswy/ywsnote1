@@ -1,15 +1,20 @@
 string s1;
 s1[0] = 'y';
 
+string有类似写时复制（copy-on-write）的优化，就是复制赋值的时候可能并不是立即分配相同大小的字符数组，而是智能指针复制，等到修改字符串内容的时候，才真的new出一块进行修改；
+
 
 const char* kKey = "key"; std::string s(kKey);  // 不存在特殊字符的初始化
 const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // 存在特殊字符的初始化，注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
 
+raw string（原生字符串）可以不加转义的初始化字符串：
+R"[<tokens>](<字符串>)[<tokens>]"; R"(say:"hi")" 即 say:"hi"
+
 [member
-string::npos 代表字符串没找到的size_t -1 && 最大值
+std::string::npos 代表字符串没找到的size_t -1 && 最大值
 
 [methed
-std::string((const char *)&value, 8);  // std::string(const char *(&value), 8))这种就报错, NULL也会core_dump!!
+std::string((const char *)&value, 8);  // 不写size，则是拷贝（总之新分配内存）到空字符为止，std::string(const char *(&value), 8))这种就报错, NULL也会core_dump!!
 append	//string& append(string) 同 s = s+t
 back	//引用
 front	//引用
@@ -26,8 +31,8 @@ substr	//string substr(startloc_int,len_int=max)       //startloc要保证<=size
 
 [associated function
 string to_string(T)	//C++11
-getline(std::cin,st);	//只有此行（有字符或者回车）才会读成功(if(getline))，getline不会忽略空格和换行，但是独到的换行不会保存，仅当作此次读取完毕。
-cin;//正常读整数/字符串之类时，开始读取会忽略空格换行，再遇空格换行会停止读取
+getline(std::cin,st);	//读到的换行符丢弃，回车符不会丢弃
+cin;//正常读整数/字符串之类时，读取会忽略开始的空格换行符，再遇空格换行符会停止读取
 
 [others
 + 	连接运算符

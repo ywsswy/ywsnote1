@@ -8,3 +8,6 @@
 
 
 这里可以看到map和reduce的内存设置
+
+不合理可以调整参数，例如：
+set mapreduce.reduce.java.opts=-Xmx6144M;

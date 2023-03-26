@@ -1,0 +1,2 @@
+- readelf -t 查看section details，如果使用readelf -a 查看的section名称可能被长度截断
+- readelf -s 查看symbols，类似nm，比nm更详细

@@ -18,7 +18,7 @@
     yws_add_css.innerHTML='*{user-select: auto !important;}';
     document.getElementsByTagName('head')[0].appendChild(yws_add_css);
     var Type = {attr: 0, click: 1};
-    var list_liumang = ['www.hackhome.com','www.huya.com','www.douyu.com'];
+    var list_liumang = ['www.hackhome.com'];
     // site can only be domain, not path
     var list_processing = [
                            {flag: false, site: 'localhost', selector: '#menubar-container', type: Type.attr, key: "hidden", value: true},

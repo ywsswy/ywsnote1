@@ -4,7 +4,7 @@ old_stdin = sys.stdin
 sys.stdin = open('yin1.txt','r', encoding='utf-8') #这种不要多线程运行，因为只允许一个sys.stdin
 #sys.stdout = open('yout1.txt','w')
 #print('hello')
-temp = input() #不会读回车，类似getline的默认用法
+temp = input() #不会读回车符？
 print(temp)
 '''
 data_list = []

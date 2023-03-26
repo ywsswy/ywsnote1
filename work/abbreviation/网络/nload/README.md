@@ -1,0 +1,1 @@
+nload 查看incoming（下载速度）和outgoing（上传速度），看Curr参数就行，方向键切换网卡

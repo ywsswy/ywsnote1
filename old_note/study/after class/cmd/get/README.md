@@ -35,6 +35,7 @@ echo a>b.txt	//将a写到b
 Del 		删除该文件夹里的直系文件或删除当前文件（不删除文件夹，以及间接文件）
 dir打		开目录
 Exit 		退出cmd
+fsutil file createnew 1.txt 1024 # 创建1024个字节的文件
 Help　		打开Dos命令
 md admin	在此处建立admin文件夹
 path 		列出系统环境变量

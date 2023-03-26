@@ -1,7 +1,7 @@
 # 开箱步骤
 - 安装，之后【任何】操作都是在sudo su之后的操作！！！！！（这样有操作windows文件的权限/mnt/d/）
 - 开启ssh服务，用xshell登陆（操作方法参考ssh连接）
-- 基本工具trash-put等安装 sudo python3 setup.py install
+- 基本工具trash-put等安装
 # 其他
 - wsl中操作U盘
 WSL mkdir /mnt/g; sudo su; mount -t drvfs G:\\ /mnt/g; #git 不支持fat32文件系统且要在sudo su下

@@ -1,7 +1,7 @@
 grub rescue>ls
 列出所有分区
 grub rescue>ls (hd0,msdos1)
-回车，如果是unknown filesystem继续试下一个分区
+回车键，如果是unknown filesystem继续试下一个分区
 grub rescue>ls (hd0, msdos8)
 找到了,我的ubuntu是在（hd0,msdos8）
 修改启动分区：

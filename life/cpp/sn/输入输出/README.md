@@ -47,7 +47,7 @@ fixed		//浮点数为定点十进制
 //用不到
 scientific	//【默认？浮点数为科学计数法
 		//【默认 如果写成科学计数法是指数<-4或者大于等于精度时会自动转换为科学计数法
-endl		//插入换行，刷新ostream缓冲区
+endl		//插入行分隔符，刷新ostream缓冲区
 ends		//插入空字符（NULL）
 flush		//刷新ostream缓冲区
 unitbuf		//每次输出都刷新缓冲区

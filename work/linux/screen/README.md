@@ -10,7 +10,7 @@ screen的Detached状态表示这个screen下没有任何其他bash？
 Attached表示至少有一个bash在里面连接中
 
 C-a + " 进入screen中的终端列表，Ctrl + p/n 即可选择使用哪个终端
-c-a + ' 输入像进入的终端
+c-a + ' 输入想进入的终端
 
 c-a + c 创建一个新窗口并切换到其
 c-a + k 删除该窗口

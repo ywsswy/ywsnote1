@@ -8,3 +8,5 @@
 抓python urllib的包是不同的，需要reassembled后才能恢复
 
 抓https需要wireshark版本2，
+
+通常在目的机器写来源ip.src靠谱一些，写ip.dst有可能经过转换了

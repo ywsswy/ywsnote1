@@ -1,6 +1,7 @@
-CBS Cloud Block Storage 云硬盘
-
 HA 高可用High Availability，是分布式系统架构设计中必须考虑的因素之一
+
+HPA（Horizontal Pod Autoscaler）k8s中通过调整Pod数量来进行弹性伸缩
+VPA（Vertical Pod Autoscaler）k8s中通过调整目标CPU使用率（配额）来进行弹性伸缩
 
 
 基于主干开发（TBD）trunkbaseddevelopment

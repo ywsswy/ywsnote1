@@ -12,9 +12,11 @@ awk '{printf("")}' 输出的是ut8编码，如果需要ASCII则要加LC_ALL=C
 00000000  c2 80                                             |..|
 00000002
 
+求和命令
+cat test.txt |awk 'BEGIN{avg=0;sum=0;num=0} {sum += $1;num++} END{avg=sum/num;printf("num:%d, total:%d, avg:%d\n",num,sum,avg)}'
+
 
 # old
-cat test.txt |awk 'BEGIN{avg=0;sum=0;num=0} {sum += $3;num++} END{avg=sum/num;printf("num:%s, total:%s, avg:%d\n",num,sum,avg)}'
 cat 2.txt |awk '!a[$2]++{print}'   #去除第二列重复的行（重复的仅保留第一个）
 - awf -F 的分隔符分割后，得到一个字符串数组[$1,$2,$3....]，然后仅进入【一次，多少行就多少次？】后面的执行语句
 - 语句中可以使用的有：（注意$前缀有特殊含义，普通变量不用加$前缀）

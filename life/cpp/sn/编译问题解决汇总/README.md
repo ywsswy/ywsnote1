@@ -34,11 +34,11 @@ In file included from <file3>
 
 ## 继续套路：
 ```
-In file included from <file_n-1>.h,
-                 from <file_n-2>.h,
+In file included from <file_n-1>.h:<行号>,
+                 from <file_n-2>.h:<行号>,
                  ...
-                 from <file_2>.h,
-                 from <file_1>.cc:
+                 from <file_2>.h:<行号>,
+                 from <file_1>.cc<行号>:
 <file_n>.h: error: 'X' has not been declared
 ```
 这种头文件依此包含，一层层展开，展开到<file_n>的时候发现了未定义类型，可通过修改前向声明，不要在.h中做include展开来解决
@@ -63,6 +63,12 @@ int main()
 }
 ## declaration of 'Class2 var1' shadows a parameter
 var1 已经定义为其他类型的变量了，不能再定义成Class2
+
+
+## 
+<文件1>: In instantiation of <模板类的函数> [with 模板的每个参数类型]
+<文件2>:<行号>: required from xxx  // 这是实际调用/使用<文件1>模板类的函数的地方
+<文件3>:<行号>: required from yyy  // 这是实际调用/使用<文件2>的地方
 
 
 # [链接]问题汇总

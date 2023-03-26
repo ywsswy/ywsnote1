@@ -5,15 +5,15 @@
 1）修改配置文件，设置快照存储路径
 path.repo: /root/<x>
 
-不过因为es启动用户不是root，所以要（1）给es的默认用户加到root组里，usermod -a -G root elasticsearch（2）开放文件夹给本组内可读写chmod g+w <x>
+不过因为es启动用户不是root，所以要（1）给es的默认用户加到root组里，usermod -a -G root elasticsearch（2）开放文件夹（及其所有祖先目录）给本组内可读写chmod g+w <x>
 
 2）
 ```
-PUT _snapshot/<y_sp_r>
+PUT _snapshot/<repository>
 {
   "type": "fs",
   "settings": {
-    "location": "<xxx>"
+    "location": "<y>"
   }
 }
 ```
@@ -21,19 +21,18 @@ PUT _snapshot/<y_sp_r>
 GET _snapshot
 4）往快照里生成快照（wait_for_completion表示不要放到后台去执行）
 ```
-PUT _snapshot/<y_sp_r>/<y_sp>?wait_for_completion=true
+PUT _snapshot/<repository>/<snapshot_name>?wait_for_completion=true
 {
   "indices": "<index>"
 }
 ```
-5）把快照文件夹保存起来
-6）新机器上，重复1～3
-7）解压快照文件夹
-8）可以查看仓库/磁盘里有哪些快照有效
-GET _snapshot/<y_sp_r>/*?verbose=false
-9）恢复/restore快照
+5）把快照文件夹(/root/<x>/<y>)保存起来
+6）新机器上，解压快照文件夹，重复1～2
+7）可以查看仓库/磁盘里有哪些快照有效
+GET _snapshot/<repository>/*?verbose=false
+8）恢复/restore快照
 ```
-POST _snapshot/<y_sp_r>/<y_sp>/_restore?wait_for_completion=true
+POST _snapshot/<repository>/<snapshot_name>/_restore?wait_for_completion=true
 {
   "indices": "<index>"
 }
@@ -41,7 +40,7 @@ POST _snapshot/<y_sp_r>/<y_sp>/_restore?wait_for_completion=true
 
 ## 其他
 - 删除某快照仓库
-DELETE _snapshot/<y_sp_r>
+DELETE _snapshot/<repository>
 
 - 删除某快照
-DELETE _snapshot/<y_sp_r>/<y_sp>
+DELETE _snapshot/<repository>/<snapshot_name>

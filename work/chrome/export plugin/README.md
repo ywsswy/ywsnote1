@@ -15,3 +15,7 @@ https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
 contentjs是直接往页面注入的js
 
 消息通信post
+
+
+## 安装viminum
+https://github.com/philc/vimium/blob/master/CONTRIBUTING.md#installing-from-source

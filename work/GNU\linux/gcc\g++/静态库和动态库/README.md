@@ -3,8 +3,6 @@
 gcc -fPIC -c library.cpp -o library.o
 gcc -fPIC -c library-bridge.cpp -o library-bridge.o
 
--fPIC 生成位置无关代码，不论是生成静态库还是动态库，不论最后是用于静态链接还是动态链接，最好编译阶段都加上，否则后面又可能就会报错：
-libxxx.a(xxx.o): requires unsupported dynamic reloc 11; recompile with -fPIC
 ```
 
 # 制作库阶段（-shared参数在制作库阶段才可能用）
@@ -19,7 +17,7 @@ library.cpp: C source, ASCII text
 library.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 > file lib5.a
 lib5.a: current ar archive
-> ar -t lib5.a # 查看静态库中包含的.o文件
+> ar -t lib5.a # 查看静态库中包含的.o文件（显示的顺序就是制作时的顺序）
 library-bridge.o
 library.o
 > file lib5.so 

@@ -69,4 +69,4 @@ install -p -m755 %{SOURCE7} .%{_libexecdir}/ntpdate-wrapper
 ```
 
 其他
-BuildRoot: 编译时，该使用哪个目录来暂存中间文件 （如编译过程的目标文件/链接文件）
+BuildRoot: 编译时，该使用哪个目录来暂存中间文件（如编译过程的relocatable文件/链接文件）

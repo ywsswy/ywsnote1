@@ -1,3 +1,9 @@
+safari修改并重发网络请求（请求一次，在网络中右键create request local override，然后编辑好，再重新请求一次，虽然控制台看好像没改，但是实际是改了的。。。实在觉得难用就用firefox吧）
+chrome全屏 command + control + f
+
+m4a转mp3
+ffmpeg -i inputfile.m4a -acodec libmp3lame -ab 93k outputfile.mp3
+
 command + tab能切换
 command + f 能查找
 command + v 粘贴
@@ -6,6 +12,8 @@ command + 左 home ....
 鼠标停在该显示屏最下方几秒 程序坞显示到该显示屏
 command + shift + 4 截屏
 command + delete 删除文件
+command + 上 在finder界面进入上一层目录
+ctrl + space 切换输入法
 
 Fn + 左/右/上/下 home/end/pageup/pagedown
 

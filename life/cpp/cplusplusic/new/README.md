@@ -25,7 +25,7 @@ public: 段 protected: 段，最后是 private: 段
 ## 6.14 
 整数用 0，浮点数用 0.0
 指针用 nullptr，nullptr 具备类型安全，而 0 和 NULL 通常都是整型，后者在函数重载和模板类型推导时会出问题
-## 6.24 别名用 using Bar = Foo; 代替typedef Foo Bar;
+## 6.24 别名用 using New = Old; 代替typedef Old Bar;
 ## 7.5 静态static变量 全局变量 const常量
 const type kValue = xxx;
 ## 8.1 注释
@@ -66,3 +66,23 @@ switch (var) {
 ## 9.11
  (*, &) 作为指针/地址运算符时之后不能有空格
 (*, &)在用于声明指针/引用变量或参数时，建议空格后置
+
+# 个人经验：
+- 子函数内部有多种返回错误的情况，在子函数内部打错误日志就可以详细区分，而不是在外部打一个无法区分的日志；
+```
+bool Check(auto req) {
+  if (req == nullptr) {
+    LOG("req is null");
+    return false;
+  }
+  if (req.uid().empty) {
+    LOG("req.uid().empty");
+    return false;
+  }
+  return true;
+}
+if (!Check(req)) {
+  // LOG("check fail");  // 这一行日志没有必要打，只要子函数里每一个错误都打了日志即可
+  return false;
+}
+```

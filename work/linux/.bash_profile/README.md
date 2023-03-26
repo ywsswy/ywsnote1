@@ -11,9 +11,10 @@ if [ -f /etc/bashrc ]; then
 fi
 # 环境变量：不export了话，这个变量只能在当前shell下使用，在shell的子进程中无法使用
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/software/gc/lib/:.:$HOME/lib:$HOME/lib64:$HOME/libexec:/usr/local/lib"
-export LC_CTYPE="zh_CN.UTF-8"  # 不设置的话LC_CTYPE默认是"C"，python3 输出中文就会报错UnicodeEncodeError: 'ascii' codec can't encode character '\u7ebf' in position 0: ordinal not in range(128)
+export LC_CTYPE="en_US.UTF-8"  # 不设置对字符集的话LC_CTYPE默认是"C"，python3 输出中文就会报错UnicodeEncodeError: 'ascii' codec can't encode character '\u7ebf' in position 0: ordinal not in range(128)
 export LANG="en_US.utf-8"  # 参考 https://blog.csdn.net/wt_better/article/details/110203286
-export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/github.com/ywsswy/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/software/git-2.23.0/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.ft:/home/hill/software/git-2.23.0/bin:$HOME/Library/Python/3.8/bin"
+export LESSCHARSET=utf-8  # 避免git log 出现中文乱码问题
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/github.com/ywsswy/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/Library/Python/3.8/bin:/usr/local/go/bin:$HOME/go/bin"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "
 # .bash_history的文件最大行数
@@ -28,6 +29,10 @@ export TMOUT=0
 ulimit -c unlimited
 # 不用--color=auto是因为mac不支持
 alias ll='ls -l --color=auto'
+# 如果golang存在网络问题则配置代理
+# export GOPROXY=https://goproxy.io,direct  # 开源的golang代理，或者更万能的使用下面的socks5代理
+# export http_proxy=socks5://localhost:<port>  
+# export https_proxy=socks5://localhost:<port>
 
 
 service cron start #wsl

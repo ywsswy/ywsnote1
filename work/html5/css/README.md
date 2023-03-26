@@ -26,7 +26,7 @@ E1,E2	列表	h1,h2,h3{}
 .V1.V2	混合	p.alert.critical	<p class="alert critical">
 【组合器
 E1 E2   div a   #两个选择器是血缘关系，E2是核心（被选中的那个）
-E1>E2   div>a   #父子关系，E2是核心
+E1>E2   div>a   #父子关系，E2是核心，可以写多个E0>E1>E2
 E1+E2   div+a   #相邻兄弟，E2是核心
 E1~E2   div~a   #可不相邻兄弟，E2是核心
 【属性选择器

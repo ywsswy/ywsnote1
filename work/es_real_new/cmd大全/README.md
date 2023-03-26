@@ -59,3 +59,5 @@ curl -X GET "localhost:9200/_search/template" -H 'Content-Type: application/json
     "explain": false//true的话会开启得分说明
 }
 '
+
+### [7] scroll 翻页

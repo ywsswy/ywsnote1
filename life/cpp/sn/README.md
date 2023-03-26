@@ -7,7 +7,7 @@
 
 for (auto &&it : container) # 这么访问咯
 
-避免裸指针，用auto ptr = std::make_shared<CLASS>();
+避免裸指针，用auto ptr = std::make_shared<CLASS>(init_parm1, init_parm2);
 
 模板函数是不能把实现写到cpp里的，头文件中就要写
 

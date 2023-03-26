@@ -1,6 +1,6 @@
 构造函数是private的
 写一个public的
-static <CLASS> &GetInstance() {
+static <CLASS>& GetInstance() {
   static <CLASS> instance;
   return instance;
 }

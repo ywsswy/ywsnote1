@@ -10,3 +10,13 @@ cp -r /home/user/* /mnt/temp
 正确方法：
 cp -r /home/user/. /mnt/temp
 
+
+linux报错解释：
+```
+[root@VM-184-145-centos tmp]# mv new.py pl/new.py
+mv: cannot move 'new.py' to 'pl/new.py': No such file or directory
+# 这一种是因为pl目录不存在
+[root@VM-184-145-centos tmp]# mv old.py plugin/new.py 
+mv: cannot stat 'old.py': No such file or directory
+# 这一种是因为old.py文件不存在
+```

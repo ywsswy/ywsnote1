@@ -40,41 +40,61 @@ https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
 
 ## 单元测试，这种写法可以单步调试
 bazel coverage ... -c dbg --coverage_report_generator="@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main" --combined_report=lcov --nocache_test_results --strip=never --compilation_mode=dbg -s #查看输出日志可以查看二进制文件，用相对路径去执行
---test_output=all # 可以输出执行情况
+--test_output=all # 可以输出执行情况，或者直接去看bazel-out/k8-fastbuild/testlogs/<path_to_ut>/test.log
+
 
 ## 可以使用copts增加单元测试时的私有变量访问
-cc_test(
-    name = "test",
+## 推荐下面这种多包一层的写法，可以把_test.cc文件也显示覆盖率
+```
+cc_library(
+    name = "test_lib",
     srcs = glob(
-        ["*_test.cc", "mock_*.h"]
-    ),
-...
-    copts = [
+        ["*_test.cc", "mock_*.h"],
+    ),  
+    visibility = [ "//visibility:public",],  
+    deps = [ 
+        "@com_google_googletest//:gtest_main",
+        ":xxx",
+    ],  
+    copts = [ 
       "-fno-access-control"
-    ]
+    ]   
 )
 
+cc_test(
+    name = "test",
+    visibility = ["//visibility:public",],  
+    deps = [ 
+        ":test_lib",
+    ],
+)
+```
 
 genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 
 ## 输出日志在，
 bazel-out/k8-fastbuild/testlogs/<path><test_bin>/test.log
-## 反正bazel-out里面是最全的
+## 反正bazel-out里面是最全的；bazel-out实际指向的是$HOME/.cache/bazel/_bazel_root/xxx里面的内容
 每个单测的执行目录是
 bazel-out/k8-dbg/bin/<path>/<test_bin>.runfiles/__main__
+
+## 查看gcc的参数是在这个文件里：
+bazel-out/k8-fastbuild/bin/<target_name>-2.params
+
 
 # .bazelrc，命令行的参数优先级高于这个文件中的参数
 这里面可以写一些默认编译参数，例如
 build --cxxopt="--std=c++17"
 build --copt=-O0
 build --incompatible_no_support_tools_in_action_inputs=false
+build --action_env=LIBRARY_PATH  # 使用外部环境变量，否则可能链接找不到系统库
 
 # 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端
 
 ## 一些编译参数
 -c (dgb|opt) //分别表示-g 和 -O2 -DNDEBUG
 --deleted_packages=<path to BUILD>
---sandbox_debug
+--sandbox_debug  # 显示verbose信息
 --jobs 1
 --subcommands  # 显示编译命令，类似verbose
 
@@ -91,7 +111,7 @@ git_repository(
   generator_name = "C",
   generator_function = "xxx",
   remote = "http://github.com/C/C.git",
-  tag = "v0.1.2",
+  tag = "v0.1.2",  # 还支持branch/commit
 )
 # Rule C instantiated at (most recent call last):
 #   path1/WORKSPACE:17:15                                            in <toplevel>
@@ -103,4 +123,4 @@ bazel query --output=build @repo_a//target_b
 
 # Q
 1）如果不知道A仓库里instantiated了B仓库，所以我还是手动写了B仓库的git_repository rule，那么最后的效果是redefine？还是只使用了其中一个（到底是哪一个？）？如果是B仓库的同版本或不同版本会带来不同的效果吗？
-使用bazel query --output=build //external:C是不是也不一定显示的是真正使用的那个？
+使用bazel query --output=build //external:C是不是也不一定显示的是真正使用的那个！是的(https://github.com/bazelbuild/bazel/issues/12947)！所以太坑了，继续找办法

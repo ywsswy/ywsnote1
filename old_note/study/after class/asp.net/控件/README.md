@@ -19,7 +19,7 @@ note：
 //具有记忆功能
 //生效位置：PageLoad、控件事件、AccessDataSource.Selecting事件
 【SelectParameters】
-设置数据库参数：Session\Cookie\控件（级联查询、模糊查询，同一页面实时与用户交互）\QueryString（无二次更改SelectCommand的页面中）\DefaultValue
+设置数据库参数：控件（级联查询、模糊查询，同一页面实时与用户交互）\QueryString（无二次更改SelectCommand的页面中）\DefaultValue
 【GridView】
 DataFormatString
 //字段类型：绑定、特殊、按钮、命令、自定义

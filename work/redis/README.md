@@ -1,10 +1,12 @@
-cat cmd_file|redis-cli -c -h <ip> -p <port> [-a <password>]
-(cat cmd_file;sleep 99999)|telnet <ip> <port> # 这种就不需要安装cli，但是telnet需要保持流，不然会断开，所以要sleep足够的时间，加个ping命令来确保执行完了；尝试过read阻塞，但是没成功。。
+cat cmd_file |redis-cli -c -h <ip> -p <port> [-a <password>]  # 如果输出到命令行，则会转义可视化；如果输出到文件，则是二进制原始数据（需要按照协议解析，例如list如何解析，zset如何解析），所以推荐输出到命令行可视化，如果想把可视化数据保存到文件，可以使用script命令伪装
 
-特别注意，如果<cmd>是set <key> <binary_data>时，应该把<binary_data>转义，用【单引号】包含进来，例如
-```
-set test '\x03\x02\x01\x00\x07\x08\x09'
-```
+~~(cat cmd_file;sleep 99999)|telnet <ip> <port>~~ # 这种就不需要安装cli，但是telnet需要保持流，不然会断开，所以要sleep足够的时间，加个ping命令来确保执行完了；尝试过read阻塞，但是没成功。。并且在处理二进制数据会有问题，因为Telnet通信的两个方向都采用带内信令方式。字节0xff(十进制的255）叫做IAC（interpret as command，意思是“作为命令来解释”）。该字节后面的一个字节才是命令字节。如果要发送数据255，就必须发送两个连续的字节255，redis服务端并不是telnet，所以二进制中的0xff会被客户端吞掉造成错误解析
+
+特别注意，如果cmd中是set <key> <binary_data>时，应该把<binary_data>转义，整个data用【双引号】包含进来，例如
+set a "1 23\x00\x01"
+调试阶段不写到cmd_file文件中则是
+echo 'set a "1 23\x00\x01"' |redis-cli ...
+不能写成 set <key> "$(cat <file>)"，因为经过"$()"之后\x00会丢掉，写成 -x set <key> < <file>则不会丢
 
 >auth <password> # 可以开始的时候不输入密码，这里输入即可
 >quit 退出
@@ -20,14 +22,20 @@ OK 表示设置成功
 (nil) 表示没有这个key
 其他整数表示还有多少秒存活时间
 
+>dbsize
+查看key的个数（这个命令可能会被禁用）
+>FLUSHALL
+清空全部key
 >TYPE <keyname>
-查看类型，有string，set,none
+查看类型，有string,set,none,list
 >SCARD <keyname>
 如果是set，获取set元素数量
 >SMEMBERS <keyname>
 如果是set，获取集合全部元素
->SADD <keyname> <value>
+>SADD <keyname> <value1> [<value2> ...]
 如果是set，往set中增加一个元素
+>SSCAN key cursor [MATCH pattern] [COUNT count]
+如果是set，取出一部分元素，第一次cursor要传0，直到返回0表示查找完毕
 >ZADD <keyname> <score> <value>
 将value添加到key对应的有序集合（sorted set）里面，并指定sorce，
 如果value已经存在，则会更新这个value的score更新到正确的排序位置：https://blog.csdn.net/weixin_62319133/article/details/124317546
@@ -39,6 +47,11 @@ OK 表示设置成功
 如果是zset，返回分支区间内的元素
 >del <keyname>
 删除key
+>HSET <key> <field> <value>
+如果是hash设置这个key的field的一个value，（hash相当于kkv，有两级key），获取则是HGET
+>HMSET <key> <field1> <value1> <field2> <value2>
+类似HSET，但是设置多个，，获取则是HMGET
+
 
 >STRLEN <keyname>
 可以看到一个redis的值多长

@@ -42,7 +42,7 @@ else:#else 可选
 print((lambda x, y: x + y)(2, 5))
 【with as [another name]
 with open('./data/in2.txt','w') as f:
-    f.write('yws')
+    f.write('yws' + '\n')
     
 txt = open('./data/in2.txt')
 d = txt.readlines()

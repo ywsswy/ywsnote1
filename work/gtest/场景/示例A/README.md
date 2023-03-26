@@ -17,7 +17,7 @@ bool MockFB(int &a) {
 }
 ...
 HMockCB mock_cb;
-或者EXPECT_CALL(mock_cb, FB())).WillRepeatedly(Invoke(MockFB));
+或者EXPECT_CALL(mock_cb, FB())).WillRepeatedly(testing::Invoke(MockFB));
 ```
 
 # 方法二：
