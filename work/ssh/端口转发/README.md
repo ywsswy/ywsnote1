@@ -33,6 +33,7 @@ ssh -L [<ori_host>:]<ori_port>:<new_host>:<new_port> <ssh_server_user>@<ssh_serv
 - 1）本机ssh客户端运行本地端口转发命令；
 - 2）至此，访问本机:<ori_port>，就可以达到访问<new_host>:<new_port>的效果；
 - 其他）可以跟其他命令搭配使用，例如A直接通过服务器B进行动态端口转发可能网络不好，那么可以让A先通过服务器C进行本地端口转发给B的22端口（A->C建立安全通道 ssh -L 666:<B>:22 <user_c>@<C>），然后再通过本地端口进行动态端口转发（A->C->B建立安全通道 ssh -p 666 -D 999 <user_b>@localhost）；
+- 其他2）这个<new_host>指的是<ssh_server_host>眼中的名字，例如写成"localhost"是相对<ssh_server_host>的，就是它自己；
 ```
 
 ### 其他

@@ -1,19 +1,14 @@
-
-//ajax跨域请求
-$.ajax({url:"http://ywsswy.cn:86/?url=http://9icn.xyz/",success:function(result){
-   console.log($(result).find('#1').eq(0).html());
-   alert($(result).find('#1').eq(0).html());
+希望跨域请求别人的话，怎么解决：
+- 代理（搭建一个后台服务，在后台服务上访问页面然后返回来数据，并且添加响应头Access-Control-Allow-Origin: *）访问静态资源的时候万能，只不过数据传输链路比较长；
+//使用ajax跨域请求代理服务端（ajax是个技术，不局限于jquery，只是说jquery内置了ajax的功能，如果不使用jquery，还可以使用var xhr = new XMLHttpRequest()来进行XHR2技术操作）
+$.ajax({url:"https://<my_backend_site>/?url=http://xxx/",success:function(result){
+   console.log($(result).find('#1').eq(0).html());  // 请求xxx交给后台服务来请求，处理结果返回给前端，后端示例代码在下方
 }});
 
+希望跨域请求自己的话，怎么解决：
+- 设置Access-Control-Allow-Origin: *
+- 使用jsonp技术
 
-【跨域：
-代理（后台访问页面然后返回来）
-jsonp（同样需要后台配合使用）
-XHR2（后台设置这个，允许被跨域访问）
-
-
-我用的是flask后台访问，然后XHR2，接口给任何人调用
-【2019年5月了解到flask可以设置任意跨域
 
 from flask import Flask,render_template,request,Response
 import urllib.request
@@ -38,7 +33,12 @@ def home():
     return resp
 
 if __name__ == '__main__':
-    app.run(port=86,host='0.0.0.0')
+    app.run(port=80,host='0.0.0.0')
+
+
+
+
+
 【eg 表单
         var pushType = $('#push').attr('my_data');
         var formData = new FormData($('#myForm')[0]);

