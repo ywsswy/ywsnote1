@@ -9,3 +9,6 @@ netstat -pan |grep <port> #查看端口占用 (netstat -an |grep <port>  # macOS
 # ps
 还有一个命令：
 lsof -i :<port>
+
+# macOS
+lsof -i -P -n | grep LISTEN

@@ -28,6 +28,7 @@ git ls-files #查看仓库了有哪些文件
 git merge #最粗暴的merge，就是两个树枝二合一；--squash 是把来源分支上的所有修改都压缩成一次修改，这样就可以只提交一个commit到当前分支，来源树枝不动，好处是当前分支的生长非常干净，但是这种是改变了原作者的commit信息/时间（rebase的方法可以保留）
 git mergetool #git merge出现冲突的时候使用； diffg L/R可以选择采用本地/远程的修改，]/[c可以跳到下/上一处修改；我建议mergetool完之后进行一次全搜<======，<<<<<<<，=======，>>>>>>>
 git push origin <remote_branch> --delete #这里的remote_branch不用加origin
+git push origin HEAD:refs/heads/<remote_branch> #明确分支的方式提交
 git rebase <branch> 把本分支的修改提交到目标分支上去，当两个分支都基于同一个祖先(base)有生长的时候，这种方法就可以修改(re)当前分支变动的祖先为目标分支了，前提是没有什么冲突（祖先太久远冲突太多的考虑直接cherry-pick过去）；<branch>有很多种表达方式，可以是分支名，可以是HEAD，可以是commit_id，甚至可以是从某commit开始第几个(1s)（<branch>~<num>）
   -i # 可以编辑选择如何处理每一次commit，例如在出现的编辑器中pick保留第一个，后面的都改成s合并掉，就实现了压缩合并commit；如果rebase失败，则用git rebase --abort恢复
 git reflog # 查看版本号变更记录

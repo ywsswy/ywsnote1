@@ -88,6 +88,7 @@ build --cxxopt="--std=c++17"
 build --copt=-O0
 build --incompatible_no_support_tools_in_action_inputs=false
 build --action_env=LIBRARY_PATH  # 使用外部环境变量，否则可能链接找不到系统库
+build:RC --xxx=yyy  # 如果加了 ":RC" 表示配置分组，命令行bazel build时指定--config=RC这个分组的配置就会生效
 
 # 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端
 
