@@ -20,5 +20,8 @@ Android 系统上，每一个CPU架构对应一个ABI：armeabi，armeabi-v7a，
 • arm64-v8a: （aarch64, armv8)，比较主流
 ```
 
+平台mac-x64表示intel芯片
+平台mac-arm64表示苹果自家芯片
+
 ## 其他：
 键盘宏定义：把键盘的按键按照自己的意愿定义功能啊。把一个键任意定义成某一个或者某一组按键
