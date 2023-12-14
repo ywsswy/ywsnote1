@@ -19,8 +19,10 @@ if YGlobal.args.noUI:
         # YGlobal.wd = selenium.webdriver.Chrome(chrome_options=option, desired_capabilities=d)  # centos
         YGlobal.wd = selenium.webdriver.Chrome(options=option)  # ubuntu/mac
 else:
+        option = selenium.webdriver.ChromeOptions()
+        # option.add_experimental_option('debuggerAddress', '127.0.0.1:9666')  # 可以配置远程debug接口（这样就是可以直接操作已经人工打开的页面，而不是从空白浏览器开始），要求chrome是用--remote-debugging-port=9666参数启动的，localhost:9666/json可以获取每个tab页的id
         YGlobal.wd = selenium.webdriver.Chrome(
-            service=selenium.webdriver.chrome.service.Service('/<path_to>/chromedriver'))
+            service=selenium.webdriver.chrome.service.Service('/<path_to>/chromedriver'), options=option)
 
 chrome114之后的driver下载：
 https://googlechromelabs.github.io/chrome-for-testing/

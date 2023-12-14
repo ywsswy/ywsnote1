@@ -1,13 +1,13 @@
 jquery-1.7.2.js是开发板的，阅读起来比较方便，因为它的格式保留着，jquery-1.7.2.min.js是压缩版的，压缩版就是说它没有格式，其实内容和开发板的一样，只是不方便阅读
 【query example
-$('div[style^=margin-top]')
-$('a:contains(删除)')
+$(<str>) // 字符串表达的css选择器语法，返回值是jquery对象（有如下属性和方法可以调用）
 【attr
 length			匹配到多少元素
 【method
 $('*').css('font-family','山自体');
 remove()		删除显示元素
-eq(0)			数组的第几个下标元素（0s）
+eq(0)			匹配到的第几个子jquery对象（0s）
+get(0)                  获取jquery对象的DOM对象，输出结果类型就可以跟原生js的document.getElementById或者document.querySelector一致了
 addClass()
 removeClass()
 hasClass()		判断是否拥有
@@ -20,7 +20,7 @@ html()			返回或设置元素里面的全部innerHtml内容（如果内有标�
 find()			方法获得当前元素集合中每个元素的后代（是后代就行，不一定是儿子）
 blur()			取消光标焦点
 parent()                获取父元素
-$(<str>)		字符串转jquery选择器
+trigger()               触发事件，例如trigger("click")
 $(event.target)         类似于$(this)，event.target是dom元素，用这种方法转换为jquery对象，即获取到的是哪个元素触发的，且用event.target更好，因为this是冒泡的
 .bind('click',function(event){/*do something*/}); 
 unbind()                取消绑定
@@ -56,8 +56,6 @@ $(document).ready(function(){}) // 网页全加载完之后才会执行
 等价于js中的
 windows.onload = function{}
 //////////////////////////////////////////////////////////////////////
-$("a").trigger("click")就是触发a的click事件
-$("a")[0].click();
 
 【
 $('#myForm')	    # 选择器对应的匹配元素集

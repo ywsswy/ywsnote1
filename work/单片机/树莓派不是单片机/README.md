@@ -17,7 +17,7 @@ Android 系统上，每一个CPU架构对应一个ABI：armeabi，armeabi-v7a，
 • armeabi: ARM v5 这是相当老旧的一个版本，缺少对浮点数计算的硬件支持，在需要大量计算时有性能瓶颈
 • x86 / x86_64: x86 架构的手机都会包含由 Intel 提供的称为 Houdini 的指令集动态转码工具，实现 对 arm .so 的兼容，约1% 以下的市场占有率
 • armeabi-v7a: ARM v7(32bit, armv7)，比较主流
-• arm64-v8a: （aarch64, armv8)，比较主流
+• arm64-v8a: （aarch64, armv8)，非常主流
 ```
 
 平台mac-x64表示intel芯片

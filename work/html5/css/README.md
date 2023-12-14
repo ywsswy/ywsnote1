@@ -43,7 +43,7 @@ E[A]
 :focus 表单获得焦点的元素
 E :nth-child(N) 父节点E的第N个子节点（1s）
 E:nth-child(N) 并列的几个E的父节点的第N个E（n取值可为odd、even、3n+1）
-
+:contains(<字符串>) DOM内容包含某字符串的元素，例如button:contains(发送)表示包含'发送'的button
 ```
 border
 padding
