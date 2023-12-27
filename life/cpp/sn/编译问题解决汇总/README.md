@@ -43,6 +43,8 @@ In file included from <file_n-1>.h:<行号>,
 ```
 这种头文件依此包含，一层层展开，展开到<file_n>的时候发现了未定义类型，可通过修改前向声明，不要在.h中做include展开来解决
 
+<file>:<行号>: required from here  // 可能是这里导致的错误
+
 ## const对象不能调用非const方法（就这一点邪门），const方法里也不能调用非const方法
 error: passing ‘const A’ as ‘this’ argument of ‘int A::f2()’ discards qualifiers [-fpermissive]
 

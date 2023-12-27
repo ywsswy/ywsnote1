@@ -10,7 +10,8 @@ command + v 粘贴
 command + 左/右 terminal窗口间切换
 command + 左 home ....
 鼠标停在该显示屏最下方几秒 程序坞显示到该显示屏
-command + shift + 4 截屏
+command + shift + 3 全屏截屏
+command + shift + 4 区域截屏（再按住空格是窗口截屏）
 command + delete 删除文件
 command + 上 在finder界面进入上一层目录
 ctrl + space 切换输入法

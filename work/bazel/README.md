@@ -125,3 +125,7 @@ bazel query --output=build @repo_a//target_b
 # Q
 1）如果不知道A仓库里instantiated了B仓库，所以我还是手动写了B仓库的git_repository rule，那么最后的效果是redefine？还是只使用了其中一个（到底是哪一个？）？如果是B仓库的同版本或不同版本会带来不同的效果吗？
 使用bazel query --output=build //external:C是不是也不一定显示的是真正使用的那个！是的(https://github.com/bazelbuild/bazel/issues/12947)！所以太坑了，继续找办法
+bazel sync --experimental_repository_resolved_file=resolved.bzl --experimental_repo_remote_exec  # 这个看起来是可行的
+
+4）如果git_repository的不存在会怎样，如果存在就可以用使用其WORKSPACE里面的依赖库吗？还是必须要load其内的.bzl之后，用.bzl里面指明的依赖库？
+如果其WORKSPACE就能用的话，为什么还要.bzl，因为.bzl的提供函数可以支持传参数？WORKSPACE就不能指定参数吗？
