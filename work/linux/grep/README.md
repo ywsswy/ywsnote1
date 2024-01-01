@@ -13,9 +13,10 @@ find . -regextype egrep ! -regex '(.*tags)|(.*\.log)|(.*\.gcno)|(.*\.o)' -type f
 其中 {}和\;都是find命令-exec的参数要求，{}可以出现多次，每次执行命令都是把{}替换成find的一个文件名来执行
 
 tail -f file |grep hello >>log #这种写法log为空
-tail -f file |grep hello --line-buffered >>log #这种写法才行，另外如果多个grep串行，每个结尾都应该加上这个
+tail -f file |grep --line-buffered hello >>log #这种写法才行，另外如果多个grep串行，每个结尾都应该加上这个
 
 -B<num> 表示同时显示grep到的这行的上面num行
 -A<num> 后面
+-a 表示允许文件中出现不可打印字符，解决Binary file matches报错
 
 -o 统计出现次数，如果不按行统计（就是一行内出现多次都统计）的话 # grep -o '内容'|wc -l 

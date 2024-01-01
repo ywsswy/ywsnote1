@@ -9,8 +9,9 @@ screen -p 2 -X stuff "pwd^M" #往第2个窗口执行pwd命令，这可以用于�
 screen的Detached状态表示这个screen下没有任何其他bash？
 Attached表示至少有一个bash在里面连接中
 
-C-a + " 进入screen中的终端列表，Ctrl + p/n 即可选择使用哪个终端
+c-a + " 进入screen中的终端列表，Ctrl + p/n 即可选择使用哪个终端
 c-a + ' 输入想进入的终端
+c-a + : 执行命令，例如.screenrc中的
 
 c-a + c 创建一个新窗口并切换到其
 c-a + k 删除该窗口
@@ -29,3 +30,4 @@ c-a i 查看当前窗口的信息
 # .screenrc
 altscreen on
 defscrollback 20000  #scrollback命令可以对当前窗口即时生效
+vbell off  # 非视觉提醒，而是声觉提醒，这样就可以蜂鸣器叫了。。

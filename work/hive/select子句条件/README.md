@@ -9,7 +9,7 @@ else:
 ```
 
 这三者输出的结果相同，因为count的是行数，而不是每一行的内容
-select id, count(1) as exp_pv from my_table group by id
+select id, count(1) as exp_pv from my_table group by id  # 输出的是id=1,count=x; id=2,count=y; id=3,count=z; ...，即逻辑上先把id相同的搞一起，然后对这一小堆执行count函数
 select id, count(0) as exp_pv from my_table group by id
 select id, count(*) as exp_pv from my_table group by id
 

@@ -83,6 +83,8 @@ var1 已经定义为其他类型的变量了，不能再定义成Class2
 xxx.o: multiple definition of 'var'
 yyy.o: previous definition here
 
+## 类似的，类的函数实现也不能在头文件，除非inline或者声明处及实现，而非CLASS::FUNC(){xxx}
+
 
 
 
