@@ -43,7 +43,7 @@ exit即可
 # 在docker内部退出来，但是不结束docker
 ctrl + p + q
 
-# docker info（Docker Root Dir）查看docker pull的存放路径，把docker整个目录软链接到额外挂载的磁盘上
+# docker info（Docker Root Dir）查看docker pull的存放路径，默认是/var/lib/docker目录，可以使用软链接把额外挂载的磁盘文件系统的docker目录挂载到/var/lib下来实现更换Docker Root Dir的效果
 
 # 在host上查看某容器内部的进程，注意这里的pid跟容器内部看到的pid不一样，但是实际是对应的；
 docker top <container_name> <ps_options> 

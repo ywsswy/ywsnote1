@@ -127,7 +127,7 @@ vec=('a' 'b' 'c')  # 命令的结果是数组的话，可以写成 vec=($(ls .))
 for ((i = 0; i < ${#vec[*]}; ++i))do
   $(YLog $LINENO DEBUG "${vec[$i]}")
   $(YLog $LINENO DEBUG "${#vec[$i]}")
-done
+done  # 如果要把所有语句写到一行，需要在done之前加一下分号
 ```
 
 # map[随机访问]，(${!vec[*]})获取所有的伪key，(为什么要两个结构，因为map的key必须是数值类型，所以这里不管什么类型都hash成数值作为伪key)
