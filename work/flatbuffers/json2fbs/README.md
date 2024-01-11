@@ -47,7 +47,7 @@ void f2() {
     std::cout << "ERROR2:" << parser.error_ << std::endl;
     return;
   }
-  auto s =
+  std::string s =
       BufferToJsonString(parser.builder_.GetBufferPointer(), Embedding::MiniReflectTypeTable());
   std::cout << s << std::endl;
 }

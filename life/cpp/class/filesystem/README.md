@@ -9,7 +9,7 @@
     std::filesystem::directory_iterator d_end;
 
     while (d_begin != d_end) {
-      auto dstDirName = d_begin->path().filename();
+      auto&& dstDirName = d_begin->path().filename();
       if (dstDirName != "." && dstDirName != "..") {
         std::cout << dstDirName.string() << std::endl;
       }

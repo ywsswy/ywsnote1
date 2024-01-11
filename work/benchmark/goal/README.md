@@ -21,7 +21,7 @@ public:
 };
 
 BENCHMARK_F(MyFixture, MyBenchmark) (benchmark::State& state) {
-  for (auto _ : state) {
+  for (auto _ : state) {  // why auto
     // 需要测试性能的逻辑，可以读到MyFixture中的变量
   }
 }

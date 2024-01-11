@@ -2,7 +2,7 @@
 ```
 #include <iostream>
 int main() {
-	auto Add = [](int a, int b)->int {
+	auto&& Add = [](int a, int b)->int {
 		return a + b;
 	};
         // Add的类型是 int(*)(int, int)，相当于函数指针

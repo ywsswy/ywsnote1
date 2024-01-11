@@ -22,14 +22,14 @@ void bar() {
 #include <benchmark/benchmark.h>
 
 static void BM_foo(benchmark::State& state) {
-  for (auto _ : state) {
+  for (auto _ : state) {  // why auto 
     foo();
   }
 }
 BENCHMARK(BM_foo);
 
 static void BM_bar(benchmark::State& state) {
-  for (auto _ : state) {
+  for (auto _ : state) {  // why auto
     bar();
   }
 }

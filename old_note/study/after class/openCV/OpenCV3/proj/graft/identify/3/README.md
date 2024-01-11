@@ -30,7 +30,7 @@ void on_trackbar(int, void*){
 	color = Scalar(rand() & 255, rand() & 255, rand() & 255);
 	drawContours(ycanvas, contour, -1, color, 1, 8, hierarchy);
 	imshow("contours1", ycanvas);
-	auto biggest = max_element(begin(yarea), end(yarea));
+	auto&& biggest = max_element(begin(yarea), end(yarea));
 	int i = distance(begin(yarea), biggest);
 	cout <<i<< "..."<<yarea[i] << "..." << ywidth[i] << "..." << yheight[i] << endl;
 }

@@ -7,7 +7,7 @@ vector<struct> to string，怎么传入自定义的转换函数呢，哪种性�
 template<typename T>
 std::string VectorToString(const std::vector<T>& vec, std::string (*elementToString)(const T&)) {
     std::string result;
-    for (const auto& elem : vec) {
+    for (auto&& elem : vec) {
         result += elementToString(elem);
     }
     return result;
@@ -52,7 +52,7 @@ int main() {
 template <typename T>
 std::string VectorToString(const std::vector<T>& vec, std::string (*elementToString)(const T&)) {
     std::ostringstream oss;
-    for (auto it = vec.begin(); it != vec.end(); ++it) {
+    for (auto&& it = vec.begin(); it != vec.end(); ++it) {
         if (it != vec.begin()) {  // 如果不是第一个元素，添加逗号
             oss << ",";
         }

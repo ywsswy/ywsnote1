@@ -70,7 +70,7 @@ switch (var) {
 # 个人经验：
 - 子函数内部有多种返回错误的情况，在子函数内部打错误日志就可以详细区分，而不是在外部打一个无法区分的日志；
 ```
-bool Check(auto req) {
+bool Check(Res& req) {
   if (req == nullptr) {
     LOG("req is null");
     return false;

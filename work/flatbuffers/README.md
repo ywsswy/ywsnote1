@@ -74,19 +74,19 @@ flatbuffers::FlatBufferBuilder builder(1024);
 // 1.2 数组的写法
 builder.StartVector(buff_len / sizeof(T), sizeof(T));
 builder.PushBytes(reinterpret_cast<const uint8_t *>(buff_data), buff_len);
-auto uoffset = builder->builder.EndVector(buff_len / sizeof(T));
+uoffset_t uoffset = builder->builder.EndVector(buff_len / sizeof(T));
 offset_map.insert({offset, uoffset});
 // 1.3 string的写法
-auto uoffset = builder->builder.CreateString(buff_data, buff_len).o;
+Offset<String> uoffset = builder->builder.CreateString(buff_data, buff_len).o;
 offset_map.insert({offset, uoffset});
 // 2. 然后开始构建table（放标量）
-auto start_offset = builder.StartTable();
+uoffset_t start_offset = builder.StartTable();
 // 2.1 普通标量的写法
 builder.AddElement<T>(offset, 666, 0);
 // 2.2 bool的写法
 builder.AddElement<uint8_t>(offset, true, 0);
 // 3. （放之前的offset）
-for (auto &&it : offset_map) {     
+for (auto&& it : offset_map) {     
   builder.AddOffset(it.first, flatbuffers::Offset<void>(it.second));
 }
 // 4. 结束，然后builder.GetBufferPointer() 就可以拿到buffer
@@ -100,7 +100,7 @@ of1.write(reinterpret_cast<const char*>(builder.GetBufferPointer()), builder.Get
 
 
 // 读取数据（读取前可以进行安全校验：https://stackoverflow.com/questions/37486992/flatbuffers-verifier-behaviour）
-auto monster = GetMonster(s.c_str());
+auto&& monster = GetMonster(s.c_str());
 std::cout << "mana:" << monster->mana() << std::endl;
 std::cout << "1:" << monster->weapons()->name()->str() << std::endl;
 std::cout << "2:" << monster->weapons()->damage() << std::endl;
