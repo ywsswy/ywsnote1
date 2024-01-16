@@ -13,10 +13,10 @@
 [core]
     quotepath = false
     editor = vim
-# 可选 把那两种git地址替换成git@xxx
-[url "git@xxx:"]
-        insteadOf = https://xxx/
-        insteadOf = http://xxx/
+# 可选 实际发起请求的git地址替换
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+        insteadOf = http://github.com/
 
 ```
 git log显示的是第一版的时间
