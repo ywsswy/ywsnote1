@@ -14,7 +14,7 @@ echo 'set a "1 23\x00\x01"' |redis-cli ...
 PONG 表示连接成功
 >get <keyname>
 (nil) 表示没有这个key
->set <keyname> <keyvalue> [EX <expire_seconds>]
+>set <keyname> <keyvalue> [EX <expire_seconds>] [NX]  # NX 仅当不存在时才能set成功(OK，否则是(nil))，可以用来实现分布式锁
 OK 表示设置成功
 >ttl <keyname>
 (integer)-1 表示没有过期时间

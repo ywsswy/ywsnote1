@@ -28,7 +28,7 @@ q //退出gdb
 layout src/asm //显示源代码/汇编窗口
 show disassembly-flavor  // 查看汇编窗口的语法
 disa[ssemble] main 反汇编main函数
-disab[le] <1 //关闭1号断点
+disab[le] <1 //关闭1号断点，enable 打开
 Ctrl+x a //不显示代码窗口
 Ctrl+x o //切换窗口焦点
 Ctrl+l //刷新layout，用来处理花屏问题

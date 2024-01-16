@@ -3,7 +3,7 @@ select-editor #选择操作系统默认编辑器（crontab和w3m等会使用）
 wdiff -t a b |less -R #删掉的是下划线，新增的是反选
 /etc/redhat-release #操作系统版本
 sudo yum install bash-completion # tab补全
-usleep 1000000  # 或者 sleep 1
+sleep 1 # sleep 0.5
 nc -vzn <ip> <port> # 查看端口存活情况 
 watch -d -n 1 w
 timeout 3 top #设置一个命令的超时时间，超时返回码124， [返回码](https://blog.csdn.net/nicai_xiaoqinxi/article/details/85055086)
