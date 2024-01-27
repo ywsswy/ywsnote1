@@ -13,6 +13,10 @@ Host 随便写
 两处设置
 【C/C++ edit configuration】这只是本项目.vscode目录（c_cpp_properties.json）可以设置代码include路径，c++标准版本
 【preferences】另一处是（settings.json）这个可以设置user（存到本地，统一都用这个就好）或者远端（鼠标悬停可以看到文件地址）
+【vim.useSystemClipboard】：true，vim复用系统剪贴板
+【vim.overrideCopy】: true，复制命令使用系统的ctrl+C
+【clang-format.executable】使用远程clang-format的程序路径（=目录+文件名）
+【editor.formatOnSave】保存时自动格式化
 
 # 可以远程gdb
 https://blog.csdn.net/qq_40181728/article/details/108079893
