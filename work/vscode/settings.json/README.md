@@ -1,34 +1,35 @@
+说明：
+【vim.overrideCopy】: true，复制命令使用系统的ctrl+C
+
 {
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",
-        "editor.quickSuggestions": true
+        "editor.formatOnSave": true,
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
     },
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format",
-        "editor.quickSuggestions": true
+        "editor.formatOnSave": true,
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
     },
     "C_Cpp.clang_format_sortIncludes": false,
-    "C_Cpp.intelliSenseEngine": "Default",
     "clang-format.fallbackStyle": "Google",
-    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.4.1/LLVM/bin/clang-format",
-    "editor.defaultFormatter": "xaver.clang-format",
-    "editor.formatOnSave": false,
-    "editor.minimap.maxColumn": 100,
+    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.19.2-linux-x64/LLVM/bin/clang-format",
+    "editor.minimap.maxColumn": 120,
     "editor.rulers": [
-        80,100,120
+        80,
+        100,
+        120
     ],
-    "go.useLanguageServer": true,
     "remote.SSH.showLoginTerminal": true,
-    "testMate.cpp.test.advancedExecutables": [
-        {
-            "pattern": "bazel-out/**/*_test",
-            "gtest": {
-                "testGrouping": {
-                    "groupBySource": []
-                }
-            }
-        }
-    ],
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -116,33 +117,38 @@
         "typeindex": "cpp"
     },
     "explorer.confirmDragAndDrop": false,
-    "window.zoomLevel": 1,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "default",
-            "filenamePattern": "*.out"
-        },
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        },
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "devops.accountId": "xxx",
-    "devops.accessToken": "F35Vh9hOjvVmXz9u65dkf0T2GXLQef",
-    "devops.agentPath": "/root/software/agent",
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+    "workbench.editorAssociations": {
+        "*.out": "default",
+        "*.ipynb": "jupyter-notebook"
     },
     "editor.tabSize": 8,
     "editor.cursorStyle": "line",
     "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off",
     "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "all"
+    "editor.renderWhitespace": "all",
+    "search.followSymlinks": false,
+    "workbench.editor.showTabs": "multiple",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "git.ignoreLegacyWarning": true,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "[go]": {
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true
+    },
+    "gitlens.advanced.messages": {
+        "suppressGitVersionWarning": true
+    },
+    "go.useLanguageServer": true,
+    "go.buildFlags": [
+        "-gcflags=all=-l"
+    ],
+    "vim.useSystemClipboard": true
 }
