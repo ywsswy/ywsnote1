@@ -29,7 +29,7 @@
         100,
         120
     ],
-    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.showLoginTerminal": false,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -150,5 +150,7 @@
     "go.buildFlags": [
         "-gcflags=all=-l"
     ],
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "vim.overrideCopy": true,
+    "update.mode": "none"
 }

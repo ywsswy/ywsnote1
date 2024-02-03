@@ -4,7 +4,7 @@
 
 scrcpy <cmd>
 ## <cmd>
--K, --hid-keyboard # 不用设备的键盘，而是用电脑的
+-K, --hid-keyboard # 不用设备的键盘，而是用电脑的（windows不支持这个选项,所以手机要装qq输入法）
 --disable-screensaver 
 
 ## 启动后（默认是中文输入）

@@ -1,1 +1,1 @@
-win+S 大写的
+win+shift+s

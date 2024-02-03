@@ -28,14 +28,15 @@ parse_option.ignore_unknown_fields = true;
 std::string err_info = google::protobuf::util::JsonStringToMessage(std::string, &pb, parse_option).ToString();  // 正常应该是“OK”，特殊的注意事项是空字符串肯定是失败的
 
 // pb序列化
-SerializeToString(&str)
-str = SerializeAsString() // 这种二进制并不方便打日志
-
+str = .SerializeAsString()
+或者
+.SerializeToString(&str)
+或者
 std::fstream output("yin1", std::ios::binary);
-a.SerializeToOstream(&output);
+.SerializeToOstream(&output);
 
 // 反序列化回pb
-ParseFromString(const std::string& str)
+bool ParseFromString(const std::string& str)
 bool ParseFromArray(const void* data, int size)
 ParseFromIstream
 
