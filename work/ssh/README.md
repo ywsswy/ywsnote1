@@ -10,7 +10,7 @@
 
 # 连接别人/从别人那接受/往别人那发送 （收发推荐rsync，其次scp）
 - 用自己的私钥连接别人（对方的authorized_keys需要存了自己的公钥，-i参数是自己的私钥，自己的私钥权限应该是600）
-scp -P 22 -i ~/yfolder/ywsssh -r /home/hill/yfolder/proj/test_vsc ubuntu@111.230.151.212:~/        上传本地文件到服务器
+scp -P 22 -i ~/yfolder/ywsssh -r /home/hill/yfolder/proj/test_vsc ubuntu@111.230.151.212:~/  # origin -> target, -r表示目录递归
 ssh <user>@localhost -p 23 -i ~/.ssh/id_rsa
 // 报错kex_exchange_identification: read: Connection reset by peer 一般就是因为没有指定端口
 // 如果mac13.2系统免密登陆仍然要求输入密码，需要~/.ssh/config增加两行内容：
