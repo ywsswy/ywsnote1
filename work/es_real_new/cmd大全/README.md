@@ -19,7 +19,8 @@ GET <index>/_search
   },
   "query": {
     "match_all": {}
-  }
+  },
+  "size": 10
 }
 
 ### [1]查询索引的alias、mapping、setting

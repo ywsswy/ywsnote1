@@ -152,5 +152,6 @@
     ],
     "vim.useSystemClipboard": true,
     "vim.overrideCopy": true,
-    "update.mode": "none"
+    "update.mode": "none",
+    "terminal.integrated.shellIntegration.enabled": false
 }

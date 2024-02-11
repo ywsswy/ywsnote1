@@ -17,6 +17,7 @@ def OnRelease(key):
 with pynput.keyboard.Listener(on_press = OnPress,on_release = OnRelease) as listener:
 	listener.join()
 		
+# keyboard1 = pynput.keyboard.Controller()
 # keyboard1.press('A')
 # keyboard1.release('A')
 # https://pythonhosted.org/pynput/keyboard.html#monitoring-the-keyboard

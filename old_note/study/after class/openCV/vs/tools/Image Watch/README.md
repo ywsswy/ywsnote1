@@ -1,2 +1,0 @@
-////////////////////////
-View->Other Windows->Image Watch
