@@ -2,13 +2,10 @@
 具体需要往下查看
 
 
-### 调试分词结果
-curl -XPOST '$ipaddr/_analyze?pretty' -H 'Content-Type:application/json' -d'{ "analyzer": "jieba_index", "text": "小吃快餐" }'
-
 ### 单个文档信息查询
 GET <index>/_doc/<id>
 
-### DSL 查询
+### DSL 查询，响应的hits中的hits就是结果列表
 GET <index>/_search
 {
   "explain": true,
@@ -20,8 +17,32 @@ GET <index>/_search
   "query": {
     "match_all": {}
   },
-  "size": 10
+  "size": 10  // 默认就是10个
 }
+
+curl -X GET "$ipaddr/$index/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": { "match": { "name": "banana" } }
+}
+'
+
+
+插入文档（不指定id时会自动生成id）
+curl -X POST "$ipaddr/$index/_doc/$id" -H 'Content-Type: application/json' -d'
+{
+  "name": "John Doe"
+}
+'
+
+更新文档(完整覆盖)
+curl -X PUT "$ipaddr/$index/_doc/$id?pretty&pretty" -H 'Content-Type: application/json' -d'
+{
+  "doc": { "name": "Jane Doe" }
+}
+'
+删除文档
+curl -X DELETE "$ipaddr/$index/$type/$id?pretty&pretty"
+
 
 ### [1]查询索引的alias、mapping、setting
 GET <index name>
@@ -43,6 +64,8 @@ POST <index_name>/_analyze
   "analyzer": "ik_max_word", 
   "text": "爱很美味"
 }
+
+curl -XPOST '$ipaddr/$index/_analyze?pretty' -H 'Content-Type:application/json' -d'{ "analyzer": "jieba_index", "text": "小吃快餐"}'
 
 ### 查看es版本（/version.number即是）
 GET /

@@ -15,7 +15,7 @@ curl -s -H "Content-Type:application/json" -X POST -d"xx\"x'x" 'http://xxx' |jq 
 
 -u <user>:<passwd> 如果服务端启用了basic auth，这个可以自动输入账号密码
 -s quiet
--X POST -d"xxx"
+-X POST -d"xxx"  #  也可以把-d的内容写到文件里 -d @<file_name>
 -X GET
 --header "Host: www.baidu.com" 配置host的域名，🐂
 -H "Accept: application/json" 
