@@ -18,6 +18,7 @@ sudo poweroff 关机
 echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))，如果要计算整数除法求余，就要把scale设置为0
 dd if=/dev/zero of=test bs=1M count=1024 # 创建一个G的文件
 rename log data *  # 把所有文件名中的log替换成data
+pstack <pid>  # 不停进程的方式打印各线程堆栈，如果允许停进程，可以用gdb attach然后thread apply all bt
 
 ^old^new  # 把上一条命令中的某字符串替换掉
 ctrl+alt+f1~6进入真正终端tty1~tty6，ctrl+alt+f7返回图形窗口;exit退出终端
