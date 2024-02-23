@@ -45,6 +45,9 @@ for i := 0; i < 10; i++ {//循环的写法，不支持 ++i
 	fmt.Println(i)
 }
 
+if {
+} else if {
+}
 
 
 ## 数组

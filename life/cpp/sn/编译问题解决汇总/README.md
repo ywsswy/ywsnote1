@@ -39,9 +39,9 @@ In file included from <file_n-1>.h:<行号>,
                  ...
                  from <file_2>.h:<行号>,
                  from <file_1>.cc<行号>:
-<file_n>.h: error: 'X' has not been declared
+<file_n>.h: error: 'X' has not been declared（或者error: expected template-name before '<' token）
 ```
-这种头文件依此包含，一层层展开，展开到<file_n>的时候发现了未定义类型，可通过修改前向声明，不要在.h中做include展开来解决
+这种头文件依此包含，一层层展开，展开到<file_n>的时候发现了未定义类型（如果看起来已经include了可能是展开顺序问题导致的循环依赖，不合理地在基础文件里展开了派生文件（上述报错链路中一定存在不合理的include），导致后面本期望include的部分因为`#pragma once`导致不会include），可通过修改前向声明，不要在.h中做include展开来解决
 
 <file>:<行号>: required from here  // 可能是这里导致的错误
 

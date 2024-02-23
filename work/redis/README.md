@@ -37,14 +37,17 @@ OK 表示设置成功
 >SSCAN key cursor [MATCH pattern] [COUNT count]
 如果是set，取出一部分元素，第一次cursor要传0，直到返回0表示查找完毕
 >ZADD <keyname> <score> <value>
-将value添加到key对应的有序集合（sorted set/zset）里面，并指定sorce，
+将value添加到key对应的有序集合（sorted set/zset）里面，并指定sorce（double类型），
 如果value已经存在，则会更新这个value的score更新到正确的排序位置：https://blog.csdn.net/weixin_62319133/article/details/124317546
+返回值表示元素个数变多多少个
 >ZCARD <keyname>
 如果是zset，获取元素数量
 >zrange <keyname> 0 -1 withscores
 如果是zset，返回全部元素及其分数，奇数行是value，偶数行是score
 >ZREVRANGEBYSCORE key max min [WITHSCORES]
-如果是zset，返回分支区间内的元素
+如果是zset，返回分支区间内的元素，分数从高到低排序
+>ZREMRANGEBYSCORE key min max
+如果是zset，移除分数位于[min,max]区间的元素
 >zscore <keyname> <value>
 如果时zset，返回元素的score值
 >del <keyname>
