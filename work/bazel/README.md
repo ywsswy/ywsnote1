@@ -12,11 +12,11 @@ bazel query --nohost_deps --noimplicit_deps 'deps(//main:hello-world)' --output 
 
 一般来说一个target可能同时依赖：源文件、其他BUILD中的lib、本BUILD中的其他target，写法如下
 
-cc_library( //这种是生成obj
+cc_library(  # 这种是生成obj
     name = "hello-greet",
     srcs = ["hello-greet.cc"],
     hdrs = ["hello-greet.h"],
-    linkopts = [""], //这里可以写类似"-pthread"的链接操作
+    linkopts = [""],  # 这里可以写类似"-pthread"的链接操作
 )
 
 cc_binary(  #这种是要生成可执行文件
@@ -78,8 +78,11 @@ bazel-out/k8-fastbuild/testlogs/<path><test_bin>/test.log
 每个单测的执行目录是
 bazel-out/k8-dbg/bin/<path>/<test_bin>.runfiles/__main__
 
-## 查看gcc的参数是在这个文件里：
-bazel-out/k8-fastbuild/bin/<target_name>-2.params
+## 查看gcc的参数是在这个文件里：（只能看executable/shared/static-library文件，看不了relocatable文件）
+bazel-out/k8-fastbuild/bin/<path2target>-2.params
+
+relocatable文件存放的位置是
+bazel-bin/_objs/<path2target>.pic.o
 
 
 # .bazelrc，命令行的参数优先级高于这个文件中的参数
@@ -88,6 +91,7 @@ build --cxxopt="--std=c++17"
 build --copt=-O0
 build --incompatible_no_support_tools_in_action_inputs=false
 build --action_env=LIBRARY_PATH  # 使用外部环境变量，否则可能链接找不到系统库
+build --copt=-fdiagnostics-color=always  # 对error/warning等信息显示颜色高亮
 build:RC --xxx=yyy  # 如果加了 ":RC" 表示配置分组，命令行bazel build时指定--config=RC这个分组的配置就会生效
 
 # 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端

@@ -7,7 +7,7 @@ gcc -fPIC -c library-bridge.cpp -o library-bridge.o
 
 # 制作库阶段（-shared参数在制作库阶段才可能用）
 ```
-ar rcs lib6.a library-bridge.o library.o # 制作静态库，注意 .o 或 .a 的顺序是非常重要的，某个 .o 文件只能调用在它后面列出的 .o 文件
+ar rcs lib6.a library-bridge.o library.o # 制作静态库（Static Library），注意 .o 或 .a 的顺序是非常重要的，某个 .o 文件只能调用在它后面列出的 .o 文件
 gcc -shared -o lib6.so library-bridge.o library.o # 制作动态库
 
 # 通过file命令可以判断一个库文件的类型，ps: ELF（二进制程序文件的格式）有三种类型的文件：relocatable可重定位目标文件（一般是.o）、executable可执行文件、shared共享文件(.so)
