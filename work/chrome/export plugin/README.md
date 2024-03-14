@@ -19,3 +19,6 @@ contentjs是直接往页面注入的js
 
 ## 安装viminum
 https://github.com/philc/vimium/blob/master/CONTRIBUTING.md#installing-from-source
+
+## 安装 SwitchyOmega_Chromium
+https://blog.csdn.net/zhangfenger/article/details/126432142
