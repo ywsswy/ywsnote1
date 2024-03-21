@@ -33,9 +33,10 @@ git rebase <branch> 把本分支的修改提交到目标分支上去，当两个
   -i # 可以编辑选择如何处理每一次commit，例如在出现的编辑器中pick保留第一个，后面的都改成s合并掉，就实现了压缩合并commit；如果rebase失败，则用git rebase --abort恢复
 git reflog # 查看版本号变更记录
 git remote add <rep_name> <url> # 本地可以绑定好几个远程name，其中name如果是upstream，是用于当这个origin仓库是从这个upstream的仓库fork来的场景，这样，使用git fetch -p <rep_name>的时候也能把多个远程代码都拉到本地；git remote remove <rep_name>移除
-git remote set-url origin # 修改git地址
-git reset --hard 5693367 # 恢复成版本号以5693367开头的commit,(untracked file won't be change)，也可以写HEAD~2表示切到前一个commit
-git stash save 'buf' #不提交，只暂存在本地
+git remote set-url origin  # 修改git地址
+git reset --hard 5693367  # 恢复成版本号以5693367开头的commit,(untracked file won't be change)，也可以写HEAD~2表示切到前一个commit
+git revert 5693367  # 新提交一个commit，内容是把5693367的改动撤销掉，相当于一种“回滚”
+git stash save 'buf'  #不提交，只暂存在本地
 git stash list #查看有哪些暂存的
 git stash pop stash@{<num>} #选择把哪个暂存的还原（前提是你要先切到当初stash save的分支上）
 git tag <name>;git push origin <name> #删除本地&远程 git tag -d <name>;git push origin :refs/tags/<name> #这里:前面是空的，就相当于推送一个空的tag
