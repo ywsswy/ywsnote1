@@ -1,4 +1,4 @@
-[funny software]
+jobs  # 查看后台任务，正常非nohup的程序终端退出时就会结束，如果希望不结束可以disown -h %<job号> 
 select-editor #选择操作系统默认编辑器（crontab和w3m等会使用）
 wdiff -t a b |less -R #删掉的是下划线，新增的是反选
 /etc/redhat-release #操作系统版本
