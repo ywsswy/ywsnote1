@@ -5,4 +5,5 @@
 
 代码中版权声明格式：
 // Copyright <year> <owner>  All rights reserved.
-Inc. (原形是Incorporation)表示了公司的性质。Company Limitid 通常缩写为Co.ltd. 或是精简为 Ltd
+Inc. (原形是Incorporation)表示了公司的性质。
+Company Limitid 通常缩写为Co.,ltd. 表示有限公司（包括有限责任公司和股份有限公司）或是精简为 Ltd

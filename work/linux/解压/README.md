@@ -8,6 +8,7 @@
 |*.tar.bz2|-|tar xjvf|bzip2|
 |*.rar|-|unrar e|
 |*.zip|zip -r \<ziped_name> \<file>|unzip|
+|?|\|zlib-flate -compress|\|zlib-flate -uncompress|从标准输出读数据，这个工具是qpdf包中的|
 
 总结：
 c和x对应

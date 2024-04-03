@@ -3,5 +3,3 @@
 # No encrypted.
 
 # Everyone can read or learn.
-
-..gitcode
