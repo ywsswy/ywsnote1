@@ -1,32 +1,31 @@
-
 # XSS (Cross Site Script/跨站脚本攻击) 
 在A网站的服务端数据库 or 客户端dom中“篡改”恶意代码，或者在A网站访问链接中嵌入恶意代码，当用户访问A网站时，代码获取到A网站的cookie发送给黑客；
 防御）只能靠开发者，客户端用户再小心也难免中招；方法1：在cookie中设置了HttpOnly属性，那么通过js脚本将无法通过document.cookie读取到cookie信息
 
-
-# CSRF (Cross-site request forgery/跨站请求伪造)
-1）前提：用户登录了A网站，有cookie；
-2）用户登录了B网页（某恶意网站，或者A网站中被“篡改”了的页面），网页的恶意代码（脚本或资源访问链接）中会请求A网站；（相当于用户在不知情的情况下访问了A网站的某接口，如果该接口是转账等接口，那么就会有财产损失）
-防御）服务端开发不要添加"Access-Control-Allow-Origin"响应头，这时候通常现代浏览器就会进行拦截（当然可能有一些老旧的有漏洞的浏览器例外）；（同源的请求-不跨域除外，见下方）
-如果服务端确实有需要放通的需求，可以添加"Access-Control-Allow-Origin"响应头，可以读取请求头中的Referer和Host字段来进行逻辑处理；
-有安全风险的接口还应该使用更安全的验证身份的方法进行验证；
-客户端用户小心使用不要访问不靠谱的网站；
-
-ps）客户端有办法设置成关闭跨域拦截：
-chrome完全关闭状态，设置启动快捷方式的属性，在exe后面加上 --args --disable-web-security --user-data-dir跨域参数
-ie 在internet安全设置下，设置允许【跨域浏览窗口和框架】和【通过域访问数据源】
-
-同源是指，域名，协议，端口相同。
+# CORS（Cross-Origin Resource Sharing）是一种跨域访问机制
+当浏览器开启了跨域安全保护策略时，跨域的请求<font color=red>并不会被浏览器阻止发出，也不会阻止请求的接受，仅仅是浏览器不会把响应的数据交给页面上的回调</font>而是抛出一个报错提示，所以跨域请求时服务端的逻辑已经执行了，仅仅是客户端响应时的拦截！！服务端可以通过"Access-Control-Allow-Origin"响应头来控制浏览器是否应该在响应时拦截；
+ps）可能有一些老旧的有漏洞的浏览器还没有这个安全保护策略，而且客户端有办法设置关闭跨域拦截：
+- chrome完全关闭状态，设置启动快捷方式的属性，在exe后面加上 --args --disable-web-security --user-data-dir跨域参数
+- ie 在internet安全设置下，设置允许【跨域浏览窗口和框架】和【通过域访问数据源】
+- 同源是指，域名，协议，端口相同。
 比如说，下面几个是同源的：
 http://example.com/
 http://example.com:80/
 http://example.com/path/file
-
 而下面几个域名是不同源的：
 http://example.com/
 https://example.com/
 http://example.com:8080/
 http://www.example.com/
+
+# CSRF (Cross-site request forgery/跨站请求伪造)
+1）前提：用户登录了A网站，有cookie；
+2）用户登录了B网页（某恶意网站，或者A网站中被“篡改”了的页面），网页的恶意代码（脚本或资源访问链接）中会请求A网站；（相当于用户在不知情的情况下访问了A网站的某接口，如果该接口是转账等接口，那么就会有财产损失）
+防御）https://blog.csdn.net/leiwuhen92/article/details/128724402
+- 服务端验证 HTTP Referer 字段
+- 每个自己的请求都在url中添加无法被伪造的 token 并验证
+- 客户端用户小心使用不要访问不靠谱的网站；
+
 
 
 

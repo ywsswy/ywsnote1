@@ -9,3 +9,5 @@ d1['yws'] = 'awesome'#
 【遍历
 for key, value in a.items():
        print(key+':'+value)
+
+【如果希望有序sorted(a.items())

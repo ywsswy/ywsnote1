@@ -46,3 +46,8 @@ JNIEXPORT jstring JNICALL Java_HelloJNI_getss
   return jdata;
 
 ```
+
+
+
+报错：java.lang.UnsatisfiedLinkError
+应该首先检查.so中是否有实现对应符号

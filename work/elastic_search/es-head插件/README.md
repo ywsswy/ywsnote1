@@ -1,4 +1,4 @@
-360可以直接装crx插件，不要用chrome的网址访问，因为需要设置跨域不安全
+360可以直接装crx插件，不要用chrome的网址访问，因为需要关闭CORS策略不安全
 
 info -> index metadata可以看查看建表索引
 

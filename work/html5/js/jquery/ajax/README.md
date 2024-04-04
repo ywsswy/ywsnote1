@@ -5,7 +5,7 @@ $.ajax({url:"https://<my_backend_site>/?url=http://xxx/",success:function(result
    console.log($(result).find('#1').eq(0).html());  // 请求xxx交给后台服务来请求，处理结果返回给前端，后端示例代码在下方
 }});
 
-希望跨域请求自己的话，怎么解决：
+希望允许别人跨域请求自己的话，怎么解决：
 - 设置Access-Control-Allow-Origin: *
 - 使用jsonp技术
 
