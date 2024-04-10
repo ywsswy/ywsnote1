@@ -5,4 +5,4 @@
 |开机时间（到右键打开文件管理器为止）+软件edge启动速度|1m 18s<br>2m|
 |游戏流畅度（可以demo体验）|n|x|https://store.steampowered.com/app/2050650/Resident_Evil_4/|
 
-基本功能：键盘、鼠标、声音、蓝牙、质保
+基本功能：键盘、鼠标、声音、耳机、蓝牙、质保

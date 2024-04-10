@@ -14,9 +14,8 @@ git checkout <branch_name> -b <new branch_name> # 在某分支上新建一个分
 git cherry-pick <commit> #把其他分支的某次修改弄到当前来; git cherry-pick <start(old)>^..<end>把一个区间的修改弄过来，加了^符号，就是左闭右闭，中间有冲突的commit手动解决提交后，还需要继续执行git cherry-pick --continue
 git clean -f
 git commit --amend #修改commit信息 --author="name <mail.com>" 修改作者信息
-git diff <old commited/branch> <new commited/new brand> [<file_name>]#注意此刻的untracked file不会参与到diff中
+git diff <old commited/branch> [<new commited/new brand>] [<file_name>]#注意此刻的untracked file不会参与到diff中
 git diff # 常规diff（当前与暂存区比较）
-git diff HEAD # 如果有暂存区等影响如merge stash_pop等，则用这个，或者发现git diff异常的时候，stash_save_then_pop就发现又好了
   参数--filter=M 仅显示更改的文件，不知道新增的文件
   参数--name-status 不管详细内容，只管文件是A/D/M
 git fetch -p -P  # 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）

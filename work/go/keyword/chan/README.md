@@ -1,5 +1,5 @@
 ```
-c := make(chan int)  // channel可以指定有缓存区容量，默认不写是0，即c := make(chan int, 0)
+ch := make(chan int)  // channel可以指定有缓存区容量，默认不写是0，即c := make(chan int, 0)
 ch <- x    // Send x to channel ch.
 <-ch       // Just receive from ch.
 y := <-ch  // Receive from ch, and assign value to y.
