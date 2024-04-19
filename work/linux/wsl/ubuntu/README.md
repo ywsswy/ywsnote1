@@ -16,7 +16,7 @@ update package-list according to the sources.list
 
 update installed package
 
-## 3. others
+## 3. others（install/update some package）
 
 sudo apt install vim<or vim-gnome>
 

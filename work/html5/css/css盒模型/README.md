@@ -52,7 +52,7 @@ border设置1px，但是实际可能不是1px（0.909）？border的正确写法
 - right
 - none
 
-## flex （推荐flex而不是float也不是inline-block，前者无法撑起父元素，后者两个子元素之间的空格会有宽度以至于将本该放到一行的块被挤到下一行-比如10%+90%却换行了，但是flex的子元素之间就可以做到没有缝隙）
+## flex （推荐flex而不是float也不是inline-block，前者无法撑起父元素，后者两个子元素之间的"空格"会有宽度以至于将本该放到一行的块被挤到下一行-比如10%+90%却换行了，但是flex的子元素之间就可以做到没有缝隙）
 见 https://www.bilibili.com/video/BV1tt4y1K7Xc/?spm_id_from=333.1007.top_right_bar_window_history.content.click
 - flex-direction: 默认是row（横向排列）、column、
 - flex-wrap: 默认是nowrap（排列放不下的时候，等比缩放）、wrap（排列放不下的时候，换行新一列）

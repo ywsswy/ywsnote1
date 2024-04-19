@@ -1,7 +1,7 @@
 dorker的操作应该都是root用户（普通用户：https://www.cnblogs.com/franson-2016/p/6412971.html）
 非常好玩的是，两个人同时attach一个docker，那么两个人的终端就同步了，一个人操作另一个人能看
 
-镜像仓库服务（docker registry）是一个类似github的东西
+镜像仓库服务（docker registry）有点类似github
 
 # 拉取镜像
 docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
