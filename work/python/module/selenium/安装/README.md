@@ -4,13 +4,14 @@ https://www.bilibili.com/video/BV1Z4411o7TA/?p=3&vd_source=043e9779eed286d25f55d
 0）chrome
 - ubuntu
 https://bestim.org/chrome-114.html
+apt install
 - centos
 https://www.cnblogs.com/ianduin/p/8727333.html
 google-chrome-stable.x86_64   108.0.5359.124-1 
 
 1）selenium库
 
-2）chromedriver（仅图形化调试时需要）
+2）chromedriver（仅图形化调试时需要，headless时无需driver）
 if YGlobal.args.noUI:
         option = selenium.webdriver.ChromeOptions()
         option.add_argument('headless')

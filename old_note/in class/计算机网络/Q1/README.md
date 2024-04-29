@@ -18,17 +18,7 @@ ping [-t] [-a] [-n count] [-l length] [-f] [-i ttl] [-v tos] [-r count] [-s coun
 -w timeout 指定超时间隔，单位为毫秒。
 destination-list 指定要 ping 的远程计算机。
 较一般的用法是 ping -t bbs.cqupt.edu.cn
-2．netstat.exe
-显示协议统计和当前的 TCP/IP 网络连接。该命令只有在安装了 TCP/IP 协议后才可以使用。
-netstat [-a] [-e] [-n] [-s] [-p protocol] [-r] [interval]
-参数：
--a 显示所有连接和侦听端口。服务器连接通常不显示。
--e 显示以太网统计。该参数可以与 -s 选项结合使用。
--n 以数字格式显示地址和端口号（而不是尝试查找名称）。
--s 显示每个协议的统计。默认情况下，显示 TCP、UDP、ICMP 和 IP 的统计。-p 选项可以用来指定默认的子集。 
--p protocol 显示由 protocol 指定的协议的连接；protocol 可以是 tcp 或 udp。如果与 -s 选项一同使用显示每个协议的统计，protocol 可以是 tcp、udp、icmp 或 ip。
--r 显示路由表的内容。
-Interval 重新显示所选的统计，在每次显示之间暂停 interval 秒。按 CTRL+B 停止重新显示统计。如果省略该参数，netstat 将打印一次当前的配置信息。
+
 3.arp 查看与本机有过来往的地址 显示和修改IP地址与物理地址之间的转换表
 ARP -s inet_addr eth_addr [if_addr]
 ARP -d inet_addr [if_addr]

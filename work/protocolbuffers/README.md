@@ -1,9 +1,11 @@
+简称：protobuf
+
 - [文档](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.repeated_field#RepeatedField.erase.details)
 - 生成桩代码：
 ```
 protoc --cpp_out=. yws.proto  # 生成c++的桩代码
 protoc --go_out=. yws.proto  # 生成golang的桩代码，实际上protc会根据不同的--<language>_out参数来推测生成不同语言的桩代码；这里是会调用protoc-gen-go插件，参考：https://protobuf.dev/reference/go/go-generated/
-  -I <PATH>, --proto_path=<PATH>  # proto文件中的import的proto从哪些目录找，可以多次使用该参数，例如`-I ./ -I ./proto`
+  -I <PATH>, --proto_path=<PATH>  # proto文件中的import的proto从哪些目录找，可以多次使用该参数，例如`-I ./ -I ./proto`  # 需要在proto文件添加一行 option go_package = 'yyy/xxx' yyy是golang的包路径，xxx是golang的包名写成跟proto的package一样即可
 ```
 - 一个proto文件只会生成一个桩代码文件，所以多个proto文件之间存在import的关系时，需要分别生成桩代码
 - 使用：

@@ -1,0 +1,1 @@
+(apt) (Advanced package tool) 是一个在 Debian 以及 基于Debian（例如ubuntu）的 Linux 发行版中的软件包管理器。基于deb包管理

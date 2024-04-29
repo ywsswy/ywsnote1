@@ -1,4 +1,10 @@
 https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
+
+报错形如
+Exception in thread "main" java.lang.UnsatisfiedLinkError: xxx
+是因为so中没有找到需要实现的符号，所以注意package_class_function名参数等都要一致才行
+
+
 ```
 // String入参的情况：
 JNIEXPORT void JNICALL Java_HelloJNI_wtf
@@ -46,8 +52,3 @@ JNIEXPORT jstring JNICALL Java_HelloJNI_getss
   return jdata;
 
 ```
-
-
-
-报错：java.lang.UnsatisfiedLinkError
-应该首先检查.so中是否有实现对应符号

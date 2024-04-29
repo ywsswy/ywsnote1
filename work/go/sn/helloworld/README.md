@@ -16,6 +16,7 @@ func main() {
   fmt.Printf("hello wolrd\n")
 }
 >go build  # 生成可执行文件，如果go.mod中有require的东西且本机还没有，会下载到$GOPATH/pkg/mod目录下，也可以手动执行go install <domain/path> 来安装，从go1.17版本开始go get被废弃，建议go install
+# -ldflags "-w -s" 加这个参数可以去除符号表调试信息等降低文件大小
 >./helloworld 
 hello wolrd
 ```

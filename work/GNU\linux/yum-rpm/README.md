@@ -1,4 +1,4 @@
-(yum) Yellow dog Updater, Modified是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理
+(yum) (Yellowdog Updater Modified)是一个在Fedora、red het和CentOS中的软件包管理器。基于RPM包管理
 
 yum服务器上有软件依赖信息header
 当用户有升级安装需求时，yum会把软件列表更新到本机/var/cache/yum中，跟本机RPM数据库（/var/lib/rpm/）比较确认需要下载哪些包
@@ -60,9 +60,7 @@ rpm2cpio a-0.0.1-1.el7.x86_64.rpm | cpio -idv ./home/service/app/a.sh # 把其�
 name-VERSION-release.arch.rpm
 bash-4.2.46-19.el7.x86_64.rpm
 release为19.el7就是第19次发布，基于redhat enterprise linux 7操作系统
-x86_64为针对64位CPU进行的优化编译设置的平台(苹果公司和rpm用的这个，甲骨文和微软用的x64，BSD和其他linux用的amd64，32位则叫i386)
-i686
-noarch为没有硬件限制的平台，常为shell脚本
+x86_64为针对64位CPU进行优化编译的硬件架构(苹果公司和rpm用的这个，BSD和其他linux例如ubuntu用的amd64，32位则叫i386)，还有i686、noarch为没有硬件限制的架构，常为shell脚本
 
 还有xxx.src.rpm，是包含源代码的包（在updates-source软件源中找下载地址吧）一般是拿去做正式rpm用的redist包，并不能代表真正的源码，最“源”代码的应该还是要去git/官网仓库里面下载，另外还有一个tarballs的概念/tar.gz
 直接sudo rpm -ivh xxx.src.rpm会在home创建rpmbuild目录，里面有SPECS/SOURCES文件夹，能找到spec文件

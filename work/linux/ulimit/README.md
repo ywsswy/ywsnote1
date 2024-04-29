@@ -2,3 +2,6 @@
 
 但是要保证core文件的没有限制
 就使用ulimit -c unlimited
+
+设置core文件的名称&路径
+echo "./core.%e.%p" >/proc/sys/kernel/core_pattern
