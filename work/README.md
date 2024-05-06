@@ -26,8 +26,8 @@ kafka
 ### 缓存中间件
 redis
 ### NoSQL
-mongoDB
-HBase
+mongodb
+hbase
 ES
 ### RDS
 MYSQL

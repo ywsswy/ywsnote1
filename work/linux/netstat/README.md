@@ -16,7 +16,7 @@ Proto Recv-Q Send-Q Local-Address(本机程序创建的) Foreign-Address State P
 
 tcp 0 0 127.0.0.1:5601 0.0.0.0:* LISTEN 3507/node  # 表明运行的是node程序（pid3507），这个程序占用5601端口（只接受本地localhost请求，公网直接请求5601端口是不行的，只能本地请求5601端口，这个具有安全保护作用），处于LISTEN状态可接受外部请求
 
-tcp 0 0 10.3.4.63:22 132.22.4.11:2859 ESTABLISHED  # 表明有人ssh登录了这台机器，那个人的ip地址是132.22.4.11，处于ESTABLISHED  状态表示双方已经在数据交互中了
+tcp 0 0 10.3.4.63:22 132.22.4.11:2859 ESTABLISHED  # 表明有人ssh登录了这台机器，那个人的ip地址是132.22.4.11，处于ESTABLISHED  状态表示双方已经可以进行数据交互了（但不一定正在传数据，也可能是空闲的）
 
 
 QQQQQ
