@@ -1,6 +1,6 @@
 cat cmd_file |redis-cli -c -h <ip> -p <port> [-a <password>]  # 如果输出到命令行，则会转义可视化；如果输出到文件，则是二进制原始数据（需要按照协议解析，例如list如何解析，zset如何解析），所以推荐输出到命令行可视化，如果想把可视化数据保存到文件，可以使用script命令伪装
 
-~~(cat cmd_file;sleep 99999)|telnet <ip> <port>~~ # 这种就不需要安装cli，但是telnet需要保持流，不然会断开，所以要sleep足够的时间，加个ping命令来确保执行完了；尝试过read阻塞，但是没成功。。并且在处理二进制数据会有问题，因为Telnet通信的两个方向都采用带内信令方式。字节0xff(十进制的255）叫做IAC（interpret as command，意思是“作为命令来解释”）。该字节后面的一个字节才是命令字节。如果要发送数据255，就必须发送两个连续的字节255，redis服务端并不是telnet，所以二进制中的0xff会被客户端吞掉造成错误解析
+~~(cat cmd_file;sleep 99999)|telnet <ip> <port>~~ # 这种就不需要安装cli，但是telnet需要保持连接，不然会断开，但是它本身又不知道服务端是否已经发送完数据，所以只能sleep足够的时间，可以考虑加个ping命令来确保执行完了；尝试过read阻塞，但是没成功。。并且在处理二进制数据会有问题，因为telnet通信的两个方向都采用带内信令方式。字节0xff(十进制的255）叫做IAC（interpret as command，意思是“作为命令来解释”）。该字节后面的一个字节才是命令字节。如果要发送数据255，就必须发送两个连续的字节255，redis服务端并不是telnet，所以二进制中的0xff会被客户端吞掉造成错误解析
 
 特别注意，如果cmd中是set <key> <binary_data>时，应该把<binary_data>转义，整个data用【双引号】包含进来，例如
 set a "1 23\x00\x01"
