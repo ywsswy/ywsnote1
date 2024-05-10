@@ -10,7 +10,6 @@ Flask基础（视图与URL）
    url_for详解
    自定义URL转换器
    必会的小细节知识
-   重定向详解
    response详解
 Flask基础（Jinja2模板）
    Jinja2模板介绍和查找路径

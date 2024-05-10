@@ -1,6 +1,8 @@
 加密：
 $ echo -n "Hello World" | base64
 
+-w 0 可以不换行
+
 解密：
 $ echo -n "SGVsbG8gV29ybGQK" | base64 -d
 

@@ -12,3 +12,11 @@ std::cout << diff.count() << " s\n";
 #include <thread>
 // 标准库的sleep函数
 std::this_thread::sleep_for(std::chrono::seconds(10));  // std::chrono::milliseconds
+
+
+
+#include <unistd.h> //windows下没有
+// c的sleep函数
+usleep(1000*1000*5); //微妙级别
+
+s ms us ns

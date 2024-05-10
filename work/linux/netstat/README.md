@@ -1,5 +1,5 @@
 ```
-netstat -anptu |grep <port>  # 查看端口占用
+netstat -anptu |grep <port>  # 查看网络连接/套接字
 -a 显示所有状态（默认只显示connected的）要跟-t和-u等类型配合使用
 -n 以数字形式显示地址和端口号，而不会尝试解析成域名格式
 -p 额外显示pid和进程名（windows没有，windows用-o参数）

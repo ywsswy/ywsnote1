@@ -1,6 +1,4 @@
-sudo nohup python -u 
-
-nohup <cmd> >nohup.log 2>&1 & #（后台执行cmd）//cmd是python的话要python -u; 2(错误信息)重定向到1（标准输出）
+nohup <cmd> >nohup.log 2>&1 &  #后台执行cmd
 
 jobs可以查看后台[running/stoped]的程序，
 
