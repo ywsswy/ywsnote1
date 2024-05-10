@@ -112,8 +112,6 @@ Flask基础补充
 memcached缓存系统
    memcached介绍
    memcached的安装和参数详解
-   telnet操作memcached
-   Python操作memcached
    memcached的安全机制
 redis数据库
    Redis概述和使用场景介绍

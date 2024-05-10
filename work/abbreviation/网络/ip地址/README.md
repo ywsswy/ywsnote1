@@ -37,10 +37,3 @@ https://myiplabs.com
 tasklist /m /fo list /FI "PID eq 1316"
 tasklist /FI "PID eq 1316"
 wmic process where name="tim.exe" get ExecutablePath
-
-
-检测端口是否开放
-telnet 只能检测tcp端口0.0.0.0或者本机ip
-telnet 192.168.0.3 135
-nc 能检测一个区间
-nc -vz 192.168.0.3 134-144
