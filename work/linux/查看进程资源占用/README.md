@@ -1,3 +1,8 @@
+total_mem=$(free -m | awk 'NR==2{print $2}')
+used_mem=$(free -m | awk 'NR==2{print $3}')
+mem_usage=$(awk "BEGIN {printf \"%.2f\", $used_mem/$total_mem * 100}")
+echo "内存使用率: $mem_usage%"
+
 # top命令看到的属性
 VIRT	进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES
 RES	进程使用的、未被换出的物理内存大小，【单位kb】。RES=CODE+DATA

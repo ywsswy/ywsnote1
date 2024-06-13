@@ -1,7 +1,7 @@
 sed -i.bak s/-O3/-O2/g hello.txt # 把所有的-O3替换成-O2
 
 -i.bak 表示原文件做备份，加了-i参数必须有输入文件，不加-i才可以从标准输入读
--r 表示支持正则表达式（但是sed的正则比较老，建议用perf的正则）
+-r 表示支持正则表达式（但是sed的正则比较老，建议用perf命令做正则替换！！）
 替换方法类似vim，（只不过vim里面要%s表示所有行，s表示当前行）
 <addr><command>
 command：s/regexp/replacement/flag

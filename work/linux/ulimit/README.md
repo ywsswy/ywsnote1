@@ -5,3 +5,6 @@
 
 设置core文件的名称&路径
 echo "./core.%e.%p" >/proc/sys/kernel/core_pattern
+
+ulimit -n # 查看文件句柄数上限配置
+ulimit -n <nofile_count> # 临时设置文件句柄数上限

@@ -17,3 +17,6 @@ https://gsnedders.html5.org/outliner/
 
 在线实时查看html效果：
 https://jsbin.com/?html,output
+
+查看元素绑定的事件：
+elements->event listeners，显示的是这个元素&父元素绑定的事件

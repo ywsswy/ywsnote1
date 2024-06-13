@@ -1,14 +1,26 @@
-tcpdump -i <网卡名称> tcp and port <端口号> -n -nn -v -vv -w cache -W 100:100个文件 -C 30:文件大小30M -s 100：只抓包前面的100字节  -Z <用户名称如root>
+tcpdump -i <网卡名称ifconfig可看> tcp and port <端口号> -n -nn -v -vv -w data:输出文件前缀 -W 100:100个文件 -C 30:文件大小30M -s 100：只抓包前面的100字节 -Z <用户名称如root>
 
 示例:
-tcpdump -i eth0 tcp and port 6379 -n -nn -v -vv -w cache -W 50 -C 100 -s 100 -Z root
+tcpdump -i eth0 tcp and port 6379 -n -nn -v -vv -w data -W 50 -C 100 -Z root
 
+-n -nn 是不解析hostname，直接显示ip
 -w是自动写文件
-生成的文件可以用
-tcpdump -r <file> 来读取，展示格式是：
+生成的文件可以用wireshark打开文件，也可以用
+tcpdump -n -nn -r <file> -x 来读取（-x可以显示网际层的每个字节的数据），展示格式是： 
 ```
 20:29:45.284827 IP 9-250-205-209.12691 > 183.158.84.54.9273: Flags [P.], seq 1:396, ack 2542, win 35, length 395
+        0x0000:  4500 0252 e92e 4000 4006 1865 0a00 080d
+        0x0010:  0e11 16f5 fbe2 33a0 b693 1dc3 6ebd 48f4
 20:29:45.290063 IP 9-250-205-209.60510 > 15.36.52.172.9273: Flags [P.], seq 504:560, ack 33731, win 173, options [nop,nop,TS val 4168217983 ecr 2756072661], length 56
+        0x0000:  4500 0028 6ba8 4000 7106 6715 0e11 16f5
+        0x0010:  0a00 080d 33a0 fbe2 6ebd 48f4 b693 1fee
+        ……
 ```
 <时间：20:29:45.282975> <协议：IP> <源地址ip.port> > <目的地址ip.port>: <其他>
-有时候需要关注的有win（源告诉目的可以接收多大的回包），如果win太小，那么回完全部的包可能就非常慢。
+
+- 有时候需要关注的有win（源告诉目的可以接收多大的回包），如果win太小，那么回完全部的包可能就非常慢。
+- 加参数-s和不加的两种情况下包的数量还不一样？可能经过了网络代理，最好裸连容易理解，不要nginx，客户端不要代理，然后不加-s参数即可
+
+
+Q: 
+- 加了代理为什么包更多了

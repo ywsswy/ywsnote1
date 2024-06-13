@@ -76,7 +76,7 @@ s := []struct {
 
 ## 切片
 var s []int = primes[1:4] // [1,4)区间
-var s []int // 此时是nil，但是可以用 s = append(s, 6)来添加元素
+var s []int // 此时是nil，但是可以用 s = append(s, 6)来添加元素，如果想添加另一个数组（多个元素），可以写成 s = append(s, s2...)
 b := make([]int, 0, 5) //动态 申请数组，0是len显式的元素个数，5是cap是该切片首地址往后允许写多少元素
 
 ## 函数指针

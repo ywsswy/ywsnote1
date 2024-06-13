@@ -24,6 +24,8 @@ hello wolrd
 ## 其他说明
 go mod tidy 命令会自动分析程序的依赖项并进行下载、清理（会增删require的模块但不会修改已指定的模块版本）go.mod文件、更新生成go.sum；所以go.sum是可以不上传到仓库的，有go.mod就够了
 
+go mod graph  # 查看依赖关系，每一行<A> <B>表示A里面require了B
+
 go mod download 命令会合法化 go.mod 文件中的依赖，并下载相应的模块和版本，以及更新 go.sum 文件以包含这些依赖项的哈希值。（所以应用场景是开发时手动改go.mod加完依赖后再执行该命令）
 
 go install 命令不会修改 go.mod 或 go.sum 文件。它只会编译并安装指定的包或可执行文件（感觉没有应用场景，直接go build就完事了）
