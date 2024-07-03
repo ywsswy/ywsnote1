@@ -39,3 +39,4 @@ func main() {
 ```
 - 同一个目录（不含子目录）内的文件中声明的包名必须一致
 - "import math/rand" 这种导入的包属于系统包，是在$GOROOT/src目录下的；
+- v2及以上版本管理：https://mileslin.github.io/2020/08/Golang/%E5%88%B0%E5%BA%95-go-get-%E7%9A%84%E7%89%88%E8%99%9F%E6%80%8E%E9%BA%BC%E9%81%8B%E4%BD%9C%E7%9A%84/

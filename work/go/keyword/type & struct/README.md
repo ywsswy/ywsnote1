@@ -22,7 +22,7 @@ type Req struct {
 }
 
 这个不是简单的注释，可以通过反射机制知道某个字段后面注解里面的值，
-json.Marshal可以把tag中的json的值当作序列化后json的key，omitempty表示默认空值是否输出
+json.Marshal可以把tag中的json的值当作序列化后json的key，omitempty表示默认空值是否输出，不写注解的话默认是把成员名本身当作序列化后的key，成员名本身小写开头的不会被序列化
 相关应用有gin框架接受http参数时的处理，
 使用func (c *gin.Context) ShouldBindQuery(obj interface{})，obj是带有form的注解，就可以把tag中的form后面的参数解析到前面的struct字段中
 
