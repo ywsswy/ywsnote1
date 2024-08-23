@@ -3,7 +3,6 @@ https://flatbuffers.dev/flatbuffers_guide_use_cpp.html
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 
 make
-
 make install
 
 ```
@@ -65,7 +64,7 @@ monster_builder.add_name(weapon_one_name);  // 注意不能.add_name(builder.Cre
 monster_builder.add_mana(123);  // 注意每个成员只能add一次，否则会assert出错
 flatbuffers::Offset<MyGame::Sample::Monster> orc = monster_builder.Finish();
 
-builder.Finish(orc);  // 注意
+builder.Finish(orc);  // 如果需要对orc进一步加工包装可以继续调用builder.StartTable(),然后进行AddOffset将 flatbuffers::Offset<void>(orc.o)继续放到一个table里
 
 // 上面是有桩代码的情况下的构建buffer（使用builder.GetBufferPointer()拿到buffer）
 // 如果没有桩代码，知道每个字段的offset和类型，也是能构建出一个table的buffer的，前提是这个table的每个字段必须是标量、或者string、或者标量数组，代码如下：
@@ -109,7 +108,7 @@ if (monster->weapons()->name() != nullptr) {  // 字符串必须要保护
 std::cout << "2:" << monster->weapons()->damage() << std::endl;
 for (auto vi1 : monster->vec1) {  // 数组
   vi1->yyy();
-  auto zzz_root = flatbuffers::GetRoot<XXX>(vi1->zzz()->Data()); // zzz类型是[ubyte] (nested_flatbuffer: "XXX")
+  auto zzz_root = flatbuffers::GetRoot<XXX>(vi1->zzz()->Data()); // zzz类型是[ubyte] (nested_flatbuffer: "XXX")  // a->GetPointer得到的b并不能输出b的buffer，只有a->GetAddressOf(offset)才能得到的buffer，所以到底有没有反向获取buffer的能力呢？
   zzz_root->www();
 }
 

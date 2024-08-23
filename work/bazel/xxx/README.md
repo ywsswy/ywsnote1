@@ -16,3 +16,4 @@ local_repository(
     path = "path/to/y", # 绝对路径和相对路径均可
 )
 ```
+local_repository不能跟git_repository冲突，就是说如果间接依赖中有git_repository的A，那么不能写local_repository的A，除非其他所有git_repository的A都删掉

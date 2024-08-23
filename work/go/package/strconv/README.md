@@ -7,7 +7,7 @@ i, err = strconv.ParseFloat("4.2", 32)
 
 
 - 转字符串
-strconv.Itoa(3)
+strconv.Itoa(3)  // string(3)并不对
 fmt.Sprintf("%f", 4.2)
 
 
