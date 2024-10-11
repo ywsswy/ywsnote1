@@ -20,7 +20,7 @@ http {
   server {
     listen 443 ssl;
     server_name  zzz.com;
-    ssl_certificate zzz.com_bundle.crt;  # ssl证书路径
+    ssl_certificate zzz.com_bundle.crt;  # ssl证书路径(apache type)
     ssl_certificate_key zzz.com.key;  # ssl证书路径
     ssl_session_timeout 5m; 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 

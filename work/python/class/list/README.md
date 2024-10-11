@@ -23,3 +23,14 @@ def cmp(a, b): # 返回正数，排序放到后面
     return 0
 a = [1, 2, 5, 4]
 print(sorted(a, key=functools.cmp_to_key(cmp)))
+
+【列表推导式
+tmp = [ expression for item in iterable if condition ]  # 其中if condition 可省略，等价于
+```
+tmp = []
+for item in iterable:
+  if condition:
+    tmp.append(expression)
+```
+eg:
+n = [ i*2 for i in range(0,5) ]  # 生成5个偶数

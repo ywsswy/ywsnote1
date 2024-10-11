@@ -10,7 +10,8 @@ adb -s <设备id> shell <cmd> # 指定一台安卓，执行命令
 ### 安卓上的命令列表
 pm list package
 dumpsys window | findstr mCurrentFocus
-getprop ro.product.cpu.abi # 查看CPU架构
+getprop ro.product.cpu.abi  # 查看CPU架构
+getprop ro.build.version.release  # 查看安卓版本
 
 
 ## 其他

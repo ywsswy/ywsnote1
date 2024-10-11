@@ -37,7 +37,7 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 ```
-- git repository rules 通过http来创建仓库规则
+- git repository rules 通过git来创建仓库规则
 示例
 ```
 git_repository(
@@ -46,3 +46,7 @@ git_repository(
     branch = "master",
 )
 ```
+
+
+### 自定义规则
+见write_rule

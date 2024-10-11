@@ -17,3 +17,6 @@ local_repository(
 )
 ```
 local_repository不能跟git_repository冲突，就是说如果间接依赖中有git_repository的A，那么不能写local_repository的A，除非其他所有git_repository的A都删掉
+
+- exports_files
+导出本模块的文件供其他模块可使用

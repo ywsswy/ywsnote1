@@ -1,10 +1,7 @@
 https://flatbuffers.dev/flatbuffers_guide_use_cpp.html
 
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-
-make
-make install
-
+# 生成flatc
+cmake -G "Unix Makefiles"
 ```
 // Example IDL file for our monster's schema.
  
@@ -14,12 +11,12 @@ enum Color:byte { Red = 0, Green, Blue = 2 }
  
 union Equipment { Weapon } // Optionally add more tables.
  
-struct Vec3 {
+struct Vec3 {  // 跟table的区别是，struct是紧凑的每个字段都不可设置为optional的；
   x:float;
   y:float;
   z:float;
 }
- 
+
 table Monster {
   pos:Vec3; // Struct.
   mana:short = 150;
@@ -71,18 +68,24 @@ builder.Finish(orc);  // 如果需要对orc进一步加工包装可以继续调�
 flatbuffers::FlatBufferBuilder builder(1024);
 // 1. 首先把[byte]和string这种分配出来，记录一下offset，因为这个不是不同的标量，没法跟普通标量放在同一个连续空间
 std::map<flatbuffers::voffset_t, flatbuffers::uoffset_t> offset_map;
-// 1.2 数组的写法
+// 1.2.1 pod数组的写法
 builder.StartVector(buff_len / sizeof(T), sizeof(T));
 builder.PushBytes(reinterpret_cast<const uint8_t *>(buff_data), buff_len);
 uoffset_t uoffset = builder->builder.EndVector(buff_len / sizeof(T));
 offset_map.insert({offset, uoffset});  // 这个offset是通过该字段的(下标_0s+2)*2算得
+// 1.2.2 对象数组的写法
+std::vector<flatbuffers::Offset<void>> ab_tables;
+ab_tables.push_back(flatbuffers::Offset<void>(xxx_offset));
+ab_tables.push_back(flatbuffers::Offset<void>(yyy_offset));
+auto ab_tables_offset = builder.CreateVector<flatbuffers::Offset<void>>(ab_tables);
+offset_map.insert({offset, uoffset});
 // 1.3 string的写法
 Offset<String> uoffset = builder->builder.CreateString(buff_data, buff_len).o;
 offset_map.insert({offset, uoffset});  // 这个offset是通过该字段的(下标_0s+2)*2算得
 // 2. 然后开始构建table（放标量）
 uoffset_t start_offset = builder.StartTable();
 // 2.1 普通标量的写法
-builder.AddElement<T>(offset, 666, 0);
+builder.AddElement<T>(offset, 666, 0);  // offset填该字段vtable中的voffset偏移
 // 2.2 bool的写法
 builder.AddElement<uint8_t>(offset, true, 0);
 // 3. （放之前的offset）
@@ -108,7 +111,7 @@ if (monster->weapons()->name() != nullptr) {  // 字符串必须要保护
 std::cout << "2:" << monster->weapons()->damage() << std::endl;
 for (auto vi1 : monster->vec1) {  // 数组
   vi1->yyy();
-  auto zzz_root = flatbuffers::GetRoot<XXX>(vi1->zzz()->Data()); // zzz类型是[ubyte] (nested_flatbuffer: "XXX")  // a->GetPointer得到的b并不能输出b的buffer，只有a->GetAddressOf(offset)才能得到的buffer，所以到底有没有反向获取buffer的能力呢？
+  auto zzz_root = flatbuffers::GetRoot<XXX>(vi1->zzz()->Data()); // zzz类型是[ubyte] (nested_flatbuffer: "XXX")
   zzz_root->www();
 }
 

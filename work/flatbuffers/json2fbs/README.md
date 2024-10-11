@@ -1,4 +1,28 @@
-// TODO 还在调研
+// 1.有协议+json时
+  flatbuffers::IDLOptions opts;
+  opts.skip_unexpected_fields_in_json = true;
+  flatbuffers::Parser parser(opts);
+  if (parser.Parse(gSchema.c_str(), nullptr) != true) {
+    std::cout << "ERROR1" << std::endl;
+    return;
+  }
+  if (parser.Parse(gJson.c_str()) != true) {  // 既可以用Parse还可以用ParseJson
+    std::cout << "ERROR2:" << parser.error_ << std::endl;
+    return;
+  }
+  std::string s2(reinterpret_cast<char*>(parser.builder_.GetBufferPointer()), parser.builder_.GetSize());
+
+// 2.只有桩代码时，还在调研
+
+
+
+
+
+
+
+
+
+
 #include <iostream>
 #include "flatbuffers/idl.h"
 #include "flatbuffers/minireflect.h"

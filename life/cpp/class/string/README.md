@@ -14,7 +14,7 @@ R"[<tokens>](<字符串>)[<tokens>]"; R"(say:"hi")" 即 say:"hi"
 std::string::npos 代表字符串没找到的size_t -1 && 最大值
 
 [methed
-std::string((const char *)&value, 8);  // 不写size，则是拷贝（总之新分配内存）到空字符为止，std::string(const char *(&value), 8))这种就报错, NULL也会core_dump!!
+std::string(reinterpret_cast<char *>(&value), 8);  // 不写size，则是拷贝（总之新分配内存）到空字符为止，NULL会core_dump!!
 append	//string& append(string) 同 s = s+t
 back	//引用
 front	//引用
