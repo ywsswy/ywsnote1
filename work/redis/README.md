@@ -59,8 +59,7 @@ OK 表示设置成功
 
 
 >STRLEN <keyname>
-可以看到一个redis的值多长
-
+可以看到一个value的大小（字节）
 
 >set <keyname> "\x00\t\x01hh"
 # 二进制的方式

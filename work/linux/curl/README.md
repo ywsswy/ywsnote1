@@ -20,7 +20,7 @@ curl -s -H "Content-Type:application/json" -X POST -d"xx\"x'x" 'http://xxx' |jq 
 --header "Host: www.baidu.com" 配置host的域名，🐂
 -H "Accept: application/json" 
 -H "Content-Type:application/x-www-form-urlencoded" 多个header必须都单独写
--k 可以支持https
+-k 可以支持https(跳过安全验证来访问)
 'http:xxx'
 
 # example

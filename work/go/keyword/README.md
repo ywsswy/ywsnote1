@@ -92,4 +92,4 @@ func main() {
 	}
 	fmt.Println(hypot(5, 12))
 
-	fmt.Println(compute(hypot), 6, 7, 8)  // interface{}可以接收任何类型的复制，...interface{}可以接收变长参数
+	fmt.Println(compute(hypot), 6, 7, 8)  // interface{}可以接收任何类型的复制，...interface{}可以接收变长参数（含0个参数）

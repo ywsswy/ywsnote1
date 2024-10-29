@@ -2,10 +2,11 @@
 文件的配置
 
 ```
-Host github.com
+Host github.com  # HostName不写时这个就充当HostName
 IdentityFile ~/.ssh/id_ecdsa
 Port 22
 ProxyCommand nc -X 5 -x localhost:<dynamic-forward-port> %h %p
+User root  # 需要登陆的时候写，如果不需要登录仅拉代码可以不写
 
 Host xxx.com
 ...
