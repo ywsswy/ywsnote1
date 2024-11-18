@@ -10,8 +10,8 @@ bazel query --nohost_deps --noimplicit_deps 'deps(//main:hello-world)' --output 
 可以在http://www.webgraphviz.com/上绘制
 
 查看一个.o的所有依赖头文件（便于分析问题）
-首先构建成功之后，在这个文件中可以看include所有头文件
-bazel-out/k8-fastbuild/bin/<path_to_obj>/_objs/<obj>/<obj>.pic.d
+执行完bazal build后在这个文件中可以看.o所include的头文件列表（x可能有几种fastbuild是默认编译选项，opt是优化了去掉调试信息的）
+bazel-out/k8-x/bin/<path_to_obj>/_objs/<obj>/<obj>.pic.d
 
 
 一般来说一个target可能同时依赖：源文件、其他BUILD中的lib、本BUILD中的其他target，写法如下
@@ -87,6 +87,8 @@ bazel-out/k8-fastbuild/bin/<path2target>-2.params
 
 relocatable文件存放的位置是
 bazel-bin/_objs/<path2target>.pic.o
+
+临时源文件存在在bazel-<folder>/里面，并且这里可以修改文件内容后临时编译也是生效的
 
 
 # .bazelrc，命令行的参数优先级高于这个文件中的参数
