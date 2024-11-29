@@ -1,7 +1,7 @@
 首先A项目有一个git仓库
 然后B项目需要依赖于这A
 则在B中，指定某个文件夹下放A模块
-git submodule add <git address of A> <path in B>
+git submodule add <git address of A> <path in B>  # .gitmodules文件可以看
 
 
 别人使用的时候
