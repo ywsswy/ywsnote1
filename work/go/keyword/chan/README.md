@@ -26,14 +26,14 @@ func main() {
 }
 
 select语句的每个case必须是操作channel的；
-select语句没有循环的能力，只有阻塞的能力：随机执行一个不阻塞的case然后结束select语句；
+select语句没有循环的能力，只有阻塞的能力：等到任意（不是按顺序）一个不阻塞的case，然后执行它并结束select语句；
 
 select {
 case i := <-c:
     // use i  // 可以用break跳出select、for、switch语句
 case <-time.After(1000 * time.Millisecond):
     // 详见time，要一秒之后才能从这个管道读出数据，所以可以用于超时判断
-default:  // 可以写default语句也可以不写，所有case都阻塞时则执行default语句然后会结束select语句；
-    // receiving from c would block
+default:  // 可以写default语句也可以不写，写了的话，当所有case都阻塞时则执行default语句然后会结束select语句；
+    // xxxx
 }
 ```

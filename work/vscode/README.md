@@ -16,3 +16,26 @@ https://blog.csdn.net/qq_40181728/article/details/108079893
 "program": "<path>/<to>/<binary>",
             "args": [],
             "stopAtEntry": true,
+
+
+# 远程debug golang
+服务器，docker，安装dlv debug --headless --listen=:2345 --api-version=2
+vscode左侧debug插件，create a launch.json file（连接服务），输入127.0.0.1和2345，自动会生成如下配置
+```
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Connect to server",
+			"type": "go",
+			"request": "attach",
+			"mode": "remote",
+			"remotePath": "${workspaceFolder}",
+			"port": 2345,
+			"host": "127.0.0.1"
+		}
+	]
+}
+```
+
+每次debug先在服务器，docker运行dlv debug --headless --listen ":2345" --log --api-version 2
