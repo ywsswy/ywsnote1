@@ -39,3 +39,8 @@ vscode左侧debug插件，create a launch.json file（连接服务），输入12
 ```
 
 每次debug先在服务器，docker运行dlv debug --headless --listen ":2345" --log --api-version 2
+
+# 远程golang镜像中，看覆盖率
+默认配置即可，但是要求代码所在目录不能是软链接内的目录
+执行1：Go: Test Function At Cursor
+执行2：Go: Toggle Test Coverage In Current Package

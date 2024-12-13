@@ -12,3 +12,8 @@ verifying xxxx: 410 Gone
 
 这是因为可能这个是内网的东西，Go 不知道 xxxx 是内网模块，会去 sum.golang.org 验证下载的模块的哈希，显然外网肯定没有内网模块的哈希值
 解决办法是export GOPRIVATE=<内网域名>
+
+
+## 网络问题
+如果无法下载，看go env配置如果是默认的GOPROXY='https://proxy.golang.org,direct'，则可能会有网络问题，
+可以配置代理，参考.bashrc

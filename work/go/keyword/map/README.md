@@ -10,6 +10,14 @@ for key, value := range bb {  // 类似，key和value是元素的拷贝
 }
 
 显然如果元素类型是struct，那么修改value并不能达到修改原map的目的，所以要么定义成*struct，要么把value修改完后，重新赋值给bb["x"]，进而间接实现修改map的目的；
+所以以下写法build环节直接就会报错，编译器会认为临时拷贝变量的修改是改了也无效的？
+bb["y"].flag = false
+只有下面这唯一一种特殊写法效果符合下意识不会报错：
+bb["y"] = s{
+  flag: false
+}
+另外下面这种间接写法也不会报错，能起到修改原map的目的：
+bb["y"].Hits[1] = &c
 
 ## 两个map的比较
 因为map无序，所以要么逐个key去另一个map里find

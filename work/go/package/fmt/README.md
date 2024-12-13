@@ -12,7 +12,7 @@ requestBody, err := proto.Marshal(qrwRequest)
 ## 格式化输出：对于struct / proto生成的struct,【格式化输出】成json格式的[]byte
 ```
 j, err := json.Marshal(a)
-fmt.Printf("%v\n", string(j)) // 其中json的字段就算是默认值也会输出，如果希望默认值不显示，在定义struct a时，应该加tag，设置json中的omitempty，例如  name string `json:"name,omitempty"` 详见struct中的tag
+fmt.Printf("%s\n", string(j)) // 其中json的字段就算是默认值也会输出，如果希望默认值不显示，在定义struct a时，应该加tag，设置json中的omitempty，例如  name string `json:"name,omitempty"` 详见struct中的tag
 ```
 //暂定要美化（string struct error）就Printf("%v\n    
 //要完整信息就Printf("%#v\n

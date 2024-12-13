@@ -41,3 +41,20 @@ func main() {
 	fmt.Printf("err2:%s\n", err2.Error())  // err2:err1 old err，说明【1】return的表达式结果会先保存到一个临时无名变量中，然后【2】执行defer，然后【3】把临时无名变量赋值给err2；
 }
 ```
+
+- 3）如果希望defer能对返回值进行修改，需要把返回值定义成“命名返回值(naked return)”，（但是要注意建议此时函数行数不超过5行，否则会破坏可读性）
+
+```
+func f3() (err1 error) {
+        err1 = fmt.Errorf("err1 old err")
+        defer func() {
+                err1 = fmt.Errorf("err1 new err")
+        }()
+        return  // 【*】这里return后面不需要再写明err1，即使写了也是无视的，还是以函数定义的命名返回值为准
+}
+
+func main() {
+        err2 := f3()
+        fmt.Printf("err2:%s\n", err2.Error())  // err2:err1 new err
+}
+```

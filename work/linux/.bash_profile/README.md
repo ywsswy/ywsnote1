@@ -14,7 +14,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/software/gc/lib/:.:$HOME/lib:$HOM
 export LC_CTYPE="en_US.UTF-8"  # 不设置对字符集的话LC_CTYPE默认是"C"，python3 输出中文就会报错UnicodeEncodeError: 'ascii' codec can't encode character '\u7ebf' in position 0: ordinal not in range(128)
 export LANG="en_US.utf-8"  # 参考 https://blog.csdn.net/wt_better/article/details/110203286
 export LESSCHARSET=utf-8  # 避免git log 出现中文乱码问题
-export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/github.com/ywsswy/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/Library/Python/3.8/bin:/usr/local/go/bin:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$HOME/workspace/github.com/ywsswy/shell:$HOME/software/hadoop/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/Library/Python/3.8/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.ft"
 # 默认history并不记录时间，除非使用HISTTIMEFORMAT。
 export HISTTIMEFORMAT="%F %T "
 # .bash_history的文件最大行数

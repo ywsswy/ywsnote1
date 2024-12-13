@@ -3,7 +3,7 @@
 yum服务器上有软件依赖信息header
 当用户有升级安装需求时，yum会把软件列表更新到本机/var/cache/yum中，跟本机RPM数据库（/var/lib/rpm/）比较确认需要下载哪些包
 
-yum关于软件源的配置文件（/etc/yum.repos.d/里面的各个文件）中（$basearch变量通过arch命令获取，$releasever变量是rpm -qi centos-release的Version）
+yum关于软件源的配置文件（/etc/yum.repos.d/里面的各个文件）中（$basearch变量通过arch命令获取，$releasever变量是/etc/os-release文件中的VERSION_ID）
 配置文件示例
 ```
 [base]

@@ -23,7 +23,7 @@ complex64 complex128 //复数
 ## 赋值
 i := 1  // 首次出现变量i
 j = 2  // 使用以前出现的j
-// := 的操作符左侧不要求全部是新变量，只要存在新变量即可，例如如下三种情况均可；判断是哪一种情况的原则是，同作用域优先使用old，子作用域优先使用new
+// := 的操作符左侧不要求全部是新变量，只要存在新变量即可，例如如下三种情况均可；判断是哪一种情况的原则是，同作用域优先使用old，子作用域优先使用new；函数的“命名返回值”相当于是跟函数第一层变量同作用域；
 // new, new := xx()
 // old, new := xx()
 // new, old := xx()
@@ -81,8 +81,8 @@ b := make([]int, 0, 5) //动态 申请数组，0是len显式的元素个数，5�
 
 ## 函数指针
 func compute(fn func(float64, float64) float64, a interface{}, b ...interface{}) float64 { //入参是函数指针
-        aa := a.(int)  // 只能用写入的类型来解析，.(int32)或者.(int64)都会错误
-        bb, ok := args[0].(int)  // ok true表示获取成功
+        aa := a.(int)  // 只能用写入的类型来解析，.(int32)或者.(int64)都会panic
+        bb, ok := args[0].(int)  // ok true表示获取成功，安全的类型转换&校验（不会panic）
 	return fn(3, 4)
 }
 
