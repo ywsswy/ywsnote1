@@ -61,6 +61,8 @@ OK 表示设置成功
 >STRLEN <keyname>
 可以看到一个value的大小（字节）
 
+>CLUSTER KEYSLOT <keyname>  # 查看一个key的slot
+
 >set <keyname> "\x00\t\x01hh"
 # 二进制的方式
 >info # 查看redis节点信息？vip -> proxy-> redis，这里看到的是redis

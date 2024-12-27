@@ -11,6 +11,7 @@ clean:
 
 # make:
 make -n 只显示要执行的命令，不执行，make V=1又显示又执行
+make VERBOSE=1  # 详细显示具体编译链接命令，便于定位问题
 make <目标> 会自动检查当前目录makefile文件里面<目标>的依赖，不写<目标>就是构建makefile中的第一个目标
 
 

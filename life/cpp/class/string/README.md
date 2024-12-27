@@ -5,7 +5,7 @@ string有类似写时复制（copy-on-write）的优化，就是复制赋值的�
 
 
 const char* kKey = "key"; std::string s(kKey);  // 不存在特殊字符的初始化
-const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // 存在特殊字符的初始化，注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
+const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // 存在特殊字符的初始化（用十六进制表示），注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
 
 raw string（原生字符串）可以不加转义的初始化字符串：
 R"[<tokens>](<字符串>)[<tokens>]"; R"(say:"hi")" 即 say:"hi"
@@ -28,6 +28,7 @@ find_last_of            //"1234".find_last_of("2",1)是可以找到的
 replace	//1)string& replace(startloc_int,len_int,s)	//0s startloc要保证<=size，不然会core_dump
 	//2)string& replace(start_ite,end_ite,s)	//end_ite will not be erased
 substr	//string substr(startloc_int,len_int=max)       //startloc要保证<=size，不然会core_dump
+erase  // iterator erase(iterator first, iterator last)  // 原地操作remove [first,end)的元素
 
 [associated function
 string to_string(T)	//C++11

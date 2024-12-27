@@ -12,7 +12,7 @@ vector 和 list
 std::vector<int> ve(size,value);
 # stl function
 std::swap()  
-object.function() //object:map,vector,list(,string)  
+# object.function() //object:map,vector,list(,string)  
 clear  
 empty  
 size	//string also can use length  
