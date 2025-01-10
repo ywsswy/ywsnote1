@@ -7,8 +7,7 @@ git submodule add <git address of A> <path in B>  # .gitmodules文件可以看
 别人使用的时候
 先clone B，然后在B中
 git submodule sync  # 如果B项目在commit1上，git submodule add rX pB，然后在commit2上，git submodule add rY pB，此时从commit1切换到commit2上，不能仅仅git reset --hard commit2，还要git submodule sync强制更新一下submodule，就是说同名（pB）的切换不够智能
-git submodule update --init --recursive  # 这个可以找到B当时依赖的A的commit，并不随A仓库的更新而更新，更新只能在B仓库中发起
-
+git submodule update --init --recursive [-- <path>]  # 这个可以找到B当时依赖的A的commit，并不随A仓库的更新而更新，更新只能在B仓库中发起；path可以指定只更新某一个submodule
 
 # 删除
 

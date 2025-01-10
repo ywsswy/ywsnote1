@@ -36,6 +36,7 @@ OK 表示设置成功
 如果是set，往set中增加一个元素
 >SSCAN key cursor [MATCH pattern] [COUNT count]
 如果是set，取出一部分元素，第一次cursor要传0，直到返回0表示查找完毕
+
 >ZADD <keyname> <score> <value>
 将value添加到key对应的有序集合（sorted set/zset）里面，并指定sorce（double类型），
 如果value已经存在，则会更新这个value的score更新到正确的排序位置：https://blog.csdn.net/weixin_62319133/article/details/124317546
@@ -49,7 +50,13 @@ OK 表示设置成功
 >ZREMRANGEBYSCORE key min max
 如果是zset，移除分数位于[min,max]区间的元素
 >zscore <keyname> <value>
-如果时zset，返回元素的score值
+如果是zset，返回元素的score值
+
+>LPUSH/RPUSH <key> <value>
+如果是list，往列表头部（左边）或者尾部（右边）插入元素
+>LRANGE <key> <start> <end>
+如果是list，返回对应区间[start, end]的元素，0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素
+
 >del <keyname>
 删除key
 >HSET <key> <field> <value>
