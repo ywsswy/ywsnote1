@@ -20,8 +20,8 @@ http {
   server {
     listen 443 ssl;
     server_name  zzz.com;
-    ssl_certificate zzz.com_bundle.crt;  # ssl证书路径(apache type)
-    ssl_certificate_key zzz.com.key;  # ssl证书路径
+    ssl_certificate zzz.com_bundle.crt;  # ssl证书(使用的nginx证书类型，而不是apache？)验证证书是否安装成功，可以在客户端执行openssl s_client -connect zzz.com:443 -servername zzz.com | openssl x509 -noout -dates，而不是通过import ssl print(ssl.get_default_verify_paths())来验证
+    ssl_certificate_key zzz.com.key;
     ssl_session_timeout 5m; 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 

@@ -41,7 +41,6 @@ git stash pop stash@{<num>} #选择把哪个暂存的还原（前提是你要先
 git tag <name>;git push origin <name> #删除本地&远程 git tag -d <name>;git push origin :refs/tags/<name> #这里:前面是空的，就相当于推送一个空的tag
 ```
 - linux ->WSL, Don't xvf in WSL:/mnt(destory the filemode), you can xvf and edit in WSL:~/$
-- 配置了ssh的时候无需输入密码
 - Personal access tokens生成项目令牌后可以写在脚本里git clone xxxxxxx<tokens>@<git-path> <branch>的方式无需输入密码
 - 还有配置了credential.helper store的时候只需要输入一次密码（密码会保存到~/.git-credentials里，后续也无需输入密码了
 - [清理曾经提交过的大垃圾文件方法](https://www.cnblogs.com/qinghe123/p/13230392.html?utm_source=tuicool)

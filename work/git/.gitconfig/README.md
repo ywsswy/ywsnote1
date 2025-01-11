@@ -13,7 +13,7 @@
 [core]
     quotepath = false
     editor = vim
-# 可选 实际发起请求的git地址替换
+# 可选 实际发起请求的git地址替换，git clone可以配置通过https密码也可以通过ssh免密，后者可以不用输入密码，所以如果有的项目配置的是https可以在这里强制替换成git
 [url "git@github.com:"]
         insteadOf = https://github.com/
         insteadOf = http://github.com/

@@ -1,12 +1,12 @@
-~/.ssh/config
-文件的配置
+~/.ssh/config文件内容
+
 
 ```
 Host github.com  # HostName不写时这个就充当HostName
-IdentityFile ~/.ssh/id_ecdsa
-Port 22
-ProxyCommand nc -X 5 -x localhost:<dynamic-forward-port> %h %p
-User root  # 需要登陆的时候写，如果不需要登录仅拉代码可以不写
+  IdentityFile ~/.ssh/id_ecdsa  # 默认不写是~/.ssh/id_rsa
+  Port 36000  # 默认不写是22（远程仓库都是22）
+  ProxyCommand nc -X 5 -x localhost:<dynamic-forward-port> %h %p
+  User root  # 需要登陆终端的时候写（不可省略），如果只是远程仓库的话可以不写
 
 Host xxx.com
 ...
