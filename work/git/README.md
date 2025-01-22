@@ -28,12 +28,12 @@ git merge #最粗暴的merge，就是两个树枝二合一；--squash 是把来�
 git mergetool #git merge出现冲突的时候使用； diffg L/R可以选择采用本地/远程的修改，]/[c可以跳到下/上一处修改；我建议mergetool完之后进行一次全搜<======，<<<<<<<，=======，>>>>>>>
 git push origin <remote_branch> --delete #这里的remote_branch不用加origin,【注意每次解决前要先跳到行首，以防记录了曾经vim打开过的文件中间位置而漏掉了前面的冲突行】
 git push origin HEAD:refs/heads/<remote_branch> #明确分支的方式提交
-git rebase <branch> 把本分支的修改提交到目标分支上去，当两个分支都基于同一个祖先(base)有生长的时候，这种方法就可以修改(re)当前分支变动的祖先为目标分支了，前提是没有什么冲突（祖先太久远冲突太多的考虑直接cherry-pick过去）；<branch>有很多种表达方式，可以是分支名，可以是HEAD，可以是commit_id，甚至可以是从某commit开始第几个(1s)（<branch>~<num>）
+git rebase <branch/HEAD/commit_id/xxx~\<num\>/HEAD@{num}> 把本分支的修改提交到目标分支上去，当两个分支都基于同一个祖先(base)有生长的时候，这种方法就可以修改(re)当前分支变动的祖先为目标分支了，前提是没有什么冲突（祖先太久远冲突太多的考虑直接cherry-pick过去）；xxx~\<num\>例如 HEAD~1表示从HEAD往以前数1个commit，HEAD@{1}表示reflog中的前一次停留的位置
   -i # 可以编辑选择如何处理每一次commit，例如在出现的编辑器中pick保留第一个，后面的都改成s合并掉，就实现了压缩合并commit；如果rebase失败，则用git rebase --abort恢复
 git reflog # 查看版本号变更记录
 git remote add <rep_name> <url> # 本地可以绑定好几个远程name，其中name如果是upstream，是用于当这个origin仓库是从这个upstream的仓库fork来的场景，这样，使用git fetch -p <rep_name>的时候也能把多个远程代码都拉到本地；git remote remove <rep_name>移除
 git remote set-url origin  # 修改git地址
-git reset --hard 5693367  # 恢复成版本号以5693367开头的commit,(untracked file won't be change)，也可以写HEAD~2表示切到前一个commit
+git reset --hard 5693367  # 恢复成版本号以5693367开头的commit,(untracked file won't be change)
 git revert 5693367  # 新提交一个commit，内容是把5693367的改动撤销掉，相当于一种“回滚”
 git stash save 'buf'  #不提交，只暂存在本地
 git stash list #查看有哪些暂存的

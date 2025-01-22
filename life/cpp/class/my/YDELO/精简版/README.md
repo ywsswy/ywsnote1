@@ -48,7 +48,7 @@ ostream &operator<<(ostream &os,const vector<T> &st){
 }
 //for built-in type(except c_array) & map & list & vector
 template<typename T>
-void yPrint(const string &info,const T &x,int n = 0,bool clr = true){
+void yPrint(const string &info,const T &x,int n = 0,bool clr = false){
 	ydelon = n;
 	if(clr){
 		system("cls");//"clear" in linux
@@ -70,4 +70,3 @@ int main(){
 	#endif
 	return 0;
 }
-

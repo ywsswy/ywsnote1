@@ -4,7 +4,7 @@
 ```
 Host github.com  # HostName不写时这个就充当HostName
   IdentityFile ~/.ssh/id_ecdsa  # 默认不写是~/.ssh/id_rsa
-  Port 36000  # 默认不写是22（远程仓库都是22）
+  Port 36000  # 远程仓库都是22，这个最好不要省略，因为不同机器配置的默认值可能不同
   ProxyCommand nc -X 5 -x localhost:<dynamic-forward-port> %h %p
   User root  # 需要登陆终端的时候写（不可省略），如果只是远程仓库的话可以不写
 
