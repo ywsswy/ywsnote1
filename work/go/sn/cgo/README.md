@@ -1,10 +1,12 @@
 golang里调用c++
 https://blog.csdn.net/qq_38329894/article/details/126350610
 
-main.go如下，注意的是，import "C"前面必须紧紧跟着“注释状态”include和特定的预编译指令#cgo LDFLAGS: -L./ -l3 -lstdc++
+main.go如下，注意的是，import "C"前面必须紧紧跟着“注释状态”include和特定的预编译指令，
+内部原理是（1）会使用CXXFLAGS命令编译当前目录所有cpp/cc文件；（2）使用LDFLAGS把所有链接好生成一个临时包；（3）import "C"就相当于导入了这个临时包，临时包可以使用的函数定义在"library-bridge.h"中
 ```
 package main
 
+//#cgo CXXFLAGS: -I./ -O3 -std=c++11
 //#cgo LDFLAGS: -L./ -l3 -lstdc++
 //#include "library-bridge.h"
 import "C"

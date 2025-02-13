@@ -1,7 +1,10 @@
 参数fsync_peer
 在代码中就是使用FLAGS_fsync_peer，
 
-在另外一个cc文件中如果要使用，则需要
+cc文件中：
+DEFINE_string(fsync_peer, "default value", "desc")
+
+在另外一个cc文件中如果要使用，则需要头文件中：
 DECLARE_string(fsync_peer)  // 相当于extern FLAGS_fsync_peer;
 
 可以动态修改

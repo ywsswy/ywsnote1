@@ -5,7 +5,7 @@ commit message规范，必选的
 type种类：feat(merge) fix | build style revert docs refactor | test perf
 ps: 需求开发层级：epic（史诗级大项目，非必选）、feature（可独立发布上线的需求，必须拆分成至少1个story）、stroy（细粒度）
 subject格式：简短描述 --关联标识=<id>
-
+ 
 git branch -D <local_branch> #删除本地分支
 git branch -m '重命名分支名'
 git checkout <branch_name> #切换分支。一是使 HEAD 指回 branch_name分支，二是将工作目录恢复成 branch_name分支所指向的快照内容
@@ -14,11 +14,13 @@ git checkout <branch_name> -b <new branch_name> # 在某分支上新建一个分
 git cherry-pick <commit> #把其他分支的某次修改弄到当前来; git cherry-pick <start(old)>^..<end>把一个区间的修改弄过来，加了^符号，就是左闭右闭，中间有冲突的commit手动解决提交后，还需要继续执行git cherry-pick --continue
 git clean -f
 git commit --amend #修改commit信息 --author="name <mail.com>" 修改作者信息
+git diff A...B  # 注意没有空格，这时是看B相对于“跟A的公共祖先”的变化，MR通常显示的效果是这个！
 git diff <old commited/branch> [<new commited/new brand>] [<file_name>]#注意此刻的untracked file不会参与到diff中
-git diff # 常规diff（当前与暂存区比较）
+git diff # 常规diff（等价于 git diff [暂存区] [现状]）
   参数--filter=M 仅显示更改的文件，不知道新增的文件
   参数--name-status 不管详细内容，只管文件是A/D/M
 git fetch -p -P  # 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）
+git format-patch <start(old)>^..<end>  # 创建一组补丁文件（类似diff的输出，别人可以使用git am -s *.patch应用补丁，类似cherry-pick的效果）
 git grep <content>  # 在“当前”目录内查找内容
 git log # 查看历次详细commit eg:commit 56933675c782a232668c6fcbfffd249625c93947(版本号)
 git log --graph --decorate --oneline --all [<rep_name>]  # 旧版美化格式。如果再裁剪提交只看分支粒度的改动：--simplify-by-decoration

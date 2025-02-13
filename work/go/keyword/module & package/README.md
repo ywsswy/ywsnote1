@@ -17,7 +17,7 @@ require x.com/y/z v1.0.3  // 写法是require <依赖的模块名> <合法的远
                           // 一个合法的远程tag格式要求：[<模块(go.mod文件)相对仓库的路径>/]va.b.c，其中a\b\c是数字
                           // 例如仓库是x.com/y，模块(go.mod文件)位于x.com/y/z中，那么规范的tag就应该打成z/va.b.c，不存在go.mod时，就相当于模块跟仓库同级，打tag就不用带上相对路径了
 
-replace x.com/y/z v1.0.3 => ./test/z  // 如果希望修改依赖库，但是临时代码还没有打tag，可以拉取到本地，然后replace临时依赖本地代码
+replace x.com/y/z v1.0.3 => ./test/z  // 如果希望修改依赖仓库，但是其临时代码还没有打tag，可以拉取到本地，然后replace临时依赖本地代码
 
 > cat d1/f1.go
 package p1  // 【包名】是p1，【包（导入）路径】是aaa/bbb/ccc/d1，因为d1目录没有go.mod，所以要往上层目录找自己属于哪个模块进而确定的包路径
