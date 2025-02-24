@@ -11,3 +11,5 @@ for key, value in a.items():
        print(key+':'+value)
 
 【如果希望有序sorted(a.items())
+
+两个dict可以直接比较是否相等 == 

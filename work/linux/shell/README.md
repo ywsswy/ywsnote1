@@ -3,7 +3,7 @@
 # 首行注释必加，这样系统才会自动识别，才会变色，才能tab补齐脚本名，还有#!/usr/bin/env python3
 # 如果是脚本任意放，只关心人当前目录，则无需特殊处理；（即，如果没有执行cd/pushd等命令，脚本里面都是默认执行目录（而非脚本所在目录）是当前目录
 # 如果是脚本位置必须固定，关心脚本所在的目录，则首行应该如下写（readlink牛，能把所有都变成绝对路径，如果写错了就还是当前路径），调试命令是bashdb path/script.sh -- path/script.sh arg1 arg2
-
+ 
 ```
 if [ `basename $0` != 'bashdb' ];then
   arg0=$0
@@ -48,12 +48,12 @@ fi
 ```
 
 # 函数内的 echo 如果不重定向标准错误，则返回的是函数返回值，return或者函数最后一条命令 是函数的退出状态码；因此不允许函数为空/没有返回码
-# 读取文件的写法，这种效率不高，大文件，建议用awk or perl
+# 读取文件的写法，这种效率不高，大文件，考虑用awk（不确定待比较，暂时还可以用这里） or perl(正则替换)
 ```
-function YRead() {
+function YRead() {  # while的IFS变量会影响整个文件，所以放到【函数】局部中，不过如果要修改全局变量，那就没办法了
   myIFS=$(echo -ne "\x0a\x0d")
-  while OLDIFS=${IFS}; IFS=${myIFS}; read -r line; ret=$?; IFS=${OLDIFS}; [ $ret -eq 0 ]; do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，while的IFS变量会影响整个文件，所以放到【函数】局部中，不过如果要修改全局变量，那就没办法了
-    # do something with "$line"
+  while OLDIFS=${IFS}; IFS=${myIFS}; read -r line; ret=$?; IFS=${OLDIFS}; [ $ret -eq 0 ]; do  #这个IFS置空，否则read line会把行首行尾的空白字符忽略掉的~，
+    :  # do something with "$line"，这里使用echo "${line}"既能保留原文中的双引号也能保留单引号，比awk好；记得函数内输出最好输出到文件中
   done < file #不写重定向的话就是从标准输入读取，或者cat file | while ...
 }
 ```

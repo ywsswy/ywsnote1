@@ -7,6 +7,7 @@ https://blog.csdn.net/i_chaoren/article/details/77922939
 
 id = '{head:0>5.2f}{tail}'.format(tail=id_tail,head=id_head)
 0填充，右对齐，至少宽度为5，保留两位小数
+'{:.2f}' # 保留两位小数
 
 
 还有一种格式化输出，就是使用%
