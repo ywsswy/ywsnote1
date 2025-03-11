@@ -37,7 +37,7 @@ PARTITIONED BY (ds string);
 ```
 然后插入数据，分区字段写在最后
 ```
-INSERT INTO szrecone_trsexposefilter::my_table VALUES ('1', 'a1', '0', '0', '1'),
+INSERT INTO my_db::my_table VALUES ('1', 'a1', '0', '0', '1'),
 ('2', 'a2', '60', '1', '1'),
 ('3', 'a2', '60', '0', '1');
 ```
