@@ -7,7 +7,7 @@ socket的名词含义有很多：
 套接字在客户端和服务端的流程：
 1）通常服务端固定一个端口监听请求（调用socket+bind+listen创建一个用于监听的socket-1）；
 2）服务端（内核）收到客户端的连接请求时就会“新”创建一个socket-2（用于互相read & write收发数据），原来的socket-1只用于监听；
-3）客户端调用socket & connect创建socket-3并请求连接服务端，实际连接的是socket-2；
+3）客户端调用socket & connect创建socket-3并请求连接服务端，实际连接的是（服务端的？）socket-2；
 4）服务端（用户程序）可以不断调用accept（如果没有连接会阻塞）会逐个取出建立好的socket-2，socket-4……；（取出来的netstat -p能看到pid，没取出来的还在内核中看不到pid）
 
 关于连接数上限：

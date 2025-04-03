@@ -138,7 +138,6 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "git.ignoreLegacyWarning": true,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
     "[go]": {
         "editor.defaultFormatter": "golang.go",
         "editor.formatOnSave": true
@@ -151,6 +150,5 @@
         "-gcflags=all=-l"
     ],
     "vim.useSystemClipboard": true,
-    "vim.overrideCopy": true,
-    "terminal.integrated.shellIntegration.enabled": false
+    "vim.overrideCopy": true
 }

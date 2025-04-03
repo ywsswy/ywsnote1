@@ -6,7 +6,7 @@ using namespace std;
 int g_count = 0;
 
 void mythread1() {
- for (int i = 0; i < 10000; i++) {
+ for (int i = 0; i < 100000; i++) {
    g_count++;
  }
 }
@@ -19,3 +19,5 @@ int main() {
    cout << "实际是" << g_count << endl;
 }
 ```
+
+- atomic的int 就能保证g_count++是原子的？
