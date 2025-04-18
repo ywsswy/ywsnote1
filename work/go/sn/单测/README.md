@@ -1,6 +1,7 @@
 // 单测 + mock https://github.com/agiledragon/gomonkey
 // 运行某个test函数，-gcflags=all=-l可以避免编译器优化导致mock不成功
-go test -gcflags=all=-l -run <Test_function_name> -v ./<sub_folder>/
+go test -v -gcflags=all=-l -run <Test_function_name> ./<sub_folder>/
+go test -v -gcflags=all=-l -covermode=count -coverpkg=./... -coverprofile=wtf $(go list ./... | grep -v apitest)
 - 文件名是_test.go结尾的，就不会导出（外部就不会访问到）
 - vscode可以直接可视化单测
 

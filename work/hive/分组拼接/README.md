@@ -16,6 +16,8 @@ FROM (
 )
 group by guid;
 ```
+-- COALESCE是返回参数中第一个非NULL的值，用于避免处理空值（上面就是空值返回''）
+
 这样的话，相当于先把相同guid的按照ftime排序了，然后再进行拼接；
 这个语句中提效的方法在于distribute by <a> sort by <a>, <b>，
 区别于order by的全局排序，distribute by + sort by方法中被distribute by设定的字段为KEY，数据会被HASH分发到不同的reducer机器上，然后sort by会对同一个reducer机器上的每组数据进行局部排序；

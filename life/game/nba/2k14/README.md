@@ -1,3 +1,5 @@
+【以前是设备受限不得不玩这个，但是目前不必了】
+
 使用cheat engine修改某款小游戏数据
 https://www.youtube.com/watch?v=zjfdN5fdkeQ
 
