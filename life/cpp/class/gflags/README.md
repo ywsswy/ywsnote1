@@ -2,13 +2,15 @@
 在代码中就是使用FLAGS_fsync_peer，
 
 cc文件中：
-DEFINE_string(fsync_peer, "default value", "desc")
+DEFINE_string(fsync_peer, "default value", "desc");  // DEFINE_int32/DEFINE_bool
 
 在另外一个cc文件中如果要使用，则需要头文件中：
 DECLARE_string(fsync_peer)  // 相当于extern FLAGS_fsync_peer;
 
 可以动态修改
 FLAGS_fsync_peer = "XXX";
+
+#include <gflags/gflags.h>
 
 int main(int argc, char** argv) {
   google::ParseCommandLineFlags(&argc, &argv, true);

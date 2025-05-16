@@ -23,3 +23,6 @@ group by guid;
 区别于order by的全局排序，distribute by + sort by方法中被distribute by设定的字段为KEY，数据会被HASH分发到不同的reducer机器上，然后sort by会对同一个reducer机器上的每组数据进行局部排序；
 
 ps：Hive基于HADOOP来执行分布式程序的，和普通单机程序不同的一个特点就是最终的数据会产生多个子文件，每个reducer节点都会处理partition给自己的那份数据产生结果文件，这导致了在HADOOP环境下很难对数据进行全局排序，如果在HADOOP上进行order by全排序，会导致所有的数据集中在一台reducer节点上，然后进行排序，这样很可能会超过单个节点的磁盘和内存存储能力导致任务失败
+
+-- COLLECT_SET 可以生成去重的数组
+-- SORT_ARRAY(COLLECT_SET 可以去重后再排序

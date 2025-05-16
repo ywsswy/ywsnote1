@@ -1,7 +1,10 @@
 tcpdump -i <网卡名称ifconfig可看> tcp and port <端口号> -n -nn -v -vv -w data:输出文件前缀 -W 100:100个文件 -C 30:文件大小30M -s 100：只抓包前面的100字节 -Z <用户名称如root>
 
 示例:
-tcpdump -i eth0 tcp and port 6379 -n -nn -v -vv -w data -W 50 -C 100 -Z root
+tcpdump -i eth0 tcp and port 6379 -n -nn -v -vv  # 不写入文件只是实时显示
+tcpdump -i eth0 tcp and [dst/src] host 10.22.33.44 -n -nn -v -vv  # 不写入文件只是实时显示
+tcpdump -i eth1 'tcp and ((dst host 10.22.33.44 and port 8066) or dst host 10.22.33.55)' -n -nn -v -vv  # 因为括号是特殊字符所以要加单引号
+tcpdump -i eth0 tcp and port 6379 -n -nn -v -vv -w data -W 50 -C 100 -Z root  # 写入文件
 
 -n -nn 是不解析hostname，直接显示ip
 -w是自动写文件
@@ -20,7 +23,48 @@ tcpdump -n -nn -r <file> -x 来读取（-x可以显示网际层的每个字节�
 
 - 有时候需要关注的有win（源告诉目的可以接收多大的回包），如果win太小，那么回完全部的包可能就非常慢。
 - 加参数-s和不加的两种情况下包的数量还不一样？可能经过了网络代理，最好裸连容易理解，不要nginx，客户端不要代理，然后不加-s参数即可
+- 如果纯肉眼看字节的话（hexdump）抓的包前24个字节是文件头，然后是[16字节信息（4字节秒时间戳+4字节微妙+4字节原始长度+4字节捕获长度）+实际包字节]，然后循环……，所以加工代码：
 
+```
+#include <iostream>
+#include <fstream>
+
+int main() {
+  std::ifstream if1("data00", std::ios::binary);
+  if (!if1.is_open()) {
+    std::cout << "open fail" << std::endl;
+    return 0;
+  }
+  std::string s(std::istreambuf_iterator<char>{if1}, std::istreambuf_iterator<char>{});
+  int idx = 24;
+  for (int i = 0; idx < s.size(); ++i) {
+    idx += 8;
+    int a = *(reinterpret_cast<int*>(&s[idx]));
+    idx += 4;
+    int b = *(reinterpret_cast<int*>(&s[idx]));
+    if (a != b) {
+      std::cout << "DIFF" << i << " " << a << " " << b << std::endl;
+    }
+    idx += 4;
+    // 加工包
+    // 跳过数据链路层
+    int tmp_idx = idx + 14;
+    // 获取网络层大小
+    int ip_head_len = (s[tmp_idx] & 0xf) * 4;
+    tmp_idx += (ip_head_len + 2);
+    int redis_port = 6379;
+    s[tmp_idx] = (redis_port & 0xff00) >> 8;
+    s[tmp_idx+1] = redis_port & 0xff;
+    idx += a;
+  }
+  std::ofstream of1("of1", std::ios::binary);
+  if(!of1.is_open()){
+    std::cout << "open fail" << std::endl;
+    return 0;
+  }
+  of1.write(s.c_str(), s.size());
+}
+```
 
 Q: 
 - 加了代理为什么包更多了

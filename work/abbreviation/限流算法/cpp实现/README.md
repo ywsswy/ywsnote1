@@ -3,11 +3,11 @@
 // 令牌桶实现，最多支持100W的QPS
 class Limiter {
 public:
- explicit Limiter(int32_t rate) : last_time_(NowUs()), per_token_(1000000L / rate) {}
- bool try_get(int32_t tokens = 1) {
-  int64_t now = NowUs();
-  int32_t needs = tokens * per_token_;
-  int64_t expected = last_time_.load(std::memory_order_relaxed);
+ explicit Limiter(int rate) : last_time_(NowUs()), per_token_(1000000L / rate) {}
+ bool TryGet(int tokens = 1) {
+  long long now = NowUs();
+  int needs = tokens * per_token_;
+  long long expected = last_time_.load(std::memory_order_relaxed);
 
   int64_t min_desired = now - 1000000L;  // 长时间没流量，或者流量少时，允许瞬时QPS达到设置的最大值
   do {
@@ -26,9 +26,12 @@ public:
   } while (true);
 
   return false;
-}
+ }
+ void SetRate(int rate) {
+  per_token_ = 1000000L / (rate + 1);
+ }
 
  private:
-  std::atomic<int64_t> last_time_;
-  int32_t per_token_;
+  std::atomic<long long> last_time_;
+  int per_token_;
 };

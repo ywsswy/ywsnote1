@@ -5,7 +5,7 @@ d := map[string]string  // 隐式类型推导语法错误
 e := map[string]string{}  // 语法正确，等价于var e map[string]string = map[string]string{}
 
 ## 查找
-value, ok := bb["x"]  // ok是bool类型，如果是true表示找到，然后value是找到的元素的拷贝（根据元素类型来决定是引用拷贝还是值拷贝），找不到value赋零值并且也不会像c++那样新增一个空元素；
+value, ok := bb["x"]  // ok是bool类型，如果是true表示找到，然后value是找到的元素的拷贝（根据元素类型来决定是引用拷贝还是值拷贝），找不到返回零值并且无论如何也不会像c++那样新增一个空元素；
 for key, value := range bb {  // 类似，key和value是元素的拷贝
 }
 

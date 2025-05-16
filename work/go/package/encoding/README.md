@@ -24,6 +24,7 @@ func main() {
 
     var data map[string]interface{}  // 不知道json的类型的时候用这个来解析，但是这个包优先把数值解析成float64，不利于整型解析，考虑特殊情况用jsoniter "github.com/json-iterator/go"替代
     err := json.Unmarshal([]byte(jsonStr), &data)  // 如果data是个map里面有数据，Unmarshal并不会清空原数据，而是会做merge冲突的部分才进行覆盖(只管一级字段)
+    // 另，如果data是非指针，参数必须取址，如果data是指针，参数取不取址均可
     if err != nil {
         fmt.Println("Error:", err)
         return

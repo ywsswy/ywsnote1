@@ -16,6 +16,9 @@
 对于数组的访问
 [0]
 
+输出对象数组中的每一个对象的某字段值
+[].<key>
+
 {mykey: <过滤器>}
 
 curl -X GET -s "$ipaddr/$index/$type/_search?pretty" -H 'Content-Type: application/json' -d "" |jq '.hits.hits[0]._source' --sort-keys

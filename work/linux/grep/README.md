@@ -19,6 +19,6 @@ tail -f file |grep --line-buffered hello >>log #这种写法才行，另外如�
 -A<num> 后面
 -a 表示允许文件中出现不可打印字符，解决Binary file matches报错
 
--o 统计出现次数，如果不按行统计（就是一行内出现多次都统计）的话 # grep -o '内容'|wc -l 
+-o '内容'|wc -l  统计出现次数，如果不按行统计（就是一行内出现多次都统计）的话
 -q 静默模式不输出任何，只有返回码
 -i 忽略大小写

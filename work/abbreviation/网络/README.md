@@ -4,13 +4,13 @@
 |表示层|应用层（协议包括http）|应用层|typertext transfer protocol，内容是什么取决于用户应用程序的代码怎么写，“通常”也只有这一层的数据选择进行压缩处理，不一定一个segment就能发送完，所以可能会被拆成多个segment|
 |会话层|
 |<hr>|<hr>|<hr>|
-|运输层|运输层（协议包括tcp/udp）|运输层|transmission control protocol，数据称为报文段（segment）含端口信息，从这里到往下层的内容都是内核的驱动程序处理的；wireshark简要列表中的Len指的是该报文段含有的payload（即对应应用层）的字节数|
+|运输层|运输层（协议包括tcp/udp）|运输层|transmission control protocol，数据称为报文段（segment）含端口信息；前两个字节是来源端口，三四字节是目标端口（字节间大端存储）；从这里到往下层的内容都是内核的驱动程序处理的；wireshark简要列表中的Len指的是该报文段含有的payload（即对应应用层）的字节数|
 |<hr>|<hr>|<hr>|
-|网络层|网际层|网络层|internet protocol version 4，数据称为IP数据报（datagram），如果一个IP数据报超过一定长度（576？）就要分片（fragment），含ip信息&上一层的类型，路由器只需要从下往上剥离到这一层就可以知道怎么继续转发了|
+|网络层|网际层|网络层|internet protocol version 4，数据称为IP数据报（datagram）；第一个字节的低4位*4字节就是网络层头部长度；如果一个IP数据报超过一定长度（576？）就要分片（fragment），含ip信息&上一层的类型，路由器只需要从下往上剥离到这一层就可以知道怎么继续转发了|
 |<hr>|<hr>|<hr>|
-|数据链路层|网络接口层|数据链路层|ethernet II，“分组”/数据称为帧（frame），格式就是以太网V2的MAC帧格式的头部（6目的地址+6源地址+2上层类型），尾部的4字节CRC校验wireshark没有显示|
+|数据链路层|网络接口层|数据链路层|ethernet II，“分组”/数据称为帧（frame），格式就是以太网V2的MAC帧格式的头部（6目的地址+6源地址+2上层类型），wireshark只从这14个字节开始显示，尾部的4字节CRC校验wireshark没有显示，抓包工具也不会保存|
 |<hr>| |<hr>|
-|物理层| |物理层|实际传输肯定还有其他，例如8字节的前同步码，但是wireshark并没有显示这部分|
+|物理层| |物理层|实际传输肯定还有其他，例如8字节的前同步码，但是wireshark并没有显示这部分，抓包工具也不会保存|
 
 
 - tcp连接（是由两个端点/套接字所唯一标识的） ::= {socket1, socket2} = {(ip1:port1),(ip2:port2)}
