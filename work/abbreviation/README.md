@@ -24,8 +24,6 @@ LGTM，代表的英文单词拼写是：Looks Good To Me
 
 TGW，用于将不同的VPC连起来的一个组件。在多VPC环境中，TGW还可以简化VPN拓扑的复杂度。Transit Gateway，其实就是个提供网络连通性的网络服务节点
 
-IDC 数据中心，感觉既含有物理机又含有云主机
-
 ClickHouse列式存储数据库，支持在建表时，指定将数据按照某些列进行sort by，所以应用场景是写少读多的频繁快速分析场景
 
 OLTP（On-Line Transaction Processing，联机事务处理）

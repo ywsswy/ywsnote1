@@ -19,8 +19,9 @@ docker run -m 10240M -it -v <本地目录>:<容器目录> -v <本地目录2>:<�
 示例建议：（需要注意的是如果root里面建立的超出去的软链接，也需要-v映射；-m是对物理内存做限制，超出会触发oom机制，如果有些镜像对根目录有特殊要求，例如有特殊的.bash_profile那么，最好不要-v /root/:/root/）
 docker run -it -v /root/:/root/ --network=host --name test --security-opt seccomp=unconfined xxx /bin/bash -l
 
-
 -v /root/:/root/ 可能会影响LIBRARY_PATH环境变量？
+
+如果加了-d 表示后台run，启动后不会占用当前终端，你可以继续执行其他命令 
 
 # 查看各个docker的状态，STATUS有 Exited Up等
 docker ps -a
@@ -31,11 +32,17 @@ docker rm -f <CONTAINER ID>
 # 重命名容器
 docker rename <old_name> <new_name>
 
+# 查看容器详细信息
+docker inspect <CONTAINER ID>
+
 # 从 Exited状态启动起来
 docker start <CONTAINER ID>
 
-# 进入Up状态的docker内部
+# 进入（“接管”）Up状态的docker内部
 docker attach <CONTAINER ID>
+
+# 还有一种“不接管”的方法，新建一个终端，不担心exit时影响容器运行
+docker exec -it <CONTAINER ID> /bin/bash -l
 
 # 在docker内部退出来，且变为Exited状态
 exit即可

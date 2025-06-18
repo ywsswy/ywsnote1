@@ -24,7 +24,7 @@ google::protobuf::util::JsonPrintOptions print_option; //default change to hump 
 print_option.preserve_proto_field_names = true; //use original key
 google::protobuf::util::MessageToJsonString(pb, &json_str, print_option);
 // json_str => PB//对str的要求：顺序无所谓，【大小写要与pb定义相同】，pb要求string的必须有双引号，要求数值的也可以加双引号，
-//pb的定义会禁止一些冲突，例如a_bc和aBc和A_BC是不可以同时存在的，（即去掉下划线，同意大小写后不允许相同），但是json_str却基本都要求必须与pb定义完全相同
+//pb的定义会禁止一些冲突，例如a_bc和aBc和A_BC是不可以同时存在的，（即去掉下划线，统一大小写后不允许相同），但是json_str却基本都要求必须与pb定义完全相同
 google::protobuf::util::JsonParseOptions parse_option; //default strict
 parse_option.ignore_unknown_fields = true;
 std::string err_info = google::protobuf::util::JsonStringToMessage(std::string, &pb, parse_option).ToString();  // 正常应该是“OK”，特殊的注意事项是空字符串肯定是失败的

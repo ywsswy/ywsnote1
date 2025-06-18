@@ -1,6 +1,6 @@
 import json
 
-du_json = json.dumps(la_json,indent=4)# to str，设置indent能变好看
+du_json = json.dumps(la_json,indent=4)# to str，设置indent能变好看，设置为None就是不换行输出
 a = json.loads(s) #from str
 
 dump功能一样，但是是直接to file
