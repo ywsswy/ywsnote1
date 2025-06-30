@@ -3,7 +3,8 @@
 rapidjson::Document b1(rapidjson::kObjectType); //构造函数中可以指定类型，还有kArrayType
 .Parse(std::string) # 把字符串解析成dom，存在自身中
 .IsObject()
-.HasMember(std::string) //或者更高效的Value::ConstMemberIterator itr = document.FindMember("hello");判断(itr != document.MemberEnd())// it->value 类似it->second //it->name 类似it->first
+.HasMember(std::string) //或者更高效的Value::ConstMemberIterator itr = document.FindMember("hello");判断(itr != document.MemberEnd())// itr->value 类似it->second //itr->name 类似it->first
+.MemberBegin()
 .IsArray()
 .IsInt()
 .IsDouble()

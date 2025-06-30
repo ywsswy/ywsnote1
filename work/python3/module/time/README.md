@@ -1,5 +1,5 @@
 a = time.time() #  取得当前时间的时间戳，float（整数部分是秒钟）
-b = time.localtime(a)  # 将时间戳转为时间结构体
+b = time.localtime(a)  # 将时间戳转为时间结构体，不写a就是当前时间
 c = time.strftime('%Y-%m-%d %H:%M:%S', b)  # 将结构体可视化成字符串
 
 d = time.strptime('20230312', "%Y%m%d")  # 将字符串转为结构体

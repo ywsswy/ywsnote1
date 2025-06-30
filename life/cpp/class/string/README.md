@@ -32,8 +32,8 @@ erase  // iterator erase(iterator first, iterator last)  // 原地操作remove [
 
 [associated function
 string to_string(T)	//C++11
-getline(std::cin,st);	//读到的换行符丢弃，回车符不会丢弃
-cin;//正常读整数/字符串之类时，读取会忽略开始的空格换行符，再遇空格换行符会停止读取
+getline(std::cin,st);	//读到的换行符丢弃，回车符不会丢弃（写到接收者中，只不过有的操作系统可能本身就没有回车符）
+cin或者ifstream的读取;//正常读整数/字符串之类时，读取会忽略"开始"的空格换行符回车符，再遇空格换行符回车符会停止读取，空格回车符换行符都不会写到接收者中
 
 [others
 + 	连接运算符

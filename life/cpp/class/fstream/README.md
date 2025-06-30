@@ -18,6 +18,7 @@ of1.write((char*)&id, 8); // 其他类型的写入
 
 ## 3. 普通读取（很少用这个，一般是其他API依赖instream时才用到）
 std::ifstream in(file_path, std::ios::in); // |std::ios::binary
+in >> s;  // 回车和换行都不会写到s中
 
 ## 4. 二进制读取
 std::ifstream if1("of1", std::ios::binary);
