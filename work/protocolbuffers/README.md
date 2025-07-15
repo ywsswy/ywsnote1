@@ -71,9 +71,9 @@ import "encoding/json"
     return
   }
 
-// =>json_str (jsonpb库)【推荐】
+// =>json_str (jsonpb库)【曾经推荐，但是废弃了，要换成google.golang.org/protobuf/encoding/protojson】
 import "github.com/golang/protobuf/jsonpb"
-  jsonRes2, err := (&jsonpb.Marshaler{}).MarshalToString(&pp)  // example: {"requestData":{"filter":{"conditionGroupList":[{"conditionList":[{"valueCompare":{"fieldName":"hello"}}]}]}},"reqOption":{"returnLimit":22}}   //可以看出来区别是少了一层OneofFilter
+  jsonRes2, err := (&jsonpb.Marshaler{OrigName: true}).MarshalToString(&pp)  // example: {"requestData":{"filter":{"conditionGroupList":[{"conditionList":[{"valueCompare":{"fieldName":"hello"}}]}]}},"reqOption":{"returnLimit":22}}   //可以看出来区别是少了一层OneofFilter
   if err != nil {
     fmt.Printf("jsonpb MarshalToString failed:%v\n", err)
     return

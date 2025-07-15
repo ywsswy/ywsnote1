@@ -4,8 +4,10 @@ s1[0] = 'y';
 string有类似写时复制（copy-on-write）的优化，就是复制赋值的时候可能并不是立即分配相同大小的字符数组，而是智能指针复制，等到修改字符串内容的时候，才真的new出一块进行修改；
 
 
-const char* kKey = "key"; std::string s(kKey);  // 不存在特殊字符的初始化
-const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // 存在特殊字符的初始化（用十六进制表示），注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
+const char* kKey = "key"; std::string s(kKey);  // size = 3,, sizeof(kKey) = 8（因为是指针。。） 不存在特殊字符的初始化
+const char kKey[] = "key"; std::string s(kKey);  // size = 3, sizeof(kKey) = 4
+const char kKey[] = {'k', '\x00', 'e', 'y'}; std::string s(kKey, sizeof(kKey));  // size = 4, sizeof(kKey) = 4，存在特殊字符的初始化（用十六进制表示），注意使用{}来初始化字符数组的话，结尾就不会填'\00'，就是sizeof不会多一个字节；另外std::cout << s时是能成功输出\x00字符的
+
 
 raw string（原生字符串）可以不加转义的初始化字符串：
 R"[<tokens>](<字符串>)[<tokens>]"; R"(say:"hi")" 即 say:"hi"

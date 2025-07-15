@@ -7,12 +7,12 @@
 验证集：包含 100 个真实的最近邻向量（ground truth）。
 ```
 - SIFT：图像特征提取算法（尺度不变特征变换），能够从图像中提取一组稳定的特征点（keypoints）及其对应的描述子（descriptors）。这些描述子是高维向量（通常是 128 维）
-- HNSW（Hierarchical Navigable Small World）是一种高效的ANN搜索算法，基于分层的图结构设计；相关参数（M：每个节点在检索构图中可以连接多少个邻居节点；efConstruction：写入数据时寻找邻居遍历的范围；ef：检索数据时动态候选元素集合的大小，并不是返回数量的limit参数）
+- HNSW（Hierarchical Navigable Small World）是一种高效的ANN搜索算法，基于分层的图结构设计；相关参数（M：每个节点在检索构图中可以连接多少个邻居节点；construction：写入数据时寻找邻居遍历的范围；ef：检索数据时动态候选元素集合的大小，并不是返回数量的limit参数）
 - FLAT：平的，暴力搜索；
 - IVF（Inverted File）是将高维空间划分为多个聚类，并为每个聚类构建一个倒排文件，检索时，输入向量会在最相似的聚类中心进行检索，从而提高检索效率；相关参数（nlist：表示聚簇中心个数；M：IVF_PQ索引中拆成子向量的个数；nprobe：表示一次查询几个最近的簇）
 - IVF_FLAT：基于IVF，查询时遍历其聚类；
 - IVF_PQ：对原始向量做了乘积量化（Product Quantization），将高维向量分割成多个子向量，并对每个子向量进行聚类，生成码本，然后将原始向量映射为一组离散的码本索引；例如x=[1.2,3.4,5.6,7.8,2.1,4.3,6.5,8.7]，切成两个子向量，最后只需要存储[2, 4]，2和4分别表示在码本中的下标，第一个子向量近似等于码本1中的第2个向量，第二个子向量近似等于码本2中的第4个向量；
-- IVF_SQ4/IVF_SQ8/IVF_SQ16：把原向量做了标量量化（Scalar Quantization），例如float32浮点数变成16bit就是IVF_SQ16，变成4bit（只能表示16种取值）就是IVF_SQ4；
+- IVF_SQ4/IVF_SQ8/IVF_SQ16：把原向量做了标量量化（Scalar Quantization），例如float32浮点数变成16bit（是搞成16位整数？还是归一化到0~1之间？）就是IVF_SQ16，变成4bit（只能表示16种取值）就是IVF_SQ4；
 - Milvus：是一个高性能的向量数据库；
 - FAISS（Facebook AI Similarity Search）是由 Facebook AI Research 开发的用于ANN搜索和稠密向量的库开源库，支持多种索引结构（如 FLAT、IVF、HNSW 等），存索引，不存向量？
 - dense（稠密）向量，向量中的大多数元素都不是零；
