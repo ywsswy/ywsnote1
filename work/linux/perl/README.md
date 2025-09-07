@@ -9,7 +9,14 @@ echo 'value[34589700]end' | perl -pe 's/value\[([0-9]*)\]/find:${1}/'
 
 perl -i.bak -pe xxx <file_name> 对文件进行原地正则匹配替换修改，原文件加.bak后缀做备份
 
+- 判断是否匹配成功（默认返回码无论是否匹配都是0）
+perl -pe 'if (s/pattern/$1/) {$match=1} END {exit($match ? 0 : 1)}'
+echo $?  # 0表示匹配，1表示未匹配
+
 - 条件判断（e后缀可以执行代码），结果拼接输出（例如统计5秒粒度文件行数，0~4输出0，5~9输出5）
 cat file |perl -pe 's/.*? (\d*?:\d*?:\d{1})(\d{1}).*$/"${1}" . ($2 <=4 ? 0 : 5)/e' |sort |uniq -c
+
+- 常用写法：提取进程pid
+ps xfu |grep wtf |perl -pe 's/.+? ([^ ]+).*/$1/'
 
 Q：支持不可打印字符吗？

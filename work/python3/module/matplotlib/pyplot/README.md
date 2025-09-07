@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.plot([1,2,3],[5,7,4])#先plot一堆，后show
-plt.show()
+plt.plot([1,2,3],[5,7,4],label="xxx")#先plot一堆，后show
+plt.legend() # 显示label标签
+plt.show() # 如果要保存图片：plt.savefig('./1.png') plt.clf()
+
 【几种绘制函数
 plot 线
 bar 条形图

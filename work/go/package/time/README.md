@@ -12,3 +12,6 @@ time.Since(from)  // 计算时间差 time.Duration类型
 
 timestamp := time.Now().Unix()  // s级别时间戳
 t := time.Unix(timestamp, 0)  // 转成time.Time类型
+
+
+var d time.Duration  # 默认是0值（type Duration int64），可以直接输出

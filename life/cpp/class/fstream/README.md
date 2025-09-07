@@ -26,7 +26,51 @@ if (!if1.is_open()) {
   std::cout << "open fail" << std::endl;
 }
 std::string s(std::istreambuf_iterator<char>{if1}, std::istreambuf_iterator<char>{});
-或者mmap
+或者mmap:
+
+```
+#include <iostream>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <cstdint>
+
+int main() {
+    int fd = open("gist_base.fvecs", O_RDONLY);
+    if (fd == -1) {
+        std::cout << "open fail" << std::endl;
+        return 1;
+    }
+
+    struct stat st;
+    if (fstat(fd, &st) == -1) {
+        close(fd);
+        std::cout << "get file size fail" << std::endl;
+        return 1;
+    }
+    const size_t file_size = st.st_size;
+
+    void *mapped = mmap(NULL, file_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    if (mapped == MAP_FAILED) {
+        close(fd);
+        std::cout << "get file size fail" << std::endl;
+        return 1;
+    }
+    char *head = reinterpret_cast<char*>(mapped);
+    int32_t* dim = reinterpret_cast<int32_t*>(reinterpret_cast<void*>(head+0));
+    std::cout << *dim << std::endl;
+    float * score = reinterpret_cast<float*>(reinterpret_cast<void*>(head+4));
+    std::cout << *score << std::endl;
+    
+
+    if (munmap(mapped, file_size) == -1) {
+        std::cout << "unmap fail" << std::endl;
+    }
+    close(fd);
+    return 0;
+}
+```
 
 ## 其他：
 ### 文件路径说明

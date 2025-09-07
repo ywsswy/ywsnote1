@@ -1,3 +1,22 @@
+问题1：屏幕显示卡顿
+
+
+怀疑：
+- cpu温度过高导致：更新Bios、散热驱动；【能到80度以下】
+- 【done】驱动不对导致：更新Bios、显卡驱动；
+- 【done】系统需要回退；
+- CPU风扇损坏或导热硅脂干涸导致、硬件已经坏了；【报修】
+
+https://support.hp.com/cn-zh/drivers/laptops
+所有的驱动都可以通过hp官方下载
+
+https://update.code.visualstudio.com/1.98.2/win32-x64-user/stable
+
+============================
+
+
+
+
 神舟Win10系统出场系统：
 系统镜像网盘+UltralSO链接 https://pan.baidu.com/s/1hOCiBw0CPzmPnBLrwEVAzA 提取码: y595
 

@@ -3,6 +3,7 @@ http://www.cnblogs.com/wangqiguo/p/5793448.html
 
 -b  --ignore-space-change  Ignore changes in the amount of white space.
 -B  --ignore-blank-lines  Ignore changes whose lines are all blank.
+-q  不显示diff内容，只判断是否有diff（有则返回码非0）
 
 
 diff -ruq <old file> <new file> #仅输出文件名

@@ -14,9 +14,13 @@ requestBody, err := proto.Marshal(qrwRequest)
 j, err := json.Marshal(a)
 fmt.Printf("%s\n", string(j)) // 其中json的字段就算是默认值也会输出，如果希望默认值不显示，在定义struct a时，应该加tag，设置json中的omitempty，例如  name string `json:"name,omitempty"` 详见struct中的tag
 ```
-//暂定要美化（string struct error）就Printf("%v\n    
-//要完整信息就Printf("%#v\n
+//暂定要美化（string struct error）就Printf("%v\n  
+//简化版的带字段名就Printf("%+v\n  
+//要完整版的信息就Printf("%#v\n  
 
 
 ## 多行字符串拼接
 fmt.Sprintf(`%f`, 4.2)
+
+## 保留2位小数
+%.2f

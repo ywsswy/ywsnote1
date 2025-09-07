@@ -1,5 +1,5 @@
 这个命令有点危险
-source执行完还在当前shell，但是exec执行完就退出当前shell了
+source是在当前shell执行执行完还在当前shell，但是exec执行完就退出当前shell了，bash xxx.sh执行是新开一个shell（脚本最后一行如果是cd xxxx并不会影响当前目录）
 因为exec的新进程PID没变
 
 

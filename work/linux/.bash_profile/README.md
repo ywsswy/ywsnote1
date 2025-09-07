@@ -26,7 +26,7 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export TERM=xterm
 # 防止timed out waiting for input: auto-logout超时等待输入
 export TMOUT=0
-ulimit -c unlimited
+ulimit -c unlimited  # 可产出core文件，可以通过cat /proc/<PID>/limits看某个进程是否生效了这个限制
 # 不用--color=auto是因为mac不支持
 alias ll='ls -l --color=auto'
 # 如果golang存在网络问题则配置代理

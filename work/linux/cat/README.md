@@ -8,3 +8,10 @@ EOF
 cat file1 - <<EOF >file2
 content
 EOF
+
+
+
+
+# 反向cat文件（先输出最后一行）
+
+tac file

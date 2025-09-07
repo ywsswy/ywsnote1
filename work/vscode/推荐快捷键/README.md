@@ -202,5 +202,9 @@ alt p
 	{
 		"key": "alt+p",
 		"command": "workbench.action.quickOpen"
+	},
+	{
+		"key": "shift+alt+v",
+		"command": "toggleVim"
 	}
 ]

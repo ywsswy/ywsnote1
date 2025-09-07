@@ -10,8 +10,17 @@ adb -s <设备id> shell <cmd> # 指定一台安卓，执行命令
 ### 安卓上的命令列表
 pm list package
 dumpsys window | findstr mCurrentFocus
-getprop ro.product.cpu.abi  # 查看CPU架构
-getprop ro.build.version.release  # 查看安卓版本
+getprop ro.build.version.release  # 例如 10
+getprop ro.product.cpu.abi  # 查看CPU架构 例如 arm64-v8a
+
+## CPU架构包括 armeabi，armeabi-v7a，x86，mips，arm64- v8a，mips64，x86_64
+```
+• mips / mips64: 极少用于手机可以忽略（谷歌最新的文档已经不支持了）
+• armeabi: ARM v5 这是相当老旧的一个版本，缺少对浮点数计算的硬件支持，在需要大量计算时有性能瓶颈
+• x86 / x86_64: x86 架构的手机都会包含由 Intel 提供的称为 Houdini 的指令集动态转码工具，实现 对 arm .so 的兼容，约1% 以下的市场占有率
+• armeabi-v7a: ARM v7(32bit, armv7)，比较主流
+• arm64-v8a: （aarch64, armv8)，非常主流
+```
 
 
 ## 其他

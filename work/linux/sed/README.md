@@ -17,10 +17,10 @@ s 所有行
 g表示该【行】的全部匹配项都处理，不加表示只处理该行的第一个
 
 ## 其他command
-sed -i.bak '5d' file #把第5行删掉
+sed -i.bak '5d' file #把第5行删除掉
 sed -i.bak '5i\context' file #把内容插入第5行前，原第5行会到第6行
-sed '1,/^$/d'# 把第一行（含）到第一个空行（含）之间的内容删掉
-sed -i /^http_proxy=/d'  # 把http_proxy=开头的行删掉
+sed '1,/^$/d'# 把第一行（含）到第一个空行（含）之间的内容删除掉
+sed -i /^http_proxy=/d'  # 把http_proxy=开头的行删除掉
 
 ## 备注：
 ```

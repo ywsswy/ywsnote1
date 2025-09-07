@@ -1,4 +1,3 @@
-https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host
 这种方法可以不用在本地安装docker，只在远程开发机上安装即可
 
 安装remote-ssh 和 dev container插件

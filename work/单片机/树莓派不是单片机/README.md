@@ -11,14 +11,7 @@ ARM一种含义是【公司】，提供处理器的核心技术方案，各个�
 
 
 ABI/应用程序二进制接口（Application Binary Interface）定义了二进制文件（尤其是.so文件）如何运行在相应的系统平台上，从使用的指令集，内存对齐到可用的系统函数库。
-Android 系统上，每一个CPU架构对应一个ABI：armeabi，armeabi-v7a，x86，mips，arm64- v8a，mips64，x86_64
-```
-• mips / mips64: 极少用于手机可以忽略（谷歌最新的文档已经不支持了）
-• armeabi: ARM v5 这是相当老旧的一个版本，缺少对浮点数计算的硬件支持，在需要大量计算时有性能瓶颈
-• x86 / x86_64: x86 架构的手机都会包含由 Intel 提供的称为 Houdini 的指令集动态转码工具，实现 对 arm .so 的兼容，约1% 以下的市场占有率
-• armeabi-v7a: ARM v7(32bit, armv7)，比较主流
-• arm64-v8a: （aarch64, armv8)，非常主流
-```
+
 
 平台mac-x64表示intel芯片
 平台mac-arm64表示苹果自家芯片

@@ -11,7 +11,7 @@ echo -en "\"" # 这是转义的方法
 
 # 其他字符串处理
 var="runoob is a great site"
-echo "${var:2:1}" # 输出 n  #语法是${name:startloc(0s):length}
+echo "${var:2:1}" # 输出 n  #语法是${name:startloc(0s):length} # length可以超过字符串长度
 echo "${var//a/A}" # 输出 runoob is A greAt site  #【所有】替换
 echo "${var%[i]*}" # runoob is a great s # 匹配一个%后面的部分，把匹配的部分删除掉，通常可以用于浮点数向下取整
 printf "%d" "'${var:2:1} "  # 输出某个字符对应的ascii码 （最后有一个空格，因为叹号不会被执行）
@@ -24,7 +24,7 @@ echo "obase=16;255" |bc -l  #以某进制来表示某数字，编码
 一切变量皆为字符串？只不过字符串也可以加减乘除
 s1="23"
 s2="47"
-s3=$(expr $s1 + $s2) #这种最保险,乘法*需要转义，但是效率非常低，用$((s1 * s2))快，但是这两种都只支持整数
+s3=$(expr $s1 + $s2) #这种最保险,乘法*需要转义，取余 %，但是效率非常低，用$((s1 * s2))快，但是这两种都只支持整数；
 浮点数计算需要借助bc
 浮点数比较大小
 echo "0.31 < .32" |bc -l  # 返回1表示true，0表示false

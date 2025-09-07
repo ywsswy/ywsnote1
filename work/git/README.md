@@ -21,12 +21,15 @@ git diff # 常规diff（等价于 git diff [暂存区] [现状]）
   参数--name-status 不管详细内容，只管文件是A/D/M
 git fetch -p -P  # 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）
 git format-patch <start(old)>^..<end>  # 创建一组补丁文件（类似diff的输出，别人可以使用git am -s *.patch应用补丁，类似cherry-pick的效果）
-git grep <content>  # 在“当前”目录内查找内容
+git for-each-ref refs/remotes/ |grep <xxxx>  # 查找某分支的refs全称，形如：refs/remotes/origin/xxxx
+git grep <content>  # 在“当前”目录内查找内容，-i可以忽略大小写
 git log # 查看历次详细commit eg:commit 56933675c782a232668c6fcbfffd249625c93947(版本号)
 git log --graph --decorate --oneline --all [<rep_name>]  # 旧版美化格式。如果再裁剪提交只看分支粒度的改动：--simplify-by-decoration
 git log --graph --pretty=format:\"%C(yellow)%h%Cgreen%d%Cred %an %ci %Creset%s\n\"  # 新版两行显示的美化格式（一行显示是有缺陷的，例如两次commit挨着并不一定代表有祖孙关系）
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat --since=2024-12-01 --until=2025-11-22 | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done  # 统计一段时间内的代码量
+git log --all --not <refs_name>  # 显示排除某分支
 git ls-files #查看仓库了有哪些文件
-git merge #最粗暴的merge，就是两个树枝二合一；--squash 是把来源分支上的所有修改都压缩成一次修改，这样就可以只提交一个commit到当前分支，来源树枝不动，好处是当前分支的生长非常干净，但是这种是改变了原作者的commit信息/时间（rebase的方法可以保留）
+git merge #最粗暴的merge，就是两个树枝二合一；--squash 是把来源分支上的所有修改都压缩成一次修改，这样就可以只提交一个commit到当前分支，来源树枝不动，好处是当前分支的生长非常干净，但是这种是改变了原作者的commit信息/时间（rebase的方法可以保留）；--allow-unrelated-histories 是允许把无共同祖先的两个分支合并起来（例如两个仓库）
 git mergetool #git merge出现冲突的时候使用； diffg L/R可以选择采用本地/远程的修改，]/[c可以跳到下/上一处修改；我建议mergetool完之后进行一次全搜<======，<<<<<<<，=======，>>>>>>>
 git push origin <remote_branch> --delete #这里的remote_branch不用加origin,【注意每次解决前要先跳到行首，以防记录了曾经vim打开过的文件中间位置而漏掉了前面的冲突行】
 git push origin HEAD:refs/heads/<remote_branch> #明确分支的方式提交
@@ -41,6 +44,7 @@ git stash save 'buf'  #不提交，只暂存在本地
 git stash list #查看有哪些暂存的
 git stash pop stash@{<num>} #选择把哪个暂存的还原（前提是你要先切到当初stash save的分支上）
 git tag <name>;git push origin <name> #删除本地&远程 git tag -d <name>;git push origin :refs/tags/<name> #这里:前面是空的，就相当于推送一个空的tag
+git update-ref -d refs/checkpoints/yyyymmdd-hhmmss-cid # 删除checkpoint
 ```
 - linux ->WSL, Don't xvf in WSL:/mnt(destory the filemode), you can xvf and edit in WSL:~/$
 - Personal access tokens生成项目令牌后可以写在脚本里git clone xxxxxxx<tokens>@<git-path> <branch>的方式无需输入密码

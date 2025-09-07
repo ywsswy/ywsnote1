@@ -1,3 +1,13 @@
+安装：
+wget https://github.com/bazelbuild/bazel/releases/download/5.3.2/bazel-5.3.2-installer-linux-x86_64.sh && ./bazel-5.3.2-installer-linux-x86_64.sh
+
+默认安装的版本有内置的Embedded JDK，首次运行bazel时会自动解压到~/.cache/bazel/_bazel_<user>/install目录里；
+【踩坑】如果要跑单元测试覆盖率，请必须安装自带有内置的Embedded JDK的bazel版本 & 并且千万不要使用--spawn_strategy=local参数，否则覆盖率不是沙箱运行，都共享一个执行目录可能会导致覆盖率收集不全；
+
+查看内置的java版本
+bazel info java-home，然后去里面看
+
+
 workspace 是目录树，有一个WORKSPACE文件的目录是workspace的根目录
 
 workspace rules，用来写在bzl文件里可以定义function，BUILD/WORKSPACE文件里禁止定义

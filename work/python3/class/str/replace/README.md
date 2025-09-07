@@ -1,1 +1,1 @@
-s.replace(so,snew)
+s = s.replace(so,snew)

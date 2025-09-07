@@ -7,12 +7,19 @@ string_flag(  # 创建一个xxx参数，并指定默认值
     build_setting_default = "h1",
 )
 
-config_setting(  # 当xxx参数是h1是，这个条件生效
+# 如果是其他BUILD文件也要判断是否开启，则还要加上exports：
+exports_config_settings = [
+    "h1_build",
+    "h2_build",
+]
+
+
+config_setting(  # 当xxx参数是h1是，这个开启
     name = "h1_build",
     flag_values = {"xxx": "h1"},
 )
 
-config_setting(  # 当xxx参数是h2是，这个条件生效
+config_setting(  # 当xxx参数是h2是，这个开启
     name = "h2_build",
     flag_values = {"xxx": "h2"},
 )
@@ -40,3 +47,25 @@ bazel build :bin --//:xxx=h2
 
 .bazelrc中指定方式
 build --//:xxx=h2
+
+
+
+
+
+
+### 还有另一种方式（免去load string_flag）感觉更好看
+config_setting(  # 当xxx参数是h1是，这个开启
+    name = "h1_build",
+    values = {
+        "define": "xxx=h1",
+    },
+)
+
+config_setting(  # 当xxx参数是h2是，这个开启
+    name = "h2_build",
+    values = {
+        "define": "xxx=h2",
+    },
+)
+然后命令行指定方式：
+bazel build --define xxx=h2 :bin

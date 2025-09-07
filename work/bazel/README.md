@@ -61,19 +61,24 @@ cc_library(
         ":xxx",
     ],  
     copts = [ 
-      "-fno-access-control"
+      "-fno-access-control"  # 这个.cc中使用其他类的私有成员不再受限，不会编译报错
     ]   
 )
 
 cc_test(
     name = "test",
     visibility = ["//visibility:public",],  
+    data = [
+        "folder/file",  # 依赖磁盘的文件，这里写相对当前文件所在目录的路径,代码里read要写相对项目根目录
+    ],
     deps = [ 
         ":test_lib",
     ],
 )
 ```
 
+
+可以只执行某个测试，例如TEST_F(A, B)可以bazel coverage //XXX:YYY --test_filter=A.B
 genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 
 ## 输出日志在，
@@ -103,7 +108,7 @@ build:RC --xxx=yyy  # 如果加了 ":RC" 表示配置分组，命令行bazel bui
 # 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端
 
 ## 一些编译参数
--c (dgb|opt) //分别表示-g 和 -O2 -DNDEBUG
+-c (dbg|opt) //分别表示-g 和 -O2 -DNDEBUG
 --deleted_packages=<path to BUILD>
 --sandbox_debug  # 显示verbose信息
 --jobs 1
