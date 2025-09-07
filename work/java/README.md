@@ -12,3 +12,6 @@ JRE根据不同操作系统和不同提供商（IBM,ORACLE等）有很多版本�
 
 Java8 对应 Java SE 8 对应 JDK1.8
 Java17 对应 Java SE17 对应 JDK17
+
+
+windows上运行jar应用 java -jar xxx.jar

@@ -4,4 +4,4 @@ Vim 编辑器底端 [noeol], [dos] 的含义
 cat -A hello-unix.txt命令可以看到这些换行符：
 【noeol消除方法，:wq重新保存退出
 
-【dos消除方法，Linux 下提供有两个命令用来进行 Windows 和 Unix 文件的转化：dos2unix 和 unix2dos;
+【dos消除方法，用unix & windows文件转换

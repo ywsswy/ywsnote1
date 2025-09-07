@@ -106,7 +106,10 @@ make[4]: *** No rule to make target `xxx.cc', needed by `xxx.lo'.  Stop.
 把.deps删掉重新./configure #？没有根本解决
 
 # [core]问题
-很多蜜汁core都是链接问题
+- 很多蜜汁core都是链接问题
 1）该链的没有链（例如忘记-lpthread)：就显示打印出来链接语句来检查，bazel --sandbox_debug --subcommands
 gcc @文件，其实详细的命令就在这个文件里，
 2）重定义的链错了（比如两个库里都有定义，编译的时候不会报错，但是运行就core了；比如两个proto文件中都定义了）core文件中的每一个函数都有可能存在问题
+
+- 操作析构了的指针：
+pure virtual function call

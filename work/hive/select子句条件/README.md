@@ -20,3 +20,14 @@ select id, count(case when id = '2' then 0 else 0 end) as exp_pv from my_table g
 
 如果只希望count统计某些条件的行，那么可以把不符合条件的不要输出，就是不要写else之后的内容
 select id, count(case when id = '2' then 1 end) as exp_pv from my_table group by id 
+
+
+希望判断是否有满足条件的（无则不输出）
+SELECT 'found'
+FROM (
+  SELECT COUNT(*) AS found_count
+  FROM (
+    select * from t1 where xxx
+  )
+) AS subquery
+WHERE subquery.found_count > 0

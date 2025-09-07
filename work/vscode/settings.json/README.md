@@ -1,5 +1,6 @@
 说明：
 【vim.overrideCopy】: true，复制命令使用系统的ctrl+C
+【"update.mode"】: "none" 这个可以关闭自动更新
 
 {
     "[c]": {
@@ -22,7 +23,7 @@
     },
     "C_Cpp.clang_format_sortIncludes": false,
     "clang-format.fallbackStyle": "Google",
-    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.19.2-linux-x64/LLVM/bin/clang-format",
+    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.26.3-linux-x64/LLVM/bin/clang-format",
     "editor.minimap.maxColumn": 120,
     "editor.rulers": [
         80,
@@ -150,5 +151,7 @@
         "-gcflags=all=-l"
     ],
     "vim.useSystemClipboard": true,
-    "vim.overrideCopy": true
+    "vim.overrideCopy": true,
+    "update.mode": "none",
+    "update.enableWindowsBackgroundUpdates": false
 }

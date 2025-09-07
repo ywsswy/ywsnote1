@@ -1,0 +1,1 @@
+Linux 下提供有两个命令用来进行 Windows 和 Unix 文件的转化：dos2unix 和 unix2dos;

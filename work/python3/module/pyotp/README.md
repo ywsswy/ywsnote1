@@ -6,5 +6,4 @@ import pyotp
 
 def verify_code_func(secret_key, verify_code):
   t = pyotp.TOTP(secret_key)
-  result = t.verify(verify_code)
-  return result
+  return = t.verify(verify_code)

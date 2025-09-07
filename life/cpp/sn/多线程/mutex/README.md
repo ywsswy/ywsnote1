@@ -36,12 +36,12 @@ void mythread1(mutex& m) {
 }
 
 int main() {
-   mutex m;
-   std::thread t1(mythread1, std::ref(m));
-   std::thread t2(mythread1, std::ref(m));
-   t1.join();
-   t2.join();
-   cout << "实际是" << g_count << endl;
+  mutex m;
+  std::thread t1(mythread1, std::ref(m));
+  std::thread t2(mythread1, std::ref(m));
+  t1.join();
+  t2.join();
+  cout << "实际是" << g_count << endl;
 }
 ```
 

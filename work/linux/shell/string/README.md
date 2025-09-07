@@ -11,7 +11,7 @@ echo -en "\"" # 这是转义的方法
 
 # 其他字符串处理
 var="runoob is a great site"
-echo "${var:2:1}" # 输出 n  #语法是${name:startloc(0s):length}
+echo "${var:2:1}" # 输出 n  #语法是${name:startloc(0s):length} # length可以超过字符串长度
 echo "${var//a/A}" # 输出 runoob is A greAt site  #【所有】替换
 echo "${var%[i]*}" # runoob is a great s # 匹配一个%后面的部分，把匹配的部分删除掉，通常可以用于浮点数向下取整
 printf "%d" "'${var:2:1} "  # 输出某个字符对应的ascii码 （最后有一个空格，因为叹号不会被执行）

@@ -11,6 +11,9 @@ RES	进程使用的、未被换出的物理内存大小，【单位kb】。RES=C
 第一列是VmSize (pages)  数值等于top中的VIRT/4
 第二列是VmRSS (pages) 数值等于top中的RES/4
 
+# 如果是segment fault也能通过dmesg -T|less 看ip（指令地址）
+然后使用addr2line -e /usr/local/application/bin/elasticfaiss <指令地址> -f看是挂在哪一行
+
 # OOM之后使用命令dmesg -T | grep -B100 'Killed process'
 ```
 total_vm相当于VmSize

@@ -52,6 +52,10 @@ DeepMind算法源于其对两种机器学习方法的结合:第一种是深度�
 
 - Ollama
 是一个专注于本地运行大语言模型（LLM，Large Language Model）的工具平台，https://github.com/ollama/ollama
+
+- dify
+也是一个人工智能应用平台，助用户快速构建、部署和管理基于大语言模型（LLM）的 AI 应用
+
 - CUDA（Compute Unified Device Architecture）
 是由NVIDIA公司创立的基于他们公司生产的GPU显卡的一个并行计算平台和编程模型；
 
