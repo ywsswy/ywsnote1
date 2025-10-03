@@ -7,7 +7,7 @@
 |*.xz|-|xz -d|
 |*.tar.bz2|-|tar xjvf|bzip2|
 |*.rar|-|unrar e|
-|*.zip|zip -r \<ziped_name> \<file>|unzip|
+|*.zip|zip -r \<ziped_name> \<file>|unzip|windows上如果直接右键压缩到zip文件，默认是没有压缩的，仅仅是打包（通过7z工具工具可以看出来算法是store（原样）对应7z的压缩命令是：7z a -tzip -mx=0 ddz7.4.2.zip *|
 |?|\|zlib-flate -compress|\|zlib-flate -uncompress|从标准输出读数据，这个工具是qpdf包中的|
 
 总结：
