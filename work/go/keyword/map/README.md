@@ -27,9 +27,23 @@ bb["y"].Hits[1] = &c
 
 ## 两个map的比较
 因为【map是无序的】（即使同样的代码，多次运行顺序仍然可能不同），所以要么逐个key去另一个map里find
-要么变成有序的map来序列化
+要么变成有序的map序列化函数，比较序列化后的字符串结果；
 
 https://raw.githubusercontent.com/simagix/gox/master/ordered_map.go
+
+还可以把map手动排序一下：
+
+```
+	// m map[string]string)
+	keys := []string{}
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	for _, key := range keys {
+		println(m[key])
+	}
+```
 
 
 ## 删除元素（不可以在遍历的时候删）
