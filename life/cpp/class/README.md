@@ -35,7 +35,7 @@ emplace_back  // 相比之下可以接收参数进行原地构造，避免前者
 erase	//按迭代器删除，返回指向下一个元素的迭代器，反迭不行  
 insert(it,elem)	//插入元素排在前面，返回插入元素的迭代器，反迭不行  
 reserve	//提前分配好capacity（不改变size），因为连续内存不够会重新分配导致移动重新构造元素。  
-resize	//resize(size_int,value) 改变size，多加的元素初始值为value（类似memset），如果是从多减少，前几个值是不变的； //二维数组初始化也用这个
+resize	//resize(size_int,value) 改变size，多加的元素初始值为value（类似memset），未写value会填充默认值，如果是从多减少，前几个值是不变的； //二维数组初始化也用这个
 ## list
 back	//左值引用，不会core  
 front	//引用，但是要看怎么传出来，int a = q.front()不同于int &a = q.front()  

@@ -32,11 +32,14 @@ set noeol #在binary情况下，保存文件时不在文件尾加\n
 set foldmethod #diff / manual
 自定义函数https://cloud.tencent.com/developer/ask/29526
 
+
 set paste "使用这个就避免从别处复制的程序变成注释而错位，但是粘贴模式无法在右下角看到当前位置
 ####################################################################
 【编辑模式下】
 Ctrl+i  移动到后一次位置
 Ctrl+v <ascii>  #输入ascii对应的特殊字符，例如ctrl+v 13，输入的就是（^M）不可见字符，这仅仅是编辑特殊文件时使用，而bash脚本中不要这么用，见shell/string
+【视图 block模式下】（进入方法是ctrl+v）
+可以选中多行的前几个字符，x删除掉
 【命令模式下】
 :g/pattern/d    #删除匹配pattern的行
 :v/pattern/d    #删除不匹配pattern的行
