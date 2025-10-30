@@ -33,7 +33,7 @@ internal	//符号位和数字之间填充字符
 
 boolalpha	//1或0 改为显示 true或false
 noboolalpha	//【默认
-hex		//16进制（不带前缀小写）
+hex		//16进制（不带前缀小写），16进制读取 std::cin >> std::hex >> number1 >> number2
 oct		//八进制显示整数（不带前缀）
 dec		//【默认/十进制
 showbase	//带前缀
