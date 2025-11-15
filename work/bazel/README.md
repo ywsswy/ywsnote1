@@ -61,7 +61,7 @@ cc_library(
         ":xxx",
     ],  
     copts = [ 
-      "-fno-access-control"
+      "-fno-access-control"  # 这个.cc中使用其他类的私有成员不再受限，不会编译报错
     ]   
 )
 
@@ -103,7 +103,7 @@ build:RC --xxx=yyy  # 如果加了 ":RC" 表示配置分组，命令行bazel bui
 # 可以加上 --remote_cache=http://<ip>:<port> 虽然还是本地编译，但是存储是在远端
 
 ## 一些编译参数
--c (dgb|opt) //分别表示-g 和 -O2 -DNDEBUG
+-c (dbg|opt) //分别表示-g 和 -O2 -DNDEBUG
 --deleted_packages=<path to BUILD>
 --sandbox_debug  # 显示verbose信息
 --jobs 1
