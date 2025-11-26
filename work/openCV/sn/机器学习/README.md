@@ -63,3 +63,8 @@ DeepMind算法源于其对两种机器学习方法的结合:第一种是深度�
 cuda编程的概念：
 - 设备：GPU及GPU的显存；
 ```
+
+- BLAS（Basic Linear Algebra Subprograms 的缩写）
+是用于执行基础线性代数操作的标准化接口和库，常见的实现有Intel MKL（Math Kernel Library）、cuBLAS；
+
+

@@ -25,6 +25,7 @@ git grep <content>  # 在“当前”目录内查找内容
 git log # 查看历次详细commit eg:commit 56933675c782a232668c6fcbfffd249625c93947(版本号)
 git log --graph --decorate --oneline --all [<rep_name>]  # 旧版美化格式。如果再裁剪提交只看分支粒度的改动：--simplify-by-decoration
 git log --graph --pretty=format:\"%C(yellow)%h%Cgreen%d%Cred %an %ci %Creset%s\n\"  # 新版两行显示的美化格式（一行显示是有缺陷的，例如两次commit挨着并不一定代表有祖孙关系）
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat --since=2024-12-01 --until=2025-11-22 | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done  # 统计一段时间内的代码量
 git ls-files #查看仓库了有哪些文件
 git merge #最粗暴的merge，就是两个树枝二合一；--squash 是把来源分支上的所有修改都压缩成一次修改，这样就可以只提交一个commit到当前分支，来源树枝不动，好处是当前分支的生长非常干净，但是这种是改变了原作者的commit信息/时间（rebase的方法可以保留）；--allow-unrelated-histories 是允许把无共同祖先的两个分支合并起来（例如两个仓库）
 git mergetool #git merge出现冲突的时候使用； diffg L/R可以选择采用本地/远程的修改，]/[c可以跳到下/上一处修改；我建议mergetool完之后进行一次全搜<======，<<<<<<<，=======，>>>>>>>
