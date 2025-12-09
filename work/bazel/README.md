@@ -68,6 +68,9 @@ cc_library(
 cc_test(
     name = "test",
     visibility = ["//visibility:public",],  
+    data = [
+        "folder/file",  # 依赖磁盘的文件相对当前文件路径,代码里read要相对项目根目录
+    ],
     deps = [ 
         ":test_lib",
     ],

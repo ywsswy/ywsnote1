@@ -1,10 +1,10 @@
-## 环境搭建（建议直接使用镜像）
+## 环境搭建（建议直接使用镜像），也可以直接拉构建好的：wget https://go.dev/dl/go1.21.1.linux-amd64.tar.gz，解压配置go/bin到PATH，然后配置go env -w GOPROXY/GOPRIVATE/GOSUMDB
 
 判断自己的环境是否配置好，可以使用go env来检查，其输出中的几个信息是：
 GOROOT 就是go的安装目录，go和gofmt本体在里面
 GOPATH go install命令的目的地，import包时的搜索路径，其内的pkg目录存放编译好的库文件, 主要是*.a文件也可以是源代码地址
 
-## 编码构建
+## start
 ```
 >go mod init helloworld  # 新建一个模块，自动生成一个go.mod文件，记载着依赖包以及版本信息，可能跟项目中的tag不完全一致有生成规则，例如如果项目tag是abc/v1.0.2，那go.mod文件可能只写v1.0.2，把前面省略了
 >cat main.go  # 编辑程序
