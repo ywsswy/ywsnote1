@@ -17,7 +17,13 @@ lscpu |grep Flags
 SIMD（Single Instruction, Multiple Data） 是一种并行计算技术，允许单条指令同时对多个数据进行操作；
 SSE、AVX、AVX2、AVX-512 是 SIMD（Single Instruction, Multiple Data）指令集的一部分；
 SSE 可操作128位寄存器（XMM）
-AVX/AVX2 可操作256位寄存器（YMM）；
+AVX/AVX2 可操作256位寄存器（YMM）；机器上可能有16个YMM寄存器：YMM0到YMM15
 AVX512 可操作512位寄存器（ZMM）；
+c++代码：
+```
+__m256 浮点数变量（存8个float32）
+__m256i 整数变量（存8个int32）
+sum = _mm256_fmadd_ps(a,b,sum)  // a和b中的8个浮点数逐个相乘，结果加到sum里（sum存的也是8个浮点数）
+```
 
 判断是否生成了包含avx512指令的可以objdump -D后搜索zmm，其他同理；（只不过生成了不代表代码会运行到那里，所以还是要实际去机器运行。。）

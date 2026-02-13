@@ -77,6 +77,7 @@ cc_test(
 )
 ```
 
+可以只执行某个测试，例如TEST_F(A, B)可以bazel coverage //XXX:YYY --test_filter=A.B
 genhtml ./bazel-out/_coverage/_coverage_report.dat --output-directory result
 
 ## 输出日志在，

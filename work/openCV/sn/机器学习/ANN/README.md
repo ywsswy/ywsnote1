@@ -1,4 +1,5 @@
-近似最近邻（Approximate Nearest Neighbor），相对有KNN（最近邻搜索/K-Nearest Neighbor Search）是一种基于暴力搜索的方法
+近似最近邻（Approximate Nearest Neighbor），相对于KNN（最近邻搜索/K-Nearest Neighbor Search）是一种基于暴力搜索的方法，
+- K-Means 聚类：目标是将数据点分成 K 个簇，使得每个簇内的数据点尽可能接近；随机选K个点，然后分配点后，计算每个簇的平均值（质心）作为新的K个点，不断重复；
 
 - SIFT1M：广泛用于评估ANN搜索算法性能的基准数据集。基于 SIFT（Scale-Invariant Feature Transform）算法提取的，每个特征向量是一个 128 维的 SIFT 描述子，规模：
 ```
@@ -17,7 +18,6 @@
 - dense（稠密）向量，向量中的大多数元素都不是零；
 - sparse（稀疏）向量，向量中的大多数元素都是零；通常应用场景是传统的机器学习方法（如 TF-IDF 表示的文本特征，假设词汇表是 ["machine", "AI", "data"]，一个文档的 TF-IDF 向量可能是 [0.5, 0.0, 0.0]，表示出现了一些machine，但是没有出现AI和data；这个特征可以用来文档分类/垃圾邮件过滤、文档检索）；
 - TF-IDF（Term Frequency-Inverse Document Frequency）：该文档的该词频*所有文档中该词的稀有程度；
-- K-Means 聚类：目标是将数据点分成 K 个簇，使得每个簇内的数据点尽可能接近；随机选K个点，然后分配点后，计算每个簇的平均值作为新的K个点，不断重复；
 - DBSCAN（Density-Based Spatial Clustering of Applications with Noise）：是基于密度的聚类算法；不预设K，直接找如果一个点的邻域内（半径r范围）包含至少 minPts 个点，则该点是核心点，周围点加入该簇，不属于任何簇的点被标记为噪声；该算法复杂度较高，处理大规模数据可能较慢；
 - RaBitQ1：将每个维度的浮点值压缩为 1bit，查询吞吐量显著提升，在 Milvus 等向量数据库中有成功应用；
 - LUT：lookuptable（差表），是一种加速计算方法，例如rabitq-fastscan就是把每四维（相当于4bit）的可能距离都计算一遍（相当于16种取值），然后遍历候选集的时候，不再需要乘法来计算距离了，直接查表累加；

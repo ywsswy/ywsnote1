@@ -13,11 +13,11 @@ std::lock_guard同unique_lock，不过没有多余的接口（没有lock/unlock�
 其他情况均互斥（写锁时，不允许再写锁和读锁；读锁时，也不允许再写锁）
 写者优先于读者（一旦有写者，则后续读者必须等待，唤醒时优先考虑写者）
 ```
-std::shared_mutex mutex_;
+std::shared_mutex mutex_;  // 服务是用什么框架调度的，就用它的mutex，例如brpc框架提供了bthread::RWLock
 然后Set函数里用，独占的锁
-std::unique_lock<std::shared_mutex> guard(mutex_);
+std::unique_lock<std::shared_mutex> guard(mutex_);  // 可以简写成std::unique_lock guard(mutex_);
 Get函数里用，可共享的锁
-std::shared_lock<std::shared_mutex> guard(mutex_);  // 执行到这一行代码的时候才加锁，语句块退出的时候自动解锁
+std::shared_lock<std::shared_mutex> guard(mutex_);  // 可以简写成std::shared_lock guard(mutex_); 执行到这一行代码的时候才加锁，语句块退出的时候自动解锁
 ```
 
 ```

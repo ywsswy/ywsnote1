@@ -17,7 +17,7 @@ clear
 empty  
 size	//string also can use length  
 swap    // a.swap(b) is same b.swap(a)
-begin   //::iterator ; ++ to end()，可以通过迭代器修改值（map的it->second）;除了vector<>::iterator外，其他的没有 +/- +=/-=运算符  
+begin   //::iterator ; ++ to end()，可以通过迭代器修改值（map的it->second）;除了vector<>::iterator外，其他的没有 +/- +=/-=运算符；*it 可以取值；.data()也能做到类似.begin()的效果返回的是T*，T++也是下一个元素 
 end	//end is the lastloc's next loc  
 rbegin	//::reverse_iterator ; ++ to rend()  
 rend  
