@@ -69,5 +69,8 @@ dump binary memory log.txt yy_ec yy_ec+256 以二进制的形式把内存打印�
 可能是因为有这个宏
 #line 3 "lex.yy.c"#表示从这行开始算是lex.yy.c文件的第3行（如果在下一行打印__LINE__的话，则是4）
 
+## 每次core dump位置不一样
+大概率就是并发问题导致没锁住；
+
 ## 配置core文件的命名：
 /proc/sys/kernel/core_pattern

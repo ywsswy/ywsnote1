@@ -21,7 +21,7 @@ git diff # 常规diff（等价于 git diff [暂存区] [现状]）
   参数--name-status 不管详细内容，只管文件是A/D/M
 git fetch -p -P  # 获取所有远程分支改动信息（p可以保证删掉的远程分支不再显示）（如果某个分支显示 xxxxxx...yyyyyyy br1  (forced update) 表明有人force到yyyyyyy，xxxxx没有参考意义！）
 git format-patch <start(old)>^..<end>  # 创建一组补丁文件（类似diff的输出，别人可以使用git am -s *.patch应用补丁，类似cherry-pick的效果）
-git grep <content>  # 在“当前”目录内查找内容
+git grep <content>  # 在“当前”目录内查找内容，-i可以忽略大小写
 git log # 查看历次详细commit eg:commit 56933675c782a232668c6fcbfffd249625c93947(版本号)
 git log --graph --decorate --oneline --all [<rep_name>]  # 旧版美化格式。如果再裁剪提交只看分支粒度的改动：--simplify-by-decoration
 git log --graph --pretty=format:\"%C(yellow)%h%Cgreen%d%Cred %an %ci %Creset%s\n\"  # 新版两行显示的美化格式（一行显示是有缺陷的，例如两次commit挨着并不一定代表有祖孙关系）
