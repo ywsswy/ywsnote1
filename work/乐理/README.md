@@ -52,7 +52,7 @@ ps:
 - 中音区有三个音组(小字组、小字一组、小字二组)
 - 五线谱从下往上叫做：第一线、第二线……，第一线之间和第二线之间读作第一间……，还有上/下加n线/间；开头的是拉丁字母“G”的花体字演变而来高音谱号（也叫G谱号），画在第二线即可表明G键位置；
 
-![imagebe2576b79ecd3638.png](https://img.mp.itc.cn/upload/20170209/7edd5ffa38c840db901aae06305f1121_th.jpeg)
+![imagebe2576b79ecd3638.png](https://ywsswy.top/imagehub/?path=钢琴键盘.jpeg)
 
 
 - 手机上弹钢琴app：perfect piano

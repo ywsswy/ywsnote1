@@ -13,7 +13,12 @@ DeepMind算法源于其对两种机器学习方法的结合:第一种是深度�
 是OpenAI开发的 生成式、预训练的基于Transformer的LLM工具；不具备分辨信息正确性的能力。
 
 - Ollama
-是一个专注于本地运行LLM的工具平台，https://github.com/ollama/ollama
+是一个专注于本地运行LLM的工具平台，https://github.com/ollama/ollama，可以在这里下载deepseek-r1模型本地运行
+
+
+- LangChain：一种编程框架（pip install langchain），内置很多组件便于写代码串联
+
+- workflow：低代码，可拖拽的串联；
 
 - dify
 https://cloud.dify.ai/apps，也是一个人工智能应用平台，助用户快速构建、部署和管理基于 LLM 的 AI 应用；
