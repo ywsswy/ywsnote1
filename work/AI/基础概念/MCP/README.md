@@ -22,5 +22,7 @@ python3 -m pip install my_weather_mcp
 ```
 
 3）然后就可以开始用啦，内部流程如下图：
+
+
 ![MCP](https://ywsswy.top/imagehub/?path=MCP.png)
 
