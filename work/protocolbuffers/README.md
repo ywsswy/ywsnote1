@@ -84,7 +84,7 @@ import "github.com/golang/protobuf/jsonpb"
     return
   }
 
-// 序列化，pb的独有写法
+// 序列化（不可打印的字符），pb的独有写法
 import "github.com/golang/protobuf/proto"
   pout, err := proto.Marshal(&pp)
   if err != nil {
@@ -100,6 +100,7 @@ import "github.com/golang/protobuf/proto"
   }
   fmt.Printf("%v\n", pp)
 ```
+
 
 ## Python
 ```

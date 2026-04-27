@@ -16,5 +16,6 @@ eval(repr(object)) == object
 ## 参数
 python -u # 强制其标准输出也同标准错误一样不通过缓存直接打印；这样可以避免出现二者显示顺序&及时性问题
 
-## Q
-继承?
+
+继承
+class RPCVClient(VClient):

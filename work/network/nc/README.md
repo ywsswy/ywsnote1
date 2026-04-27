@@ -2,5 +2,9 @@
 
 nc -lv localhost 9999
 
-能检测tcp & udp 端口并且是区间
+
+nc -vzn <ip> <port> # 查看远程端口存活情况 
+
+还能检测tcp & udp 端口并且是区间
 nc -vz <ip> 134-144
+

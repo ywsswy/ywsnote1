@@ -4,15 +4,13 @@ wdiff -t a b |less -R #删掉的是下划线，新增的是反选
 /etc/redhat-release #操作系统版本
 sudo yum install bash-completion # tab补全
 sleep 1 # sleep 0.5
-nc -vzn <ip> <port> # 查看端口存活情况 
 watch -d -n 1 w
 timeout 3 top #设置一个命令的超时时间，超时返回码124， [返回码](https://blog.csdn.net/nicai_xiaoqinxi/article/details/85055086)
 fc-list #查看已安装字体及路径，rm即可删除
 convert src.png -crop 100x80+60+40 desc.png  #使用imagemagick 剪切图片区域（宽x高+x+y）
 route add -host 202.202.32.202 gw 172.1.11.1 #让内网某ip走某网卡
 sudo route del -net default gw 172.1.11.1 #删除内网的那条默认路由
-shuf -n 5 file  # 把文件整体随机打散取5行
-ss -nl 显示tcp连接端口等 
+shuf -n 5 file  # 把文件整体随机打散取5行 
 sudo poweroff 关机
 echo "scale=7; 1 / 2" |bc -l #bc计算小数除法的时候，必须指定精度，算对数中的指数不支持小数，a^b 要写成 e(b*l(a))，如果要计算整数除法求余，就要把scale设置为0
 rename log data *  # 把所有文件名中的log替换成data

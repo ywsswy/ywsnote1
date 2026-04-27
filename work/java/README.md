@@ -10,8 +10,17 @@ JRE(Java Runtime Environment)是运行时环境，包含java基础类库(Java SE
 JRE根据不同操作系统和不同提供商（IBM,ORACLE等）有很多版本，最常用的是Oracle的、以及开源的OpenJDK；
 
 
-【Java8 对应 Java SE 8 对应 JDK1.8】
+【Java8 对应 Java SE 8 对应 JDK1.8】，目前最普遍的版本， 其次Java 11/17
 Java17 对应 Java SE17 对应 JDK17
 
 
-windows上运行jar应用 java -jar xxx.jar
+源代码：Hello.java
+经过javac编译-> Hello.class（字节码，不是机器码，跟平台无关），可以打包成.jar文件
+然后不同的平台都可以执行这个.class：
+  ┌────────────────────────────────────┐
+  │  Windows JVM  →  翻译成 Windows 机器码  │windows上运行jar应用 java.exe -jar xxx.jar
+  │  Linux JVM    →  翻译成 Linux 机器码    │
+  │  Mac JVM      →  翻译成 Mac 机器码      │
+  └────────────────────────────────────┘ 
+
+

@@ -1,5 +1,11 @@
 - 模型：可以理解成多层网络结构+一堆可训练参数组成的数学表示；
 
+- 模型参数：
+1）参数规模：xxxB，表示神经网络中可训练的参数量xxx十亿；越大推理精度越高，速度会慢；
+2）Local：开源的，企业内可以自己本地部署；
+3）R1-Distill-Qwen-32B：（1）经过蒸馏（Distill）训练的，可以理解成就是先让牛的模型（R1，有685B）做1万道数学题，并写出详细的思考过程，把这些"大师解题思路"整理成教案，让学徒（最初是Qwen-32B这个小模型）对着这些教案反复学习微调（Fine-tuning），最终学徒不仅学会了答案，还学会了大师的思考方式，最终成为了只有32B的参数，但是能力却能接近685B参数；
+
+
 - LM/语言模型
 
 - LLM/大语言模型（Large Language Model）：模型参数更大，更“聪明”
@@ -8,7 +14,8 @@
 闭源收费：GPT-4、Claude（Anthropic，创始团队是 前OpenAI 的成员，更在意AI安全避免有害）、Gemini（Google）；
 开源可本地部署：Llama（Meta）、千问Qwen（阿里）、DeepSeek、Kimi（月之暗面/Moonshot AI，是中国 AI 独角兽公司）、GLM（北京智谱）；
 有钱的时候可以考虑写代码用Claude、问问题用Gemini；
-没钱的时候可以考虑DeepSeek；
+没钱的时候可以考虑DeepSeek、元宝内的ds、元宝内的hy-v3）；
+
 
 请求LLM的输入格式形如（分了角色更准，因为模型训练的时候对话数据就被标记成了不同角色）：
 {
@@ -43,11 +50,13 @@
 
 - AI Agent(智能体)：LLM + 手脚（Tools Functions）、记忆（短期+长期）、目标感、行动循环，从“像人一样回答”变成“像人一样做”；（在RAG的基础上加了更多能力，Agent是更上层的，大部分应用都是直接使用agent，间接调用LLM和工具）；
 
+【Q】有说法是LLM厂商在API层定义的Calling 格式，也有说法是Agent 开发者用prompt的方式指定格式；
+
 ![AI应用形态](https://ywsswy.top/imagehub/?path=AI应用形态.png)
 
-- function calling：agent跟LLM、工具之间约定的对话格式（类似于前端和后端约定的接口格式）；也有agent（如Cline）用XML格式跟LLM沟通的
+- tool/function calling：agent跟LLM、工具之间约定的对话格式（类似于前端和后端约定的接口格式）；也有agent（如Cline）用XML格式跟LLM沟通的
 
-- MCP（Model Context Protocol）：agent跟工具之间的桥梁，agent（使用MCP协议格式，像json）调用MCP server（不一定是服务器-SSE传输类型，本地不联网的也可以叫MCP server-stdio传输类型，只要对外的输入输出满足协议要求就算）发现/获取工具列表并调用工具；MCP server的内部可以封装一堆工具；
+- MCP（Model Context Protocol）：agent跟工具之间的桥梁，agent（使用MCP协议格式，像json）调用MCP server（不一定是服务器-SSE传输类型（2025年还推出了Streamable传输类型），本地不联网的也可以叫MCP server-stdio传输类型，只要对外的输入输出满足协议要求就算）发现/获取工具列表并调用工具；MCP server的内部可以封装一堆工具；
 
 - MCP client/host：MCP的调用方，可以算是AI agent；
 
