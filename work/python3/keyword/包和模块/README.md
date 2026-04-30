@@ -12,7 +12,7 @@
 使用的方式有几种：
 1）系统安装，pip3 install（相当于把源码复制一份到 Python 的 site-packages 目录里），pip3 show <包名>能看到安装目录；
 2）不安装，只是当前目录有，pip3 show <包名>是看不到的；
-3）editable 安装（相当于本地软连接到site-packages 目录里，一般叫<包名>.egg-link），场景是本地开发实时调试时使用；
+3）editable 安装（相当于本地软连接到site-packages 目录里，一般叫<包名>.egg-link），场景是本地开发实时调试时使用；感觉不好用
 
 
 python3 setup.py sdist  # 会打包出dist/<包>-<版本>.tar.gz，分发出去后，用户 pip3 install <包>-<版本>.tar.gz 时会在本地跑一次 setup.py；
