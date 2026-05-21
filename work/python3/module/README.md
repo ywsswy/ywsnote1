@@ -15,6 +15,8 @@ https://mirrors.tencent.com/pypi/simple
 ...
 ```
 python3 -m pip show <pac>  # 查看某个包的安装目录
+同一个包安装多次（不同版本）只会有一个存在（最后安装的那个版本覆盖其他版本）
+python3 -m pip install --upgrade pip  # 升级pip版本
 
 
 还有一种从软件源下载whl文件的安装方法 python3 -m pip install <whl_file>
