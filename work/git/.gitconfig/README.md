@@ -1,5 +1,7 @@
 [color]
     diff = auto
+[merge]
+    tool = vimdiff
 [alias]
     st = status
     co = checkout

@@ -26,5 +26,9 @@ nvm alias default 18  # 设置默认版本
 
 ```
 volta pin node@24.14.1  # 设置node.js默认版本，会写到package.json文件里；
+
+安装自己：curl https://get.volta.sh | bash
+安装node.js volta install node
 ```
+
 

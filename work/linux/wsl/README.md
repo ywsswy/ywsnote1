@@ -10,3 +10,8 @@ WSL mkdir /mnt/g; sudo su; mount -t drvfs G:\\ /mnt/g; #git 不支持fat32文件
 
 中文支持问题，不支持的话可能显示有问题，python编码解码也有问题
 确保locale的结果是en_US.utf8，否则自行解决。。。。。（sudo dpkg-reconfigure locales）
+
+
+
+# 有人推荐用wsl2
+安装：https://zhuanlan.zhihu.com/p/475462241

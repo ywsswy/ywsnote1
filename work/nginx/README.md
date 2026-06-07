@@ -1,8 +1,6 @@
 [1] yum安装
-[2] 源码安装
+[2] 源码安装(推荐，没有漏洞)
 http://nginx.org/en/download.html
-tar -xzf nginx-1.16.1.tar.gz
-cd nginx-1.16.1
 
 # 有些可能需要 autogen.sh 或者 autoreconf -v --install
 # 别忘了，可以./configure --help
