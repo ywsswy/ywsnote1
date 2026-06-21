@@ -1,3 +1,7 @@
+```
+nums = list(map(int, input().split())) # 从标准输入读取数组
+```
+
 基础梯队（Python基础语法与特性）
 - Python 中 list 和 tuple 的主要区别是什么？分别在什么场景下使用？
 

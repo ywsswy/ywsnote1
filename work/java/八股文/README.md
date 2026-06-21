@@ -1,3 +1,20 @@
+```
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static int f(int[] prices) {
+      // ...
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] prices = Arrays.stream(sc.nextLine().trim().split("\\s+"))
+                           .mapToInt(Integer::parseInt)
+                           .toArray();
+        System.out.println(f(prices));
+    }
+}
+```
+
 🟢 基础层次
 1. 数据类型与基础语法
 Q：Java 中基本数据类型有哪些？int 和 Integer 的区别？

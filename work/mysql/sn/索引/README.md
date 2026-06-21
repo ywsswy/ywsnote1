@@ -4,7 +4,7 @@
 常见索引类型（在InnoDB-mysql最新版本的默认存储引擎中，所有的索引都用B+树实现）
 - 主键索引 (PRIMARY KEY) （建表时关键字，自动创建索引）唯一标识每行，不允许 NULL，每表只能有一个
 - 唯一索引 (UNIQUE)	（建表时关键字，自动创建索引）列值唯一，允许 NULL
-- 普通索引 (INDEX)（需要手动建表时指定，当然也支持建表后追加）最基本的索引，无唯一性限制，指定示例：
+- 普通索引 (INDEX)（需要手动建表时指定，当然也支持建表后原地加索引-create index/alter table）最基本的索引，无唯一性限制，指定示例：
 CREATE TABLE users (
     id INT PRIMARY KEY,
     name VARCHAR(50),
