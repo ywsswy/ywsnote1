@@ -13,7 +13,7 @@
 ```
 闭源收费：GPT-4、Claude（Anthropic，创始团队是 前OpenAI 的成员，更在意AI安全避免有害）、Gemini（Google）；
 开源可本地部署：Llama（Meta）、千问Qwen（阿里）、DeepSeek、Kimi（月之暗面/Moonshot AI，是中国 AI 独角兽公司）、GLM（北京智谱）；
-有钱的时候可以考虑写代码用Claude、问问题用Gemini；
+有钱的时候可以考虑写代码用Claude（Opus比Sonnet更牛更慢）、问问题用Gemini；
 没钱的时候可以考虑DeepSeek、元宝内的ds、元宝内的hy-v3）；
 
 
@@ -42,6 +42,9 @@
   ]
 }
 ```
+
+- token：模型眼里"一个可处理的最小语义碎片"，上下文窗口、计费、max_output 全是以它为单位的。你看到的所有 maxToken / contextWindow数字，都是"最多能装多少个这种碎片"；
+一个模型支持的contextWindow是固定的；input_tokens + output_tokens 能超过 contextWindow；
 
 - rule：可以理解成一段被填充进上下文的规则；各编程agent可能灵活根据源文件后缀确定本次使用的rule；
 

@@ -1,6 +1,8 @@
 说明：
 【vim.overrideCopy】: true，复制命令使用系统的ctrl+C
 【"update.mode"】: "none" 这个可以关闭自动更新
+【"chat.byokUtilityModelDefault"】: "mainAgent" 这是BYOK下agent的配置
+
 
 {
     "[c]": {
@@ -139,5 +141,6 @@
     "terminal.integrated.initialHint": false,
     "gitlens.rebaseEditor.openOnPausedRebase": false,
     "files.autoSave": "off",
-    "remote.autoForwardPortsSource": "hybrid"
+    "remote.autoForwardPortsSource": "hybrid",
+    "chat.byokUtilityModelDefault": "mainAgent"
 }
