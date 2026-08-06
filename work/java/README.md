@@ -25,7 +25,7 @@ public class Hello {  // 文件名 = 类名，大小写也要一致
 }
 ```
 
-## 二：javac Hello.java（编译-> Hello.class，字节码，不是机器码，跟平台无关），然后也可以打包成.jar文件
+## 二：javac Hello.java（编译-> Hello.class，字节码，不是机器码，跟平台无关），然后也可以打包成.jar文件（能用unzip解压）
 如果是有pacakge结构的，使用javac -d . Hello.java可以根据package名递归创建目录，否则是在当前目录生成class
 
 ## 三：然后不同的平台都可以执行这个.class：

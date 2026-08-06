@@ -21,3 +21,13 @@ int main() {
 ```
 
 - atomic的int 就能保证g_count++是原子的？
+
+
+std::atomic<T> 
+
+bool compare_exchange_strong(T& expected, T desired);
+
+直白理解：
+我猜T当前值是expected，
+如果我猜对了（返回true），就帮我改成desired，
+如果我猜错了（返回false），告诉我它现在到底是啥（通过expected告诉我）
