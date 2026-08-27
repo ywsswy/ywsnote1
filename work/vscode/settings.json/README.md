@@ -2,9 +2,16 @@
 【vim.overrideCopy】: true，复制命令使用系统的ctrl+C
 【"update.mode"】: "none" 这个可以关闭自动更新
 【"chat.byokUtilityModelDefault"】: "mainAgent" 这是BYOK下agent的配置
+【"chat.agentHost.byokModels.enabled"】: true,同上
+
+怎么查看一个配置的默认值，json里，输入完key: 会自动弹出补全下拉框，会显示默认值，如果是实验性的配置，默认值可能会调整，所以最好显式写出来
 
 
+at set1 
 {
+    "gopls": {
+        "build.directoryFilters": ["-plugin"]
+    },
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",
         "editor.formatOnSave": true,
@@ -23,9 +30,19 @@
             "other": "on"
         }
     },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "C_Cpp.clang_format_sortIncludes": false,
     "clang-format.fallbackStyle": "Google",
-    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.26.3-linux-x64/LLVM/bin/clang-format",
+    "clang-format.executable": "/root/.vscode-server/extensions/ms-vscode.cpptools-1.32.2-linux-x64x/LLVM/bin/clang-format",
     "editor.minimap.maxColumn": 120,
     "editor.rulers": [
         80,
@@ -114,18 +131,8 @@
     "editor.renderWhitespace": "all",
     "search.followSymlinks": false,
     "workbench.editor.showTabs": "multiple",
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
     "security.workspace.trust.untrustedFiles": "open",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
     "git.ignoreLegacyWarning": true,
-    "[go]": {
-        "editor.defaultFormatter": "golang.go",
-        "editor.formatOnSave": true
-    },
     "gitlens.advanced.messages": {
         "suppressGitVersionWarning": true
     },
@@ -135,12 +142,60 @@
     ],
     "vim.useSystemClipboard": true,
     "vim.overrideCopy": true,
-    "update.mode": "none",
     "update.enableWindowsBackgroundUpdates": false,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.initialHint": false,
     "gitlens.rebaseEditor.openOnPausedRebase": false,
     "files.autoSave": "off",
     "remote.autoForwardPortsSource": "hybrid",
-    "chat.byokUtilityModelDefault": "mainAgent"
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/usr/bin/bash"
+        },
+        "zsh": {
+            "path": "/usr/bin/zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": [
+                "--login",
+                "-i"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "chat.tools.terminal.autoApprove": {
+        "git checkout": true
+    },
+    "chat.editing.confirmEditRequestRemoval": false,
+    "chat.agentHost.byokModels.enabled": true,
+    "chat.byokUtilityModelDefault": "mainAgent",
+    "redhat.telemetry.enabled": false,
+    "agents.voice.language": "zh"
 }

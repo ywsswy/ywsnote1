@@ -5,7 +5,7 @@ int main() {
 	auto&& Add = [](int a, int b)->int {
 		return a + b;
 	};
-        // Add的类型是 int(*)(int, int)，相当于函数指针
+        // Add的类型是 int(*)(int, int)，相当于函数指针；// 注意如果是想要带捕获的匿名函数，则必须用std::function<int(int, int)>类型的Add，而不能用普通的函数指针；
 	std::cout << Add(1, 2) << std::endl;
 	return 0;
 }

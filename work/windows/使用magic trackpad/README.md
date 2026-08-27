@@ -10,7 +10,7 @@ https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers/issues/1
 3. Connect the Magic Trackpad with Bluetooth (NOT WITH CABLE)..
 Install ApplePrecisionTrackpadUSB.inf (Right Click -> Install) from ApplePrecisionTrackpadUSB folder.
 And ApplePrecisionTrackpadBluetooth.inf is the same.
-4. Note not connect the magic trackpad on other computer, otherwise must uninstall the driver(管理员运行cmd，执行Dism /online /Get-Drivers /Format:Table，然后pnputil /delete-driver <apple相关的>.inf /uninstall /force，然后重启) 
+4. Note not connect the magic trackpad on other computer, otherwise must uninstall the driver( 管理员运行cmd，执行Dism /online /Get-Drivers /Format:Table，然后pnputil /delete-driver <apple相关的>.inf /uninstall /force，然后重启) 
 ```
 
 oem249.inf

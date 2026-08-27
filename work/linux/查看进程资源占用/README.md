@@ -4,7 +4,7 @@ mem_usage=$(awk "BEGIN {printf \"%.2f\", $used_mem/$total_mem * 100}")
 echo "内存使用率: $mem_usage%"
 
 # top命令看到的属性
-VIRT	进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES
+VIRT	进程使用的虚拟内存总量，【（没标单位时）单位是kb，如果标了g就是g】。VIRT=SWAP+RES
 RES	进程使用的、未被换出的物理内存大小，【单位kb】。RES=CODE+DATA
 
 # /proc/\<pid>/statm 文件
