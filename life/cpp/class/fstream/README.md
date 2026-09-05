@@ -1,3 +1,5 @@
+#include <fstream>
+
 ## 1. 普通写入
 std::ofstream of1("of1");  // default overwrite, std::ofstream::app 追加 of1; of1.open("of1");
 
