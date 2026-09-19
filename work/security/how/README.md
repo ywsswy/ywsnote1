@@ -5,6 +5,7 @@
 - 怎么保证网页不会被本地浏览器获取，可以自己开发一个浏览器：避免被安装恶意浏览器插件（js脚本能直接读取页面内容）；
 - 怎么保证手机安全、关闭adb调试，充电时使用“仅充电”模式；
 - 怎么保证终端不会被恶意复用，用手机终端Termux
+- ssh登录是直接访问ip，而不是域名没有https证书保护，是怎么没有中间人攻击的呢？首次登录会返回ED25519 key fingerprint is: SHA256:xxx，，，Are you sure you want to continue connecting (yes/no/[fingerprint])?这里你可以先登录服务器，使用ssh-keygen -lf /etc/ssh/host_xxx.pub来看是否真的是服务器公钥|
 - VNC登录(Virtual Network Computing)，算远程桌面技术，不走ssh的链路，所以ssh密钥丢了可以用VNC登录
 - MFA = Multi-Factor Authentication，多因子认证，登录时要求提供两个或以上不同类型的"凭证"才能通过（两个就叫2FA），常见密码+OTP；
 - OTP：One-Time Password，TOTP就是基于时间的OTP，手机计算OTP的客户端可以用google authenticator
