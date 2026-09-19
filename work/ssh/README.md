@@ -6,7 +6,6 @@
 - ssh-keygen -t ecdsa -C "ywsswy@qq.com" -b 521 # github现在要求这个(不过.ssh目录存在两种私钥的时候优先使用rsa，所以这里可以临时重命名一下rsa，或者~/.ssh/config指定使用的私钥)
 - /<home>/.ssh/authorized_keys中保存了谁的公钥（且authorized_keys的权限应该是600，不是644？通过查看/var/log/secure可以定位问题），才允许谁连接
 - sudo service ssh start
-## 密码连接的方法
 
 # 连接别人/从别人那接受/往别人那发送 （收发推荐rsync，其次scp）
 - 用自己的私钥连接别人（对方的authorized_keys需要存了自己的公钥，-i参数是自己的私钥，自己的私钥权限应该是600）

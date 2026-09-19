@@ -19,4 +19,4 @@ mmap跟open的区别？
 DMA？
 cache_line？
 CPU 访问某个虚拟地址时，如果 MMU 发现页表里没有有效映射，就抛出这个异常，控制权交给内核处理
-
+试验一下perf state

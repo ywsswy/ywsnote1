@@ -65,7 +65,7 @@ search all
 
 search installed
 
-## use apt-get purge rather than remove
+## use apt-get purge rather than remove？？还有apt remove
 
 ## apt-get install use more space than apt-get purge clean space
 
